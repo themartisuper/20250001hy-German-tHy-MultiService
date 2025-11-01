@@ -10,7 +10,24 @@
   --container-width: 1200px;
   --border-radius: 0.5rem;
   --transition-fast: 0.2s ease-in-out;
+  --color-bg-header: #ffffff;
 }
+
+
+.header__content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: vh80; 
+  background-color: var(--color-bg-header);
+}
+
+.header ul {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+}
+
 
 
 /* ===== Language ===== */
@@ -66,8 +83,6 @@
 .custom-select-wrapper select:focus + ::after {
   border-top-color: #1e5f3b;
 }
-
-
 /* ===== Language ===== */
 
 
