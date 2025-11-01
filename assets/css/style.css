@@ -1,3 +1,18 @@
+/* Root variables */
+:root {
+  --font-main: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-accent: "Raleway", sans-serif;
+  --color-bg: #242424;
+  --color-text: #ffffff;
+  --color-text-langs: #ffffff;;
+  --color-accent: #2563eb;
+  --color-muted: #6b7280;
+  --container-width: 1200px;
+  --border-radius: 0.5rem;
+  --transition-fast: 0.2s ease-in-out;
+}
+
+
 /* ===== Language ===== */
 /* Сброс стандартного стиля */
 .custom-select-wrapper select {
@@ -54,3 +69,51 @@
 
 
 /* ===== Language ===== */
+
+
+
+.custom-select { 
+  position: relative; 
+  width: 150px; 
+}
+
+.selected { 
+  cursor: pointer; 
+  padding: 5px; 
+  display: flex; 
+  align-items: center; 
+  gap: 5px; 
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.options { 
+  display: none; 
+  position: absolute; 
+  top: 100%; left: 0; 
+  width: 100%; 
+  border: 1px solid #ccc; 
+  background: var(--color-bg);
+  color:var(--color-text-langs);
+  list-style: none; 
+  padding: 0; 
+  margin: 0; 
+}
+
+.custom-select.open .options { 
+  display: block; 
+}
+
+.options li { 
+  padding: 5px; 
+  display: flex; 
+  align-items: center; 
+  gap: 5px; 
+  cursor: pointer; 
+}
+
+
+.icon {
+  width: 24px;
+  height: 18px;
+}

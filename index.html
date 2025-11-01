@@ -34,6 +34,17 @@
 
 </head>
 <body>
+<!-- SVG locales -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+	<symbol id="de" viewBox="0 0 5 3">
+		<path d="M0 0h5v3H0z"/><path fill="#D00" d="M0 1h5v2H0z"/><path fill="#FFCE00" d="M0 2h5v1H0z"/>
+	</symbol>
+	<symbol id="en" viewBox="0 0 60 30">
+		<path d="M0 0v30h60V0z"/></clipPath><clipPath id="b"><path d="M30 15h30v15zv15H0zH0V0zV0h30z"/></clipPath><g clip-path="url(#a)"><path d="M0 0v30h60V0z" fill="#012169"/><path d="m0 0 60 30m0-30L0 30" stroke="#fff" stroke-width="6"/><path d="m0 0 60 30m0-30L0 30" clip-path="url(#b)" stroke="#C8102E" stroke-width="4"/><path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"/><path d="M30 0v30M0 15h60" stroke="#C8102E" stroke-width="6"/>
+	</symbol>
+</svg>
+<!-- SVG locales -->
+
   <!-- HEADER -->
 <header class="header">
   <h1 data-i18n="title" class="title">German tHÿ MultiService</h1> 
@@ -48,13 +59,33 @@
         <li><a ata-i18n="contact" href="#">Kontakt</a></li>
       </ul>
     </nav>
-    <div class="custom-select-wrapper">
+    <!--<div class="custom-select-wrapper">
       <select id="language-selector">
         <option value="de" class="flag-de">Deutsch</option>
         <option value="en" class="flag-en">English</option>
         <option value="ru" class="flag-ru">Русский</option>
-      </select>
-    </div>
+      </select> 
+    </div>-->
+    <div class="custom-select-wrapper">
+        <div class="custom-select">
+          <div class="selected">
+            <svg class="flag-de" width="24" height="18"><use href="#de"/></svg>
+            Deutsch
+          </div>
+          <ul class="options">
+            <li data-value="de">
+              <svg class="flag-de" width="24" height="18"><use xlink:href="#de"/></svg> Deutsch
+            </li>
+            <li data-value="en">
+              <svg class="flag-en" width="24" height="18"><use xlink:href="#en"/></svg> English
+            </li>
+          </ul>
+        </div>
+        <select id="language-selector" style="display:none;">
+          <option value="de">Deutsch</option>
+          <option value="en">English</option>
+        </select>
+      </div>
   </div>
 </header>
 
@@ -119,6 +150,6 @@
 </footer>
 <!-- End FOOTER -->
 
-<script src="assets/js/langs.js"></script>
+<script src="assets/js/locales.js"></script>
 </body>
 </html>
