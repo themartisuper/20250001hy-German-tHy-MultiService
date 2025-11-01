@@ -1,0 +1,15 @@
+{
+  "title": "Expense Tracker (€)",
+  "your_balance": "Your Balance",
+  "income": "Income",
+  "expenses": "Expenses",
+  "transactions": "Transactions",
+  "clear_all": "Clear All",
+  "add_transaction": "Add Transaction",
+  "description": "Description",
+  "amount": "Amount",
+  "placeholder_description": "Enter description...",
+  "placeholder_amount": "Enter amount...",
+  "note": "Use negative (-) for expenses",
+  "submit": "Add Transaction"
+}

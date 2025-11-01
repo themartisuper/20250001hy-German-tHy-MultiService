@@ -1,0 +1,81 @@
+.section-payments {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+}
+
+.ul-payments {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.payments {
+  gap: 30px;
+}
+
+.payments a {
+  font-size: 36px;
+}
+
+
+/* PayPal */
+.paypal-icon {
+  background: linear-gradient(90deg, #00457C 0%, #0070E0 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* EUR */
+.eur-icon {
+  color: #28a745; /* зелёный — классический */
+}
+
+/* Bitcoin */
+.bitcoin-icon {
+  background: linear-gradient(180deg, #F7931A 0%, #FFCC00 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Ethereum */
+.eth-icon {
+  background: linear-gradient(180deg, #3C3C3D 0%, #8C8C8C 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* MasterCard */
+.mastercard-icon {
+  background: linear-gradient(90deg, #EB001B 0%, #F79E1B 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* VISA */
+.visa-icon {
+  background: linear-gradient(90deg, #1A1F71 0%, #0074BC 50%, #FBB131 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Generic Credit Card */
+.creditcard-icon {
+  background: linear-gradient(135deg, #434343 0%, #7d7c7c 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bank-icon {
+  color: #2c3e50; /* тёмно-серый */
+}

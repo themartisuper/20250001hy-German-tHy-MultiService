@@ -1,0 +1,131 @@
+/* 1) Глобально отключим горизонтальный скролл (страховка) 
+html, body { overflow-x: hidden; } */
+
+footer {
+  margin: 0;
+  background: linear-gradient(#1e152e, #161616);
+  font-family: "Euclid Circular A", "Poppins";
+  color: #d6dfed;
+}
+
+html, body {
+  min-height: 100%;
+  height: auto;
+}
+
+/* 2) фоновые волны */
+:root { --footer-bg-h: 420px; } /* регулируй высоту фона футера тут */
+
+/* .background — декоративный слой за футером */
+.background {
+  position: absolute;
+  z-index: -1; /* под контентом футера */
+  inset: auto 0 0 0; /* прижать к низу футера */
+  width: 100%;
+  height: var(--footer-bg-h);
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.svg-footer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: scaleY(3) scaleX(2.25);
+  transform-origin: bottom;
+  box-sizing: border-box;
+  display: block;
+  pointer-events: none;
+}
+
+.ul-footer {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.socials {
+  gap: 20px;
+}
+
+.socials a {
+  font-size: 24px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.links {
+  gap: 10px;
+}
+
+.legal {
+  font-size: 12px;
+  margin: 0;
+}
+
+footer {
+  position: static;     
+  width: 100%;
+  height: auto;  /* пусть сам растёт по контенту */
+  padding: 40px 16px 24px; /* подгони под дизайн, если надо */
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* Все дети внутри блока внизу секции, 
+строго по центру горизонтали, с расстоянием 30px между ними, 
+расположены один под другим.*/
+.section-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+}
+
+@media (width > 520px) {
+  footer {
+    padding-top: calc(40px + var(--footer-bg-h) * 0.35);
+  }
+
+  .background {
+    height: var(--footer-bg-h);
+  }
+}
+
+
+
+/* Icon Colors */
+
+/* Телеграм — синий логотип */
+.socials .fa-telegram {
+  background: linear-gradient(180deg, #2AABEE 0%, #229ED9 100%);
+  background-clip: text; -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Инста — фирменный мультиградиент */
+.socials .fa-instagram {
+  background: linear-gradient(45deg,
+    #F58529 0%, #FEDA77 22%, #F77737 33%, #DD2A7B 52%,
+    #8134AF 74%, #515BD4 100%);
+  background-clip: text; -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* X — аккуратный «металл» (если хочется ч/б — оставь фолбэк) */
+.socials .fa-x-twitter {
+  background: linear-gradient(180deg, #000000 0%, #2b2b2b 55%, #555555 100%);
+  background-clip: text; -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Facebook — глубокий синий градиент */
+.socials .fa-facebook {
+  background: linear-gradient(180deg, #1877F2 0%, #0E5AC8 100%);
+  background-clip: text; -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

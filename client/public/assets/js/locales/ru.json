@@ -1,0 +1,15 @@
+{
+  "title": "Учёт расходов (€)",
+  "your_balance": "Ваш баланс",
+  "income": "Доходы",
+  "expenses": "Расходы",
+  "transactions": "Транзакции",
+  "clear_all": "Очистить всё",
+  "add_transaction": "Добавить транзакцию",
+  "description": "Описание",
+  "amount": "Сумма",
+  "placeholder_description": "Введите описание...",
+  "placeholder_amount": "Введите сумму...",
+  "note": "Используйте минус (-) для расходов",
+  "submit": "Добавить"
+}

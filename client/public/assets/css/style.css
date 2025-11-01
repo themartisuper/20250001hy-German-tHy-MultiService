@@ -1,0 +1,56 @@
+/* ===== Language ===== */
+/* Сброс стандартного стиля */
+.custom-select-wrapper select {
+  appearance: none; /* Убираем дефолтный стиль */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  
+  padding: 10px 40px 10px 15px;
+  font-size: 16px;
+  border: 2px solid #2e8b57;
+  border-radius: 10px;
+  background-color: #f0f9f4;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+/* Ховер и фокус */
+.custom-select-wrapper select:hover {
+  border-color: #1e5f3b;
+  background-color: #e6f2ea;
+}
+
+.custom-select-wrapper select:focus {
+  border-color: #1e5f3b;
+  box-shadow: 0 0 5px rgba(46, 139, 87, 0.5);
+}
+
+/* Добавляем стрелку */
+.custom-select-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.custom-select-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid #2e8b57;
+  transform: translateY(-50%);
+}
+
+/* Плавный фокус стрелки */
+.custom-select-wrapper select:focus + ::after {
+  border-top-color: #1e5f3b;
+}
+
+
+/* ===== Language ===== */
