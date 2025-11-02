@@ -43,51 +43,86 @@
 		<path d="M0 0v30h60V0z"/></clipPath><clipPath id="b"><path d="M30 15h30v15zv15H0zH0V0zV0h30z"/></clipPath><g clip-path="url(#a)"><path d="M0 0v30h60V0z" fill="#012169"/><path d="m0 0 60 30m0-30L0 30" stroke="#fff" stroke-width="6"/><path d="m0 0 60 30m0-30L0 30" clip-path="url(#b)" stroke="#C8102E" stroke-width="4"/><path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"/><path d="M30 0v30M0 15h60" stroke="#C8102E" stroke-width="6"/>
 	</symbol>
 </svg>
-<!-- SVG locales -->
+<!-- End SVG locales -->
 
 <!-- HEADER -->
 <header class="header">
-  <h1 data-i18n="title" class="title">German tHÿ MultiService</h1> 
-  <div class="container header__content">
-    <h1 data-i18n="title" class="title">MySite</h1>
-    <nav class="nav">
-      <ul>
-        <li><a data-i18n="home" href="#">Home</a></li>
-        <li><a data-i18n="sale" href="#">Sale</a></li>
-        <li><a ata-i18n="termine" href="#">Termine</a></li>
-        <li><a ata-i18n="service" href="#">Service</a></li>
-        <li><a ata-i18n="contact" href="#">Kontakt</a></li>
-      </ul>
-    </nav>
-    <!--<div class="custom-select-wrapper">
-      <select id="language-selector">
-        <option value="de" class="flag-de">Deutsch</option>
-        <option value="en" class="flag-en">English</option>
-        <option value="ru" class="flag-ru">Русский</option>
-      </select> 
-    </div>-->
-    <div class="custom-select-wrapper">
-        <div class="custom-select">
-          <div class="selected">
-            <svg class="flag-de" width="24" height="18"><use href="#de"/></svg>
-            Deutsch
-          </div>
-          <ul class="options">
-            <li data-value="de">
-              <svg class="flag-de" width="24" height="18"><use xlink:href="#de"/></svg> Deutsch
-            </li>
-            <li data-value="en">
-              <svg class="flag-en" width="24" height="18"><use xlink:href="#en"/></svg> English
-            </li>
-          </ul>
+  <div class="header__buisness">
+    <div class="header__brand">
+      <a href="#0"><img class="header__buisness-logo" src="assets/icons/webp/symbol_logo_transparent_16to9-compressed.webp" alt="firmenlogo"></a>
+      <a href="#0"><h1 class="desktop__brand-name">German tHÿ MultiService</h1></a>
+      <a href="#0"></a><h1 class="phone__brand-name">German tHÿ<br>MultiService</h1></a>
+    </div>
+
+    <div class="header__brand-info">
+      <div class="header__brand-info-settings header__brand-info-telefonnumber">
+        <i class="fa-brands fa-whatsapp"></i>
+        <div>
+          <h6 data-i18n="call_us">Anrufen</h6>
+          <a href="tel:+99995555555">+49</a>
         </div>
-        <select id="language-selector" style="display:none;">
-          <option value="de">Deutsch</option>
-          <option value="en">English</option>
-        </select>
       </div>
+
+      <div class="header__brand-info-settings header__brand-info-email">
+        <i class="fa-regular fa-envelope"></i>
+        <div>
+          <h6 data-i18n="mail_us">E-Mail</h6>
+          <a href="mailto:info@sobaka.ge">mail</a>
+        </div>
+      </div>
+
+      <div class="header__brand-info-settings header__brand-info-adress">
+        <a href="https://maps.app.goo.gl/UzyQu6RJMkss4q53A" target="_blank" rel="noopener noreferrer" class="fa-solid fa-location-dot"></a>
+        <div>
+          <h6 data-i18n="adress">E-Mail</h6>
+          <a href="https://maps.app.goo.gl/UzyQu6RJMkss4q53A" target="_blank" rel="noopener noreferrer" class="map-link">Adresse</a>
+
+        </div>
+      </div>
+    </div>
   </div>
 </header>
+
+<div class="container header__content">
+  <nav class="nav">
+    <ul>
+      <li><a data-i18n="home" href="#" id="0">Home</a></li>
+      <li><a data-i18n="sale" href="#">Sale</a></li>
+      <li><a ata-i18n="termine" href="#">Termine</a></li>
+      <li><a ata-i18n="service" href="#">Service</a></li>
+      <li><a ata-i18n="contact" href="#">Kontakt</a></li>
+    </ul>
+  </nav>
+  <!--<div class="custom-select-wrapper">
+    <select id="language-selector">
+      <option value="de" class="flag-de">Deutsch</option>
+      <option value="en" class="flag-en">English</option>
+      <option value="ru" class="flag-ru">Русский</option>
+    </select> 
+  </div>-->
+  <!-- locales -->
+  <div class="custom-select-wrapper">
+    <div class="custom-select">
+      <div class="selected">
+        <svg class="flag-locales flag-de"><use xlink:href="#de"/></svg>
+        Deutsch
+      </div>
+      <ul class="options">
+        <li data-value="de">
+          <svg class="flag-locales flag-de"><use xlink:href="#de"/></svg> Deutsch
+        </li>
+        <li data-value="en">
+          <svg class="flag-locales flag-en"><use xlink:href="#en"/></svg> English
+        </li>
+      </ul>
+    </div>
+    <select id="language-selector" style="display: none;">
+      <option value="de">Deutsch</option>
+      <option value="en">English</option>
+    </select>
+  </div>
+  <!-- End locales -->
+</div>
 
 <!-- HERO SECTION -->
 <section class="hero">
@@ -130,26 +165,49 @@
 </section>
 <!-- End PAYMENTS -->
 
+<div class="map-text-container">
+  <div class="map-container">
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2630.2900285786045!2d11.846107476263839!3d48.7572574713186!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479fb4d260f73c11%3A0xb134cc322165d5a5!2sIngolst%C3%A4dter%20Str.%2021%2C%2093354%20Siegenburg!5e0!3m2!1sru!2sde!4v1762082642481!5m2!1sru!2sde" 
+      allowfullscreen="" 
+      loading="lazy" 
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+  <div class="map-text">
+    <h3>Наш офис</h3>
+    <p>
+      Адрес: Ingolstädter Str. 21, 93354 Siegenburg<br>
+      Часы работы: Пн–Пт 9:00–18:00<br>
+      Телефон: +49 123 456 789
+    </p>
+  </div>
+</div>
+
+
+
+
+
 <!-- FOOTER -->
 <footer class="footer">
   <section class="section-footer"> 
-      <ul class="socials ul-footer">
-        <li><a class="fa-brands fa-telegram" href=""></a></li>
-        <li><a class="fa-brands fa-instagram" href="https://www.instagram.com/german_thy_multi?igsh=YjllaG4zcnVzaGVl&utm_source=qr"></a></li>
-        <li><a class="fa-brands fa-x-twitter" href=""></a></li>
-        <li><a class="fa-brands fa-facebook" href=""></a></li>
-      </ul>
-      <ul class="links ul-footer">
-        <li><a data-i18n="home" href="#">Home</a></li>
-        <li><a ata-i18n="about_us" href="#">Über uns</a></li>
-        <li><a ata-i18n="service" href="#">Service</a></li>
-        <li><a ata-i18n="contact" href="#">Kontakt</a></li>
-      </ul>
-      <p class="legal">© 2025 All rights reserved</p>
-    </section>
+    <ul class="socials ul-footer">
+      <li><a class="fa-brands fa-telegram" href=""></a></li>
+      <li><a class="fa-brands fa-instagram" href="https://www.instagram.com/german_thy_multi?igsh=YjllaG4zcnVzaGVl&utm_source=qr"></a></li>
+      <li><a class="fa-brands fa-x-twitter" href=""></a></li>
+      <li><a class="fa-brands fa-facebook" href=""></a></li>
+    </ul>
+    <ul class="links ul-footer">
+      <li><a data-i18n="home" href="#">Home</a></li>
+      <li><a ata-i18n="about_us" href="#">Über uns</a></li>
+      <li><a ata-i18n="service" href="#">Service</a></li>
+      <li><a ata-i18n="contact" href="#">Kontakt</a></li>
+    </ul>
+    <p class="legal">© 2025 All rights reserved</p>
+  </section>
 </footer>
 <!-- End FOOTER -->
-
+<script src="assets/js/main.js"></script>
 <script src="assets/js/locales.js"></script>
 </body>
 </html>

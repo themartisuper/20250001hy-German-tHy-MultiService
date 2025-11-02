@@ -4,131 +4,324 @@
   --font-accent: "Raleway", sans-serif;
   --color-bg: #242424;
   --color-text: #ffffff;
-  --color-text-langs: #ffffff;;
+
   --color-accent: #2563eb;
   --color-muted: #6b7280;
   --container-width: 1200px;
   --border-radius: 0.5rem;
   --transition-fast: 0.2s ease-in-out;
-  --color-bg-header: #ffffff;
+
+  --color-nav-bg: #ffffff;
+
+  --color-header-bg: #000;
+  --color-border: #000;
+
+  /* === locales === */
+  --color-locales-text-selected: #000000;
+  --color-locales-text: #ffffff;
+  --color-locales-border: #000000;
+  /* === End locales === */
 }
 
-
-.header__content {
+/* === Header === */
+.header__buisness {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
-  width: vh80; 
-  background-color: var(--color-bg-header);
+  align-items: center;
+  padding-right: 2rem;
 }
 
-.header ul {
+.header__buisness-logo {
+  width: 100px;
+}
+
+.header__brand {
   display: flex;
-  flex-direction: row;
+  padding: 1rem;
+  gap: 0.5rem;
+  align-items: center;
+  background-color: var(--color-header-bg);
+}
+
+
+.phone__brand-name {
+  display: none;
+}
+@media (max-width: 468px) {
+  .desktop__brand-name {
+    display: none;
+  }
+
+  .phone__brand-name {
+    display: block;
+    font-size: 24px;
+  }
+
+  .header__buisness-logo {
+    width: 100px;
+  }
+}
+
+.header__brand-info {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+}
+
+.header__brand-info-settings {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.header__brand-info-settings .fa-brands, .fa-regular, .fa-solid {
+  margin-top: 0.5rem;
+  font-size: 24px;
+}
+
+/* fa-whatsapp */
+.fa-whatsapp {
+  /* градиент фирменного зелёного WhatsApp */
+  background: linear-gradient(45deg, #25D366, #128C7E, #0bdec5);
+
+  /* Для WebKit-браузеров (Chrome, Safari, Edge Chromium) */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  /* Стандартный вариант (частично поддерживается Firefox) */
+  background-clip: text;
+  color: transparent;
+
+  /* Дополнительно */
+  font-weight: bold;
+  cursor: pointer;
+
+  /* Animations */
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.fa-whatsapp:hover {
+  transform: scale(1.2) rotate(10deg);
+  filter: drop-shadow(0 0 6px #25D366) drop-shadow(0 0 4px #128C7E);
+}
+/* End fa-whatsapp */
+
+
+
+/* fa-envelope */
+.fa-envelope {
+  /* градиент через фон и маску текста */
+  background: linear-gradient(45deg, #1DA1F2, #0a74da, #00c6ff);
+
+  /* Для WebKit-браузеров (Chrome, Safari, Edge Chromium) */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  /* Стандартный вариант (частично поддерживается Firefox) */
+  background-clip: text;
+  color: transparent;
+
+  /* Дополнительно */
+  cursor: pointer;
+
+  /* Animations */
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.fa-envelope:hover {
+  transform: scale(1.2) rotate(-10deg);
+  filter: drop-shadow(0 0 6px #00c6ff) drop-shadow(0 0 4px #1DA1F2);
+}
+/* End fa-envelope */
+
+
+
+/* fa-location-dot */
+.fa-location-dot {
+  font-size: 2rem; /* размер иконки */
+  
+  /* Градиент */
+  background: linear-gradient(45deg, #de8c08, #bd6812);
+  
+  /* WebKit-браузеры */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+  /* Стандартное свойство для совместимости */
+  background-clip: text;
+  color: transparent;
+  
+  /* Дополнительно */
+  cursor: pointer;
+
+  /* Animations */
+  transition: transform 0.3s ease, filter 0.3s ease;
+  /* Дополнительно: плавная анимация градиента */
+  background-size: 200% 200%;
+  animation: gradientMove 3s ease infinite;
+}
+
+/* Gradien animation */
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.fa-location-dot:hover {
+  transform: scale(1.2) rotate(-10deg);
+  filter: drop-shadow(0 0 6px #00c6ff) drop-shadow(0 0 4px #1DA1F2);
+}
+/* End fa-location-dot */
+
+
+
+
+a {
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 600;
+  color: #1a73e8;
+  transition: 
+    transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+    color 0.3s ease,
+    text-shadow 0.3s ease;
+}
+
+a:hover {
+  transform: translateY(-4px) scale(1.05);
+  color: #1558b0;
+  text-shadow: 0 4px 10px rgba(26, 115, 232, 0.4);
+}
+
+
+
+
+  /* === header__content === */
+.header__content {
+  position: sticky;
+  top: 84px;
+  width: 90%;
+  left: 5%;
+  padding: 1rem 1.5rem;
+  border: 2px solid var(--color-border);
+  border-radius: 0.6rem;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-nav-bg);
+  transition: padding 0.2s ease, box-shadow 0.2s ease;
+}
+
+.header__content ul {
+  display: flex;
+
   gap: 1.5rem;
 }
 
+  /* === End header__content === */
+/* === End Header === */
+
+
 
 
 /* ===== Language ===== */
-/* Сброс стандартного стиля */
-.custom-select-wrapper select {
-  appearance: none; /* Убираем дефолтный стиль */
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  
-  padding: 10px 40px 10px 15px;
-  font-size: 16px;
-  border: 2px solid #2e8b57;
-  border-radius: 10px;
-  background-color: #f0f9f4;
-  color: #333;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  outline: none;
-}
-
-/* Ховер и фокус */
-.custom-select-wrapper select:hover {
-  border-color: #1e5f3b;
-  background-color: #e6f2ea;
-}
-
-.custom-select-wrapper select:focus {
-  border-color: #1e5f3b;
-  box-shadow: 0 0 5px rgba(46, 139, 87, 0.5);
-}
-
-/* Добавляем стрелку */
-.custom-select-wrapper {
+.custom-select {
   position: relative;
-  display: inline-block;
+  width: 150px;
+  font-family: sans-serif;
 }
 
-.custom-select-wrapper::after {
-  content: '';
+.selected {
+  cursor: pointer;
+  padding: 5px 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--color-locales-border);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--color-locales-text-selected);
+}
+
+.options {
+  display: none; /* <-- важно */
   position: absolute;
-  top: 50%;
-  right: 15px;
-  width: 0;
-  height: 0;
-  pointer-events: none;
-  border-left: 6px solid transparent;
-  border-right: 6px solid transparent;
-  border-top: 6px solid #2e8b57;
-  transform: translateY(-50%);
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: #2a2a2a;
+  color: var(--color-locales-text);
+  border: 1px solid #666;
+  border-radius: 6px;
+  list-style: none;
+  margin: 4px 0 0 0;
+  padding: 0;
+  z-index: 10;
 }
 
-/* Плавный фокус стрелки */
-.custom-select-wrapper select:focus + ::after {
-  border-top-color: #1e5f3b;
-}
-/* ===== Language ===== */
-
-
-
-.custom-select { 
-  position: relative; 
-  width: 150px; 
+.custom-select.open .options {
+  display: block; /* <-- показываем только при открытии */
 }
 
-.selected { 
-  cursor: pointer; 
-  padding: 5px; 
-  display: flex; 
-  align-items: center; 
-  gap: 5px; 
-  border: 1px solid #ccc;
-  border-radius: 5px;
+.options li {
+  padding: 6px 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
 }
 
-.options { 
-  display: none; 
-  position: absolute; 
-  top: 100%; left: 0; 
-  width: 100%; 
-  border: 1px solid #ccc; 
-  background: var(--color-bg);
-  color:var(--color-text-langs);
-  list-style: none; 
-  padding: 0; 
-  margin: 0; 
+.options li:hover {
+  background: #444;
 }
 
-.custom-select.open .options { 
-  display: block; 
+.custom-select .options {
+  display: none !important;
+}
+.custom-select.open .options {
+  display: block !important;
 }
 
-.options li { 
-  padding: 5px; 
-  display: flex; 
-  align-items: center; 
-  gap: 5px; 
-  cursor: pointer; 
-}
-
-
-.icon {
+.flag-locales {
   width: 24px;
   height: 18px;
 }
+/* ===== End Language ===== */
+
+
+
+
+/* ===== iframe map ===== */
+
+.map-text-container {
+    display: flex;
+    gap: 20px; /* расстояние между картой и текстом */
+    align-items: flex-start; /* выравнивание по верху */
+    flex-wrap: wrap; /* чтобы на маленьких экранах текст и карта шли друг под другом */
+  }
+
+  .map-container {
+    flex: 1 1 400px; /* карта растягивается, но минимум 400px */
+    height: 300px;
+  }
+
+  .map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: 8px;
+  }
+
+  .map-text {
+    flex: 1 1 200px; /* текст занимает оставшееся место */
+  }
+
+/* ===== End iframe map ===== */

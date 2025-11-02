@@ -38,7 +38,7 @@ function applyTranslations(translations) {
 }
 
 // ===== Инициализация языка при старте =====
-const savedLang = localStorage.getItem("lang") || "en";
+const savedLang = localStorage.getItem("lang") || "de";
 loadLanguage(savedLang);
 
 // Обновляем скрытый select и кастомный div при старте
@@ -78,3 +78,4 @@ document.addEventListener("click", e => {
     customSelect.classList.remove("open");
   }
 });
+// ===== End Localisation & Custom Select =====

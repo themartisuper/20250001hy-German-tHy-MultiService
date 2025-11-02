@@ -8,37 +8,6 @@ footer {
   color: #d6dfed;
 }
 
-html, body {
-  min-height: 100%;
-  height: auto;
-}
-
-/* 2) фоновые волны */
-:root { --footer-bg-h: 420px; } /* регулируй высоту фона футера тут */
-
-/* .background — декоративный слой за футером */
-.background {
-  position: absolute;
-  z-index: -1; /* под контентом футера */
-  inset: auto 0 0 0; /* прижать к низу футера */
-  width: 100%;
-  height: var(--footer-bg-h);
-  overflow: hidden;
-  pointer-events: none;
-}
-
-.svg-footer {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  transform: scaleY(3) scaleX(2.25);
-  transform-origin: bottom;
-  box-sizing: border-box;
-  display: block;
-  pointer-events: none;
-}
-
 .ul-footer {
   display: flex;
   list-style: none;
@@ -66,7 +35,6 @@ html, body {
 }
 
 footer {
-  position: static;     
   width: 100%;
   height: auto;  /* пусть сам растёт по контенту */
   padding: 40px 16px 24px; /* подгони под дизайн, если надо */
@@ -88,11 +56,7 @@ footer {
 
 @media (width > 520px) {
   footer {
-    padding-top: calc(40px + var(--footer-bg-h) * 0.35);
-  }
-
-  .background {
-    height: var(--footer-bg-h);
+    padding-top: 40px;
   }
 }
 
