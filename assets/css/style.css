@@ -306,6 +306,7 @@ a:hover {
     gap: 20px; /* расстояние между картой и текстом */
     align-items: flex-start; /* выравнивание по верху */
     flex-wrap: wrap; /* чтобы на маленьких экранах текст и карта шли друг под другом */
+    margin-top: 40px;
   }
 
   .map-container {
