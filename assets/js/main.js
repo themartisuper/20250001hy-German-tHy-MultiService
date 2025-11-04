@@ -7,7 +7,7 @@ window.addEventListener('scroll', () => {
   let progress = scroll / maxScroll; // от 0 до 1
 
   // плавно меняем top
-  header.style.top = `${84 - 84 * progress}px`; // от 84px до 0px
+  header.style.top = `${0 * progress}px`; // от 84px до 0px
 
   // плавно уменьшаем padding
   let padding = 1 + (0.4 - 1) * progress; // от 1rem до 0.4rem
@@ -19,4 +19,27 @@ window.addEventListener('scroll', () => {
 
   // плавно усиливаем тень
   header.style.boxShadow = `0 ${5 + 3 * progress}px ${10 + 5 * progress}px rgba(0,0,0,${0.2 + 0.1 * progress})`;
+});
+
+
+
+
+
+
+
+
+$('input[type=radio]').on('change', function() {
+  const carousel = $('.carousel');
+
+  // Снимаем старый цвет
+  carousel.removeClass('blue purple green');
+
+  // В зависимости от id выбранного инпута
+  if ($('#item-1').is(':checked')) {
+    carousel.addClass('purple'); // фиолетовый
+  } else if ($('#item-2').is(':checked')) {
+    carousel.addClass('blue'); // синий
+  } else if ($('#item-3').is(':checked')) {
+    carousel.addClass('green'); // зелёный
+  }
 });

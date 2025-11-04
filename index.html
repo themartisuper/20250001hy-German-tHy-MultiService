@@ -30,6 +30,8 @@
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/style_footer.css">
   <link rel="stylesheet" href="assets/css/style_payments.css">
+
+  <link rel="stylesheet" href="assets/css/accordion.css">
   <!-- End Styles -->
 
 </head>
@@ -46,8 +48,8 @@
 <!-- End SVG locales -->
 
 <!-- HEADER -->
-<header class="header">
-  <div class="header__buisness">
+<!--<header class="header">
+  <!--<div class="header__buisness">
     <div class="header__brand">
       <a href="#0"><img class="header__buisness-logo" src="assets/icons/webp/symbol_logo_transparent_16to9-compressed.webp" alt="firmenlogo"></a>
       <a href="#0"><h1 class="desktop__brand-name">German tHÿ MultiService</h1></a>
@@ -80,16 +82,21 @@
         </div>
       </div>
     </div>
-  </div>
-</header>
+  </div> -->
+<!--</header> -->
 
-<div class="container header__content">
+<div class="header__content">
+  <a class="header__brand" href="#0" rel="noopener noreferrer">
+    <img class="header__brand-logo" src="assets/icons/webp/symbol_logo_transparent_16to9-compressed.webp" alt="firmenlogo">
+    <h1 class="desktop__brand-name">German tHÿ<br>MultiService</h1>
+  </a>
+
   <nav class="nav">
     <ul>
       <li><a data-i18n="home" href="#" id="0">Home</a></li>
       <li><a data-i18n="sale" href="#">Sale</a></li>
       <li><a ata-i18n="termine" href="#">Termine</a></li>
-      <li><a ata-i18n="service" href="#">Service</a></li>
+      <li><a ata-i18n="service" href="#">Über uns</a></li>
       <li><a ata-i18n="contact" href="#">Kontakt</a></li>
     </ul>
   </nav>
@@ -100,28 +107,35 @@
       <option value="ru" class="flag-ru">Русский</option>
     </select> 
   </div>-->
-  <!-- locales -->
-  <div class="custom-select-wrapper">
-    <div class="custom-select">
-      <div class="selected">
-        <svg class="flag-locales flag-de"><use xlink:href="#de"/></svg>
-        Deutsch
+  <div class="sign-up">
+    <!-- locales -->
+    <div class="custom-select-wrapper">
+      <div class="custom-select">
+        <div class="selected">
+          <svg class="flag-locales flag-de"><use xlink:href="#de"/></svg>
+        </div>
+        <ul class="options">
+          <li data-value="de">
+            <svg class="flag-locales flag-de"><use xlink:href="#de"/></svg> 
+          </li>
+          <li data-value="en">
+            <svg class="flag-locales flag-en"><use xlink:href="#en"/></svg> 
+          </li>
+        </ul>
       </div>
-      <ul class="options">
-        <li data-value="de">
-          <svg class="flag-locales flag-de"><use xlink:href="#de"/></svg> Deutsch
-        </li>
-        <li data-value="en">
-          <svg class="flag-locales flag-en"><use xlink:href="#en"/></svg> English
-        </li>
-      </ul>
+      <select id="language-selector" style="display: none;">
+        <option value="de">Deutsch</option>
+        <option value="en">English</option>
+      </select>
     </div>
-    <select id="language-selector" style="display: none;">
-      <option value="de">Deutsch</option>
-      <option value="en">English</option>
-    </select>
+    <!-- End locales -->
+
+    <div class="button-anmelden">
+      <h1 class="anmelden">Anmelden&ensp;</h1>
+      <i class="fa-regular fa-circle-user"></i>
+    </div>
   </div>
-  <!-- End locales -->
+  
 </div>
 
 <!-- HERO SECTION -->
@@ -135,15 +149,15 @@
 
 <!-- FEATURES SECTION -->
 <section class="features container">
-  <article class="card">
+  <article class="features__card">
     <h3>TEXT</h3>
     <p>TEXT</p>
   </article>
-  <article class="card">
+  <article class="features__card">
     <h3>TEXT</h3>
     <p>TEXT</p>
   </article>
-  <article class="card">
+  <article class="features__card">
     <h3>TEXT</h3>
     <p>TEXT</p>
   </article>
@@ -151,7 +165,7 @@
 
 
 <!-- PAYMENTS -->
-<section class="section-payments"> 
+<!--  <section class="section-payments"> 
   <ul class="payments ul-payments">
     <li><a class="fa-brands fa-paypal paypal-icon"></a></li>
     <li><a class="fa fa-eur eur-icon"></a></li>
@@ -162,7 +176,7 @@
     <li><a class="fa fa-credit-card creditcard-icon"></a></li>
     <li><a class="fa fa-building-columns bank-icon"></a></li>
   </ul>
-</section>
+</section> -->
 <!-- End PAYMENTS -->
 
 <!--  <div class="map-text-container">
@@ -185,8 +199,46 @@
   </div>
 </div> -->
 
-
-
+<div class="carousel">
+  <ul class="accordion">
+    <li>
+      <img src="assets/images/transport_logistik.PNG" />
+      <div class="content">
+        <span>
+          <h2>Alexis Rios</h2>
+          <p>Frontend</p>
+        </span>
+      </div>
+    </li>
+    <li>
+      <img src="assets/images/garten_haus.PNG" />
+      <div class="content">
+        <span>
+          <h2>Liam Scott</h2>
+          <p>Backend</p>
+        </span>
+      </div>
+    </li>
+    <li>
+      <img src="assets/images/events.PNG" />
+      <div class="content">
+        <span>
+          <h2>Pavel Dvorak</h2>
+          <p>Backend</p>
+        </span>
+      </div>
+    </li>
+    <li>
+      <img src="assets/images/reinigung_pflege.PNG">
+      <div class="content">
+        <span>
+          <h2>Kelly Cox</h2>
+          <p>Designer</p>
+        </span>
+      </div>
+    </li>
+  </ul>
+</div>
 
 
 <!-- FOOTER -->

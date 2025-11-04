@@ -3,7 +3,7 @@ html, body { overflow-x: hidden; } */
 
 footer {
   margin: 0;
-  background: linear-gradient(#1e152e, #161616);
+  background: linear-gradient(#ffffff, #ffffff);
   font-family: "Euclid Circular A", "Poppins";
   color: #d6dfed;
 }
@@ -32,6 +32,7 @@ footer {
 .legal {
   font-size: 12px;
   margin: 0;
+  color: #000000;
 }
 
 footer {
