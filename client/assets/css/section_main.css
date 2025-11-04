@@ -59,6 +59,7 @@
   border: 1px solid #fff;
 }
 
-.section__main h1, p, a{
+.section__main-content-text {
+  margin-top: 1rem;
   margin-left: 2rem;
 }

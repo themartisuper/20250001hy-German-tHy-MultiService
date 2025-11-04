@@ -90,18 +90,15 @@
 
 
 
-
-
-
 <div class="header__content">
-  <a class="header__brand" href="#0" rel="noopener noreferrer">
+  <a class="header__brand" href="#section__main" rel="noopener noreferrer">
     <img class="header__brand-logo" src="client/assets/icons/webp/symbol_logo_transparent_16to9-compressed.webp" alt="firmenlogo">
     <h1 class="desktop__brand-name">German tHÿ<br>MultiService</h1>
   </a>
 
   <nav class="nav">
     <ul>
-      <li><a data-i18n="home" href="#" id="0">Home</a></li>
+      <li><a data-i18n="home" href="#section__main">Home</a></li>
       <li><a data-i18n="sale" href="#">Sale</a></li>
       <li><a ata-i18n="termine" href="#">Termine</a></li>
       <li><a ata-i18n="service" href="#">Über uns</a></li>
@@ -145,11 +142,16 @@
   </div>
 </div>
 
-<section class="section__main">
+
+
+
+<section class="section__main" id="section__main">
   <div class="section__main-content">
-    <h1>Diesnstleistungsunternehmen</h1>
-    <p>Von A wie Auto bis Z wie Zaun - wir packen's an</p>
-    <a href="#categories" class="section__main-button">Leistungen</a>
+    <div class="section__main-content-text">
+      <h2>Diesnstleistungsunternehmen</h2>
+      <p>Von A wie Auto bis Z wie Zaun - wir packen's an</p>
+      <a href="#categories" class="section__main-button">Leistungen</a>
+    </div>
   </div>
 </section>
 
@@ -163,7 +165,7 @@
 
 
 <!-- HERO SECTION -->
-<section class="hero1">
+<!-- <section class="hero1">
   <div class="container">
     <h2>TEXT!</h2>
     <p>TEXT</p>
@@ -171,54 +173,21 @@
 
     <button class="btn">E-Mail</button>
   </div>
-</section>
+</section> -->
 
 <!-- FEATURES SECTION -->
-<section class="features container">
+<!-- <section class="features container">
   <article class="features__card">
     <h3>TEXT</h3>
     <p>TEXT</p>
   </article>
+</section>  -->
 
-</section>
 
-
-<!-- PAYMENTS -->
-<!--  <section class="section-payments"> 
-  <ul class="payments ul-payments">
-    <li><a class="fa-brands fa-paypal paypal-icon"></a></li>
-    <li><a class="fa fa-eur eur-icon"></a></li>
-    <li><a class="fa-brands fa-bitcoin bitcoin-icon"></a></li>
-    <li><a class="fa-brands fa-ethereum ethereum-icon"></a></li>
-    <li><a class="fa-brands fa-cc-mastercard mastercard-icon"></a></li>
-    <li><a class="fa-brands fa-cc-visa visa-icon"></a></li>
-    <li><a class="fa fa-credit-card creditcard-icon"></a></li>
-    <li><a class="fa fa-building-columns bank-icon"></a></li>
-  </ul>
-</section> -->
-<!-- End PAYMENTS -->
-
-<!--  <div class="map-text-container">
-  <div class="map-container">
-    <iframe 
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2630.2900285786045!2d11.846107476263839!3d48.7572574713186!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479fb4d260f73c11%3A0xb134cc322165d5a5!2sIngolst%C3%A4dter%20Str.%2021%2C%2093354%20Siegenburg!5e0!3m2!1sru!2sde!4v1762082642481!5m2!1sru!2sde" 
-      allowfullscreen="" 
-      loading="lazy" 
-      referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
-  </div>
-  <div class="map-text">
-    <h3>Unsere Adresse</h3>
-    <p>
-      Adresse:&ensp;Ingolstädter Str. 21, 93354 Siegenburg
-      Arbeitszeiten:&ensp;Mo-So 9:00–18:00<br>
-      Telefonnumer:&ensp;<a href="tel:+4917661219130">+49 176 61219130</a>
-    </p>
-    
-  </div>
-</div> -->
 
 <div class="categories" id="categories">
+  <h2>Unsere Leistungen</h2>
+
   <ul class="accordion">
     <li onclick="window.location.href='./client/transport_logistik.html'">
       <img src="client/assets/images/transport_logistik.PNG" alt="Transport"/>

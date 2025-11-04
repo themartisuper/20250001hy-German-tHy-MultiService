@@ -129,6 +129,10 @@
   opacity: 1;
 }
 
+.categories {
+  gap: 3rem;
+}
+
 /* === ЭФФЕКТ ПРИ НАВЕДЕНИИ === */
 .accordion li:hover {
   flex: 0 1 260px;          /* карточка чуть расширяется */

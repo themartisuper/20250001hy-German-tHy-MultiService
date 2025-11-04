@@ -237,8 +237,8 @@ a:hover {
   /* === header__content === */
 .header__content {
   z-index: 9;
-  position: sticky;
-  top: 0px;
+  position: fixed;
+  top: 40px;
   width: 90%;
   left: 5%;
   padding: 1rem 1.5rem;
@@ -251,7 +251,6 @@ a:hover {
   background-color: var(--color-nav-bg);
   transition: padding 0.2s ease, box-shadow 0.2s ease;
 
-  margin: 39px 0 0 0;
 }
 
 .header__content ul {
