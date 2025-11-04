@@ -4,13 +4,13 @@
   box-sizing: border-box;
 }
 
-.carousel {
+.categories {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: #412868;
+  background: #242424;
   text-align: center;
   font-family: "Euclid Circular A", "Poppins";
 }
@@ -25,7 +25,7 @@
 }
 
 .accordion:hover {
-  gap: 0;
+  gap: 10px;
 }
 
 .accordion li {
@@ -58,8 +58,16 @@
 .accordion h2 {
   font-weight: 400;
   font-size: 24px;
-  line-height: 45px;
-  border-bottom: 2px solid #fff;
+  line-height: 20px;
+  /* border-bottom: 2px solid #fff; */
+  margin-bottom: 10px;
+  white-space: nowrap;
+}
+
+.accordion h4 {
+  font-weight: 400;
+  line-height: 20px;
+  /* border-bottom: 2px solid #fff; */
   margin-bottom: 10px;
   white-space: nowrap;
 }
@@ -76,8 +84,8 @@
   background: #02022e;
   background: linear-gradient(
     0deg,
-    rgb(0 0 0 / 70%) 10%,
-    rgb(255 255 255 / 0%) 100%
+    rgb(0 0 0 / 70%) 10%,           /* war: rgb(0 0 0 / 70%) 10%, */
+    rgb(255 255 255 / 0%) 100%      /* war: rgb(255 255 255 / 0%) 100%, */
   );
   opacity: 0;
   visibility: hidden;
@@ -110,14 +118,16 @@
 .accordion li:hover {
   flex: 0 1 260px;
   scale: 1.1;
-  z-index: 10;
+  z-index: 1; /* === IMPORTENT === */
   opacity: 1;
 }
 
+/* 
 .accordion li:hover .content {
   opacity: 1;
   visibility: visible;
 }
+*/
 
 .accordion li:hover span {
   scale: 1;

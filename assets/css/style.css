@@ -12,7 +12,7 @@
   --border-radius: 0.5rem;
   --transition-fast: 0.2s ease-in-out;
 
-  --color-nav-bg: #ffffff;
+  --color-nav-bg: #FFFDF2;
 
   --color-header-bg: #000;
   --color-border: #000;
@@ -40,12 +40,14 @@
   display: flex;
   gap: 0.5rem;
   align-items: center;
-  background-color: var(--color-header-bg);
+  /* background-color: var(--color-header-bg); */
 }
 
 
 .desktop__brand-name {
   font-size: 20px;
+  color: var(--color-text-2);
+  font-family: sans-serif;
 }
 
 .phone__brand-name {
