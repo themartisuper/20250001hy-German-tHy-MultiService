@@ -18,6 +18,11 @@
   --transition-fast: 0.2s ease-in-out;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+
 /* Body defaults */
 body {
   font-family: var(--font-main);
@@ -27,7 +32,8 @@ body {
   background-color: var(--color-bg);
   display: flex;
   flex-direction: column;
-  min-height: 1000vh;
+  min-height: 100vh;
+  height: auto;
 }
 
 /* Headings */

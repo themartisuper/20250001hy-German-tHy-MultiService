@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>German tHÿ MultiService</title>
+
+  <!-- Icons of Website -->
+  <link rel="icon" href="assets/icons/webp/symbol_logo_transparent.webp"  sizes="any"/>
+  <link rel="icon" href="assets/icons/webp/symbol_logo_transparent.webp" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/icons/webp/symbol_logo.webp"> <!-- сайт в виде иконки на смартфоне или планшете -->
+  <!-- End Icons of Website -->
+
+
+  <!-- Libraries -->
+  <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+  />
+  <!-- End Libraries -->
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/style_footer.css">
+  <link rel="stylesheet" href="assets/css/style_catalog.css">
+
+  <link rel="stylesheet" href="assets/css/accordion.css">
+  
+  <!-- End Styles -->
+
+</head>
+<body>
+<!-- SVG locales -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+	<symbol id="de" viewBox="0 0 5 3">
+		<path d="M0 0h5v3H0z"/><path fill="#D00" d="M0 1h5v2H0z"/><path fill="#FFCE00" d="M0 2h5v1H0z"/>
+	</symbol>
+	<symbol id="en" viewBox="0 0 60 30">
+		<path d="M0 0v30h60V0z"/></clipPath><clipPath id="b"><path d="M30 15h30v15zv15H0zH0V0zV0h30z"/></clipPath><g clip-path="url(#a)"><path d="M0 0v30h60V0z" fill="#012169"/><path d="m0 0 60 30m0-30L0 30" stroke="#fff" stroke-width="6"/><path d="m0 0 60 30m0-30L0 30" clip-path="url(#b)" stroke="#C8102E" stroke-width="4"/><path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"/><path d="M30 0v30M0 15h60" stroke="#C8102E" stroke-width="6"/>
+	</symbol>
+</svg>
+<!-- End SVG locales -->
+
+<div class="header__content">
+  <a class="header__brand" href="../index.html" rel="noopener noreferrer">
+    <img class="header__brand-logo" src="assets/icons/webp/symbol_logo_transparent_16to9-compressed.webp" alt="firmenlogo">
+    <h1 class="desktop__brand-name">German tHÿ<br>MultiService</h1>
+  </a>
+
+  <nav class="nav">
+    <ul>
+      <li><a data-i18n="home" href="../index.html" rel="noopener noreferrer">Home</a></li>
+      <li><a data-i18n="sale" href="#" rel="noopener noreferrer">Sale</a></li>
+      <li><a ata-i18n="termine" href="#" rel="noopener noreferrer">Termine</a></li>
+      <li><a ata-i18n="service" href="#" rel="noopener noreferrer">Über uns</a></li>
+      <li><a ata-i18n="contact" href="#"rel="noopener noreferrer">Kontakt</a></li>
+    </ul>
+  </nav>
+
+  <div class="sign-up">
+    <!-- locales -->
+    <div class="custom-select-wrapper">
+      <div class="custom-select">
+        <div class="selected">
+          <svg class="flag-locales flag-de"><use xlink:href="#de"/></svg>
+        </div>
+        <ul class="options">
+          <li data-value="de">
+            <svg class="flag-locales flag-de"><use xlink:href="#de"/></svg> 
+          </li>
+          <li data-value="en">
+            <svg class="flag-locales flag-en"><use xlink:href="#en"/></svg> 
+          </li>
+        </ul>
+      </div>
+      <select id="language-selector" style="display: none;">
+        <option value="de">Deutsch</option>
+        <option value="en">English</option>
+      </select>
+    </div>
+    <!-- End locales -->
+    <div class="button-anmelden">
+      <h1 class="anmelden">Anmelden&ensp;</h1>
+      <i class="fa-regular fa-circle-user"></i>
+    </div>
+  </div>
+
+</div>
+
+<!-- catalog -->
+<div class="catalog">
+  <h1 class="page-title">Katalog</h1>
+
+  <div class="cards">
+    <div class="card">
+      <img src="assets/images/transport_logistik.PNG" alt="Товар 1">
+      <div class="card-content">
+        <h3>Fahrzeugüberführung</h3>
+        <p>Beschreibung</p>
+        <button>Mehr erfahren</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="assets/images/transport_logistik.PNG" alt="Товар 1">
+      <div class="card-content">
+        <h3>Kurierdienste</h3>
+        <p>Beschreibung</p>
+        <button>Mehr erfahren</button>
+      </div>
+    </div>
+    
+    <div class="card">
+      <img src="assets/images/transport_logistik.PNG" alt="Товар 1">
+      <div class="card-content">
+        <h3>Lieferant</h3>
+        <p>Beschreibung</p>
+        <button>Mehr erfahren</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="assets/images/transport_logistik.PNG" alt="Товар 1">
+      <div class="card-content">
+        <h3>Möbeltransport / Umzugshilfe</h3>
+        <p>Beschreibung</p>
+        <button>Mehr erfahren</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="assets/images/transport_logistik.PNG" alt="Товар 1">
+      <div class="card-content">
+        <h3>Tragehilfe</h3>
+        <p>Beschreibung</p>
+        <button>Mehr erfahren</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="assets/images/transport_logistik.PNG" alt="Товар 1">
+      <div class="card-content">
+        <h3>Zum Flughafen hin-zurück fahren</h3>
+        <p>Beschreibung</p>
+        <button>Mehr erfahren</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End catalog -->
+
+
+<!-- FOOTER -->
+<footer class="footer">
+  <section class="section-footer"> 
+    <ul class="socials ul-footer">
+      <li><a class="fa-brands fa-telegram" href=""></a></li>
+      <li><a class="fa-brands fa-instagram" href="https://www.instagram.com/german_thy_multi?igsh=YjllaG4zcnVzaGVl&utm_source=qr"></a></li>
+      <li><a class="fa-brands fa-x-twitter" href=""></a></li>
+      <li><a class="fa-brands fa-facebook" href=""></a></li>
+    </ul>
+    <ul class="links ul-footer">
+      <li><a data-i18n="home" href="#">Home</a></li>
+      <li><a ata-i18n="about_us" href="#">Über uns</a></li>
+      <li><a ata-i18n="service" href="#">Service</a></li>
+      <li><a ata-i18n="contact" href="#">Kontakt</a></li>
+    </ul>
+    <p class="legal">© 2025 All rights reserved</p>
+  </section>
+</footer>
+<!-- End FOOTER -->
+<script src="assets/js/main.js"></script>
+<script src="assets/js/locales.js"></script>
+</body>
+</html>

@@ -26,20 +26,3 @@ window.addEventListener('scroll', () => {
 
 
 
-
-
-$('input[type=radio]').on('change', function() {
-  const carousel = $('.carousel');
-
-  // Снимаем старый цвет
-  carousel.removeClass('blue purple green');
-
-  // В зависимости от id выбранного инпута
-  if ($('#item-1').is(':checked')) {
-    carousel.addClass('purple'); // фиолетовый
-  } else if ($('#item-2').is(':checked')) {
-    carousel.addClass('blue'); // синий
-  } else if ($('#item-3').is(':checked')) {
-    carousel.addClass('green'); // зелёный
-  }
-});

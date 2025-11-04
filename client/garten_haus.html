@@ -25,16 +25,14 @@
   <!-- End Libraries -->
 
   <!-- Styles -->
-  <link rel="stylesheet" href="client/assets/css/reset.css">
-  <link rel="stylesheet" href="client/assets/css/base.css">
-  <link rel="stylesheet" href="client/assets/css/style.css">
-  <link rel="stylesheet" href="client/assets/css/style_footer.css">
-  <link rel="stylesheet" href="client/assets/css/style_payments.css">
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/style_footer.css">
+  <link rel="stylesheet" href="assets/css/style_catalog.css">
 
-  <link rel="stylesheet" href="client/assets/css/accordion.css">
-
-  <link rel="stylesheet" href="client/assets/css/section_main.css">
-
+  <link rel="stylesheet" href="assets/css/accordion.css">
+  
   <!-- End Styles -->
 
 </head>
@@ -88,33 +86,22 @@
   </div> -->
 <!--</header> -->
 
-
-
-
-
-
 <div class="header__content">
-  <a class="header__brand" href="#0" rel="noopener noreferrer">
-    <img class="header__brand-logo" src="client/assets/icons/webp/symbol_logo_transparent_16to9-compressed.webp" alt="firmenlogo">
+  <a class="header__brand" href="../index.html" rel="noopener noreferrer">
+    <img class="header__brand-logo" src="assets/icons/webp/symbol_logo_transparent_16to9-compressed.webp" alt="firmenlogo">
     <h1 class="desktop__brand-name">German tHÿ<br>MultiService</h1>
   </a>
 
   <nav class="nav">
     <ul>
-      <li><a data-i18n="home" href="#" id="0">Home</a></li>
-      <li><a data-i18n="sale" href="#">Sale</a></li>
-      <li><a ata-i18n="termine" href="#">Termine</a></li>
-      <li><a ata-i18n="service" href="#">Über uns</a></li>
-      <li><a ata-i18n="contact" href="#">Kontakt</a></li>
+      <li><a data-i18n="home" href="../index.html" rel="noopener noreferrer">Home</a></li>
+      <li><a data-i18n="sale" href="#" rel="noopener noreferrer">Sale</a></li>
+      <li><a ata-i18n="termine" href="#" rel="noopener noreferrer">Termine</a></li>
+      <li><a ata-i18n="service" href="#" rel="noopener noreferrer">Über uns</a></li>
+      <li><a ata-i18n="contact" href="#"rel="noopener noreferrer">Kontakt</a></li>
     </ul>
   </nav>
-  <!--<div class="custom-select-wrapper">
-    <select id="language-selector">
-      <option value="de" class="flag-de">Deutsch</option>
-      <option value="en" class="flag-en">English</option>
-      <option value="ru" class="flag-ru">Русский</option>
-    </select> 
-  </div>-->
+
   <div class="sign-up">
     <!-- locales -->
     <div class="custom-select-wrapper">
@@ -137,131 +124,102 @@
       </select>
     </div>
     <!-- End locales -->
-
     <div class="button-anmelden">
       <h1 class="anmelden">Anmelden&ensp;</h1>
       <i class="fa-regular fa-circle-user"></i>
     </div>
   </div>
+
 </div>
 
-<section class="section__main">
-  <div class="section__main-content">
-    <h1>Diesnstleistungsunternehmen</h1>
-    <p>Von A wie Auto bis Z wie Zaun - wir packen's an</p>
-    <a href="#categories" class="section__main-button">Leistungen</a>
-  </div>
-</section>
+<!-- catalog -->
+<div class="catalog">
+  <h1 class="page-title">Katalog</h1>
 
+  <div class="cards">
+    <div class="card">
+      <img src="assets/images/garten_haus.PNG" alt="Товар 1">
+      <div class="card-content">
+        <h3>Gartenbewässerung</h3>
+        <p>Beschreibung</p>
+        <button>Mehr erfahren</button>
+      </div>
+    </div>
 
-
-
-
-
-
-
-
-
-<!-- HERO SECTION -->
-<section class="hero1">
-  <div class="container">
-    <h2>TEXT!</h2>
-    <p>TEXT</p>
-    <button class="btn">Whatsapp</button>
-
-    <button class="btn">E-Mail</button>
-  </div>
-</section>
-
-<!-- FEATURES SECTION -->
-<section class="features container">
-  <article class="features__card">
-    <h3>TEXT</h3>
-    <p>TEXT</p>
-  </article>
-
-</section>
-
-
-<!-- PAYMENTS -->
-<!--  <section class="section-payments"> 
-  <ul class="payments ul-payments">
-    <li><a class="fa-brands fa-paypal paypal-icon"></a></li>
-    <li><a class="fa fa-eur eur-icon"></a></li>
-    <li><a class="fa-brands fa-bitcoin bitcoin-icon"></a></li>
-    <li><a class="fa-brands fa-ethereum ethereum-icon"></a></li>
-    <li><a class="fa-brands fa-cc-mastercard mastercard-icon"></a></li>
-    <li><a class="fa-brands fa-cc-visa visa-icon"></a></li>
-    <li><a class="fa fa-credit-card creditcard-icon"></a></li>
-    <li><a class="fa fa-building-columns bank-icon"></a></li>
-  </ul>
-</section> -->
-<!-- End PAYMENTS -->
-
-<!--  <div class="map-text-container">
-  <div class="map-container">
-    <iframe 
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2630.2900285786045!2d11.846107476263839!3d48.7572574713186!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479fb4d260f73c11%3A0xb134cc322165d5a5!2sIngolst%C3%A4dter%20Str.%2021%2C%2093354%20Siegenburg!5e0!3m2!1sru!2sde!4v1762082642481!5m2!1sru!2sde" 
-      allowfullscreen="" 
-      loading="lazy" 
-      referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
-  </div>
-  <div class="map-text">
-    <h3>Unsere Adresse</h3>
-    <p>
-      Adresse:&ensp;Ingolstädter Str. 21, 93354 Siegenburg
-      Arbeitszeiten:&ensp;Mo-So 9:00–18:00<br>
-      Telefonnumer:&ensp;<a href="tel:+4917661219130">+49 176 61219130</a>
-    </p>
+    <div class="card">
+      <img src="assets/images/garten_haus.PNG" alt="Товар 1">
+      <div class="card-content">
+        <h3>Gartenpflege</h3>
+        <p>Beschreibung</p>
+        <button>Mehr erfahren</button>
+      </div>
+    </div>
     
-  </div>
-</div> -->
+    <div class="card">
+      <img src="assets/images/garten_haus.PNG" alt="Товар 1">
+      <div class="card-content">
+        <h3>Haushüter</h3>
+        <p>Beschreibung</p>
+        <button>Mehr erfahren</button>
+      </div>
+    </div>
 
-<div class="categories" id="categories">
-  <ul class="accordion">
-    <li onclick="window.location.href='./client/transport_logistik.html'">
-      <img src="client/assets/images/transport_logistik.PNG" alt="Transport"/>
-      <div class="content">
-        <span>
-          <h2>Transport</h2>
-          <h4>&</h4>
-          <h4>Logistik</h4>
-        </span>
+    <div class="card">
+      <img src="assets/images/garten_haus.PNG" alt="Товар 1">
+      <div class="card-content">
+        <h3>Kleinreparaturen (ohne Handwerksplicht)</h3>
+        <p>Beschreibung</p>
+        <button>Mehr erfahren</button>
       </div>
-    </li>
-    <li onclick="window.location.href='./client/garten_haus.html'">
-      <img src="client/assets/images/garten_haus.PNG" />
-      <div class="content">
-        <span>
-          <h2>Garten</h2>
-          <h4>&</h4>
-          <h4>Haus</h4>
-        </span>
+    </div>
+
+    <div class="card">
+      <img src="assets/images/garten_haus.PNG" alt="Товар 1">
+      <div class="card-content">
+        <h3>Rasenmäher</h3>
+        <p>Beschreibung</p>
+        <button>Mehr erfahren</button>
       </div>
-    </li>
-    <li onclick="window.location.href='./client/personal_and_events.html'">
-      <img src="client/assets/images/events.PNG" />
-      <div class="content">
-        <span>
-          <h2>Persönliche Dienste</h2>
-          <h4>&</h4>
-          <h4>Events</h4>
-        </span>
+    </div>
+
+    <div class="card">
+      <img src="assets/images/garten_haus.PNG" alt="Товар 1">
+      <div class="card-content">
+        <h3>Regale und Gardinenmontage</h3>
+        <p>Beschreibung</p>
+        <button>Mehr erfahren</button>
       </div>
-    </li>
-    <li>
-      <img src="client/assets/images/reinigung_pflege.PNG">
-      <div class="content">
-        <span>
-          <h2>Reinigung</h2>
-          <h4>&</h4>
-          <h4>Pflege</h4>
-        </span>
+    </div>
+
+    <div class="card">
+      <img src="assets/images/garten_haus.PNG" alt="Товар 1">
+      <div class="card-content">
+        <h3>Sträucherschnitt</h3>
+        <p>Beschreibung</p>
+        <button>Mehr erfahren</button>
       </div>
-    </li>
-  </ul>
+    </div>
+
+    <div class="card">
+      <img src="assets/images/garten_haus.PNG" alt="Товар 1">
+      <div class="card-content">
+        <h3>Unkrautentfernung</h3>
+        <p>Beschreibung</p>
+        <button>Mehr erfahren</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="assets/images/garten_haus.PNG" alt="Товар 1">
+      <div class="card-content">
+        <h3>Weihnachtsbeleuchtung Montage</h3>
+        <p>Beschreibung</p>
+        <button>Mehr erfahren</button>
+      </div>
+    </div>
+  </div>
 </div>
+<!-- End catalog -->
 
 
 <!-- FOOTER -->
@@ -283,7 +241,7 @@
   </section>
 </footer>
 <!-- End FOOTER -->
-<script src="client/assets/js/main.js"></script>
-<script src="client/assets/js/locales.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/locales.js"></script>
 </body>
 </html>

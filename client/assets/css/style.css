@@ -236,7 +236,7 @@ a:hover {
 
   /* === header__content === */
 .header__content {
-  z-index: 2;
+  z-index: 9;
   position: sticky;
   top: 0px;
   width: 90%;
@@ -360,11 +360,6 @@ a:hover {
   }
 
 /* ===== End iframe map ===== */
-
-
-
-
-
 
 
 

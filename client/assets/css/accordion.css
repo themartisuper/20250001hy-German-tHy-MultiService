@@ -1,11 +1,13 @@
+/* === СБРОС === */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* === ОСНОВНОЙ КОНТЕЙНЕР === */
 .categories {
-  min-height: 100vh;
+  min-height: 100vh; /* растягиваем секцию на весь экран */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,39 +17,43 @@
   font-family: "Euclid Circular A", "Poppins";
 }
 
+/* === АККОРДЕОН (контейнер элементов) === */
 .accordion {
   width: 100%;
   display: flex;
   justify-content: center;
   height: 400px;
-  gap: 16px;
-  transition: 0.3s;
+  gap: 16px;               /* расстояние между карточками */
+  transition: 0.3s;        /* плавный переход при hover */
 }
 
 .accordion:hover {
-  gap: 10px;
+  gap: 10px;               /* сужаем зазор при наведении */
 }
 
+/* === ЭЛЕМЕНТ СПИСКА === */
 .accordion li {
   position: relative;
   overflow: hidden;
-  flex: 0 0 240px;
+  flex: 0 0 240px;         /* фиксированная ширина (не растёт/не сжимается) */
   border-radius: 0.5rem;
   opacity: 0.75;
   cursor: pointer;
 }
 
+/* === ИЗОБРАЖЕНИЕ ВНУТРИ КАРТОЧКИ === */
 .accordion li img {
   position: absolute;
   top: 50%;
   left: 50%;
-  translate: -50% -50%;
+  translate: -50% -50%;    /* выравнивание по центру */
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  filter: grayscale(0.5);
+  object-fit: cover;       /* не искажает пропорции */
+  filter: grayscale(0.5);  /* немного обесцвечено */
 }
 
+/* === ОБЩИЕ ПЕРЕХОДЫ === */
 .accordion li,
 .accordion li img,
 .accordion li .content,
@@ -55,6 +61,7 @@
   transition: 0.3s;
 }
 
+/* === ЗАГОЛОВКИ === */
 .accordion h2 {
   font-weight: 400;
   font-size: 24px;
@@ -72,6 +79,7 @@
   white-space: nowrap;
 }
 
+/* === КОНТЕНТНАЯ ПОДЛОЖКА === */
 .accordion li .content {
   position: absolute;
   top: 0;
@@ -81,16 +89,21 @@
   z-index: 1;
   color: #fff;
   padding: 15px;
+
+  /* фоновой градиент поверх картинки */
   background: #02022e;
   background: linear-gradient(
     0deg,
     rgb(0 0 0 / 70%) 10%,           /* war: rgb(0 0 0 / 70%) 10%, */
     rgb(255 255 255 / 0%) 100%      /* war: rgb(255 255 255 / 0%) 100%, */
   );
-  opacity: 0;
+
+  opacity: 0;              /* скрыт по умолчанию */
   visibility: hidden;
 }
 
+/* === ДУБЛИКАТ БЛОКА CONTENT === */
+/* !!! Эта часть полностью перекрывает предыдущую (поэтому контент всегда виден) */
 .accordion li .content {
   position: absolute;
   top: 0;
@@ -100,25 +113,27 @@
   z-index: 1;
   color: #fff;
   padding: 15px;
-  opacity: 1;
+  opacity: 1;              /* контент виден всегда */
   visibility: visible;
 }
 
+/* === ТЕКСТ ВНУТРИ КОНТЕНТА === */
 .accordion li .content span {
   position: absolute;
   z-index: 3;
   left: 50%;
   bottom: 50px;
-  translate: -50%;
+  translate: -50%;          /* выравнивание по центру */
   scale: 0.85;
   visibility: visible;
   opacity: 1;
 }
 
+/* === ЭФФЕКТ ПРИ НАВЕДЕНИИ === */
 .accordion li:hover {
-  flex: 0 1 260px;
-  scale: 1.1;
-  z-index: 1; /* === IMPORTENT === */
+  flex: 0 1 260px;          /* карточка чуть расширяется */
+  scale: 1.1;               /* и увеличивается */
+  z-index: 1;               /* === IMPORTENT === */
   opacity: 1;
 }
 
@@ -129,6 +144,7 @@
 }
 */
 
+/* === ПРИ НАВЕДЕНИИ: ТЕКСТ === */
 .accordion li:hover span {
   scale: 1;
   opacity: 1;

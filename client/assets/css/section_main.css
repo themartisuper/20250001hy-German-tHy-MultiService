@@ -1,0 +1,64 @@
+/* Root variables */
+:root {
+  --color-text: #ffffff;
+  --color-text-second: #242424;
+  --color-button-section-main: #FFFDF2;
+
+
+
+  --border-radius: 0.5rem;
+  --transition-fast: 0.2s ease-in-out;
+}
+
+.section__main {
+  position: relative;
+  width: 100%;
+  height: 80vh; /* или другая высота */
+  background-image: url("../images/compressed/home_main_2_1-compressed.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  text-align: start;
+  color: var(--color-text); /* если фон тёмный, текст будет виден */
+}
+
+.section__main::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4); /* затемнение, чтобы текст лучше читался */
+  z-index: 1;
+}
+
+.section__main-content {
+  position: relative;
+  z-index: 2; /* чтобы текст и кнопка были поверх затемнения */
+}
+
+.section__main-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 40px;
+  background-color: var(--color-button-section-main);
+  color: var(--color-text-second);
+  text-decoration: none;
+  border-radius: 80px;
+}
+
+.section__main-button:hover {
+  background-color: transparent;
+  color: var(--color-text);
+
+  border-radius: 80px;
+  border: 1px solid #fff;
+}
+
+.section__main h1, p, a{
+  margin-left: 2rem;
+}
