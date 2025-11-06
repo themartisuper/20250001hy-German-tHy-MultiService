@@ -43,7 +43,6 @@
   /* background-color: var(--color-header-bg); */
 }
 
-
 .desktop__brand-name {
   font-size: 20px;
   color: var(--color-text-2);
@@ -200,7 +199,7 @@ a {
     text-shadow 0.3s ease;
 }
 
-a:hover {
+a:not(.header__brand):hover {
   transform: translateY(-4px) scale(1.05);
   color: #1558b0;
   text-shadow: 0 4px 10px rgba(26, 115, 232, 0.4);
@@ -258,7 +257,6 @@ a:hover {
 
   gap: 1.5rem;
 }
-
   /* === End header__content === */
 /* === End Header === */
 

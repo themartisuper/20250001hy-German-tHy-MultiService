@@ -3,10 +3,11 @@
 
 
 
-.catalog {
-  margin-top: 150px;
-  margin-bottom: 150px;
+.section__page-title {
+  margin-top: 10rem;
+  margin-bottom: 10rem;
 }
+
 
 .cards {
   /* solid background */
@@ -158,4 +159,36 @@ p {
   border-color: rgba(255, 255, 255, 0.9);
   filter: drop-shadow(0 10px 5px rgba(0,0,0,0.125));
   transition: all .3s ease;    
+}
+
+
+
+
+.catalog__personal-and-events {
+  position: relative;
+  width: 100%;
+  height: 100%; /* или другая высота */
+  background-image: url("../images/compressed/home_main_2_1-compressed.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  text-align: start;
+
+  color: var(--color-text); /* если фон тёмный, текст будет виден */
+}
+
+.catalog__personal-and-events::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4); /* затемнение, чтобы текст лучше читался */
+  z-index: 1;
 }
