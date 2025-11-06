@@ -22,3 +22,18 @@ window.addEventListener('scroll', () => {
   // плавно усиливаем тень
   header.style.boxShadow = `0 ${5 + 3 * progress}px ${10 + 5 * progress}px rgba(0,0,0,${0.2 + 0.1 * progress})`;
 });
+
+
+
+
+
+// CARD FLIP
+document.querySelectorAll('.card').forEach(card => {
+  const flipBtns = card.querySelectorAll('.flip-btn');
+  flipBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      card.classList.toggle('flipped');
+    });
+  });
+});
+// End CARD FLIP

@@ -199,7 +199,7 @@ a {
     text-shadow 0.3s ease;
 }
 
-a:not(.header__brand):hover {
+a:not(.header__brand, .card__button):hover {
   transform: translateY(-4px) scale(1.05);
   color: #1558b0;
   text-shadow: 0 4px 10px rgba(26, 115, 232, 0.4);
