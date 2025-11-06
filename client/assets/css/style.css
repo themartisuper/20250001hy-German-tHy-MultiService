@@ -67,77 +67,7 @@
   }
 }
 
-.header__brand-info {
-  display: flex;
-  gap: 2rem;
-  justify-content: space-between;
-}
 
-.header__brand-info-settings {
-  display: flex;
-  gap: 0.5rem;
-  margin-top: 0.5rem;
-}
-
-.header__brand-info-settings .fa-brands, .fa-regular, .fa-solid {
-  margin-top: 0.5rem;
-  font-size: 24px;
-}
-
-/* fa-whatsapp */
-.fa-whatsapp {
-  /* градиент фирменного зелёного WhatsApp */
-  background: linear-gradient(45deg, #25D366, #128C7E, #0bdec5);
-
-  /* Для WebKit-браузеров (Chrome, Safari, Edge Chromium) */
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-
-  /* Стандартный вариант (частично поддерживается Firefox) */
-  background-clip: text;
-  color: transparent;
-
-  /* Дополнительно */
-  font-weight: bold;
-  cursor: pointer;
-
-  /* Animations */
-  transition: transform 0.3s ease, filter 0.3s ease;
-}
-
-.fa-whatsapp:hover {
-  transform: scale(1.2) rotate(10deg);
-  filter: drop-shadow(0 0 6px #25D366) drop-shadow(0 0 4px #128C7E);
-}
-/* End fa-whatsapp */
-
-
-
-/* fa-envelope */
-.fa-envelope {
-  /* градиент через фон и маску текста */
-  background: linear-gradient(45deg, #1DA1F2, #0a74da, #00c6ff);
-
-  /* Для WebKit-браузеров (Chrome, Safari, Edge Chromium) */
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-
-  /* Стандартный вариант (частично поддерживается Firefox) */
-  background-clip: text;
-  color: transparent;
-
-  /* Дополнительно */
-  cursor: pointer;
-
-  /* Animations */
-  transition: transform 0.3s ease, filter 0.3s ease;
-}
-
-.fa-envelope:hover {
-  transform: scale(1.2) rotate(-10deg);
-  filter: drop-shadow(0 0 6px #00c6ff) drop-shadow(0 0 4px #1DA1F2);
-}
-/* End fa-envelope */
 
 
 
