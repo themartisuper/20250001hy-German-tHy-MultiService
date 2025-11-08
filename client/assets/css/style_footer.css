@@ -73,7 +73,7 @@ footer {
 }
 
 /* Инста — фирменный мультиградиент */
-.socials .fa-instagram, .fa-instagram {
+.socials .fa-instagram {
   background: linear-gradient(45deg,
     #F58529 0%, #FEDA77 22%, #F77737 33%, #DD2A7B 52%,
     #8134AF 74%, #515BD4 100%);

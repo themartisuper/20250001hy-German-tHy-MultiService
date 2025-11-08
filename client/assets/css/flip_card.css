@@ -1,203 +1,138 @@
-/* ================================
-   CARD CONTAINER (3D пространство)
-   ================================ */
+/* ==========================================================
+   CARD — 3D контейнер с эффектом переворота
+   ========================================================== */
 .card {
   position: relative;
   width: 300px;
   height: 480px;
 
-  /* Перспектива: создаёт глубину для эффекта переворота */
+  /* 3D перспектива */
   perspective: 1000px;
-
-  /* Для старых браузеров */
   -webkit-perspective: 1000px;
   -moz-perspective: 1000px;
+
+  /* Сглаживание рендеринга на старых браузерах */
+  transform: translateZ(0);
 }
 
-/* ================================
-   CARD INNER (вращаемый элемент)
-   ================================ */
+/* ==========================================================
+   ВНУТРЕННЯЯ ОБОЛОЧКА — вращаемый слой
+   ========================================================== */
 .card__inner {
   position: relative;
   width: 100%;
   height: 100%;
-
-  /* Плавная анимация переворота */
   transition: transform 0.8s ease;
-
-  /* Сохраняем 3D-контекст для потомков */
   transform-style: preserve-3d;
-
-  /* Кроссбраузерность */
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
 }
 
-/* Переворот карточки */
+/* Состояние переворота */
 .card.flipped .card__inner {
   transform: rotateY(180deg);
-
-  /* Для Safari и старых Chromium */
   -webkit-transform: rotateY(180deg);
   -moz-transform: rotateY(180deg);
 }
 
-/* ================================
-   CARD FRONT (передняя сторона)
-   ================================ */
-.card__front {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border-radius: 12px;
-  text-align: center;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-
-  /* Отображение только лицевой стороны */
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  -moz-backface-visibility: hidden;
-
-  /* Стеклянный прозрачный эффект (glassmorphism) */
-  background: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(255, 255, 255, 0.125);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-
-  /* Альтернатива для браузеров без backdrop-filter */
-  /* background-color: rgba(255, 255, 255, 0.05); */
-}
-
-.flip-btn {
-  margin-top: auto;
-}
-
-.card__back h3 {
-  margin-bottom: 0.5rem;
-}
-
-/* Улучшение стиля для описания (p) */
-.card__front p {
-    flex-grow: 1; /* Оставим это, чтобы оно занимало место */
-    font-size: 1rem; /* Увеличим для лучшей читабельности */
-    color: rgba(255, 255, 255, 0.85); /* Более светлый цвет */
-    line-height: 1.5;
-    letter-spacing: normal; /* Убираем сильный letter-spacing */
-    text-transform: none; /* Обязательно убираем uppercase для описания */
-    margin: 0.8rem 1rem 0 1rem; /* Добавляем горизонтальный отступ */
-    max-height: 5em; /* Можно увеличить до 4-5 строк */
-    /* остальное (webkit-box, -webkit-line-clamp) можно оставить */
-}
-
-
-
-/* ================================
-   CARD BACK (задняя сторона)
-   ================================ */
+/* ==========================================================
+   ОБЩИЕ НАСТРОЙКИ СТОРОН
+   ========================================================== */
+.card__front,
 .card__back {
   position: absolute;
   width: 100%;
   height: 100%;
   border-radius: 12px;
+  overflow: hidden;
   text-align: center;
-  padding: 1rem;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  transition: opacity 0.6s ease; /* плавное появление */
+}
 
+/* ==========================================================
+   ЛИЦЕВАЯ СТОРОНА (front)
+   ========================================================== */
+.card__front {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  /* Стеклянный эффект (glassmorphism) */
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  /* Альтернатива для браузеров без поддержки backdrop-filter */
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Текст на лицевой стороне */
+.card__front p {
+  flex-grow: 1;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-transform: none;
+  margin: 0.8rem 1rem 0;
+  max-height: 5em;
+  overflow: hidden;
+}
+
+/* Кнопка на лицевой стороне */
+.flip-btn {
+  margin-top: auto;
+}
+
+/* ==========================================================
+   ОБРАТНАЯ СТОРОНА (back)
+   ========================================================== */
+.card__back {
+  padding: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: start;
 
-  /* Прячем заднюю сторону до переворота */
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  -moz-backface-visibility: hidden;
-
-  /* Задний фон — чуть темнее, но тоже “стеклянный” */
+  color: #fff;
   background-color: rgba(17, 25, 40, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.125);
   backdrop-filter: blur(16px) saturate(180%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.125);
 
-  /* Разворачиваем заднюю сторону на 180°, чтобы она была “оборотом” */
   transform: rotateY(180deg);
   -webkit-transform: rotateY(180deg);
   -moz-transform: rotateY(180deg);
-
-  color: #fff;
 }
 
+/* Заголовок */
+.card__back h3 {
+  margin-bottom: 0.5rem;
+}
 
-/* Добавь новый стиль для призыва */
+/* Призыв к действию */
 .card__back-cta {
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.75);
-    margin-bottom: 1.5rem;
-    line-height: 1.4;
-    text-transform: none; /* Убираем uppercase для читабельности */
-    letter-spacing: normal;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+  text-transform: none;
+  letter-spacing: normal;
 }
 
-/* Выравнивание иконок и текста */
-.header__brand-info {
-    width: 100%; /* Занимаем всю ширину */
-    max-width: 260px; /* Ограничиваем, чтобы не выглядело растянуто */
-    margin-top: 1rem;
-    margin-bottom: auto; /* Сдвигает кнопку "Zurück" вниз */
-    text-align: left; /* Выравнивание текста внутри влево */
-}
-
-.header__brand-info-settings {
-    display: flex;
-    align-items: center; /* Центрирование по вертикали */
-    gap: 1rem; /* Увеличиваем расстояние между иконкой и текстом */
-    padding: 0.5rem 0;
-    /* Можно добавить бордеры снизу для разделения */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05); 
-}
-
-.header__brand-info-settings:last-child {
-    border-bottom: none; /* Убираем бордер у последнего элемента */
-}
-
-/* Стиль для текста ссылок (телефона, почты, инстаграма) */
-.header__brand-info-settings div a {
-    font-size: 1rem;
-    font-weight: 500;
-}
-
-.header__brand-info-settings div a:hover {
-    color: var(--color-blue, #00c6ff); /* Используй один из цветов градиента */
-}
-
-/* Улучшение внешнего вида иконок */
-.header__brand-info-settings .fa-brands, .fa-regular, .fa-solid {
-    min-width: 24px; /* Фиксированный размер для выравнивания */
-    text-align: center;
-    transition: transform 0.3s ease;
-}
-
-/* Немного подсветим кнопку "Zurück" */
+/* Кнопка "Zurück" */
 .card__back .card__button-outline {
-    margin-top: 1.5rem; /* Отступ от контактов */
+  margin-top: 1.5rem;
 }
 
-
-
-
-
-/* ================================
-   OPTIONAL: плавное появление содержимого
-   при перевороте (для “премиальности”)
-   ================================ */
-.card__back,
-.card__front {
-  transition: opacity 0.6s ease;
-}
-
+/* ==========================================================
+   ЭФФЕКТЫ ПЕРЕХОДА ПРИ ПЕРЕВОРОТЕ
+   ========================================================== */
 .card.flipped .card__front {
   opacity: 0;
 }
@@ -206,86 +141,113 @@
   opacity: 1;
 }
 
-
-
-
-
-
+/* ==========================================================
+   КОНТАКТНЫЙ БЛОК (внутри обратной стороны)
+   ========================================================== */
 .header__brand-info {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
+  width: 100%;
+  max-width: 260px;
+  margin-top: 1rem;
+  margin-bottom: auto;
   gap: 1rem;
+  text-align: left;
 }
 
 .header__brand-info-settings {
   display: flex;
-  gap: 0.5rem;
-
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.5rem 0;
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.25);
 }
 
-.header__brand-info-settings a {
+.header__brand-info-settings:last-child {
+  border-bottom: none;
+}
+
+.header__brand-info-settings .card__fa-icons {
+  font-size: 1rem;
+  font-weight: 500;
   color: #fff;
 }
 
-.header__brand-info-settings .fa-brands, .fa-regular, .fa-solid {
-  font-size: 24px;
-  margin-top: 0.15rem;
+.header__brand-info-text {
+  font-size: 0.95rem;
+  font-weight: normal;
+  color: #fff;
 }
 
+.header__brand-info-settings a:hover {
+  color: var(--color-blue, #00c6ff);
+}
 
-/* fa-whatsapp */
+/* Иконки */
+.header__brand-info-settings .fa-brands,
+.header__brand-info-settings .fa-regular,
+.header__brand-info-settings .fa-solid {
+  font-size: 24px;
+  min-width: 24px;
+  text-align: center;
+  margin-top: 0.15rem;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* ==========================================================
+   ИКОНКИ WHATSAPP + EMAIL + INSTAGRAM (с градиентом и анимацией)
+   ========================================================== */
+
+/* WhatsApp */
 .fa-whatsapp {
-  /* градиент фирменного зелёного WhatsApp */
   background: linear-gradient(45deg, #25D366, #128C7E, #0bdec5);
-
-  /* Для WebKit-браузеров (Chrome, Safari, Edge Chromium) */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-
-  /* Стандартный вариант (частично поддерживается Firefox) */
   background-clip: text;
   color: transparent;
-
-  /* Дополнительно */
   font-weight: bold;
   cursor: pointer;
-
-  /* Animations */
-  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .fa-whatsapp:hover {
   transform: scale(1.2) rotate(10deg);
   filter: drop-shadow(0 0 6px #25D366) drop-shadow(0 0 4px #128C7E);
 }
-/* End fa-whatsapp */
 
-
-
-/* fa-envelope */
+/* Email */
 .fa-envelope {
-  /* градиент через фон и маску текста */
   background: linear-gradient(45deg, #1DA1F2, #0a74da, #00c6ff);
-
-  /* Для WebKit-браузеров (Chrome, Safari, Edge Chromium) */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-
-  /* Стандартный вариант (частично поддерживается Firefox) */
   background-clip: text;
   color: transparent;
-
-  /* Дополнительно */
   cursor: pointer;
-
-  /* Animations */
-  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .fa-envelope:hover {
   transform: scale(1.2) rotate(-10deg);
   filter: drop-shadow(0 0 6px #00c6ff) drop-shadow(0 0 4px #1DA1F2);
 }
-/* End fa-envelope */
+
+.fa-instagram {
+  background: linear-gradient(45deg,
+    #f58529 0%, 
+    #feda77 25%, 
+    #dd2a7b 50%, 
+    #8134af 75%, 
+    #515bd4 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.fa-instagram:hover {
+  transform: scale(1.2) rotate(-10deg);
+  filter: drop-shadow(0 0 6px #dd2a7b)
+          drop-shadow(0 0 4px #8134af);
+}
