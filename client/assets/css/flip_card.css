@@ -55,7 +55,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 
   /* Отображение только лицевой стороны */
   backface-visibility: hidden;
@@ -79,6 +79,21 @@
 .card__back h3 {
   margin-bottom: 0.5rem;
 }
+
+/* Улучшение стиля для описания (p) */
+.card__front p {
+    flex-grow: 1; /* Оставим это, чтобы оно занимало место */
+    font-size: 1rem; /* Увеличим для лучшей читабельности */
+    color: rgba(255, 255, 255, 0.85); /* Более светлый цвет */
+    line-height: 1.5;
+    letter-spacing: normal; /* Убираем сильный letter-spacing */
+    text-transform: none; /* Обязательно убираем uppercase для описания */
+    margin: 0.8rem 1rem 0 1rem; /* Добавляем горизонтальный отступ */
+    max-height: 5em; /* Можно увеличить до 4-5 строк */
+    /* остальное (webkit-box, -webkit-line-clamp) можно оставить */
+}
+
+
 
 /* ================================
    CARD BACK (задняя сторона)
@@ -114,6 +129,65 @@
 
   color: #fff;
 }
+
+
+/* Добавь новый стиль для призыва */
+.card__back-cta {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 1.5rem;
+    line-height: 1.4;
+    text-transform: none; /* Убираем uppercase для читабельности */
+    letter-spacing: normal;
+}
+
+/* Выравнивание иконок и текста */
+.header__brand-info {
+    width: 100%; /* Занимаем всю ширину */
+    max-width: 260px; /* Ограничиваем, чтобы не выглядело растянуто */
+    margin-top: 1rem;
+    margin-bottom: auto; /* Сдвигает кнопку "Zurück" вниз */
+    text-align: left; /* Выравнивание текста внутри влево */
+}
+
+.header__brand-info-settings {
+    display: flex;
+    align-items: center; /* Центрирование по вертикали */
+    gap: 1rem; /* Увеличиваем расстояние между иконкой и текстом */
+    padding: 0.5rem 0;
+    /* Можно добавить бордеры снизу для разделения */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05); 
+}
+
+.header__brand-info-settings:last-child {
+    border-bottom: none; /* Убираем бордер у последнего элемента */
+}
+
+/* Стиль для текста ссылок (телефона, почты, инстаграма) */
+.header__brand-info-settings div a {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.header__brand-info-settings div a:hover {
+    color: var(--color-blue, #00c6ff); /* Используй один из цветов градиента */
+}
+
+/* Улучшение внешнего вида иконок */
+.header__brand-info-settings .fa-brands, .fa-regular, .fa-solid {
+    min-width: 24px; /* Фиксированный размер для выравнивания */
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+/* Немного подсветим кнопку "Zurück" */
+.card__back .card__button-outline {
+    margin-top: 1.5rem; /* Отступ от контактов */
+}
+
+
+
+
 
 /* ================================
    OPTIONAL: плавное появление содержимого
