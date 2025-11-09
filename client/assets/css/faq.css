@@ -1,5 +1,7 @@
 .faq__section {
-  background-color: rgba(76, 91, 92, 1);
+  /*background-color: rgba(76, 91, 92, 1);*/
+  background: linear-gradient(180deg, #4c5b5c, #1a1a1a);
+  padding: 4rem 1rem;
 }
 
 .faq {
@@ -7,6 +9,14 @@
   margin: 2rem auto;
   font-family: "Inter", sans-serif;
   color: #f1f1f1;
+}
+
+.faq__title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+  color: #fff;
 }
 
 .faq__item {

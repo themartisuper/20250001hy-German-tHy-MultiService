@@ -44,11 +44,20 @@ document.querySelectorAll('.card').forEach(card => {
 
 // FAQ
 document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll('.faq__question').forEach(q => {
-    q.addEventListener('click', () => {
-      const item = q.parentNode;
-      item.classList.toggle('active');
+  const items = document.querySelectorAll(".faq__item");
+
+  items.forEach((item) => {
+    const question = item.querySelector(".faq__question");
+    question.addEventListener("click", () => {
+      const isActive = item.classList.contains("active");
+
+      // закрываем все остальные
+      items.forEach((el) => el.classList.remove("active"));
+
+      // открываем только выбранный
+      if (!isActive) item.classList.add("active");
     });
   });
 });
+
 // End FAQ
