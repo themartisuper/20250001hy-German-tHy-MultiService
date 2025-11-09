@@ -140,19 +140,18 @@ a:not(.header__brand, .card__button):hover {
   gap: 0.5rem;
 }
 
-.button-anmelden {
+.sign-up__button {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
-.fa-regular {
+.fa-regular .fa-circle-user {
   color: #000;
   font-size: 1.75rem;
 }
 
-.anmelden { 
-  font-size: 24px;
+.sign-up__text { 
   color: var(--color-text-2);
 }
 
@@ -260,3 +259,97 @@ a:not(.header__brand, .card__button):hover {
 
 
 
+
+
+
+/* =============================
+   BURGER MENU
+============================= */
+.burger {
+  display: none;
+  width: 28px;
+  height: 20px;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  z-index: 11; /* чтобы была над меню */
+}
+
+.burger span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: var(--color-text-2);
+  border-radius: 2px;
+  transition: 0.3s ease;
+}
+
+/* ====== Мобильная логика ====== */
+@media (max-width: 1366px) {
+  .burger {
+    display: flex;
+  }
+
+  .nav {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: var(--color-nav-bg);
+    border: 2px solid var(--color-border);
+    border-radius: 0.6rem;
+    padding: 1.5rem 2rem;
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+    animation: fadeIn 0.3s ease;
+  }
+
+  .nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .nav.active {
+    display: flex;
+  }
+
+  /* — Иконка крестика при активном меню — */
+  .burger.active span:nth-child(1) {
+    transform: rotate(45deg) translateY(11px);
+  }
+  .burger.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .burger.active span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-11px);
+  }
+
+  /* locales */
+  .custom-select-wrapper {
+    width: 2.5rem;
+  }
+  /* End locales */
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+
+/* === При больших экранах — меню обычное === */
+@media (min-width: 1367px) {
+  .nav {
+    display: flex !important;
+    position: static;
+    background: none;
+    border: none;
+    padding: 0;
+    box-shadow: none;
+  }
+
+  .nav ul {
+    flex-direction: row;
+  }
+}

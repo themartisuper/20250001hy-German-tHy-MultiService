@@ -30,7 +30,6 @@
   <link rel="stylesheet" href="client/assets/css/style.css">
   <link rel="stylesheet" href="client/assets/css/header.css">
   <link rel="stylesheet" href="client/assets/css/style_footer.css">
-  <link rel="stylesheet" href="client/assets/css/style_payments.css">
 
   <link rel="stylesheet" href="client/assets/css/accordion.css">
 
@@ -55,52 +54,19 @@
 <!-- End SVG locales -->
 
 <!-- HEADER -->
-<!--<header class="header">
-  <!--<div class="header__buisness">
-    <div class="header__brand">
-      <a href="#0"><img class="header__buisness-logo" src="assets/icons/webp/symbol_logo_transparent_16to9-compressed.webp" alt="firmenlogo"></a>
-      <a href="#0"><h1 class="desktop__brand-name">German tHÿ MultiService</h1></a>
-      <a href="#0"></a><h1 class="phone__brand-name">German tHÿ<br>MultiService</h1></a>
-    </div>
-
-    <div class="header__brand-info">
-      <div class="header__brand-info-settings header__brand-info-telefonnumber">
-        <i class="fa-brands fa-whatsapp"></i>
-        <div>
-          <h6 data-i18n="call_us">Anrufen</h6>
-          <a href="tel:+4917661219130">+49 176 61219130</a>
-        </div>
-      </div>
-
-      <div class="header__brand-info-settings header__brand-info-email">
-        <i class="fa-regular fa-envelope"></i>
-        <div>
-          <h6 data-i18n="mail_us">E-Mail</h6>
-          <a href="mailto:info@sobaka.ge">mail</a>
-        </div>
-      </div>
-
-      <div class="header__brand-info-settings header__brand-info-adress">
-        <a href="https://maps.app.goo.gl/UzyQu6RJMkss4q53A" target="_blank" rel="noopener noreferrer" class="fa-solid fa-location-dot"></a>
-        <div>
-          <h6 data-i18n="adress">E-Mail</h6>
-          <a href="https://maps.app.goo.gl/UzyQu6RJMkss4q53A" target="_blank" rel="noopener noreferrer" class="map-link">Adresse</a>
-
-        </div>
-      </div>
-    </div>
-  </div> -->
-<!--</header> -->
-
-
-
 <div class="header__content">
   <a class="header__brand" href="#section__main" rel="noopener noreferrer">
     <img class="header__brand-logo" src="client/assets/icons/webp/symbol_logo_transparent_16to9-compressed.webp" alt="firmenlogo">
     <h1 class="desktop__brand-name">German tHÿ<br>MultiService</h1>
   </a>
 
-  <nav class="nav">
+  <div class="burger" id="burger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <nav class="nav" id="nav">
     <ul>
       <li><a data-i18n="home" href="#section__main">Home</a></li>
       <li><a data-i18n="sale" href="#">Sale</a></li>
@@ -108,15 +74,7 @@
       <li><a ata-i18n="service" href="#">Über uns</a></li>
       <li><a ata-i18n="contact" href="#">Kontakt</a></li>
     </ul>
-  </nav>
-  <!--<div class="custom-select-wrapper">
-    <select id="language-selector">
-      <option value="de" class="flag-de">Deutsch</option>
-      <option value="en" class="flag-en">English</option>
-      <option value="ru" class="flag-ru">Русский</option>
-    </select> 
-  </div>-->
-  <div class="sign-up">
+    
     <!-- locales -->
     <div class="custom-select-wrapper">
       <div class="custom-select">
@@ -139,12 +97,21 @@
     </div>
     <!-- End locales -->
 
-    <div class="button-anmelden">
-      <h1 class="anmelden">Anmelden&ensp;</h1>
-      <i class="fa-regular fa-circle-user"></i>
+    <div class="sign-up">
+      <div class="sign-up__button">
+        <a class="sign-up__text">Anmelden&ensp;</a>
+        <i class="fa-regular fa-circle-user"></i>
+      </div>
     </div>
-  </div>
+  </nav>
+
+  
 </div>
+<!-- End HEADER -->
+
+
+
+
 
 
 
