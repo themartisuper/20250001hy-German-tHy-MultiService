@@ -317,13 +317,13 @@ a:not(.header__brand, .card__button):hover {
 
   /* — Иконка крестика при активном меню — */
   .burger.active span:nth-child(1) {
-    transform: rotate(45deg) translateY(11.5px);
+    transform: rotate(45deg) translateY(12px);
   }
   .burger.active span:nth-child(2) {
     opacity: 0;
   }
   .burger.active span:nth-child(3) {
-    transform: rotate(-45deg) translateY(-11.5px);
+    transform: rotate(-45deg) translateY(-12px);
   }
 
   /* locales */
