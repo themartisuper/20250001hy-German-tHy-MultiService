@@ -1,0 +1,262 @@
+/* Root variables */
+:root {
+  --font-main: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-accent: "Raleway", sans-serif;
+  --color-bg: #242424;
+  --color-text: #ffffff;
+  --color-text-2: #242424;
+
+  --color-accent: #2563eb;
+  --color-muted: #6b7280;
+  --container-width: 1200px;
+  --border-radius: 0.5rem;
+  --transition-fast: 0.2s ease-in-out;
+
+  --color-nav-bg: #FFFDF2;
+
+  --color-header-bg: #000;
+  --color-border: #000;
+
+  /* === locales === */
+  --color-locales-text-selected: #000000;
+  --color-locales-text: #ffffff;
+  --color-locales-border: #000000;
+  /* === End locales === */
+}
+
+/* === Header === */
+.header__buisness {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 2rem;
+}
+
+.header__brand-logo {
+  width: 100px;
+}
+
+.header__brand {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  /* background-color: var(--color-header-bg); */
+}
+
+.desktop__brand-name {
+  font-size: 20px;
+  color: var(--color-text-2);
+  font-family: sans-serif;
+}
+
+.phone__brand-name {
+  display: none;
+}
+@media (max-width: 468px) {
+  .desktop__brand-name {
+    display: none;
+  }
+
+  .phone__brand-name {
+    display: block;
+    font-size: 24px;
+  }
+
+  .header__brand-logo {
+    width: 100px;
+  }
+}
+
+
+
+
+
+/* fa-location-dot */
+.fa-location-dot {
+  font-size: 2rem; /* размер иконки */
+  
+  /* Градиент */
+  background: linear-gradient(45deg, #de8c08, #bd6812);
+  
+  /* WebKit-браузеры */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+  /* Стандартное свойство для совместимости */
+  background-clip: text;
+  color: transparent;
+  
+  /* Дополнительно */
+  cursor: pointer;
+
+  /* Animations */
+  transition: transform 0.3s ease, filter 0.3s ease;
+  /* Дополнительно: плавная анимация градиента */
+  background-size: 200% 200%;
+  animation: gradientMove 3s ease infinite;
+}
+
+/* Gradien animation */
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.fa-location-dot:hover {
+  transform: scale(1.2) rotate(-10deg);
+  filter: drop-shadow(0 0 6px #00c6ff) drop-shadow(0 0 4px #1DA1F2);
+}
+/* End fa-location-dot */
+
+
+
+
+a {
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--color-text-2);
+  transition: 
+    transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+    color 0.3s ease,
+    text-shadow 0.3s ease;
+}
+
+a:not(.header__brand, .card__button):hover {
+  transform: translateY(-4px) scale(1.05);
+  color: #1558b0;
+  text-shadow: 0 4px 10px rgba(26, 115, 232, 0.4);
+}
+
+.sign-up {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.button-anmelden {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.fa-regular {
+  color: #000;
+  font-size: 1.75rem;
+}
+
+.anmelden { 
+  font-size: 24px;
+  color: var(--color-text-2);
+}
+
+.kreis {
+  border: 1px solid var(--color-text-2);
+  border-radius: 50%;
+}
+
+
+
+  /* === header__content === */
+.header__content {
+  z-index: 9;
+  position: fixed;
+  top: 40px;
+  width: 90%;
+  left: 5%;
+  padding: 1rem 1.5rem;
+  border: 2px solid var(--color-border);
+  border-radius: 0.6rem;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-nav-bg);
+  transition: padding 0.2s ease, box-shadow 0.2s ease;
+
+}
+
+.header__content ul {
+  display: flex;
+
+  gap: 1.5rem;
+}
+  /* === End header__content === */
+/* === End Header === */
+
+
+
+
+/* ===== Language ===== */
+.custom-select {
+  position: relative;
+  width: auto;
+  font-family: sans-serif;
+}
+
+.selected {
+  cursor: pointer;
+  padding: 5px 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--color-locales-border);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--color-locales-text-selected);
+}
+
+.options {
+  display: none; /* <-- важно */
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: #2a2a2a;
+  color: var(--color-locales-text);
+  border: 1px solid #666;
+  border-radius: 6px;
+  list-style: none;
+  margin: 4px 0 0 0;
+  padding: 0;
+  z-index: 10;
+}
+
+.custom-select.open .options {
+  display: block; /* <-- показываем только при открытии */
+}
+
+.options li {
+  padding: 6px 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.options li:hover {
+  background: #444;
+}
+
+.custom-select .options {
+  display: none !important;
+}
+.custom-select.open .options {
+  display: block !important;
+}
+
+.flag-locales {
+  width: 24px;
+  height: 18px;
+}
+/* ===== End Language ===== */
+
+
+
+

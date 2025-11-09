@@ -16,7 +16,7 @@ footer {
   position: relative;
 }
 
-footer a, h4, h5, h6, .footer__body-contact a {
+footer a, footer h4, footer h5, footer h6, .footer__body-contact a {
   color: #242424;
 
   font-size: 1.25rem;
