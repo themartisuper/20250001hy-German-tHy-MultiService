@@ -1,0 +1,93 @@
+* {
+  box-sizing: border-box;
+}
+
+.reviews {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 0 2rem;
+  padding-bottom: 3rem;
+
+  background-color: #fff;
+  color: #242424;
+}
+
+.reviews__title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 0.5rem;
+  margin: 2rem 0;
+}
+
+.reviews__title-title {
+  color: #242424;
+}
+
+.reviews__title-second-title {
+  color: #242424;
+  font-weight: normal;
+}
+
+.reviews__customers {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.reviews__customers-card {
+  display: flex;
+  flex-direction: column;
+
+  max-width: 24%;
+
+  gap: 1.5rem;
+  padding: 2rem;
+
+  background-color: rgba(255, 249, 175, 1);
+}
+
+.reviews__customers-card h5 {
+  font-weight: normal;
+  color: #242424;
+  line-height: 1.9rem;
+
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.reviews__customers-card-profile {
+  display: flex;
+  gap: 1rem;
+}
+
+.reviews__customers-card-profile h4 {
+  color: #242424;
+}
+
+.fa-star {
+  font-size: 24px;
+}
+
+.reviews__customers-card-service {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 0.5rem;
+}
+
+.reviews__customers-card-service h5 {
+  color: #242424;
+  font-weight: normal;
+}
+
+.reviews__customers-card-service a h5{
+  cursor: pointer;
+  font-weight: 600;
+}
+
+

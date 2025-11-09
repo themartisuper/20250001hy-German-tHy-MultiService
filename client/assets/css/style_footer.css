@@ -3,9 +3,24 @@ html, body { overflow-x: hidden; } */
 
 footer {
   margin: 0;
-  background: linear-gradient(#ffffff, #ffffff);
-  font-family: "Euclid Circular A", "Poppins";
+  padding: 0;
+  background-color: rgba(255, 249, 175, 1);
+  font-family: "Raleway", sans-serif;
   color: #d6dfed;
+
+  font-size: 1.25rem;
+
+  width: 100%;
+  height: auto;  /* пусть сам растёт по контенту */
+  box-sizing: border-box;
+  position: relative;
+}
+
+footer a, h4, h5, h6, .footer__body-contact a {
+  color: #242424;
+
+  font-size: 1.25rem;
+  font-weight: normal;
 }
 
 .ul-footer {
@@ -25,22 +40,25 @@ footer {
   color: inherit;
 }
 
-.links {
-  gap: 10px;
+.footer__body-links {
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.5rem;
+}
+
+.footer__body-links a {
+  font-weight: normal;
 }
 
 .legal {
-  font-size: 12px;
-  margin: 0;
-  color: #000000;
-}
+  display: flex;
+  justify-content: center;
+  padding: 0.4rem;
+  font-weight: normal;
+  color: #242424;
 
-footer {
-  width: 100%;
-  height: auto;  /* пусть сам растёт по контенту */
-  padding: 40px 16px 24px; /* подгони под дизайн, если надо */
-  box-sizing: border-box;
-  position: relative;
+  background-color: #fff;
 }
 
 /* Все дети внутри блока внизу секции, 
@@ -49,18 +67,9 @@ footer {
 .section-footer {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
   align-items: center;
   gap: 30px;
-  width: 100%;
 }
-
-@media (width > 520px) {
-  footer {
-    padding-top: 40px;
-  }
-}
-
 
 
 /* Icon Colors */
@@ -93,4 +102,119 @@ footer {
   background: linear-gradient(180deg, #1877F2 0%, #0E5AC8 100%);
   background-clip: text; -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.footer__body {
+  padding: 2rem 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.footer__body-legal {
+  display: flex;
+  flex-direction: column;
+  
+  gap: 0.5rem;
+}
+
+.footer__body-operating-hours-and-socials {
+  display: flex;
+  flex-direction: column;
+
+
+  gap: 1.5rem;
+}
+
+.footer__body-operating-hours {
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.6rem;
+}
+
+.footer__body-contact {
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.5rem;
+}
+
+
+
+
+
+
+
+
+
+.social__icons a:hover {
+  color: var(--color-blue, #00c6ff);
+}
+
+/* Иконки */
+.social__icons-settings .fa-brands,
+.social__icons-settings .fa-regular,
+.social__icons-settings .fa-solid {
+  font-size: 24px;
+  min-width: 24px;
+  
+  margin-top: 0.5rem;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* ==========================================================
+   ИКОНКИ WHATSAPP + EMAIL + INSTAGRAM (с градиентом и анимацией)
+   ========================================================== */
+
+/* WhatsApp */
+.fa-whatsapp {
+  background: linear-gradient(45deg, #25D366, #128C7E, #0bdec5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.fa-whatsapp:hover {
+  transform: scale(1.2) rotate(10deg);
+  filter: drop-shadow(0 0 6px #25D366) drop-shadow(0 0 4px #128C7E);
+}
+
+/* Email */
+.fa-envelope {
+  background: linear-gradient(45deg, #1DA1F2, #0a74da, #00c6ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  cursor: pointer;
+}
+
+.fa-envelope:hover {
+  transform: scale(1.2) rotate(-10deg);
+  filter: drop-shadow(0 0 6px #00c6ff) drop-shadow(0 0 4px #1DA1F2);
+}
+
+.fa-instagram {
+  background: linear-gradient(45deg,
+    #f58529 0%, 
+    #feda77 25%, 
+    #dd2a7b 50%, 
+    #8134af 75%, 
+    #515bd4 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.fa-instagram:hover {
+  transform: scale(1.2) rotate(-10deg);
+  filter: drop-shadow(0 0 6px #dd2a7b)
+          drop-shadow(0 0 4px #8134af);
 }

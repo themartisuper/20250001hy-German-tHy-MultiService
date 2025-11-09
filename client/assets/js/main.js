@@ -37,3 +37,18 @@ document.querySelectorAll('.card').forEach(card => {
   });
 });
 // End CARD FLIP
+
+
+
+
+
+// FAQ
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll('.faq__question').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentNode;
+      item.classList.toggle('active');
+    });
+  });
+});
+// End FAQ
