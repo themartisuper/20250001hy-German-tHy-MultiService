@@ -26,30 +26,30 @@ window.addEventListener('scroll', () => {
 
 
 
-// HEADER
-const burger = document.getElementById('burger');
-const nav = document.getElementById('nav');
 
-burger.addEventListener('click', () => {
-  burger.classList.toggle('active');
-  nav.classList.toggle('active');
-});
-// End HERADER
+document.addEventListener('DOMContentLoaded', () => {
+  // HEADER
+  const burger = document.getElementById('burger');
+  const nav = document.getElementById('nav');
 
+  if (burger && nav) {
+    burger.addEventListener('click', () => {
+      burger.classList.toggle('active');
+      nav.classList.toggle('active');
+    });
+  }
 
-
-
-
-// CARD FLIP
-document.querySelectorAll('.card').forEach(card => {
-  const flipBtns = card.querySelectorAll('.flip-btn');
-  flipBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      card.classList.toggle('flipped');
+  // CARD FLIP
+  document.querySelectorAll('.card').forEach(card => {
+    const flipBtns = card.querySelectorAll('.flip-btn');
+    flipBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        card.classList.toggle('flipped');
+      });
     });
   });
 });
-// End CARD FLIP
+
 
 
 

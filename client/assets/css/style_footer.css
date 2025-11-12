@@ -218,3 +218,101 @@ footer a, footer h4, footer h5, footer h6, .footer__body-contact a {
   filter: drop-shadow(0 0 6px #dd2a7b)
           drop-shadow(0 0 4px #8134af);
 }
+
+
+
+
+
+
+
+
+
+/* ================== MOBILE ADAPTIVE ================== */
+@media (max-width: 768px) {
+  .footer__body {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 1.5rem 1rem;
+  }
+
+  .footer__body-legal {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .footer__body-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .footer__body-operating-hours-and-socials {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .footer__body-operating-hours h5 {
+    font-size: 1rem;
+  }
+
+  .socials {
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .footer__body-contact {
+    align-items: center;
+    text-align: center;
+  }
+
+  .social__icons {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .social__icons-settings {
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .social__icons-settings a {
+    font-size: 20px;
+  }
+
+  footer a, footer h5 {
+    font-size: 1rem;
+  }
+
+  .legal {
+    font-size: 0.9rem;
+    padding: 0.3rem;
+  }
+}
+
+/* Для совсем маленьких экранов */
+@media (max-width: 480px) {
+  .footer__body {
+    gap: 1.2rem;
+    padding: 1rem 0.5rem;
+  }
+
+  .footer__body-links a,
+  .footer__body-legal a,
+  .footer__body-contact a,
+  .footer__body-operating-hours h5 {
+    font-size: 0.9rem;
+  }
+
+  .socials a,
+  .social__icons-settings a {
+    font-size: 18px;
+  }
+}
