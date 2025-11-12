@@ -63,7 +63,7 @@
   width: 30%;
 }
 
-.site-notice-overlay-button-2 {
+.site-notice-overlay-button-email {
   width: 60%;
 }
 
@@ -82,6 +82,13 @@
 .site-notice-content p {
   font-size: 1.1rem;
   opacity: 0.9;
+}
+
+
+
+
+.site-notice-overlay__phone {
+  display: none;
 }
 
 /* Плавное появление */
@@ -104,23 +111,50 @@
     border-radius: 15px;
   }
 
-  .site-notice-content h2 {
+  .site-notice-overlay h2 {
     font-size: 1.6rem;
   }
 
   .site-notice-content p {
     font-size: 1rem;
   }
+
+  .site-notice-overlay__desktop {
+    display: none;
+  }
+
+  .site-notice-overlay__phone {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .site-notice-content-kontakt__buttons {
+    display: flex;
+    justify-content: center;
+
+    gap: 1rem;
+  }
+
+  .site-notice-overlay-button {
+    font-size: 1.75rem;
+  }
+
+  .site-notice-overlay__phone .site-notice-overlay-button-email {
+    width: 64%;
+    align-self: center;
+    margin-top: 0;
+  }
+
 }
 
 /* Для очень маленьких экранов до 480px (телефоны) */
 @media (max-width: 480px) {
-  .site-notice-content {
+  .site-notice-content, .site-notice-overlay__phone {
     padding: 1.2rem 1.5rem;
     width: 90%;
   }
 
-  .site-notice-content h2 {
+  .site-notice-overlay h2 {
     font-size: 1.3rem;
     line-height: 1.3;
   }
@@ -128,4 +162,6 @@
   .site-notice-content p {
     font-size: 0.95rem;
   }
+
+  
 }
