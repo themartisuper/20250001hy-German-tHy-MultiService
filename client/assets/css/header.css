@@ -43,7 +43,7 @@
   /* background-color: var(--color-header-bg); */
 }
 
-.desktop__brand-name {
+.brand-name {
   font-size: 20px;
   color: var(--color-text-2);
   font-family: sans-serif;
@@ -53,8 +53,8 @@
   display: none;
 }
 @media (max-width: 468px) {
-  .desktop__brand-name {
-    display: none;
+  .brand-name {
+    font-size: 1.15rem;
   }
 
   .phone__brand-name {

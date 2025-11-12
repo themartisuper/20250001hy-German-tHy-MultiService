@@ -13,7 +13,7 @@
 .section__main {
   position: relative;
   width: 100%;
-  height: 80vh; /* или другая высота */
+  height: 100vh; /* или другая высота */
   background-image: url("../images/compressed/home_main_2_1-compressed.png");
   background-position: center;
   background-size: cover;
@@ -43,12 +43,14 @@
 
 .section__main-button {
   display: inline-block;
-  margin-top: 20px;
   padding: 10px 40px;
   background-color: var(--color-button-section-main);
   color: var(--color-text-second);
   text-decoration: none;
   border-radius: 80px;
+
+  font-size: 1.5rem;
+
 }
 
 .section__main-button:hover {
@@ -62,4 +64,29 @@
 .section__main-content-text {
   margin-top: 1rem;
   margin-left: 2rem;
+}
+
+
+.section__main-content-text h1 {
+  font-size: 2.75rem;
+  font-weight: bold;
+}
+
+.section__main-content-text p {
+  font-size: 1.4rem;
+  font-weight: normal;
+}
+
+
+
+/* --- АДАПТАЦИЯ ПОД МОБИЛЬНЫЕ --- */
+
+/* Для экранов до 768px (планшеты и телефоны) */
+@media (max-width: 768px) {
+
+}
+
+/* Для очень маленьких экранов до 480px (телефоны) */
+@media (max-width: 480px) {
+
 }

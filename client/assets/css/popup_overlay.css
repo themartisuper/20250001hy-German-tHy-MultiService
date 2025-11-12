@@ -144,7 +144,6 @@
     align-self: center;
     margin-top: 0;
   }
-
 }
 
 /* Для очень маленьких экранов до 480px (телефоны) */
@@ -162,6 +161,4 @@
   .site-notice-content p {
     font-size: 0.95rem;
   }
-
-  
 }
