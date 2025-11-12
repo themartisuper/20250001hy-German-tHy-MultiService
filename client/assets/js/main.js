@@ -74,3 +74,72 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // End FAQ
+
+
+
+
+
+// === scroll reviews //
+
+const slider = document.querySelector('.reviews__customers');
+
+let isDown = false;
+let startX;
+let scrollLeft;
+let velocity = 0;
+let momentumID;
+
+const startDragging = (e) => {
+  isDown = true;
+  slider.classList.add('active');
+  startX = e.pageX - slider.offsetLeft;
+  scrollLeft = slider.scrollLeft;
+  velocity = 0;
+  cancelMomentum();
+};
+
+const stopDragging = () => {
+  if (!isDown) return;
+  isDown = false;
+  slider.classList.remove('active');
+  startMomentum();
+};
+
+const moveDragging = (e) => {
+  if (!isDown) return;
+  e.preventDefault(); // не даём выделять текст
+  const x = e.pageX - slider.offsetLeft;
+  const walk = (x - startX);
+  const prevScroll = slider.scrollLeft;
+  slider.scrollLeft = scrollLeft - walk;
+  velocity = slider.scrollLeft - prevScroll;
+};
+
+const startMomentum = () => {
+  cancelMomentum();
+  momentumID = requestAnimationFrame(momentumLoop);
+};
+
+const cancelMomentum = () => {
+  cancelAnimationFrame(momentumID);
+};
+
+const momentumLoop = () => {
+  slider.scrollLeft += velocity;
+  velocity *= 0.95; // коэффициент затухания
+  if (Math.abs(velocity) > 0.5) {
+    momentumID = requestAnimationFrame(momentumLoop);
+  }
+};
+
+slider.addEventListener('mousedown', startDragging);
+slider.addEventListener('mouseleave', stopDragging);
+slider.addEventListener('mouseup', stopDragging);
+slider.addEventListener('mousemove', moveDragging);
+
+// Поддержка тачей
+slider.addEventListener('touchstart', (e) => startDragging(e.touches[0]));
+slider.addEventListener('touchend', stopDragging);
+slider.addEventListener('touchmove', (e) => moveDragging(e.touches[0]));
+
+// === End scroll reviews //
