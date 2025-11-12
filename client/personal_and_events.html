@@ -52,23 +52,31 @@
 </svg>
 <!-- End SVG locales -->
 
+
+
+
+<!-- HEADER -->
 <div class="header__content">
   <a class="header__brand" href="../index.html" rel="noopener noreferrer">
     <img class="header__brand-logo" src="assets/icons/webp/symbol_logo_transparent_16to9-compressed.webp" alt="firmenlogo">
-    <h1 class="desktop__brand-name">German tHÿ<br>MultiService</h1>
+    <h1 class="brand-name">German tHÿ<br>MultiService</h1>
   </a>
 
-  <nav class="nav">
-    <ul>
-      <li><a data-i18n="home" href="../index.html" rel="noopener noreferrer">Home</a></li>
-      <li><a data-i18n="sale" href="#" rel="noopener noreferrer">Sale</a></li>
-      <li><a ata-i18n="termine" href="#" rel="noopener noreferrer">Termine</a></li>
-      <li><a ata-i18n="service" href="#" rel="noopener noreferrer">Über uns</a></li>
-      <li><a ata-i18n="contact" href="#"rel="noopener noreferrer">Kontakt</a></li>
-    </ul>
-  </nav>
+  <div class="burger" id="burger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 
-  <div class="sign-up">
+  <nav class="nav" id="nav">
+    <ul>
+      <li><a data-i18n="home" href="../index.html">Home</a></li>
+      <li><a data-i18n="sale" href="#">Sale</a></li>
+      <li><a ata-i18n="termine" href="#">Termine</a></li>
+      <li><a ata-i18n="service" href="#">Über uns</a></li>
+      <li><a ata-i18n="contact" href="#contact">Kontakt</a></li>
+    </ul>
+
     <!-- locales -->
     <div class="custom-select-wrapper">
       <div class="custom-select">
@@ -90,12 +98,16 @@
       </select>
     </div>
     <!-- End locales -->
-    <div class="button-anmelden">
-      <h1 class="anmelden">Anmelden&ensp;</h1>
-      <i class="fa-regular fa-circle-user"></i>
+
+    <div class="sign-up">
+      <div class="sign-up__button">
+        <a class="sign-up__text">Anmelden&ensp;</a>
+        <i class="fa-regular fa-circle-user"></i>
+      </div>
     </div>
-  </div>
+  </nav>
 </div>
+<!-- End HEADER -->
 
 <!-- catalog -->
 <div class="catalog__background-personal-and-events">

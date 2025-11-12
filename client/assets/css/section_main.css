@@ -83,10 +83,15 @@
 
 /* Для экранов до 768px (планшеты и телефоны) */
 @media (max-width: 768px) {
+  .section__main-content-text h1 {
+    font-size: 1.65rem;
+  }
 
+  .section__main-content-text p {
+    font-size: 1.35rem;
+  }
 }
 
 /* Для очень маленьких экранов до 480px (телефоны) */
 @media (max-width: 480px) {
-
 }

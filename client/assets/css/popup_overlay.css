@@ -65,11 +65,12 @@
 
 .site-notice-overlay-button-email {
   width: 60%;
+  margin-top: 0.5rem;
 }
 
 
 .site-notice-overlay__callus {
-  margin-top: 4rem;
+  margin-top: 0rem;
 }
 
 /* Заголовок и текст */
@@ -144,6 +145,11 @@
     align-self: center;
     margin-top: 0;
   }
+
+  .site-notice-overlay__callus {
+    margin-top: 8rem;
+  }
+
 }
 
 /* Для очень маленьких экранов до 480px (телефоны) */
