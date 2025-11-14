@@ -1,0 +1,78 @@
+.coupon-form {
+  max-width: 650px;
+  margin: 40px auto;
+  margin-top: 9rem;
+  padding: 30px 35px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  font-family: system-ui, sans-serif;
+}
+
+.coupon-form h2 {
+  margin-bottom: 25px;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+}
+
+.coupon-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+  color: #222;
+}
+
+.coupon-form input,
+.coupon-form select,
+.coupon-form textarea {
+  padding: 12px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #fafafa;
+  transition: 0.25s border, 0.25s background;
+}
+
+.coupon-form input:focus,
+.coupon-form select:focus,
+.coupon-form textarea:focus {
+  outline: none;
+  border-color: #0082ff;
+  background: #fff;
+}
+
+.form-row {
+  display: flex;
+  gap: 20px;
+}
+
+.form-row label {
+  flex: 1;
+}
+
+.coupon-form button {
+  width: 100%;
+  padding: 14px;
+  background: #0082ff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.coupon-form button:hover {
+  background: #006ad1;
+}
+
+@media (max-width: 600px) {
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+}
