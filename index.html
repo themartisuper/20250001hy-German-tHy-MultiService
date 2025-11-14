@@ -169,6 +169,8 @@
   <button type="submit">Absenden</button>
 </form>
 
+<p id="status"></p>
+
 
 
 <!-- reviews -->
@@ -463,46 +465,33 @@
 <script src="client/assets/js/locales.js"></script>
 
 
+<form id="contactForm">
+  <input name="name" placeholder="Name" required />
+  <input name="email" type="email" placeholder="Email" required />
+  <textarea name="message" placeholder="Nachricht" required></textarea>
+  <button type="submit">Absenden</button>
+</form>
+
+<p id="status"></p>
+
 <script>
-import { useState } from "react";
-
-export default function Home() {
-  const [status, setStatus] = useState("");
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const data = new FormData(e.target);
-    const body = Object.fromEntries(data);
-
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body),
-      });
-
-      const result = await res.json();
-      if (res.ok) setStatus("Gesendet!");
-      else setStatus(result.error || "Fehler beim Senden");
-    } catch (err) {
-      setStatus("Fehler beim Senden");
-    }
-  };
-
-  return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <input name="name" placeholder="Name" required />
-        <input name="email" type="email" placeholder="Email" required />
-        <textarea name="message" placeholder="Nachricht" required></textarea>
-        <button type="submit">Absenden</button>
-      </form>
-      <p>{status}</p>
-    </div>
-  );
-}
-
+document.getElementById("contactForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const data = Object.fromEntries(new FormData(e.target));
+  
+  const res = await fetch("/api/contact", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data)
+  });
+  
+  const status = document.getElementById("status");
+  const result = await res.json();
+  if (res.ok) status.textContent = "Gesendet!";
+  else status.textContent = result.error || "Fehler beim Senden";
+});
 </script>
+
 
 
 </body>
