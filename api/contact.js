@@ -13,7 +13,7 @@ export default async function handler(req, res) {
 
   // Настроим SMTP через Nodemailer
   const transporter = nodemailer.createTransport({
-    host: "smtp.example.com",       // твой SMTP сервер
+    host: "smtp.gmail.com",       // твой SMTP сервер
     port: 587,                      // 587 или 465
     secure: false,                  // true для 465
     auth: {
