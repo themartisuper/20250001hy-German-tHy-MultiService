@@ -135,6 +135,7 @@
 
 
 
+
 <section class="section__main" id="section__main">
   <div class="section__main-content">
     <div class="section__main-content-text">
@@ -144,6 +145,36 @@
     </div>
   </div>
 </section>
+
+
+
+<form name="contact" method="POST" data-netlify="true" netlify>
+  <input type="hidden" name="form-name" value="contact" />
+
+  <!-- защита от ботов -->
+  <p hidden>
+    <label>Don’t fill this out: <input name="bot-field" /></label>
+  </p>
+
+  <h2>Kontakt</h2>
+
+  <div class="form-row">
+    <label for="name">Name</label>
+    <input id="name" name="name" type="text" required />
+  </div>
+
+  <div class="form-row">
+    <label for="email">E-Mail</label>
+    <input id="email" name="email" type="email" required />
+  </div>
+
+  <div class="form-row">
+    <label for="message">Nachricht</label>
+    <textarea id="message" name="message" required></textarea>
+  </div>
+
+  <button type="submit">Senden</button>
+</form>
 
 
 
