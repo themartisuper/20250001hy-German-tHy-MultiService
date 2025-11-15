@@ -163,13 +163,14 @@
 
 
 <form id="contactForm">
-  <input name="name" placeholder="Name" required />
-  <input name="email" type="email" placeholder="Email" required />
-  <textarea name="message" placeholder="Nachricht" required></textarea>
-  <button type="submit">Absenden</button>
+  <input type="text" name="name" placeholder="Имя" required />
+  <input type="email" name="email" placeholder="Email" required />
+  <textarea name="message" placeholder="Сообщение" required></textarea>
+  <button type="submit">Отправить</button>
 </form>
 
-<p id="status"></p>
+
+
 
 
 
@@ -465,35 +466,34 @@
 <script src="client/assets/js/locales.js"></script>
 
 
-<form id="contactForm">
-  <input name="name" placeholder="Name" required />
-  <input name="email" type="email" placeholder="Email" required />
-  <textarea name="message" placeholder="Nachricht" required></textarea>
-  <button type="submit">Absenden</button>
-</form>
-
-<p id="status"></p>
 
 <script>
-async function sendForm(e) {
-  e.preventDefault();
+const form = document.getElementById('contactForm');
 
-  const data = {
-    name: document.querySelector("#name").value,
-    email: document.querySelector("#email").value,
-    message: document.querySelector("#message").value
-  };
+form.addEventListener('submit', async (e) => {
+    e.preventDefault();
 
-  const res = await fetch("https://two0250001hy-backend-german-thy.onrender.com20250001hy-backend-german-thy-multiservice-production.up.railway.app", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data)
-  });
+    const data = Object.fromEntries(new FormData(form).entries());
 
-  const json = await res.json();
-  console.log(json);
-}
+    try {
+        const res = await fetch('https://20250001hy-backend-german-thy-multiservice-production.up.railway.app/send', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        });
 
+        const result = await res.json();
+        if(result.ok){
+            alert('Сообщение отправлено!');
+            form.reset();
+        } else {
+            alert('Ошибка: ' + (result.error || 'неизвестная'));
+        }
+    } catch (err) {
+        console.error(err);
+        alert('Сервер недоступен');
+    }
+});
 </script>
 
 
