@@ -475,7 +475,7 @@ form.addEventListener('submit', async (e) => {
     const data = Object.fromEntries(new FormData(form).entries());
 
     try {
-        const res = await fetch('https://20250001hy-backend-german-thy-multiservice-production.up.railway.app/', {
+        const res = await fetch('https://20250001hy-backend-german-thy-multiservice-production.up.railway.app/send', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)
