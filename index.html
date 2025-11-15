@@ -475,21 +475,25 @@
 <p id="status"></p>
 
 <script>
-document.getElementById("contactForm").addEventListener("submit", async (e) => {
+async function sendForm(e) {
   e.preventDefault();
-  const data = Object.fromEntries(new FormData(e.target));
-  
-  const res = await fetch("/api/contact", {
+
+  const data = {
+    name: document.querySelector("#name").value,
+    email: document.querySelector("#email").value,
+    message: document.querySelector("#message").value
+  };
+
+  const res = await fetch("https://two0250001hy-backend-german-thy.onrender.com20250001hy-backend-german-thy-multiservice-production.up.railway.app", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data)
   });
-  
-  const status = document.getElementById("status");
-  const result = await res.json();
-  if (res.ok) status.textContent = "Gesendet!";
-  else status.textContent = result.error || "Fehler beim Senden";
-});
+
+  const json = await res.json();
+  console.log(json);
+}
+
 </script>
 
 
