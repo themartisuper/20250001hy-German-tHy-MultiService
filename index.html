@@ -31,7 +31,7 @@
   <link rel="stylesheet" href="client/assets/css/header.css">
   <link rel="stylesheet" href="client/assets/css/style_footer.css">
 
-  <link rel="stylesheet" href="client/assets/css/accordion.css">
+  <link rel="stylesheet" href="client/assets/css/categories.css">
 
   <link rel="stylesheet" href="client/assets/css/section_main.css">
 
@@ -90,9 +90,9 @@
   <nav class="nav" id="nav">
     <ul>
       <li><a data-i18n="home" href="#section__main">Home</a></li>
-      <li><a data-i18n="sale" href="client/coupon-form.html">Gutschein</a></li>
-      <li><a ata-i18n="termine" href="#">Termine</a></li>
-      <li><a ata-i18n="service" href="#">Über uns</a></li>
+      <li><a data-i18n="coupon" href="client/coupon-form.html">Gutschein</a></li>
+      <li><a ata-i18n="package_deal " href="#">Pauschale </a></li>
+      <li><a ata-i18n="about_us" href="#">Über uns</a></li>
       <li><a ata-i18n="contact" href="#contact">Kontakt</a></li>
     </ul>
 
@@ -301,55 +301,60 @@
 
 <!-- categories -->
 <div class="categories" id="categories">
-  <div>
-    <h2>Unsere Leistungen</h2>
+  <div class="categories__title">
+    <h2>Leistungen</h2>
     <h3>Unsere herausragenden Dienstleistungen</h3>
   </div>
 
-  <ul class="accordion">
-    <li onclick="window.location.href='./client/transport_logistik.html'">
+  <div class="categories__list">
+    <div class="categories__item categories__item-transport" onclick="window.location.href='./client/transport_logistik.html'">
       <img src="client/assets/images/transport_logistik.PNG" alt="Transport"/>
-      <div class="content">
+      <div class="categories__content">
         <span>
           <h2>Transport</h2>
           <h4>&</h4>
           <h4>Logistik</h4>
         </span>
       </div>
-    </li>
-    <li onclick="window.location.href='./client/garten_haus.html'">
-      <img src="client/assets/images/garten_haus.PNG" />
-      <div class="content">
+    </div>
+
+    <div class="categories__item categories__item-garten" onclick="window.location.href='./client/garten_haus.html'">
+      <img src="client/assets/images/garten_haus.PNG" alt="Garten"/>
+      <div class="categories__content">
         <span>
           <h2>Garten</h2>
           <h4>&</h4>
           <h4>Haus</h4>
         </span>
       </div>
-    </li>
-    <li onclick="window.location.href='./client/personal_and_events.html'">
-      <img src="client/assets/images/events.PNG" />
-      <div class="content">
+    </div>
+
+    <div class="categories__item categories__item-personal" onclick="window.location.href='./client/personal_and_events.html'">
+      <img src="client/assets/images/events.PNG" alt="Events"/>
+      <div class="categories__content">
         <span>
           <h2>Persönliche Dienste</h2>
           <h4>&</h4>
           <h4>Events</h4>
         </span>
       </div>
-    </li>
-    <li onclick="window.location.href='./client/.html'">
-      <img src="client/assets/images/reinigung_pflege.PNG">
-      <div class="content">
+    </div>
+
+    <div class="categories__item categories__item-reinigung" onclick="window.location.href='./client/reinigung_pflege.html'">
+      <img src="client/assets/images/reinigung_pflege.PNG" alt="Reinigung"/>
+      <div class="categories__content">
         <span>
           <h2>Reinigung</h2>
           <h4>&</h4>
           <h4>Pflege</h4>
         </span>
       </div>
-    </li>
-  </ul>
+    </div>
+  </div>
 </div>
 <!-- End categories -->
+
+
 
 
 
