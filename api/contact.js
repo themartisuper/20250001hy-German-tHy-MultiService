@@ -4,6 +4,9 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: "Method Not Allowed" });
   }
 
+
+
+
   // --- 2. Деструктурируем данные формы ---
   const {
     first_name,
@@ -138,3 +141,11 @@ Nachricht: ${message || "-"}
     return res.status(500).json({ error: "Server error" });
   }
 }
+
+console.log("REQUEST BODY:", req.body);
+console.log("MAILJET RAW RESPONSE:", data);
+console.log("ENV:", {
+  MJ_PUBLIC: process.env.MJ_PUBLIC,
+  EMAIL_FROM: process.env.EMAIL_FROM,
+  EMAIL_TO: process.env.EMAIL_TO,
+});
