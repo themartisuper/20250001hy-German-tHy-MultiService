@@ -108,6 +108,11 @@ export default async function handler(req, res) {
               Email: process.env.EMAIL_FROM,
               Name: "Gutschein Formular"
             },
+            // Добавляем ReplyTo для уменьшения риска попадания в спам
+            ReplyTo: {
+              Email: process.env.EMAIL_FROM,
+              Name: "Gutschein Formular"
+            },
             To: [
               { Email: process.env.EMAIL_TO }
             ],
