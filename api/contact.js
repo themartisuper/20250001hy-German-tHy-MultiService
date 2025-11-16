@@ -3,9 +3,16 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: "Method Not Allowed" });
   }
 
-  const { name, email, message } = req.body;
+  const {
+    first_name,
+    last_name,
+    email,
+    phone,
+    service,
+    message
+  } = req.body;
 
-  if (!name || !email || !message) {
+  if (!first_name || !last_name || !email || !phone || !service) {
     return res.status(400).json({ error: "Missing fields" });
   }
 
@@ -25,18 +32,22 @@ export default async function handler(req, res) {
           {
             From: {
               Email: process.env.EMAIL_FROM,
-              Name: "Контактная форма"
+              Name: "Gutschein Formular"
             },
             To: [
               {
                 Email: process.env.EMAIL_TO
               }
             ],
-            Subject: "Новое сообщение с формы",
+            Subject: "Neue Gutschein-Anfrage",
             HTMLPart: `
-              <h3>Имя: ${name}</h3>
-              <p>Email: ${email}</p>
-              <p>${message}</p>
+              <h3>Neue Anfrage:</h3>
+              <p><strong>Vorname:</strong> ${first_name}</p>
+              <p><strong>Nachname:</strong> ${last_name}</p>
+              <p><strong>Email:</strong> ${email}</p>
+              <p><strong>Telefon:</strong> ${phone}</p>
+              <p><strong>Dienstleistung:</strong> ${service}</p>
+              <p><strong>Nachricht:</strong><br>${message || "—"}</p>
             `
           }
         ]

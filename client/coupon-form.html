@@ -116,9 +116,7 @@
 
 
 <!-- coupon-form -->
-<form name="coupon" method="POST" data-netlify="true" class="coupon-form">
-  <input type="hidden" name="form-name" value="coupon" />
-
+<form id="coupon-form" class="coupon-form">
   <h2>Gutschein bestellen</h2>
 
   <div class="form-row">
@@ -195,5 +193,39 @@
 <!-- End FOOTER -->
 <script src="assets/js/main.js"></script>
 <script src="assets/js/locales.js"></script>
+
+<script>
+document.querySelector("#coupon-form").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const form = e.target;
+
+  const payload = {
+    first_name: form.first_name.value,
+    last_name: form.last_name.value,
+    email: form.email.value,
+    phone: form.phone.value,
+    service: form.service.value,
+    message: form.message.value || ""
+  };
+
+  const res = await fetch("../api/contact", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(payload)
+  });
+
+  const data = await res.json();
+
+  if (data.success) {
+    alert("Vielen Dank! Deine Anfrage wurde gesendet.");
+    form.reset();
+  } else {
+    alert("Fehler! Die Nachricht konnte nicht gesendet werden.");
+  }
+});
+
+</script>
 </body>
 </html>
