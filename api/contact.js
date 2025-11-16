@@ -4,7 +4,8 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: "Method Not Allowed" });
   }
 
-
+// ЛОГ №1 — проверяем, что тело формы вообще приходит
+  console.log("REQUEST BODY:", req.body);
 
 
   // --- 2. Деструктурируем данные формы ---
@@ -36,6 +37,14 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: "Address fields required for postal delivery" });
     }
   }
+
+    // ЛОГ №2 — выводим важные переменные окружения
+  console.log("ENV CHECK:", {
+    MJ_PUBLIC: process.env.MJ_PUBLIC ? "OK" : "MISSING",
+    MJ_PRIVATE: process.env.MJ_PRIVATE ? "OK" : "MISSING",
+    EMAIL_FROM: process.env.EMAIL_FROM,
+    EMAIL_TO: process.env.EMAIL_TO
+  });
 
   try {
     // --- 5. Формируем письмо для Mailjet ---
@@ -126,6 +135,10 @@ Nachricht: ${message || "-"}
     // --- 6. Парсим ответ Mailjet ---
     const data = await result.json();
 
+    // ЛОГ №3 — сырой ответ Mailjet
+    console.log("MAILJET RAW RESPONSE:", data);
+
+  
     // Если от Mailjet пришла ошибка
     if (!result.ok) {
       console.error("Mailjet error:", data);
