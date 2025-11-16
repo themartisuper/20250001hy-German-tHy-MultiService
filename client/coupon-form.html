@@ -34,8 +34,6 @@
 
   <link rel="stylesheet" href="assets/css/accordion.css">
   
-  <link rel="stylesheet" href="assets/css/accordion1.css">
-
   <link rel="stylesheet" href="assets/css/flip_card.css">
 
   <link rel="stylesheet" href="assets/css/coupon_form.css">
@@ -143,22 +141,6 @@
   </fieldset>
 
 
-  <fieldset class="delivery-options">
-    <legend>Wie möchten Sie den Gutschein erhalten?</legend>
-
-    <label class="delivery-option">
-      <input type="radio" name="delivery" value="email" required>
-      Per E-Mail
-    </label>
-
-    <label class="delivery-option">
-      <input type="radio" name="delivery" value="post">
-      Per Post
-    </label>
-  </fieldset>
-
-
-
   <div class="form-row">
     <label>
       Vorname *
@@ -236,6 +218,24 @@
 
     </select>
   </label>
+
+
+  <fieldset class="delivery-options">
+    <legend>Wie möchten Sie den Gutschein erhalten?</legend>
+    <p>Möchten Sie den Gutschein selbst verschenken oder sollen wir ihn direkt an gewünschtet E-Mail senden?</p>
+
+    <label class="delivery-option">
+      <input type="radio" name="delivery" value="Nein, ich erledige es selbst." required>
+      Nein, ich erledige es selbst.
+    </label>
+
+    <p class="delivery__or">oder</p>
+
+    <label class="delivery-option">
+      <input type="radio" name="delivery" value="Ja, bitte kümmern Sie sich darum.">
+      Ja, bitte kümmern Sie sich darum.
+    </label>
+  </fieldset>
 
 
   <label>

@@ -129,7 +129,7 @@ export default async function handler(req, res) {
               <p><strong>Telefon:</strong> ${phone}</p>
               <p><strong>Dienstleistung:</strong> ${service}</p>
               <p><strong>Für wen:</strong> ${target}</p>
-              <p><strong>Lieferung:</strong> ${delivery === "email" ? "Per E-Mail" : "Per Post"}</p>
+              <p><strong>Wie wird verschenket:</strong> ${delivery === "email" ? "Kunde macht" : "Wir machen"}</p>
               ${
                 delivery === "post"
                   ? `<p><strong>Adresse:</strong> ${street} ${house_number} ${address_extra || ""}, ${zip} ${city}</p>`
@@ -148,7 +148,7 @@ E-Mail: ${email}
 Telefon: ${phone}
 Dienstleistung: ${service}
 Für wen: ${target}
-Senden per: ${delivery === "email" ? "E-Mail" : "Post"}
+Wie wird verschenket: ${delivery === "email" ? "E-Mail" : "Post"}
 ${
   delivery === "post"
     ? `Adresse: ${street} ${house_number} ${address_extra || ""}, ${zip} ${city}`
