@@ -115,7 +115,7 @@
 
 <!-- coupon-form -->
 <form id="coupon-form" class="coupon-form">
-  <h2>Gutschein bestellen</h2>
+  <h2>Gutschein für <span style="color: red;">50%</span> bestellen</h2>
 
   <fieldset class="recipient-options">
     <legend>Für wen?</legend>
@@ -129,17 +129,16 @@
 
     <label class="recipient-option">
       <input type="radio" name="recipient" value="Für eine andere Person">
-      Für eine andere Person
+      <span>Für eine andere Person</span>
     </label>
 
     <div class="divider"></div>
 
     <label class="recipient-option">
       <input type="radio" name="recipient" value="Für eine Firma">
-      Für eine Firma
+      <span>Für eine Firma</span>
     </label>
   </fieldset>
-
 
   <div class="form-row">
     <label>
@@ -164,6 +163,11 @@
       <input type="tel" name="phone" required />
     </label>
   </div>
+
+  <label>
+    Geburtsdatum (optional)
+    <input type="date" name="birthday" />
+  </label>
 
   <label>
     Gewünschte Dienstleistung *
@@ -220,19 +224,20 @@
   </label>
 
 
-  <fieldset class="delivery-options">
+  <!-- DELIVERY: теперь скрывается по умолчанию -->
+  <fieldset class="delivery-options" id="delivery-options" style="display:none;">
     <legend>Wie möchten Sie den Gutschein erhalten?</legend>
-    <p>Möchten Sie den Gutschein selbst verschenken oder sollen wir ihn direkt an gewünschtet E-Mail senden?</p>
+    <p>Möchten Sie den Gutschein selbst verschenken oder sollen wir ihn direkt an gewünschte E-Mail senden?</p>
 
     <label class="delivery-option">
-      <input type="radio" name="delivery" value="Nein, ich erledige es selbst." required>
+      <input type="radio" name="delivery" value="selbst">
       Nein, ich erledige es selbst.
     </label>
 
     <p class="delivery__or">oder</p>
 
     <label class="delivery-option">
-      <input type="radio" name="delivery" value="Ja, bitte kümmern Sie sich darum.">
+      <input type="radio" name="delivery" value="wir">
       Ja, bitte kümmern Sie sich darum.
     </label>
   </fieldset>
@@ -243,7 +248,7 @@
     <textarea name="message" rows="4"></textarea>
   </label>
 
-  <fieldset id="address-fields" class="address-fields">
+  <!-- <fieldset id="address-fields" class="address-fields">
     <legend>Adresse</legend>
 
     <div class="form-row">
@@ -274,7 +279,7 @@
         <input type="text" name="city" placeholder="Berlin" />
       </label>
     </div>
-  </fieldset>
+  </fieldset> -->
 
 
   <button type="submit">Absenden</button>
@@ -311,6 +316,33 @@
 <script src="assets/js/main.js"></script>
 <script src="assets/js/locales.js"></script>
 
+
+
+
+<script> // логика показа delivery-options
+const recipientRadios = document.querySelectorAll('input[name="recipient"]');
+const deliveryBox = document.getElementById("delivery-options");
+
+// скрыто изначально
+deliveryBox.style.display = "none";
+
+function toggleDeliveryOptions() {
+  const selected = document.querySelector('input[name="recipient"]:checked')?.value;
+
+  if (selected === "Für eine andere Person" || selected === "Für eine Firma") {
+    deliveryBox.style.display = "block";
+  } else {
+    deliveryBox.style.display = "none";
+    document.querySelectorAll('input[name="delivery"]').forEach(r => r.checked = false);
+  }
+}
+
+recipientRadios.forEach(radio => {
+  radio.addEventListener("change", toggleDeliveryOptions);
+});
+</script>
+
+
 <script>
 document.querySelector("#coupon-form").addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -324,35 +356,30 @@ document.querySelector("#coupon-form").addEventListener("submit", async (e) => {
     service: form.service.value,
     message: form.message.value || "",
     recipient: form.recipient.value,
-    delivery: form.delivery.value,
-    street: form.street.value,
-    house_number: form.house_number.value,
-    address_extra: form.address_extra.value,
-    zip: form.zip.value,
-    city: form.city.value,
-
-    target: form.querySelector('input[name="recipient"]:checked')?.value
+    delivery: form.delivery.value || "",
+    birthday: form.birthday.value || ""
   };
 
   const res = await fetch("../api/contact", {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload)
   });
 
   const data = await res.json();
 
   if (data.success) {
-    alert("Vielen Dank! Deine Anfrage wurde gesendet.");
+    alert("Vielen Dank! Ihre Anfrage wurde gesendet.");
     form.reset();
   } else {
     alert("Fehler! Die Nachricht konnte nicht gesendet werden.");
   }
 });
 </script>
-<script>
+
+
+
+<!-- <script>
 const deliveryRadios = document.querySelectorAll('input[name="delivery"]');
 const addressFields = document.getElementById("address-fields");
 
@@ -373,7 +400,7 @@ toggleAddressFields();
 deliveryRadios.forEach(radio => {
   radio.addEventListener("change", toggleAddressFields);
 });
-</script>
+</script> -->
 
 </body>
 </html>

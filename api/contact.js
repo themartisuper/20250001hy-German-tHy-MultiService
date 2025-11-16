@@ -1,19 +1,19 @@
 export default async function handler(req, res) {
   //
-  // 1) Ограничиваем обработку только POST-запросами.
-  // Любой другой метод — ошибка 405.
+  // 1) Пропускаем только POST — остальное идёт лесом
   //
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method Not Allowed" });
   }
 
   //
-  // 2) Читаем тело запроса.
-  // Логируем "как есть", чтобы сразу видеть, что прислал фронт.
+  // 2) Логируем тело запроса сырым — ловит кривые запросы с фронта
   //
   console.log("REQUEST BODY RAW:", req.body);
 
-  // Деструктурируем поля из тела запроса для удобства
+  //
+  // 3) Распаковываем поля, которые реально приходят с нового фронта
+  //
   const {
     first_name,
     last_name,
@@ -21,18 +21,14 @@ export default async function handler(req, res) {
     phone,
     service,
     message,
-    target,
-    delivery,
-    street,
-    house_number,
-    address_extra,
-    zip,
-    city
+    recipient,   // Für mich selbst | Für eine andere Person | Für eine Firma
+    delivery,    // selbst | wir (или пусто, если выбран "Für mich selbst")
+    birthday
   } = req.body;
 
   //
-  // 3) Проверка обязательных полей
-  // Если какое-то поле не пришло — добавляем его в массив missing
+  // 4) Проверяем обязательные поля
+  // Всё по-честному: только то, что реально required на фронте
   //
   const missing = [];
   if (!first_name) missing.push("first_name");
@@ -40,12 +36,17 @@ export default async function handler(req, res) {
   if (!email) missing.push("email");
   if (!phone) missing.push("phone");
   if (!service) missing.push("service");
-  if (!target) missing.push("target");
-  if (!delivery) missing.push("delivery");
+  if (!recipient) missing.push("recipient");
 
-  console.log("DEBUG missing:", missing);
+  //
+  // delivery обязательно только если выбран "andere Person" или "Firma"
+  //
+  if (recipient === "Für eine andere Person" || recipient === "Für eine Firma") {
+    if (!delivery) missing.push("delivery");
+  }
 
-  // Если есть пропавшие обязательные поля — возвращаем ошибку 400
+  console.log("DEBUG missing fields:", missing);
+
   if (missing.length > 0) {
     return res.status(400).json({
       error: "Missing required fields",
@@ -54,42 +55,26 @@ export default async function handler(req, res) {
   }
 
   //
-  // 4) Проверяем поля адреса — только если доставка по почте
-  //
-  if (delivery === "post") {
-    const missingAddress = [];
-    if (!street) missingAddress.push("street");
-    if (!house_number) missingAddress.push("house_number");
-    if (!zip) missingAddress.push("zip");
-    if (!city) missingAddress.push("city");
-
-    console.log("DEBUG missing address fields:", missingAddress);
-
-    if (missingAddress.length > 0) {
-      return res.status(400).json({
-        error: "Address fields required for postal delivery",
-        missingAddress
-      });
-    }
-  }
-
-  //
-  // 5) Формируем текущую дату и время для использования в Subject письма
+  // 5) Генерируем timestamp по Берлину
   //
   const now = new Date();
-  // Форматируем дату и время по немецкому стилю с учетом часового пояса Германии
-  const dateString = now.toLocaleString("de-DE", { 
-    timeZone: "Europe/Berlin",           // Германия (CET/CEST)
-    year: "numeric", month: "2-digit", day: "2-digit", 
-    hour: "2-digit", minute: "2-digit", second: "2-digit" 
+  const dateString = now.toLocaleString("de-DE", {
+    timeZone: "Europe/Berlin",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit"
   });
 
-  // Subject с датой и временем
-  const subject = `Gutschein-Anfrage - ${dateString}`;
+  //
+  // 6) Subject письма
+  //
+  const subject = `Gutschein-Anfrage – ${dateString}`;
 
   //
-  // 6) Формируем и отправляем письмо через Mailjet
-  // Используем async/await и try/catch для надёжной обработки ошибок
+  // 7) Готовим email и шлём через Mailjet
   //
   try {
     console.log("⚡ SENDING EMAIL THROUGH MAILJET…");
@@ -100,7 +85,9 @@ export default async function handler(req, res) {
         "Content-Type": "application/json",
         Authorization:
           "Basic " +
-          Buffer.from(process.env.MJ_PUBLIC + ":" + process.env.MJ_PRIVATE).toString("base64")
+          Buffer.from(
+            process.env.MJ_PUBLIC + ":" + process.env.MJ_PRIVATE
+          ).toString("base64")
       },
       body: JSON.stringify({
         Messages: [
@@ -109,51 +96,78 @@ export default async function handler(req, res) {
               Email: process.env.EMAIL_FROM,
               Name: "Gutschein Formular"
             },
-            // Добавляем ReplyTo для уменьшения риска попадания в спам
+
+            //
+            // ReplyTo — не обязательная штука, но сильно снижает шанс улёта в спам
+            //
             ReplyTo: {
               Email: process.env.EMAIL_FROM,
               Name: "Gutschein Formular"
             },
-            To: [
-              { Email: process.env.EMAIL_TO }
-            ],
-            Subject: subject, // Используем динамический Subject с датой/временем Германии
 
-            // HTML версия письма — для визуальной презентации
+            To: [{ Email: process.env.EMAIL_TO }],
+            Subject: subject,
+
+            //
+            // HTML письмо (нормально читается глазами)
+            //
             HTMLPart: `
-              <h3>Neue Gutschein-Anfrage:</h3>
+              <h3>Neue Gutschein-Anfrage</h3>
               <p><strong>Datum/Zeit:</strong> ${dateString}</p>
+
               <p><strong>Vorname:</strong> ${first_name}</p>
               <p><strong>Nachname:</strong> ${last_name}</p>
-              <p><strong>Email:</strong> ${email}</p>
+              <p><strong>E-Mail:</strong> ${email}</p>
               <p><strong>Telefon:</strong> ${phone}</p>
+
+              <p><strong>Geburtsdatum:</strong> ${birthday || "—"}</p>
+
               <p><strong>Dienstleistung:</strong> ${service}</p>
-              <p><strong>Für wen:</strong> ${target}</p>
-              <p><strong>Wie wird verschenket:</strong> ${delivery === "email" ? "Kunde macht" : "Wir machen"}</p>
-              ${
-                delivery === "post"
-                  ? `<p><strong>Adresse:</strong> ${street} ${house_number} ${address_extra || ""}, ${zip} ${city}</p>`
-                  : ""
-              }
+
+              <p><strong>Für wen:</strong> ${recipient}</p>
+
+              ${(() => {
+                if (recipient === "Für mich selbst") {
+                  return `<p><strong>Versandart:</strong> Nicht erforderlich (bestellt für sicht)</p>`;
+                }
+
+                // остальные варианты: andere Person / Firma
+                if (delivery === "selbst") {
+                  return `<p><strong>Versandart:</strong> Kunde verschenkt selbst</p>`;
+                }
+
+                return `<p><strong>Versandart:</strong> Wir senden direkt</p>`;
+              })()}
+
+
               <p><strong>Nachricht:</strong><br>${message || "—"}</p>
             `,
 
-            // Текстовая версия письма — нужна для антиспам-фильтров
+            //
+            // TextPart — обязателен, иначе фильтры спамят к херам
+            //
             TextPart: `
-Neue Gutschein-Anfrage:
+Gutschein-Anfrage
 Datum/Zeit: ${dateString}
+
 Vorname: ${first_name}
 Nachname: ${last_name}
 E-Mail: ${email}
 Telefon: ${phone}
+
+Geburtsdatum: ${birthday || "-"}
+
 Dienstleistung: ${service}
-Für wen: ${target}
-Wie wird verschenket: ${delivery === "email" ? "E-Mail" : "Post"}
+Für wen: ${recipient}
+
 ${
-  delivery === "post"
-    ? `Adresse: ${street} ${house_number} ${address_extra || ""}, ${zip} ${city}`
-    : ""
+  recipient === "Für mich selbst"
+    ? `Versandart: Nicht erforderlich`
+    : `Versandart: ${
+        delivery === "selbst" ? "Kunde verschenkt selbst" : "Wir senden direkt"
+      }`
 }
+
 Nachricht: ${message || "-"}
             `
           }
@@ -162,24 +176,27 @@ Nachricht: ${message || "-"}
     });
 
     const data = await result.json();
-
-    //
-    // 7) Проверяем ответ Mailjet
-    // Если Mailjet вернул ошибку — возвращаем 500
-    //
     console.log("MAILJET RESPONSE:", data);
 
+    //
+    // 8) Если Mailjet облажался — 500 и домой
+    //
     if (!result.ok) {
-      return res.status(500).json({ error: "Email send failed", mailjet: data });
+      return res.status(500).json({
+        error: "Email send failed",
+        mailjet: data
+      });
     }
 
     //
-    // 8) Всё прошло успешно — возвращаем успех фронту
+    // 9) Всё good
     //
     return res.status(200).json({ success: true });
   } catch (e) {
-    // Ловим любые ошибки сервера
     console.error("FATAL ERROR:", e);
-    return res.status(500).json({ error: "Server error", details: e.message });
+    return res.status(500).json({
+      error: "Server error",
+      details: e.message
+    });
   }
 }
