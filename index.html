@@ -162,10 +162,10 @@
 
 
 
-<form id="contactForm">
-  <input type="text" name="name" placeholder="Имя" required />
-  <input type="email" name="email" placeholder="Email" required />
-  <textarea name="message" placeholder="Сообщение" required></textarea>
+<form>
+  <input name="name" required>
+  <input name="email" type="email" required>
+  <textarea name="message" required></textarea>
   <button type="submit">Отправить</button>
 </form>
 
@@ -468,30 +468,29 @@
 
 
 <script>
-const form = document.getElementById('contactForm');
+document.querySelector("form").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const form = e.target;
 
-form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const data = Object.fromEntries(new FormData(form).entries());
+  const payload = {
+    name: form.name.value,
+    email: form.email.value,
+    message: form.message.value
+  };
 
-    try {
-        const res = await fetch('https://20250001hy-backend-german-thy-multiservice-production.up.railway.app/send', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
-        });
+  const res = await fetch("/api/contact", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload)
+  });
 
-        const result = await res.json();
-        if(result.ok){
-            alert('Сообщение отправлено!');
-            form.reset();
-        } else {
-            alert('Ошибка: ' + (result.error || 'неизвестная'));
-        }
-    } catch (err) {
-        console.error(err);
-        alert('Сервер недоступен');
-    }
+  const data = await res.json();
+  if (data.success) {
+    alert("Отправлено!");
+    form.reset();
+  } else {
+    alert("Ошибка отправки");
+  }
 });
 </script>
 
