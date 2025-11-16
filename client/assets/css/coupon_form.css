@@ -17,14 +17,19 @@
   text-align: center;
 }
 
+
 .coupon-form label {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
   margin-bottom: 20px;
   font-size: 0.95rem;
   color: #222;
 }
+
+.coupon-form label:not(.recipient-options label, .delivery-options label) {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
 
 .coupon-form input,
 .coupon-form select,
@@ -71,8 +76,160 @@
 }
 
 @media (max-width: 600px) {
+  .coupon-form {
+    width: 89%;
+  }
+
   .form-row {
     flex-direction: column;
     gap: 0;
+  }
+}
+
+
+
+
+
+
+
+
+.recipient-options {
+  margin: 10px 0 16px;
+  padding: 10px 12px;
+  background: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.recipient-options legend {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: #333;
+}
+
+.recipient-option {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 0;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.recipient-option input[type="radio"] {
+  flex-shrink: 0;      /* фиксируем, чтобы размер не менялся */
+  width: 14px;
+  height: 14px;
+  accent-color: #0082ff;
+  margin: 0;
+}
+
+.recipient-option span {
+  line-height: 1.2;    /* текст ровненько по центру */
+}
+
+.divider {
+  height: 1px;
+  background: #e5e5e5;
+  margin: 2px 0;
+}
+
+@media (max-width: 600px) {
+  .recipient-options {
+    padding: 8px 10px;
+  }
+}
+
+
+
+
+
+.delivery-options {
+  margin: 15px 0 20px;
+  padding: 12px 14px;
+  background: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.delivery-options legend {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 6px;
+}
+
+.delivery-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 0;
+  font-size: 0.88rem;
+  color: #222;
+  cursor: pointer;
+}
+
+.delivery-option input[type="radio"] {
+  width: 14px;
+  height: 14px;
+  accent-color: #0082ff;
+}
+
+
+
+
+
+.address-fields {
+  margin: 15px 0 20px;
+  padding: 12px 14px;
+  background: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.address-fields legend {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 6px;
+}
+
+.address-fields label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.88rem;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+.address-fields input {
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  background: #fafafa;
+  transition: 0.25s border, 0.25s background;
+}
+
+.address-fields input:focus {
+  outline: none;
+  border-color: #0082ff;
+  background: #fff;
+}
+
+.address-fields .form-row {
+  display: flex;
+  gap: 12px;
+}
+
+.address-fields .form-row label {
+  flex: 1;
+}
+
+@media (max-width: 600px) {
+  .address-fields .form-row {
+    flex-direction: column;
   }
 }

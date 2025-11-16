@@ -119,46 +119,163 @@
 <form id="coupon-form" class="coupon-form">
   <h2>Gutschein bestellen</h2>
 
+  <fieldset class="recipient-options">
+    <legend>Für wen?</legend>
+
+    <label class="recipient-option">
+      <input type="radio" name="recipient" value="self" required>
+      <span>Für mich selbst</span>
+    </label>
+
+    <div class="divider"></div>
+
+    <label class="recipient-option">
+      <input type="radio" name="recipient" value="other">
+      Für eine andere Person
+    </label>
+
+    <div class="divider"></div>
+
+    <label class="recipient-option">
+      <input type="radio" name="recipient" value="company">
+      Für eine Firma
+    </label>
+  </fieldset>
+
+
+  <fieldset class="delivery-options">
+    <legend>Wie möchten Sie den Gutschein erhalten?</legend>
+
+    <label class="delivery-option">
+      <input type="radio" name="delivery" value="email" required>
+      Per E-Mail
+    </label>
+
+    <label class="delivery-option">
+      <input type="radio" name="delivery" value="post">
+      Per Post
+    </label>
+  </fieldset>
+
+
+
   <div class="form-row">
     <label>
-      Vorname
+      Vorname *
       <input type="text" name="first_name" required />
     </label>
 
     <label>
-      Nachname
+      Nachname *
       <input type="text" name="last_name" required />
     </label>
   </div>
 
   <div class="form-row">
     <label>
-      E-Mail
+      E-Mail *
       <input type="email" name="email" required />
     </label>
 
     <label>
-      Telefonnummer
+      Telefonnummer *
       <input type="tel" name="phone" required />
     </label>
   </div>
 
   <label>
-    Gewünschte Dienstleistung
+    Gewünschte Dienstleistung *
     <select name="service" required>
       <option value="">Bitte wählen...</option>
-      <option value="Wohnungsreinigung">Wohnungsreinigung</option>
-      <option value="Büroreinigung">Büroreinigung</option>
-      <option value="Fensterreinigung">Fensterreinigung</option>
-      <option value="Grundreinigung">Grundreinigung</option>
-      <option value="Umzugsreinigung">Umzugsreinigung</option>
+
+      <optgroup label="Transport & Logistik">
+        <option value="Fahrzeugüberführung">Fahrzeugüberführung</option>
+        <option value="Kurierdienste">Kurierdienste</option>
+        <option value="Lieferant">Lieferant</option>
+        <option value="Möbeltransport / Umzugshilfe">Möbeltransport / Umzugshilfe</option>
+        <option value="Tragehilfe">Tragehilfe</option>
+        <option value="Zum Flughafen hin-zurück fahren">Zum Flughafen hin-zurück fahren</option>
+      </optgroup>
+
+      <optgroup label="Reinigung & Pflege">
+        <option value="Auto reinigen (Innen und Außenbereich)">Auto reinigen (Innen und Außenbereich)</option>
+        <option value="Büroreinigung">Büroreinigung</option>
+        <option value="Dachhaut/Dachziegel reinigen">Dachhaut/Dachziegel reinigen</option>
+        <option value="Endreinigung / Bauendreinigung">Endreinigung / Bauendreinigung</option>
+        <option value="Fassadenreinigung (Schimmel-, Algen- & Moosentfernung)">Fassadenreinigung (Schimmel-, Algen- & Moosentfernung)</option>
+        <option value="Fensterreinigung">Fensterreinigung</option>
+        <option value="Fliesen Reiniger">Fliesen Reiniger</option>
+        <option value="Laubabholung">Laubabholung</option>
+        <option value="Haushaltreinigung">Haushaltreinigung</option>
+        <option value="Schneeräumung">Schneeräumung</option>
+        <option value="Streudienst">Streudienst</option>
+        <option value="Teppichreinigung- und Polster-/Sofareinigung">Teppichreinigung- und Polster-/Sofareinigung</option>
+        <option value="Eis und Schneebeseitigung am Auto">Eis und Schneebeseitigung am Auto</option>
+      </optgroup>
+
+      <optgroup label="Haus & Garten">
+        <option value="Gartenbewässerung">Gartenbewässerung</option>
+        <option value="Gartenpflege">Gartenpflege</option>
+        <option value="Haushüter">Haushüter</option>
+        <option value="Kleinreparaturen (ohne Handwerksplicht)">Kleinreparaturen (ohne Handwerksplicht)</option>
+        <option value="Rasenmäher">Rasenmäher</option>
+        <option value="Regale und Gardinenmontage">Regale und Gardinenmontage</option>
+        <option value="Sträucherschnitt">Sträucherschnitt</option>
+        <option value="Unkrautentfernung">Unkrautentfernung</option>
+        <option value="Weihnachtsbeleuchtung Montage">Weihnachtsbeleuchtung Montage</option>
+      </optgroup>
+
+      <optgroup label="Persönliche Dienste & Events">
+        <option value="Einkaufshilfe">Einkaufshilfe</option>
+        <option value="Einzelhandelskaufmann">Einzelhandelskaufmann</option>
+        <option value="Eventhilfe / Servicekraft">Eventhilfe / Servicekraft</option>
+        <option value="Hundeausführen / Gassi-Service">Hundeausführen / Gassi-Service</option>
+        <option value="Seniorenbetreuung (ohne Pflege)">Seniorenbetreuung (ohne Pflege)</option>
+        <option value="Tierbetreuung">Tierbetreuung</option>
+      </optgroup>
+
     </select>
   </label>
+
 
   <label>
     Nachricht (optional)
     <textarea name="message" rows="4"></textarea>
   </label>
+
+  <fieldset id="address-fields" class="address-fields">
+    <legend>Adresse</legend>
+
+    <div class="form-row">
+      <label>
+        Straße *
+        <input type="text" name="street" placeholder="Musterstraße" />
+      </label>
+
+      <label>
+        Hausnummer *
+        <input type="text" name="house_number" placeholder="12a" />
+      </label>
+    </div>
+
+    <label>
+      Adresszusatz (optional)
+      <input type="text" name="address_extra" placeholder="c/o, Etage, etc." />
+    </label>
+
+    <div class="form-row">
+      <label>
+        PLZ *
+        <input type="text" name="zip" placeholder="12345" />
+      </label>
+
+      <label>
+        Stadt *
+        <input type="text" name="city" placeholder="Berlin" />
+      </label>
+    </div>
+  </fieldset>
+
 
   <button type="submit">Absenden</button>
 </form>
@@ -205,7 +322,14 @@ document.querySelector("#coupon-form").addEventListener("submit", async (e) => {
     email: form.email.value,
     phone: form.phone.value,
     service: form.service.value,
-    message: form.message.value || ""
+    message: form.message.value || "",
+    recipient: form.recipient.value,   // ← фикс
+    delivery: form.delivery.value,
+    street: form.street.value,
+    house_number: form.house_number.value,
+    address_extra: form.address_extra.value,
+    zip: form.zip.value,
+    city: form.city.value
   };
 
   const res = await fetch("../api/contact", {
@@ -225,7 +349,29 @@ document.querySelector("#coupon-form").addEventListener("submit", async (e) => {
     alert("Fehler! Die Nachricht konnte nicht gesendet werden.");
   }
 });
-
 </script>
+<script>
+const deliveryRadios = document.querySelectorAll('input[name="delivery"]');
+const addressFields = document.getElementById("address-fields");
+
+// Изначально проверяем значение
+function toggleAddressFields() {
+  const selected = document.querySelector('input[name="delivery"]:checked')?.value;
+  if (selected === "post") {
+    addressFields.style.display = "block";
+  } else {
+    addressFields.style.display = "none";
+  }
+}
+
+// При загрузке страницы
+toggleAddressFields();
+
+// Слушаем изменения
+deliveryRadios.forEach(radio => {
+  radio.addEventListener("change", toggleAddressFields);
+});
+</script>
+
 </body>
 </html>

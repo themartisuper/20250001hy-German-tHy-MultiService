@@ -162,16 +162,6 @@
 
 
 
-<form>
-  <input name="name" required>
-  <input name="email" type="email" required>
-  <textarea name="message" required></textarea>
-  <button type="submit">Отправить</button>
-</form>
-
-
-
-
 
 
 <!-- reviews -->
@@ -464,38 +454,5 @@
 
 <script src="client/assets/js/main.js"></script>
 <script src="client/assets/js/locales.js"></script>
-
-
-
-<script>
-document.querySelector("form").addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const form = e.target;
-
-  const payload = {
-    name: form.name.value,
-    email: form.email.value,
-    message: form.message.value
-  };
-
-  const res = await fetch("/api/contact", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload)
-  });
-
-  const data = await res.json();
-  if (data.success) {
-    alert("Отправлено!");
-    form.reset();
-  } else {
-    alert("Ошибка отправки");
-  }
-});
-</script>
-
-
-
-
 </body>
 </html>

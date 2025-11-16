@@ -143,3 +143,11 @@ slider.addEventListener('touchend', stopDragging);
 slider.addEventListener('touchmove', (e) => moveDragging(e.touches[0]));
 
 // === End scroll reviews //
+
+
+
+
+
+
+
+
