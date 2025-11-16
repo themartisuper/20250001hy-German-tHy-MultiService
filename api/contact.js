@@ -1,17 +1,19 @@
 export default async function handler(req, res) {
   //
-  // 1) Accept only POST — все остальные методы пошли гулять
+  // 1) Ограничиваем обработку только POST-запросами.
+  // Любой другой метод — ошибка 405.
   //
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method Not Allowed" });
   }
 
   //
-  // 2) Читаем тело запроса
-  // Если фронт что-то шлёт неправильно — мы это сразу увидим.
+  // 2) Читаем тело запроса.
+  // Логируем "как есть", чтобы сразу видеть, что прислал фронт.
   //
   console.log("REQUEST BODY RAW:", req.body);
 
+  // Деструктурируем поля из тела запроса для удобства
   const {
     first_name,
     last_name,
@@ -29,7 +31,8 @@ export default async function handler(req, res) {
   } = req.body;
 
   //
-  // 3) Диагностика пропавших обязательных полей
+  // 3) Проверка обязательных полей
+  // Если какое-то поле не пришло — добавляем его в массив missing
   //
   const missing = [];
   if (!first_name) missing.push("first_name");
@@ -42,9 +45,7 @@ export default async function handler(req, res) {
 
   console.log("DEBUG missing:", missing);
 
-  //
-  // Если хоть одно обязательное поле отсутствует — кидаем ошибку
-  //
+  // Если есть пропавшие обязательные поля — возвращаем ошибку 400
   if (missing.length > 0) {
     return res.status(400).json({
       error: "Missing required fields",
@@ -53,7 +54,7 @@ export default async function handler(req, res) {
   }
 
   //
-  // 4) Проверяем адрес — только если доставка по почте
+  // 4) Проверяем поля адреса — только если доставка по почте
   //
   if (delivery === "post") {
     const missingAddress = [];
@@ -73,7 +74,21 @@ export default async function handler(req, res) {
   }
 
   //
-  // 5) Пытаемся отправить письмо через Mailjet
+  // 5) Формируем текущую дату и время для использования в Subject письма
+  //
+  const now = new Date();
+  // Форматируем дату и время по немецкому стилю: DD.MM.YYYY, HH:MM:SS
+  const dateString = now.toLocaleString("de-DE", { 
+    year: "numeric", month: "2-digit", day: "2-digit", 
+    hour: "2-digit", minute: "2-digit", second: "2-digit" 
+  });
+
+  // Subject с датой и временем
+  const subject = `Gutschein-Anfrage - ${dateString}`;
+
+  //
+  // 6) Формируем и отправляем письмо через Mailjet
+  // Используем async/await и try/catch для надёжной обработки ошибок
   //
   try {
     console.log("⚡ SENDING EMAIL THROUGH MAILJET…");
@@ -94,15 +109,14 @@ export default async function handler(req, res) {
               Name: "Gutschein Formular"
             },
             To: [
-              {
-                Email: process.env.EMAIL_TO
-              }
+              { Email: process.env.EMAIL_TO }
             ],
-            Subject: "Neue Gutschein-Anfrage",
+            Subject: subject, // Используем динамический Subject
 
-            // HTML версия письма (красиво)
+            // HTML версия письма — для визуальной презентации
             HTMLPart: `
               <h3>Neue Gutschein-Anfrage:</h3>
+              <p><strong>Datum/Zeit:</strong> ${dateString}</p>
               <p><strong>Vorname:</strong> ${first_name}</p>
               <p><strong>Nachname:</strong> ${last_name}</p>
               <p><strong>Email:</strong> ${email}</p>
@@ -110,33 +124,30 @@ export default async function handler(req, res) {
               <p><strong>Dienstleistung:</strong> ${service}</p>
               <p><strong>Für wen:</strong> ${target}</p>
               <p><strong>Lieferung:</strong> ${delivery === "email" ? "Per E-Mail" : "Per Post"}</p>
-
               ${
                 delivery === "post"
                   ? `<p><strong>Adresse:</strong> ${street} ${house_number} ${address_extra || ""}, ${zip} ${city}</p>`
                   : ""
               }
-
               <p><strong>Nachricht:</strong><br>${message || "—"}</p>
             `,
 
-            // Текстовая версия — для антиспам
+            // Текстовая версия письма — нужна для антиспам-фильтров
             TextPart: `
 Neue Gutschein-Anfrage:
+Datum/Zeit: ${dateString}
 Vorname: ${first_name}
 Nachname: ${last_name}
-Email: ${email}
+E-Mail: ${email}
 Telefon: ${phone}
 Dienstleistung: ${service}
 Für wen: ${target}
-Lieferung: ${delivery === "email" ? "Per E-Mail" : "Per Post"}
-
+Senden per: ${delivery === "email" ? "E-Mail" : "Post"}
 ${
   delivery === "post"
     ? `Adresse: ${street} ${house_number} ${address_extra || ""}, ${zip} ${city}`
     : ""
 }
-
 Nachricht: ${message || "-"}
             `
           }
@@ -147,7 +158,8 @@ Nachricht: ${message || "-"}
     const data = await result.json();
 
     //
-    // 6) Проверяем ответ Mailjet
+    // 7) Проверяем ответ Mailjet
+    // Если Mailjet вернул ошибку — возвращаем 500
     //
     console.log("MAILJET RESPONSE:", data);
 
@@ -156,10 +168,11 @@ Nachricht: ${message || "-"}
     }
 
     //
-    // 7) Всё прошло успешно
+    // 8) Всё прошло успешно — возвращаем успех фронту
     //
     return res.status(200).json({ success: true });
   } catch (e) {
+    // Ловим любые ошибки сервера
     console.error("FATAL ERROR:", e);
     return res.status(500).json({ error: "Server error", details: e.message });
   }
