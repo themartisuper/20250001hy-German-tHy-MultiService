@@ -77,8 +77,9 @@ export default async function handler(req, res) {
   // 5) Формируем текущую дату и время для использования в Subject письма
   //
   const now = new Date();
-  // Форматируем дату и время по немецкому стилю: DD.MM.YYYY, HH:MM:SS
+  // Форматируем дату и время по немецкому стилю с учетом часового пояса Германии
   const dateString = now.toLocaleString("de-DE", { 
+    timeZone: "Europe/Berlin",           // Германия (CET/CEST)
     year: "numeric", month: "2-digit", day: "2-digit", 
     hour: "2-digit", minute: "2-digit", second: "2-digit" 
   });
@@ -116,7 +117,7 @@ export default async function handler(req, res) {
             To: [
               { Email: process.env.EMAIL_TO }
             ],
-            Subject: subject, // Используем динамический Subject
+            Subject: subject, // Используем динамический Subject с датой/временем Германии
 
             // HTML версия письма — для визуальной презентации
             HTMLPart: `
