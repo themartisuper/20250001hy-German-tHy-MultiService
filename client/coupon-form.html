@@ -323,13 +323,15 @@ document.querySelector("#coupon-form").addEventListener("submit", async (e) => {
     phone: form.phone.value,
     service: form.service.value,
     message: form.message.value || "",
-    recipient: form.recipient.value,   // ← фикс
+    recipient: form.recipient.value,
     delivery: form.delivery.value,
     street: form.street.value,
     house_number: form.house_number.value,
     address_extra: form.address_extra.value,
     zip: form.zip.value,
-    city: form.city.value
+    city: form.city.value,
+
+    target: form.querySelector('input[name="recipient"]:checked')?.value
   };
 
   const res = await fetch("../api/contact", {
