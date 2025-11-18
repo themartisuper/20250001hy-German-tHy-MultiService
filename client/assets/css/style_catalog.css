@@ -81,7 +81,7 @@
   margin-top: 0.4rem;
 
   color: rgba(255,255,255,0.98);
-  text-transform: uppercase;
+  /*text-transform: uppercase; */
 }
 
 .card h3 {
@@ -115,14 +115,15 @@
   font-size: 0.8rem;
   line-height: 150%;
   letter-spacing: 2px;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
 }
 
 .card p {
   flex-grow: 1; /* основной текст занимает оставшееся пространство */
   font-size: 14px;
-  color: #666;
+  color: #a6a6a6;
   margin: 0 0 16px 0;
+  font-weight: 600;
 }
 
 .card__button-wrapper {

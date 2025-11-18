@@ -144,7 +144,7 @@
 /* ==========================================================
    КОНТАКТНЫЙ БЛОК (внутри обратной стороны)
    ========================================================== */
-.header__brand-info {
+.card__back-info {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -156,7 +156,7 @@
   text-align: left;
 }
 
-.header__brand-info-settings {
+.card__back-info-settings {
   display: flex;
   align-items: center;
   gap: 0.7rem;
@@ -164,30 +164,30 @@
   border-bottom: 0.5px solid rgba(255, 255, 255, 0.25);
 }
 
-.header__brand-info-settings:last-child {
+.card__back-info-settings:last-child {
   border-bottom: none;
 }
 
-.header__brand-info-settings .card__fa-icons {
+.card__back-info-settings .card__fa-icons {
   font-size: 1rem;
   font-weight: 500;
   color: #fff;
 }
 
-.header__brand-info-text {
+.card__back-info-text {
   font-size: 0.95rem;
   font-weight: normal;
   color: #fff;
 }
 
-.header__brand-info-settings a:hover {
+.card__back-info-settings a:hover {
   color: var(--color-blue, #00c6ff);
 }
 
 /* Иконки */
-.header__brand-info-settings .fa-brands,
-.header__brand-info-settings .fa-regular,
-.header__brand-info-settings .fa-solid {
+.card__back-info-settings .fa-brands,
+.card__back-info-settings .fa-regular,
+.card__back-info-settings .fa-solid {
   font-size: 24px;
   min-width: 24px;
   text-align: center;

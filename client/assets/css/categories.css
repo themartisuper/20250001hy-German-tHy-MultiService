@@ -1,5 +1,5 @@
 #categories {
-  scroll-margin-top: 3rem; /* высота твоего header */
+  scroll-margin-top: 3.5rem; /* высота твоего header */
 }
 
 .categories {
@@ -39,7 +39,7 @@
 }
 
 .categories__item {
-  flex: 0 0 21%; /* уменьшенный размер на ПК */
+  flex: 0 0 19%; /* уменьшенный размер на ПК */
   position: relative;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -160,6 +160,12 @@
 }
 
 /* === Адаптив === */
+@media (max-width: 1366px) {
+  .categories__item {
+    flex: 0 0 22%;
+  }
+}
+
 @media (max-width: 1024px) {
   .categories__list {
     justify-content: start;
