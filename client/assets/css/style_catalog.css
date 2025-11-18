@@ -182,10 +182,6 @@
 
 .catalog__background-personal-and-events {
   position: relative;
-  /*width: 100%;
-  /*min-height: auto; /* или другая высота */
-  /*height: 900px;*/
-
   background-image: url("../images/home_1_1.png");
   background-position: center;
   background-size: cover;
@@ -196,17 +192,20 @@
   justify-content: center;
   align-items: center;
   text-align: start;
-
-  color: var(--color-text); /* если фон тёмный, текст будет виден */
+  color: var(--color-text);
+  overflow: hidden; /* важно для blur, чтобы не вылезал */
 }
 
 .catalog__background-personal-and-events::after {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.4); /* затемнение, чтобы текст лучше читался */
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.45); /* темнее, можно поднять до 0.55–0.65 */
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  border: 1px solid rgba(255, 255, 255, 0.08); /* слабый холодный контур */
   z-index: 1;
 }
+
