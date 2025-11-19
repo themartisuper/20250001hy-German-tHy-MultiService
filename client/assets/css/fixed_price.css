@@ -1,0 +1,111 @@
+#fixed-price {
+  scroll-margin-top: 4.5rem; /* высота твоего header */
+}
+
+.fixed-price__container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.fixed-price__text-container {
+  max-width: 40%;
+}
+
+.fixed-price__card {
+  display: flex;
+  flex-direction: column;
+
+  max-width: 40%;
+
+  background-color: white;
+  border-radius: 1.25rem;
+  color: #000000;
+}
+
+
+.fixed-price__card-oprions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.fixed-price__card-service-button,
+.fixed-price__card-monthly-button,
+.fixed-price__card-weekly-button {
+  margin: 0 2rem;
+  padding: 0.5rem 4rem;
+  background-color: #4c5b5c;
+  border-radius: 666px;
+  color: #fff;
+}
+
+/* === dropdown === */
+/* === dropdown === */
+.fixed-price__dropdown-monthly,
+.fixed-price__dropdown-service {
+  display: none;
+  margin-top: 12px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+  animation: dropdownFade 0.25s ease forwards;
+  transform-origin: top;
+  z-index: 5;
+}
+
+.fixed-price__dropdown-monthly.active,
+.fixed-price__dropdown-service.active {
+  display: block;
+}
+
+@keyframes dropdownFade {
+  from {
+    opacity: 0;
+    transform: scaleY(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+.fixed-price__dropdown-monthly-title,
+.fixed-price__dropdown-service-title {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.fixed-price__dropdown-monthly ul,
+.fixed-price__dropdown-service ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.fixed-price__dropdown-monthly li,
+.fixed-price__dropdown-service li {
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.15s ease;
+}
+
+.fixed-price__dropdown-monthly li:hover,
+.fixed-price__dropdown-service li:hover {
+  background: #eef4ff;
+}
+/* === End dropdown === */
+/* === End dropdown === */
+
+
+
+
+
+
+
+.fixed-price__description {
+  overflow-wrap: break-word;
+}

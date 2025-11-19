@@ -1,34 +1,54 @@
 /* ==========================================================
-   CARD — 3D контейнер с эффектом переворота
+   ОСНОВНОЙ КОНТЕЙНЕР С КАРТОЧКАМИ
+   ========================================================== */
+.cards {
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  min-height: 100vh;
+  margin-bottom: 1.5rem;
+}
+
+/* ==========================================================
+   КАРТОЧКА И 3D ПЕРСПЕКТИВА
    ========================================================== */
 .card {
   position: relative;
   width: 300px;
   height: 480px;
+  padding: 1rem;
+  display: flex;
+  text-align: center;
+  background: rgba(17, 25, 40, 0.35);
+  border: 1px solid rgba(255,255,255,0.125);
+  border-radius: 18px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
 
-  /* 3D перспектива */
   perspective: 1000px;
+  transform: translateZ(0);
   -webkit-perspective: 1000px;
   -moz-perspective: 1000px;
-
-  /* Сглаживание рендеринга на старых браузерах */
-  transform: translateZ(0);
 }
 
-/* ==========================================================
-   ВНУТРЕННЯЯ ОБОЛОЧКА — вращаемый слой
-   ========================================================== */
+.card__wrapper,
 .card__inner {
-  position: relative;
   width: 100%;
   height: 100%;
+}
+
+.card__inner {
+  position: relative;
   transition: transform 0.8s ease;
   transform-style: preserve-3d;
+  will-change: transform;
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
 }
 
-/* Состояние переворота */
+/* flip state */
 .card.flipped .card__inner {
   transform: rotateY(180deg);
   -webkit-transform: rotateY(180deg);
@@ -36,7 +56,86 @@
 }
 
 /* ==========================================================
-   ОБЩИЕ НАСТРОЙКИ СТОРОН
+   ИЗОБРАЖЕНИЕ
+   ========================================================== */
+.card__image img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.25);
+}
+
+/* ==========================================================
+   ТЕКСТ
+   ========================================================== */
+.card h3 {
+  margin-top: 0.4rem;
+  font-size: 1.2rem;
+  color: #fff;
+  display: -webkit-box;
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card__front p {
+  flex-grow: 1;
+  margin: 0 0 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #a6a6a6;
+  line-height: 150%;
+  letter-spacing: 1px;
+}
+
+/* ==========================================================
+   КНОПКИ (универсальные стили)
+   ========================================================== */
+.card__button-wrapper { 
+  display: flex;
+  gap: 0.6rem;
+  margin: 1rem 0; 
+}
+
+.card__button {
+  padding: 12px 24px;
+  border-radius: 24px;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+
+
+/* Outline / Fill */
+.card__button-outline {
+  background: transparent;
+  color: rgba(0, 212, 255, 0.9);
+  border: 1px solid rgba(0, 212, 255, 0.6);
+}
+.card__button-outline:hover {
+  transform: scale(1.125);
+  color: #fff;
+  border-color: #fff;
+}
+
+.card__button-fill {
+  background: rgba(0, 212, 255, 0.9);
+  color: #fff;
+  font-weight: bold;
+}
+.card__button-fill:hover {
+  transform: scale(1.125);
+  filter: drop-shadow(0 10px 5px rgba(0,0,0,0.125));
+}
+
+/* ==========================================================
+   FRONT / BACK
    ========================================================== */
 .card__front,
 .card__back {
@@ -45,115 +144,45 @@
   height: 100%;
   border-radius: 12px;
   overflow: hidden;
-  text-align: center;
   backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  -moz-backface-visibility: hidden;
-  transition: opacity 0.6s ease; /* плавное появление */
+  transition: opacity 0.6s ease;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
 }
 
-/* ==========================================================
-   ЛИЦЕВАЯ СТОРОНА (front)
-   ========================================================== */
 .card__front {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
-  /* Стеклянный эффект (glassmorphism) */
-  background: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(255, 255, 255, 0.125);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-
-  /* Альтернатива для браузеров без поддержки backdrop-filter */
-  background-color: rgba(255, 255, 255, 0.05);
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.125);
 }
 
-/* Текст на лицевой стороне */
-.card__front p {
-  flex-grow: 1;
-  font-size: 1rem;
-  color: rgba(255, 255, 255, 0.85);
-  line-height: 1.5;
-  letter-spacing: normal;
-  text-transform: none;
-  margin: 0.8rem 1rem 0;
-  max-height: 5em;
-  overflow: hidden;
-}
-
-/* Кнопка на лицевой стороне */
-.flip-btn {
-  margin-top: auto;
-}
-
-/* ==========================================================
-   ОБРАТНАЯ СТОРОНА (back)
-   ========================================================== */
 .card__back {
-  padding: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: start;
-
-  color: #fff;
-  background-color: rgba(17, 25, 40, 0.25);
-  border: 1px solid rgba(255, 255, 255, 0.125);
-  backdrop-filter: blur(16px) saturate(180%);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
-
+  padding: 1rem;
+  background: rgba(17,25,40,0.25);
+  border: 1px solid rgba(255,255,255,0.125);
+  backdrop-filter: blur(6px) saturate(180%);
   transform: rotateY(180deg);
-  -webkit-transform: rotateY(180deg);
-  -moz-transform: rotateY(180deg);
 }
 
-/* Заголовок */
-.card__back h3 {
-  margin-bottom: 0.5rem;
-}
-
-/* Призыв к действию */
-.card__back-cta {
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.75);
-  margin-bottom: 1.5rem;
-  line-height: 1.4;
-  text-transform: none;
-  letter-spacing: normal;
-}
-
-/* Кнопка "Zurück" */
-.card__back .card__button-outline {
-  margin-top: 1.5rem;
-}
+.card.flipped .card__front { opacity: 0; }
+.card.flipped .card__back { opacity: 1; }
 
 /* ==========================================================
-   ЭФФЕКТЫ ПЕРЕХОДА ПРИ ПЕРЕВОРОТЕ
-   ========================================================== */
-.card.flipped .card__front {
-  opacity: 0;
-}
-
-.card.flipped .card__back {
-  opacity: 1;
-}
-
-/* ==========================================================
-   КОНТАКТНЫЙ БЛОК (внутри обратной стороны)
+   КОНТАКТЫ
    ========================================================== */
 .card__back-info {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   width: 100%;
   max-width: 260px;
-  margin-top: 1rem;
-  margin-bottom: auto;
+  display: flex;
+  flex-direction: column;
   gap: 1rem;
-  text-align: left;
+  margin-top: 1rem;
 }
 
 .card__back-info-settings {
@@ -161,93 +190,96 @@
   align-items: center;
   gap: 0.7rem;
   padding: 0.5rem 0;
-  border-bottom: 0.5px solid rgba(255, 255, 255, 0.25);
+  border-bottom: 0.5px solid rgba(255,255,255,0.25);
 }
+.card__back-info-settings:last-child { border-bottom: none; }
 
-.card__back-info-settings:last-child {
-  border-bottom: none;
-}
+.card__back-info-text { color: #fff; font-size: 0.95rem; }
 
-.card__back-info-settings .card__fa-icons {
-  font-size: 1rem;
-  font-weight: 500;
-  color: #fff;
-}
-
-.card__back-info-text {
-  font-size: 0.95rem;
-  font-weight: normal;
-  color: #fff;
-}
-
-.card__back-info-settings a:hover {
-  color: var(--color-blue, #00c6ff);
-}
-
-/* Иконки */
 .card__back-info-settings .fa-brands,
-.card__back-info-settings .fa-regular,
-.card__back-info-settings .fa-solid {
+.card__back-info-settings .fa-solid,
+.card__back-info-settings .fa-regular {
   font-size: 24px;
   min-width: 24px;
-  text-align: center;
-  margin-top: 0.15rem;
-  transition: transform 0.3s ease, filter 0.3s ease;
+  transition: transform .3s ease, filter .3s ease;
 }
 
 /* ==========================================================
-   ИКОНКИ WHATSAPP + EMAIL + INSTAGRAM (с градиентом и анимацией)
+   ГРАДИЕНТНЫЕ ИКОНКИ
    ========================================================== */
-
-/* WhatsApp */
 .fa-whatsapp {
-  background: linear-gradient(45deg, #25D366, #128C7E, #0bdec5);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  background: linear-gradient(45deg,#25D366,#128C7E,#0bdec5);
   background-clip: text;
+  -webkit-background-clip: text;
   color: transparent;
-  font-weight: bold;
-  cursor: pointer;
 }
+.fa-whatsapp:hover { transform: scale(1.2) rotate(10deg); filter: drop-shadow(0 0 6px #25D366); }
 
-.fa-whatsapp:hover {
-  transform: scale(1.2) rotate(10deg);
-  filter: drop-shadow(0 0 6px #25D366) drop-shadow(0 0 4px #128C7E);
-}
-
-/* Email */
 .fa-envelope {
-  background: linear-gradient(45deg, #1DA1F2, #0a74da, #00c6ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  background: linear-gradient(45deg,#1DA1F2,#0a74da,#00c6ff);
   background-clip: text;
+  -webkit-background-clip: text;
   color: transparent;
-  cursor: pointer;
 }
-
-.fa-envelope:hover {
-  transform: scale(1.2) rotate(-10deg);
-  filter: drop-shadow(0 0 6px #00c6ff) drop-shadow(0 0 4px #1DA1F2);
-}
+.fa-envelope:hover { transform: scale(1.2) rotate(-10deg); }
 
 .fa-instagram {
-  background: linear-gradient(45deg,
-    #f58529 0%, 
-    #feda77 25%, 
-    #dd2a7b 50%, 
-    #8134af 75%, 
-    #515bd4 100%);
-  -webkit-background-clip: text;
+  background: linear-gradient(45deg,#f58529,#feda77,#dd2a7b,#8134af,#515bd4);
   background-clip: text;
-  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
   color: transparent;
-  font-weight: bold;
-  cursor: pointer;
-  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-.fa-instagram:hover {
-  transform: scale(1.2) rotate(-10deg);
-  filter: drop-shadow(0 0 6px #dd2a7b)
-          drop-shadow(0 0 4px #8134af);
+.fa-phone {
+  background: linear-gradient(45deg, #00BFFF, #1E90FF, #00CED1);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  transition: transform 0.3s, filter 0.3s;
+}
+
+.fa-phone:hover {
+  transform: scale(1.2) rotate(5deg);
+  filter: drop-shadow(0 0 6px #1E90FF);
+}
+
+
+
+
+/* ==========================================================
+   ПОДДЕРЖКА СТАРЫХ БРАУЗЕРОВ
+   ========================================================== */
+@supports not ((backdrop-filter: blur(6px))) {
+  .card__front, .card__back { background-color: rgba(255,255,255,0.05); }
+}
+
+/* ==========================================================
+   МОБИЛЬНАЯ АДАПТАЦИЯ
+   ========================================================== */
+@media (max-width: 600px) {
+  .cards { 
+    display: grid; 
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 0.6rem; 
+    justify-items: center; 
+  }
+
+  .card { width: 12.5rem; height: 24rem; padding: 0.6rem; perspective: 800px; }
+  .card__image img { height: 140px; border-radius: 10px; }
+  .card h3 { font-size: 1.1rem; -webkit-line-clamp: 2; line-clamp: 2; margin-bottom: 0.3rem;}
+  .card p { font-size: 0.9rem;  }
+
+  .card__button-wrapper { flex-direction: column;}
+  .card__button { padding: 7-8px 12-14px; font-size: 0.6-0.65rem; letter-spacing: 1px;}
+
+  .card__back { gap: 0rem; }
+  .card__back h3 { font-size: 0.9rem; font-weight: bold;}
+  .card__back p { font-size: 0.8rem; font-weight: normal;}
+  .card__back { padding: 0.6rem; transform: rotateY(180deg); }
+  .card__back-info { gap: 0.6rem; }
+  .card__back-info-text { font-size: 0.8rem; }
+  .card__back-info-settings .fa-brands,
+  .card__back-info-settings .fa-solid,
+  .card__back-info-settings .fa-regular,
+  .card__back-info-settings .fa-solid { font-size: 18px; min-width: 18px; }
 }

@@ -114,7 +114,7 @@
   <div class="catalog">
     <div class="section__page-title">
       <h1 class="page-title">Katalog</h1>
-      <h3>Reinigung & Pfleg</h3>
+      <h3>Reinigung & Pflege</h3>
     </div>
     
     <div class="cards">
@@ -127,8 +127,8 @@
               <div class="card__image">
                 <img src="assets/images/cards/personal_and_events/Seniorenbetreuung_1_1.JPG" alt="">
               </div>
-              <h3>Auto reinigen (Innen und Außenbereich)</h3>
-              <p>Beschreibung, <br/>Beschreibung.</p>
+              <h3>Auto reinigen</h3>
+              <p>Innen und <br/>Außenbereich.</p>
             </div>
             <div class="card__button-wrapper"> 
               <a class="card__button card__button-outline" href="">Mehr</a>
@@ -140,16 +140,20 @@
             <p class="card__back-cta">Wir stehen Ihnen jederzeit zur Verfügung, um Ihre Fragen zu beantworten.</p>
             <div class="card__back-info">
               <div class="card__back-info-settings card__back-info-telefonnumber">
-                <a class="fa-brands fa-whatsapp" href="https://wa.me/4917661219130?text=Hallo!%20Ich%20möchte%20mich%20über%20über%20Einkaufshilfe%20informieren." target="_blank" rel="noopener noreferrer"></a>
+                <a class="fa-solid fa-phone" href="https://wa.me/4917661219130?text=Hallo!%20Ich%20möchte%20mich%20über%20über%20Einkaufshilfe%20informieren." target="_blank" rel="noopener noreferrer"></a>
                 <a class="card__back-info-text" href="https://wa.me/4917661219130?text=Hallo!%20Ich%20möchte%20mich%20über%20über%20Einkaufshilfe%20informieren." target="_blank" rel="noopener noreferrer">+49 176 61219130</a>
+              </div>
+              <div class="card__back-info-settings card__back-info-telefonnumber">
+                <a class="fa-brands fa-whatsapp" href="https://wa.me/4917661219130?text=Hallo!%20Ich%20möchte%20mich%20über%20über%20Einkaufshilfe%20informieren." target="_blank" rel="noopener noreferrer"></a>
+                <a class="card__back-info-text" href="https://wa.me/4917661219130?text=Hallo!%20Ich%20möchte%20mich%20über%20über%20Einkaufshilfe%20informieren." target="_blank" rel="noopener noreferrer">WhatsApp</a>
               </div>
               <div class="card__back-info-settings card__back-info-email">
                 <a class="fa-regular fa-envelope" href="mailto:german.thy.multi@gmail.com?subject=Anfrage%20über%20Einkaufshilfe" target="_blank" rel="noopener noreferrer"></a>
-                <a class="card__back-info-text" href="mailto:german.thy.multi@gmail.com?subject=Anfrage%20über%20Einkaufshilfe">german.thy.multi@gmail.com</a>
+                <a class="card__back-info-text" href="mailto:german.thy.multi@gmail.com?subject=Anfrage%20über%20Einkaufshilfe">Mail senden</a>
               </div>
               <div class="card__back-info-settings">
                 <a class="card__fa-icons fa-brands fa-instagram" href="https://www.instagram.com/german_thy_multi" target="_blank" rel="noopener noreferrer"></a>
-                <a class="card__back-info-text" href="https://www.instagram.com/german_thy_multi" target="_blank" rel="noopener noreferrer">@german_thy_multi</a>
+                <a class="card__back-info-text" href="https://www.instagram.com/german_thy_multi" target="_blank" rel="noopener noreferrer">Instagram</a>
               </div>
             </div>
             <button class="card__button card__button-outline flip-btn">Zurück</button>
@@ -177,6 +181,10 @@
             <h3>Sprechen Sie uns an!</h3>
             <p class="card__back-cta">Wir stehen Ihnen jederzeit zur Verfügung, um Ihre Fragen zu beantworten.</p>
             <div class="card__back-info">
+              <div class="card__back-info-settings card__back-info-telefonnumber">
+                <a class="fa-solid fa-phone" href="https://wa.me/4917661219130?text=Hallo!%20Ich%20möchte%20mich%20über%20über%20Einkaufshilfe%20informieren." target="_blank" rel="noopener noreferrer"></a>
+                <a class="card__back-info-text" href="https://wa.me/4917661219130?text=Hallo!%20Ich%20möchte%20mich%20über%20über%20Einkaufshilfe%20informieren." target="_blank" rel="noopener noreferrer">+49 176 61219130</a>
+              </div>
               <div class="card__back-info-settings card__back-info-telefonnumber">
                 <a class="fa-brands fa-whatsapp" href="https://wa.me/4917661219130?text=Hallo!%20Ich%20möchte%20mich%20über%20über%20Einzelhandelskaufmann%20informieren." target="_blank" rel="noopener noreferrer"></a>
                 <a class="card__back-info-text" href="https://wa.me/4917661219130?text=Hallo!%20Ich%20möchte%20mich%20über%20über%20Einzelhandelskaufmann%20informieren." target="_blank" rel="noopener noreferrer">+49 176 61219130</a>
@@ -687,5 +695,47 @@
 <!-- End FOOTER -->
 <script src="assets/js/main.js"></script>
 <script src="assets/js/locales.js"></script>
+
+<script>
+  const container = document.querySelector('.catalog');
+const itemHeight = 240; // высота одной карточки
+const buffer = 5; // запас сверху/снизу
+let start = 0;
+
+function render() {
+  const scrollTop = container.scrollTop;
+  const viewportHeight = container.clientHeight;
+
+  const firstVisibleIndex = Math.floor(scrollTop / itemHeight);
+  const lastVisibleIndex = Math.ceil((scrollTop + viewportHeight) / itemHeight);
+
+  const from = Math.max(firstVisibleIndex - buffer, 0);
+  const to = Math.min(lastVisibleIndex + buffer, data.length);
+
+  if (from !== start) {
+    start = from;
+    draw(from, to);
+  }
+}
+
+function draw(from, to) {
+  container.innerHTML = '';
+  for (let i = from; i < to; i++) {
+    const item = data[i];
+    const el = document.createElement('div');
+    el.className = 'product-card';
+    el.style.top = (i * itemHeight) + 'px';
+    el.innerHTML = `
+      <img src="${item.image}" loading="lazy" />
+      <h3>${item.title}</h3>
+    `;
+    container.appendChild(el);
+  }
+}
+
+container.addEventListener('scroll', render);
+render();
+
+</script>
 </body>
 </html>

@@ -60,11 +60,11 @@
 
 .site-notice-overlay-button {
   margin-top: 0;
-  width: 30%;
+  width: 40;
 }
 
 .site-notice-overlay-button-email {
-  width: 60%;
+  width: 50%;
   margin-top: 0.5rem;
 }
 
@@ -147,13 +147,18 @@
   }
 
   .site-notice-overlay__callus {
-    margin-top: 8rem;
+    margin-top: 0rem;
   }
 
 }
 
 /* Для очень маленьких экранов до 480px (телефоны) */
 @media (max-width: 480px) {
+  .site-notice-content {
+    margin-top: 2rem;
+  }
+
+
   .site-notice-content, .site-notice-overlay__phone {
     padding: 1.2rem 1.5rem;
     width: 90%;
@@ -166,5 +171,10 @@
 
   .site-notice-content p {
     font-size: 0.95rem;
+  }
+
+  .site-notice-overlay__callus {
+    margin-top: auto;
+    margin-bottom: 1rem;
   }
 }

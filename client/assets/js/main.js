@@ -146,7 +146,87 @@ slider.addEventListener('touchmove', (e) => moveDragging(e.touches[0]));
 
 
 
+// Открытие/закрытие dropdown
+document.querySelectorAll(".fixed-price__card").forEach(card => {
 
+  const monthlyBtn = card.querySelector(".fixed-price__card-monthly-button");
+  const monthlyDropdown = card.querySelector(".fixed-price__dropdown-monthly");
+
+  const serviceBtn = card.querySelector(".fixed-price__card-service-button");
+  const serviceDropdown = card.querySelector(".fixed-price__dropdown-service");
+
+  // toggle для monthly
+  if (monthlyBtn && monthlyDropdown) {
+    monthlyBtn.addEventListener("click", () => {
+      monthlyDropdown.classList.toggle("active");
+      serviceDropdown?.classList.remove("active"); // закрываем второй
+    });
+
+    monthlyDropdown.querySelectorAll("li").forEach(li => {
+      li.addEventListener("click", () => {
+        monthlyBtn.textContent = li.dataset.value; // устанавливаем текст
+        monthlyDropdown.classList.remove("active");
+      });
+    });
+  }
+
+  // toggle для service
+  if (serviceBtn && serviceDropdown) {
+    serviceBtn.addEventListener("click", () => {
+      serviceDropdown.classList.toggle("active");
+      monthlyDropdown?.classList.remove("active"); // закрываем первый
+    });
+
+    serviceDropdown.querySelectorAll("li").forEach(li => {
+      li.addEventListener("click", () => {
+        serviceBtn.textContent = li.dataset.value;
+        serviceDropdown.classList.remove("active");
+      });
+    });
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const tabButtons = document.querySelectorAll(".custom__button");
+const tabContent = document.getElementById("custom-content");
+
+const tabTexts = {
+  logistics: "Текст о логистике...",
+  garden: "Информация о саде...",
+  events: "Информация о иветах...",
+  cleaning: "Информация о уборке..."
+};
+
+tabButtons.forEach(btn => {
+  btn.addEventListener("click", () => {
+    const activeBtn = document.querySelector(".custom__button--active");
+    if (activeBtn === btn) return;
+
+    activeBtn.classList.remove("custom__button--active");
+    btn.classList.add("custom__button--active");
+
+    const key = btn.getAttribute("data-content");
+
+    // Плавная смена контента
+    tabContent.style.opacity = 0;
+    setTimeout(() => {
+      tabContent.innerHTML = `<p>${tabTexts[key]}</p>`;
+      tabContent.style.opacity = 1;
+    }, 300);
+  });
+});
 
 
 
