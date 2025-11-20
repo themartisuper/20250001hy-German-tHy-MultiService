@@ -1,54 +1,101 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const priceEl = document.querySelector(".fixed-price__card-price");
+// dropdown
 
-  const servicePrices = {
-    "Fahrzeugüberführung": 120,
-    "Kurierdienste": 90,
-    "Lieferant": 85,
-    "Möbeltransport / Umzugshilfe": 150,
-    "Tragehilfe": 70,
-    "Zum Flughafen hin-zurück fahren": 110
-  };
+const serviceBtn = document.querySelector('.fixed-price__card-service-button');
+const weeklyBtn = document.querySelector('.fixed-price__card-weekly-button');
+const monthsBtn = document.querySelector('.fixed-price__card-months-button');
 
-  const frequencyMultiplier = {
-    "1 mal pro Woche": 1,
-    "2 mal pro Woche": 2,
-    "3 mal pro Woche": 3,
-    "4 mal pro Woche": 4,
-    "5 mal pro Woche": 5,
-    "6 mal pro Woche": 6,
-    "7 mal pro Woche": 7
-  };
+const ddService = document.querySelector('.fixed-price__dropdown-service');
+const ddWeekly = document.querySelector('.fixed-price__dropdown-weekly');
+const ddMonths = document.querySelector('.fixed-price__dropdown-months');
 
-  let selectedService = null;
-  let selectedFrequency = null;
+function closeAll() {
+  ddService.style.display = 'none';
+  ddWeekly.style.display = 'none';
+  ddMonths.style.display = 'none';
+}
 
-  const updatePrice = () => {
-    if (!selectedService || !selectedFrequency) {
-      priceEl.textContent = "xxx€";
-      return;
-    }
-    const base = servicePrices[selectedService];
-    const mult = frequencyMultiplier[selectedFrequency];
-    const total = base * mult;
-    priceEl.textContent = total + "€";
-  };
+serviceBtn.addEventListener('click', () => {
+  const isOpen = ddService.style.display === 'block';
+  closeAll();
+  ddService.style.display = isOpen ? 'none' : 'block';
+});
 
-  document
-    .querySelectorAll(".fixed-price__dropdown-service ul li")
-    .forEach(li => {
-      li.addEventListener("click", () => {
-        selectedService = li.dataset.value;
-        updatePrice();
-      });
-    });
+weeklyBtn.addEventListener('click', () => {
+  const isOpen = ddWeekly.style.display === 'block';
+  closeAll();
+  ddWeekly.style.display = isOpen ? 'none' : 'block';
+});
 
-  document
-    .querySelectorAll(".fixed-price__dropdown-monthly ul li")
-    .forEach(li => {
-      li.addEventListener("click", () => {
-        selectedFrequency = li.dataset.value;
-        updatePrice();
-      });
-    });
+monthsBtn.addEventListener('click', () => {
+  const isOpen = ddMonths.style.display === 'block';
+  closeAll();
+  ddMonths.style.display = isOpen ? 'none' : 'block';
+});
+
+// price
+const priceEl = document.querySelector('.fixed-price__card-price');
+
+// selections
+let selectedService = null;
+let selectedWeekly = null;
+let selectedMonths = null;
+
+// базовые цены
+const basePrice = {
+  "Fahrzeugüberführung": 30,
+  "Kurierdienste": 25,
+  "Lieferant": 28,
+  "Möbeltransport / Umzugshilfe": 40,
+  "Tragehilfe": 22,
+  "Zum Flughafen hin-zurück fahren": 35
+};
+
+// скидки
+function getDiscount(months) {
+  if (months >= 12) return 0.20;
+  if (months >= 6) return 0.10;
+  if (months >= 3) return 0.05;
+  return 0;
+}
+
+function calculatePrice() {
+  if (!selectedService || !selectedWeekly || !selectedMonths) {
+    priceEl.textContent = "xxx€";
+    return;
+  }
+
+  const base = basePrice[selectedService];
+  const days = parseInt(selectedWeekly);
+  const months = parseInt(selectedMonths);
+
+  const discount = getDiscount(months);
+
+  let total = base * days * months;
+  total = total - (total * discount);
+
+  priceEl.textContent = total.toFixed(2) + "€";
+}
+
+// SERVICE selection
+document.querySelectorAll('.fixed-price__dropdown-service li').forEach(li => {
+  li.addEventListener('click', () => {
+    selectedService = li.dataset.value;
+    calculatePrice();
+  });
+});
+
+// WEEKLY selection
+document.querySelectorAll('.fixed-price__dropdown-weekly li').forEach(li => {
+  li.addEventListener('click', () => {
+    selectedWeekly = li.dataset.value.match(/\d+/)[0];
+    calculatePrice();
+  });
+});
+
+// MONTHS selection
+document.querySelectorAll('.fixed-price__dropdown-months li').forEach(li => {
+  li.addEventListener('click', () => {
+    selectedMonths = li.dataset.value.match(/\d+/)[0];
+    calculatePrice();
+  });
 });
