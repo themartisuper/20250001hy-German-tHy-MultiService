@@ -1,170 +1,134 @@
-/* === Section root === */
+/* ====== Контейнер ====== */
 #fixed-price {
   scroll-margin-top: 4.5rem;
-  padding: 3rem 0;
-  font-family: system-ui, sans-serif;
 }
 
-/* === Layout === */
 .fixed-price__container {
   display: flex;
-  justify-content: space-between;
-  align-items: start;
-  gap: 3rem;
-  padding: 0 2rem;
+  justify-content: space-around;
+  align-items: center;
 }
 
-/* === Left text column === */
 .fixed-price__text-container {
   max-width: 40%;
 }
 
-.fixed-price__title {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-}
-
-.fixed-price__description {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #333;
-  overflow-wrap: break-word;
-}
-
-/* === Card === */
+/* ====== Карточка ====== */
 .fixed-price__card {
+  display: flex;
+  flex-direction: column;
   max-width: 40%;
-  background: #ffffff;
-  border-radius: 1.5rem;
-  padding: 2rem;
+  background-color: white;
+  border-radius: 1.25rem;
   color: #000;
   position: relative;
-
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
-  transition: transform .25s ease;
+  padding: 1rem 0;
 }
 
-.fixed-price__card:hover {
-  transform: translateY(-4px);
-}
-
-/* === Card content === */
-.fixed-price__card-oprions p {
-  margin: 0.3rem 0;
+/* ====== Опции ====== */
+.fixed-price__card-oprions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
 }
 
 .fixed-price__card-title {
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
 }
 
 .fixed-price__card-price {
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  margin-bottom: 1.2rem;
 }
 
-/* === Buttons === */
+/* ====== Кнопки ====== */
 .fixed-price__card-service-button,
 .fixed-price__card-months-button,
 .fixed-price__card-weekly-button {
-  display: block;
-  width: 100%;
-
-  margin: 0.5rem 0;
-  padding: 0.7rem 1.2rem;
-
-  background: #4c5b5c;
+  margin: 0.6rem 0;
+  padding: 0.5rem 4rem;
+  background-color: #4c5b5c;
+  border-radius: 666px;
   color: #fff;
-  border-radius: 100px;
-  border: none;
   cursor: pointer;
-
-  font-size: 1rem;
-  font-weight: 500;
-
-  transition: background .2s ease;
+  border: none;
+  transition: background 0.2s ease;
 }
 
 .fixed-price__card-service-button:hover,
 .fixed-price__card-months-button:hover,
 .fixed-price__card-weekly-button:hover {
-  background: #3a4546;
+  background-color: #3a4546;
 }
 
-/* === Dropdown container system === */
-.fixed-price__card-oprions {
-  position: relative;
-}
-
-/* === Dropdown style === */
+/* ====== Дропдауны ====== */
 .fixed-price__dropdown-service,
 .fixed-price__dropdown-weekly,
 .fixed-price__dropdown-months {
-  /* абсолютное позиционирование поверх верстки */
   position: absolute;
-  top: calc(100% + 8px);
-  left: 0;
-  width: 100%;
-
-  background: #fff;
-  border-radius: 1rem;
-  padding: 1rem 1.2rem;
-
-  box-shadow: 0 12px 28px rgba(0,0,0,0.18);
+  top: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
 
   display: none;
+  opacity: 0;
+  pointer-events: none;
+  transform-origin: top center;
+  transition: opacity .2s ease, transform .2s ease;
+
+  background: #fff;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
   z-index: 9999;
-
-  animation: dropdownFade 0.25s ease forwards;
-  transform-origin: top;
 }
 
-/* плавное появление */
-@keyframes dropdownFade {
-  from { opacity: 0; transform: scaleY(0.8); }
-  to   { opacity: 1; transform: scaleY(1); }
+/* Открыт */
+.fixed-price__dropdown-service.open,
+.fixed-price__dropdown-weekly.open,
+.fixed-price__dropdown-months.open {
+  display: block;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) scale(1);
 }
 
-.fixed-price__dropdown-service-title,
-.fixed-price__dropdown-weekly-title,
-.fixed-price__dropdown-months-title {
-  font-weight: 600;
-  margin-bottom: .6rem;
-}
-
+/* Список */
 .fixed-price__dropdown-service ul,
 .fixed-price__dropdown-weekly ul,
 .fixed-price__dropdown-months ul {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 10px 0 0 0;
 }
 
 .fixed-price__dropdown-service li,
 .fixed-price__dropdown-weekly li,
 .fixed-price__dropdown-months li {
-  padding: 0.5rem 0.3rem;
-  border-radius: .5rem;
-
+  padding: 10px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background .15s ease;
+  transition: background .15s;
 }
 
 .fixed-price__dropdown-service li:hover,
 .fixed-price__dropdown-weekly li:hover,
 .fixed-price__dropdown-months li:hover {
-  background: #f2f2f2;
+  background: #f0f0f0;
 }
 
-/* === card benefit text === */
-.fixed-price__card-description {
-  margin-top: 1.5rem;
-  border-top: 1px solid #ddd;
-  padding-top: 1.5rem;
+/* Активный */
+.fixed-price__dropdown-service li.active,
+.fixed-price__dropdown-weekly li.active,
+.fixed-price__dropdown-months li.active {
+  background: #4c5b5c;
+  color: #fff;
 }
 
-.fixed-price__card-description p {
-  margin: 0.4rem 0;
+/* Текст */
+.fixed-price__description {
+  overflow-wrap: break-word;
 }
