@@ -20,6 +20,15 @@ function getDiscount(months) {
 
 function calculatePrice() {
   const { service, weekly, months } = selections;
+
+  // Показываем "nach Vereinbarung" только если выбран кастомный пункт
+  if ([service, weekly, months].includes("custom")) {
+    priceEl.textContent = "nach Vereinbarung";
+    discountEl.textContent = '';
+    return;
+  }
+
+  // Если что-то не выбрано — просто скрываем цену
   if (!service || !weekly || !months) {
     priceEl.textContent = "";
     discountEl.textContent = '';
@@ -59,28 +68,40 @@ document.querySelectorAll('.fixed-price__dropdown li').forEach(li => {
   li.addEventListener('click', () => {
     const dropdown = li.closest('.fixed-price__dropdown');
     const type = dropdown.dataset.type;
+    const isCustom = li.dataset.custom === "true";
 
-    // Сохраняем значение
-    selections[type] = type === 'service' ? li.dataset.value : parseInt(li.dataset.value.match(/\d+/)[0], 10);
+    if (isCustom) {
+      selections[type] = "custom";
 
-    // UI: активный элемент
+      // Кнопка и заголовок
+      document.querySelector(`.fixed-price__card-btn[data-dropdown="${type}"]`).textContent = li.textContent.trim();
+      if (type === 'service') {
+        document.querySelector('.fixed-price__card-title').textContent = li.textContent.trim();
+      }
+
+      // Цена и скидка скрыты только для кастомного пункта
+      priceEl.textContent = "nach Vereinbarung";
+      discountEl.textContent = '';
+
+      dropdown.classList.remove('open');
+      return;
+    }
+
+    // --- обычная логика ---
+    selections[type] = type === 'service'
+      ? li.dataset.value
+      : parseInt(li.dataset.value.match(/\d+/)[0], 10);
+
     dropdown.querySelectorAll('li').forEach(x => x.classList.remove('active'));
     li.classList.add('active');
 
-    // кнопка обновляется
     document.querySelector(`.fixed-price__card-btn[data-dropdown="${type}"]`).textContent = li.dataset.value;
 
-    // обновляем заголовок card-title только для service
     if (type === 'service') {
       document.querySelector('.fixed-price__card-title').textContent = li.dataset.value;
     }
 
-    // закрываем дропдаун
     dropdown.classList.remove('open');
-
-    // если это месяцы — добавляем data-discount для li
-    // if (type === 'months') li.dataset.discount = getDiscount(selections.months) ? `${getDiscount(selections.months)}%` : '';
-
     calculatePrice();
   });
 });
