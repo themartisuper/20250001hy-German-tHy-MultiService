@@ -34,7 +34,7 @@ monthsBtn.addEventListener('click', () => {
 
 // Закрытие кликом вне
 document.addEventListener('click', (e) => {
-  if (!e.target.closest('.fixed-price__card-oprions')) {
+  if (!e.target.closest('.fixed-price__card-options')) {
     closeAll();
   }
 });
@@ -59,9 +59,9 @@ const basePrice = {
 
 // discounts
 function getDiscount(months) {
-  if (months >= 12) return 0.20;
-  if (months >= 6) return 0.10;
-  if (months >= 3) return 0.05;
+  if (months >= 12) return 20;
+  if (months >= 6) return 10;
+  if (months >= 3) return 5;
   return 0;
 }
 
@@ -72,14 +72,15 @@ function calculatePrice() {
   }
 
   const base = basePrice[selectedService];
-  const days = parseInt(selectedWeekly, 10);
-  const months = parseInt(selectedMonths, 10);
-  const discount = getDiscount(months);
+  const total = base * selectedWeekly * selectedMonths;
+  const discount = getDiscount(selectedMonths);
 
-  let total = base * days * months;
-  total -= total * discount;
+  const finalPrice = total - (total * discount / 100);
+  priceEl.textContent = `${finalPrice.toFixed(2)}€`;
 
-  priceEl.textContent = total.toFixed(2) + "€";
+  // показать скидку
+  const discountEl = document.querySelector('.fixed-price__discount');
+  if (discountEl) discountEl.textContent = discount ? `Скидка ${discount}%` : '';
 }
 
 // === SERVICE selection ===
@@ -87,7 +88,7 @@ document.querySelectorAll('.fixed-price__dropdown-service li').forEach(li => {
   li.addEventListener('click', () => {
     selectedService = li.dataset.value;
 
-    // UI обновление
+    // UI
     document.querySelectorAll('.fixed-price__dropdown-service li').forEach(x => x.classList.remove('active'));
     li.classList.add('active');
     serviceBtn.textContent = selectedService;
@@ -119,6 +120,9 @@ document.querySelectorAll('.fixed-price__dropdown-months li').forEach(li => {
     document.querySelectorAll('.fixed-price__dropdown-months li').forEach(x => x.classList.remove('active'));
     li.classList.add('active');
     monthsBtn.textContent = li.dataset.value;
+
+    // добавить data-discount для отображения в li
+    li.dataset.discount = getDiscount(selectedMonths) ? `${getDiscount(selectedMonths)}%` : '';
 
     ddMonths.classList.remove('open');
     calculatePrice();
