@@ -1,99 +1,106 @@
 /* === Section root === */
 #fixed-price {
   scroll-margin-top: 4.5rem;
-  padding: 3rem 0;
-  font-family: system-ui, sans-serif;
+  padding: 4rem 2rem;
+  font-family: 'Inter', system-ui, sans-serif;
+  background: #f9f9f9;
+  color: #222;
 }
 
 /* === Layout === */
 .fixed-price__container {
   display: flex;
   justify-content: space-between;
-  align-items: start;
+  align-items: flex-start;
   gap: 3rem;
-  padding: 0 2rem;
+  flex-wrap: wrap;
 }
 
 /* === Left text column === */
 .fixed-price__text-container {
+  flex: 1 1 40%;
   max-width: 40%;
 }
 
 .fixed-price__title {
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-weight: 700;
   margin-bottom: 1rem;
+  color: #222;
 }
 
 .fixed-price__description {
   font-size: 1rem;
   line-height: 1.6;
-  color: #333;
+  color: #555;
   overflow-wrap: break-word;
 }
 
 /* === Card === */
 .fixed-price__card {
+  flex: 1 1 40%;
   max-width: 40%;
-  background: #ffffff;
-  border-radius: 1.5rem;
-  padding: 2rem;
+  background: #fff;
+  border-radius: 2rem;
+  padding: 2.5rem;
   color: #000;
   position: relative;
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
-  transition: transform .25s ease;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .fixed-price__card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px);
+  box-shadow: 0 28px 50px rgba(0,0,0,0.12);
 }
 
 /* === Card content === */
 .fixed-price__card-options p {
-  margin: 0.3rem 0;
+  margin: 0.4rem 0;
 }
 
 .fixed-price__card-title {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: 600;
+  margin: 0.5rem 0;
 }
 
 .fixed-price__card-price {
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #111;
 }
 
 /* === Discount info === */
 .fixed-price__discount {
-  font-size: 0.9rem;
-  color: #ff4c4c;
+  font-size: 0.95rem;
+  color: #e63946;
   margin-bottom: 1rem;
   font-weight: 600;
 }
 
 /* === Buttons === */
-.fixed-price__card-service-button,
-.fixed-price__card-months-button,
-.fixed-price__card-weekly-button {
+.fixed-price__card-btn {
   display: block;
   width: 100%;
   margin: 0.5rem 0;
-  padding: 0.7rem 1.2rem;
-  background: #4c5b5c;
+  padding: 0.8rem 1.5rem;
+  background: linear-gradient(135deg,#4c5b5c,#2c3e3f);
   color: #fff;
-  border-radius: 100px;
+  border-radius: 9999px;
   border: none;
   cursor: pointer;
   font-size: 1rem;
   font-weight: 500;
-  transition: background .2s ease;
+  transition: all 0.25s ease;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.08);
 }
 
-.fixed-price__card-service-button:hover,
-.fixed-price__card-months-button:hover,
-.fixed-price__card-weekly-button:hover {
-  background: #3a4546;
+.fixed-price__card-btn:hover {
+  background: linear-gradient(135deg,#3a4546,#1f2a2b);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.12);
 }
 
 /* === Dropdown container === */
@@ -102,92 +109,94 @@
 }
 
 /* === Dropdown style === */
-.fixed-price__dropdown-service,
-.fixed-price__dropdown-weekly,
-.fixed-price__dropdown-months {
+.fixed-price__dropdown {
   position: absolute;
   top: calc(100% + 8px);
   left: 0;
   width: 100%;
   background: #fff;
-  border-radius: 1rem;
+  border-radius: 1.2rem;
   padding: 1rem 1.2rem;
-  box-shadow: 0 12px 28px rgba(0,0,0,0.18);
+  box-shadow: 0 18px 36px rgba(0,0,0,0.1);
   display: none;
   z-index: 9999;
   animation: dropdownFade 0.25s ease forwards;
-  transform-origin: top;
+  transform-origin: top center;
+  transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
-.fixed-price__dropdown-service.open,
-.fixed-price__dropdown-weekly.open,
-.fixed-price__dropdown-months.open {
-  display: block;
+.fixed-price__dropdown.open { 
+  display: block; 
 }
 
 @keyframes dropdownFade {
-  from { opacity: 0; transform: scaleY(0.8); }
+  from { opacity: 0; transform: scaleY(0.85); }
   to   { opacity: 1; transform: scaleY(1); }
 }
 
-.fixed-price__dropdown-service-title,
-.fixed-price__dropdown-weekly-title,
-.fixed-price__dropdown-months-title {
+.fixed-price__dropdown-title {
   font-weight: 600;
-  margin-bottom: .6rem;
+  margin-bottom: 0.6rem;
+  font-size: 0.95rem;
+  color: #333;
 }
 
-.fixed-price__dropdown-service ul,
-.fixed-price__dropdown-weekly ul,
-.fixed-price__dropdown-months ul {
+.fixed-price__dropdown ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.fixed-price__dropdown-service li,
-.fixed-price__dropdown-weekly li,
-.fixed-price__dropdown-months li {
-  padding: 0.5rem 0.3rem;
-  border-radius: .5rem;
+.fixed-price__dropdown li {
+  padding: 0.55rem 0.6rem;
+  border-radius: .6rem;
   cursor: pointer;
-  transition: background .15s ease;
+  transition: background 0.2s ease, color 0.2s ease;
   position: relative;
 }
 
-.fixed-price__dropdown-service li:hover,
-.fixed-price__dropdown-weekly li:hover,
-.fixed-price__dropdown-months li:hover {
-  background: #f2f2f2;
+.fixed-price__dropdown li:hover {
+  background: #f0f0f0;
 }
 
-/* === Active li === */
-.fixed-price__dropdown-service li.active,
-.fixed-price__dropdown-weekly li.active,
-.fixed-price__dropdown-months li.active {
+.fixed-price__dropdown li.active {
   background: #4c5b5c;
   color: #fff;
 }
 
-/* === Show discount badge in dropdown li === */
-.fixed-price__dropdown-months li[data-discount]:after {
+/* Discount badge in months li */
+.fixed-price__dropdown li[data-discount]:after {
   content: attr(data-discount);
   position: absolute;
-  right: 10px;
+  right: 12px;
   top: 50%;
   transform: translateY(-50%);
   font-size: 0.8rem;
   font-weight: 600;
-  color: #ff4c4c;
+  color: #e63946;
 }
 
-/* === card benefit text === */
+/* === Card benefit text === */
 .fixed-price__card-description {
-  margin-top: 1.5rem;
-  border-top: 1px solid #ddd;
+  margin-top: 2rem;
+  border-top: 1px solid #eee;
   padding-top: 1.5rem;
 }
 
 .fixed-price__card-description p {
   margin: 0.4rem 0;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .fixed-price__container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .fixed-price__text-container,
+  .fixed-price__card {
+    max-width: 100%;
+  }
 }

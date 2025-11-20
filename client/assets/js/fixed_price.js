@@ -1,53 +1,7 @@
-// === DROPDOWNS ===
-const serviceBtn = document.querySelector('.fixed-price__card-service-button');
-const weeklyBtn = document.querySelector('.fixed-price__card-weekly-button');
-const monthsBtn = document.querySelector('.fixed-price__card-months-button');
-
-const ddService = document.querySelector('.fixed-price__dropdown-service');
-const ddWeekly = document.querySelector('.fixed-price__dropdown-weekly');
-const ddMonths = document.querySelector('.fixed-price__dropdown-months');
-
-function closeAll() {
-  ddService.classList.remove('open');
-  ddWeekly.classList.remove('open');
-  ddMonths.classList.remove('open');
-}
-
-// Открытие
-serviceBtn.addEventListener('click', () => {
-  const isOpen = ddService.classList.contains('open');
-  closeAll();
-  ddService.classList.toggle('open', !isOpen);
-});
-
-weeklyBtn.addEventListener('click', () => {
-  const isOpen = ddWeekly.classList.contains('open');
-  closeAll();
-  ddWeekly.classList.toggle('open', !isOpen);
-});
-
-monthsBtn.addEventListener('click', () => {
-  const isOpen = ddMonths.classList.contains('open');
-  closeAll();
-  ddMonths.classList.toggle('open', !isOpen);
-});
-
-// Закрытие кликом вне
-document.addEventListener('click', (e) => {
-  if (!e.target.closest('.fixed-price__card-options')) {
-    closeAll();
-  }
-});
-
-// === PRICE SYSTEM ===
 const priceEl = document.querySelector('.fixed-price__card-price');
+const discountEl = document.querySelector('.fixed-price__discount');
 
-// selections
-let selectedService = null;
-let selectedWeekly = null;
-let selectedMonths = null;
-
-// base prices
+const selections = { service: null, weekly: null, months: null };
 const basePrice = {
   "Fahrzeugüberführung": 30,
   "Kurierdienste": 25,
@@ -57,7 +11,6 @@ const basePrice = {
   "Zum Flughafen hin-zurück fahren": 35
 };
 
-// discounts
 function getDiscount(months) {
   if (months >= 12) return 20;
   if (months >= 6) return 10;
@@ -66,65 +19,68 @@ function getDiscount(months) {
 }
 
 function calculatePrice() {
-  if ([selectedService, selectedWeekly, selectedMonths].includes(null)) {
-    priceEl.textContent = "xxx€";
+  const { service, weekly, months } = selections;
+  if (!service || !weekly || !months) {
+    priceEl.textContent = "";
+    discountEl.textContent = '';
     return;
   }
 
-  const base = basePrice[selectedService];
-  const total = base * selectedWeekly * selectedMonths;
-  const discount = getDiscount(selectedMonths);
-
+  const total = basePrice[service] * weekly * months;
+  const discount = getDiscount(months);
   const finalPrice = total - (total * discount / 100);
-  priceEl.textContent = `${finalPrice.toFixed(2)}€`;
 
-  // показать скидку
-  const discountEl = document.querySelector('.fixed-price__discount');
-  if (discountEl) discountEl.textContent = discount ? `Скидка ${discount}%` : '';
+  priceEl.textContent = `${finalPrice.toFixed(2)}€`;
+  discountEl.textContent = discount ? `zusätzlicher Rabatt ${discount}%` : '';
 }
 
-// === SERVICE selection ===
-document.querySelectorAll('.fixed-price__dropdown-service li').forEach(li => {
-  li.addEventListener('click', () => {
-    selectedService = li.dataset.value;
+// --- DROPDOWN --- 
+document.querySelectorAll('.fixed-price__card-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const dropdownType = btn.dataset.dropdown;
+    const dd = document.querySelector(`.fixed-price__dropdown[data-type="${dropdownType}"]`);
 
-    // UI
-    document.querySelectorAll('.fixed-price__dropdown-service li').forEach(x => x.classList.remove('active'));
-    li.classList.add('active');
-    serviceBtn.textContent = selectedService;
-
-    ddService.classList.remove('open');
-    calculatePrice();
+    document.querySelectorAll('.fixed-price__dropdown').forEach(d => {
+      if (d !== dd) d.classList.remove('open');
+    });
+    dd.classList.toggle('open');
   });
 });
 
-// === WEEKLY selection ===
-document.querySelectorAll('.fixed-price__dropdown-weekly li').forEach(li => {
-  li.addEventListener('click', () => {
-    selectedWeekly = parseInt(li.dataset.value.match(/\d+/)[0], 10);
-
-    document.querySelectorAll('.fixed-price__dropdown-weekly li').forEach(x => x.classList.remove('active'));
-    li.classList.add('active');
-    weeklyBtn.textContent = li.dataset.value;
-
-    ddWeekly.classList.remove('open');
-    calculatePrice();
-  });
+// Закрытие при клике вне
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.fixed-price__card-options')) {
+    document.querySelectorAll('.fixed-price__dropdown').forEach(dd => dd.classList.remove('open'));
+  }
 });
 
-// === MONTHS selection ===
-document.querySelectorAll('.fixed-price__dropdown-months li').forEach(li => {
+// --- SELECTION --- 
+document.querySelectorAll('.fixed-price__dropdown li').forEach(li => {
   li.addEventListener('click', () => {
-    selectedMonths = parseInt(li.dataset.value.match(/\d+/)[0], 10);
+    const dropdown = li.closest('.fixed-price__dropdown');
+    const type = dropdown.dataset.type;
 
-    document.querySelectorAll('.fixed-price__dropdown-months li').forEach(x => x.classList.remove('active'));
+    // Сохраняем значение
+    selections[type] = type === 'service' ? li.dataset.value : parseInt(li.dataset.value.match(/\d+/)[0], 10);
+
+    // UI: активный элемент
+    dropdown.querySelectorAll('li').forEach(x => x.classList.remove('active'));
     li.classList.add('active');
-    monthsBtn.textContent = li.dataset.value;
 
-    // добавить data-discount для отображения в li
-    li.dataset.discount = getDiscount(selectedMonths) ? `${getDiscount(selectedMonths)}%` : '';
+    // кнопка обновляется
+    document.querySelector(`.fixed-price__card-btn[data-dropdown="${type}"]`).textContent = li.dataset.value;
 
-    ddMonths.classList.remove('open');
+    // обновляем заголовок card-title только для service
+    if (type === 'service') {
+      document.querySelector('.fixed-price__card-title').textContent = li.dataset.value;
+    }
+
+    // закрываем дропдаун
+    dropdown.classList.remove('open');
+
+    // если это месяцы — добавляем data-discount для li
+    // if (type === 'months') li.dataset.discount = getDiscount(selections.months) ? `${getDiscount(selections.months)}%` : '';
+
     calculatePrice();
   });
 });
