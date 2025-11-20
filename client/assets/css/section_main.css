@@ -83,6 +83,10 @@
 
 /* Для экранов до 768px (планшеты и телефоны) */
 @media (max-width: 768px) {
+  .section__main::after {
+  background: rgba(0,0,0,0.6); /* затемнение, чтобы текст лучше читался */
+
+}
   .section__main-content-text h1 {
     font-size: 1.65rem;
   }
@@ -94,4 +98,26 @@
 
 /* Для очень маленьких экранов до 480px (телефоны) */
 @media (max-width: 480px) {
+  .section__main-content-text {
+    margin-left: 2rem;
+  }
+
+  .section__main-content-text h1 {
+    font-size: 1.65rem;
+  }
+}
+
+/* iPhone 12 Pro */
+@media (max-width: 390px) {
+  .section__main-content-text {
+    margin-left: 1rem;
+  }
+
+  .section__main-content-text h1 {
+    font-size: 1.5rem;
+  }
+
+  .section__main-content-text p {
+    font-size: 1.25rem;
+  }
 }

@@ -91,7 +91,7 @@
 }
 
 /* === Buttons === */
-.fixed-price__card-btn {
+.fixed-price__card-btn, .fixed-price__card-btn-send {
   display: block;
   width: 100%;
   margin: 0.5rem 0;
@@ -107,15 +107,53 @@
   box-shadow: 0 6px 12px rgba(0,0,0,0.08);
 }
 
+.fixed-price__card-btn-send:hover,
 .fixed-price__card-btn:hover {
   background: linear-gradient(135deg,#3a4546,#1f2a2b);
   transform: translateY(-2px);
   box-shadow: 0 10px 20px rgba(0,0,0,0.12);
 }
 
+.fixed-price__card-btn-send {
+  margin-top: 2rem;
+  text-align: center;
+}
+
 /* === Dropdown container === */
-.fixed-price__card-options {
-  position: relative;
+.fixed-price__dropdown-row-buttons {
+  display: flex;
+  gap: 10px; /* расстояние между кнопками */
+}
+
+.fixed-price__dropdown-row-buttons .fixed-price__dropdown-wrapper {
+  flex: 1; /* чтобы все кнопки делили доступное пространство поровну */
+}
+
+.fixed-price__card-btn {
+  width: 100%; /* чтобы кнопка занимала всю ширину своего контейнера */
+  box-sizing: border-box; /* чтобы padding не ломал ширину */
+}
+
+/* 1. Новая обертка для позиционирования */
+.fixed-price__dropdown-wrapper {
+  position: relative; /* <-- Теперь дропдаун позиционируется относительно этого элемента */
+  /* Стиль для правильного отображения кнопок (ширина, отступы) */
+  margin: 0.5rem 0; /* Отступы, которые были у .fixed-price__card-btn */
+}
+
+/* 2. Скорректировать стили кнопки */
+.fixed-price__card-btn {
+  /* Уберем margin, т.к. он перенесен на обертку */
+  margin: 0; /* Вместо 0.5rem 0 */
+  /* ... остальные стили кнопки остаются ... */
+}
+
+/* 3. Dropdown style - Оставляем как есть, теперь он позиционируется относительно обертки */
+.fixed-price__dropdown {
+  position: absolute;
+  top: calc(100% + 8px); 
+  left: 0;
+  /* ... остальные стили ... */
 }
 
 /* === Dropdown style === */
@@ -201,6 +239,15 @@
 
 /* Responsive */
 @media (max-width: 900px) {
+  #fixed-price {
+  padding: 4rem 1rem;
+}
+
+  .fixed-price__card {
+    width: 100%;
+    margin: 0;
+  }
+
   .fixed-price__container {
     flex-direction: column;
     gap: 2rem;
@@ -208,5 +255,13 @@
   .fixed-price__text-container,
   .fixed-price__card {
     max-width: 100%;
+  }
+
+  .fixed-price__card-categories-title {
+  position: absolute;
+  top: -1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0 1rem;
   }
 }

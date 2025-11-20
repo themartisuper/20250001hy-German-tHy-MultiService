@@ -395,7 +395,7 @@
 
 
 <!-- Pauschale -->
-<section class="custom">
+<!--<section class="custom">
   <h2 class="custom__title">Наши услуги</h2>
 
   <div class="custom__buttons">
@@ -408,7 +408,7 @@
   <div class="custom__content" id="custom-content">
     <p>Текст о логистике...</p>
   </div>
-</section>
+</section>-->
 <!-- End Pauschale -->
 
 
@@ -431,51 +431,60 @@
       <p class="fixed-price__card-price"></p>
       <p class="fixed-price__discount"></p>
 
-      <button class="fixed-price__card-btn" data-dropdown="service">Auswählen</button>
-      <div class="fixed-price__dropdown" data-type="service">
-        <p class="fixed-price__dropdown-title">Wähle deine Option:</p>
-        <ul>
-          <li data-value="Fahrzeugüberführung">Fahrzeugüberführung</li>
-          <li data-value="Kurierdienste">Kurierdienste</li>
-          <li data-value="Lieferant">Lieferant</li>
-          <li data-value="Möbeltransport / Umzugshilfe">Möbeltransport / Umzugshilfe</li>
-          <li data-value="Tragehilfe">Tragehilfe</li>
-          <li data-value="Zum Flughafen hin-zurück fahren">Zum Flughafen hin-zurück fahren</li>
-          <li data-value="call" data-custom="true">Telefonisch besprechen</li>
-        </ul>
+      <div class="fixed-price__dropdown-wrapper">
+        <button class="fixed-price__card-btn" data-dropdown="service">Auswählen</button>
+        <div class="fixed-price__dropdown" data-type="service">
+          <p class="fixed-price__dropdown-title">Wähle deine Option:</p>
+          <ul>
+            <li data-value="Fahrzeugüberführung">Fahrzeugüberführung</li>
+            <li data-value="Kurierdienste">Kurierdienste</li>
+            <li data-value="Lieferant">Lieferant</li>
+            <li data-value="Möbeltransport / Umzugshilfe">Möbeltransport / Umzugshilfe</li>
+            <li data-value="Tragehilfe">Tragehilfe</li>
+            <li data-value="Zum Flughafen hin-zurück fahren">Zum Flughafen hin-zurück fahren</li>
+            <li data-value="call" data-custom="true">Telefonisch besprechen</li>
+          </ul>
+        </div>
       </div>
-
-
-      <button class="fixed-price__card-btn" data-dropdown="weekly">Wie oft?</button>
-      <div class="fixed-price__dropdown" data-type="weekly">
-        <p class="fixed-price__dropdown-title">Wähle deine Option:</p>
-        <ul>
-          <li data-value="1 mal pro Woche">1 mal pro Woche</li>
-          <li data-value="2 mal pro Woche">2 mal pro Woche</li>
-          <li data-value="3 mal pro Woche">3 mal pro Woche</li>
-          <li data-value="4 mal pro Woche">4 mal pro Woche</li>
-          <li data-value="5 mal pro Woche">5 mal pro Woche</li>
-          <li data-value="6 mal pro Woche">6 mal pro Woche</li>
-          <li data-value="7 mal pro Woche">7 mal pro Woche</li>
-          <li data-value="call" data-custom="true">Telefonisch besprechen</li>
-        </ul>
-      </div>
-
-      <button class="fixed-price__card-btn" data-dropdown="months">Für wieviel Monate?</button>
-      <div class="fixed-price__dropdown" data-type="months">
-        <p class="fixed-price__dropdown-title">Wähle deine Option:</p>
-        <ul>
-          <li data-value="1 Monat">1 Monat</li>
-          <li data-value="2 Monate">2 Monate</li>
-          <li data-value="3 Monate">3 Monate</li>
-          <li data-value="4 Monate">4 Monate</li>
-          <li data-value="5 Monate">5 Monate</li>
-          <li data-value="6 Monate">6 Monate</li>
-          <li data-value="12 Monate">12 Monate</li>
-          <li data-value="18 Monate">18 Monate</li>
-          <li data-value="24 Monate">24 Monate</li>
-          <li data-value="call" data-custom="true">Telefonisch besprechen</li>
-        </ul>
+      
+      <div class="fixed-price__dropdown-row-buttons">
+        <!-- mal pro Woche -->
+        <div class="fixed-price__dropdown-wrapper"> 
+          <button class="fixed-price__card-btn" data-dropdown="weekly">pro Woche</button>
+          <div class="fixed-price__dropdown" data-type="weekly">
+            <p class="fixed-price__dropdown-title">Wähle deine Option:</p>
+            <ul>
+              <li data-value="1 mal">1&nbsp;mal</li>
+              <li data-value="2 mal">2&nbsp;mal</li>
+              <li data-value="3 mal">3&nbsp;mal</li>
+              <li data-value="4 mal">4&nbsp;mal</li>
+              <li data-value="5 mal">5&nbsp;mal</li>
+              <li data-value="6 mal">6&nbsp;mal</li>
+              <li data-value="7 mal">7&nbsp;mal</li>
+              <li data-value="call" data-custom="true">Telefonisch besprechen</li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- anzahl der Monate -->
+        <div class="fixed-price__dropdown-wrapper">
+          <button class="fixed-price__card-btn" data-dropdown="months">Monate</button>
+          <div class="fixed-price__dropdown" data-type="months">
+            <p class="fixed-price__dropdown-title">Wähle deine Option:</p>
+            <ul>
+              <li data-value="1 Monat">1&nbsp;Monat</li>
+              <li data-value="2 Monate">2&nbsp;Monate</li>
+              <li data-value="3 Monate">3&nbsp;Monate</li>
+              <li data-value="4 Monate">4&nbsp;Monate</li>
+              <li data-value="5 Monate">5&nbsp;Monate</li>
+              <li data-value="6 Monate">6&nbsp;Monate</li>
+              <li data-value="12 Monate">12&nbsp;Monate</li>
+              <li data-value="18 Monate">18&nbsp;Monate</li>
+              <li data-value="24 Monate">24&nbsp;Monate</li>
+              <li data-value="call" data-custom="true">Telefonisch besprechen</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -486,8 +495,9 @@
       <p>I’m a benefit</p>
       <p>I’m a benefit</p>
     </div>
-  </div>
 
+    <button class="fixed-price__card-btn-send">Anfrage absenden</button>
+  </div>
 </section>
 <!-- End fixed-price -->
 
