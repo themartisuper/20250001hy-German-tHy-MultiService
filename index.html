@@ -704,17 +704,16 @@
       <div class="card__multistep">
         <p class="fixed-price__card-categories-title">Transport & Logistik</p>
 
-        <div class="progress-bar">
-          <div class="progress-bar__inner"></div>
-        </div>
-
         <div class="step-indicator">
           <span class="step-circle active">1</span>
           <span class="step-circle">2</span>
           <span class="step-circle">3</span>
         </div>
 
-        
+        <div class="progress-bar">
+          <div class="progress-bar__inner"></div>
+        </div>
+
         <div class="steps-wrapper">
           
           <div class="step active">
@@ -939,7 +938,7 @@
 
     /* Progress bar */
     .progress-bar {
-        margin: 2rem 0;
+        margin: 0.5rem 0 2rem;
         width: 100%;
         height: 6px;
         background: #e5e5e5;
@@ -956,10 +955,11 @@
 
     /* Step Indicators */
     .step-indicator {
+      position: relative;
         display: flex;
         justify-content: center;
         gap: 1rem;
-        margin: 1.5rem 0;
+        margin: 1.5rem 0 0;
     }
 
     .step-circle {
