@@ -119,6 +119,53 @@
     
     <div class="cards">
 
+      <!-- =============================================== -->
+      <!-- ПРИМЕР ДЛЯ ОДНОЙ КАРТОЧКИ (Einkaufshilfe)       -->
+      <!-- =============================================== -->
+      <div class="card">
+        <div class="card__inner">
+          <div class="card__front">
+            <div class="card__wrapper">
+              <div class="card__image">
+                <img src="assets/images/cards/personal_and_events/einkaufhilfe.jpg" alt="">
+              </div>
+              <h3>Einkaufshilfe</h3>
+              <p>Ihr persönlicher Assistent für Einkäufe und Besorgungen.</p>
+            </div>
+            <div class="card__button-wrapper"> 
+              
+              <!-- КНОПКА MEHR -->
+              <!-- Вместо data-text мы используем data-template="id-шаблона" -->
+              <a class="card__button card__button-outline trigger-complex-modal" 
+                href="#"
+                data-title="Einkaufshilfe Details"
+                data-template="tmpl-einkauf"> <!-- Ссылка на ID шаблона внизу -->
+                Mehr
+              </a>
+
+              <button class="card__button card__button-fill flip-btn">Kontakt</button>
+            </div>
+          </div>
+          <!-- Back side ... -->
+          <div class="card__back">
+            <h3>Sprechen Sie uns an!</h3>
+            <!-- ... контент задней стороны ... -->
+            <button class="card__button card__button-outline flip-btn">Zurück</button>
+          </div>
+        </div>
+      </div>
+      <!-- =============================================== -->
+
+
+
+
+
+
+
+
+
+
+
       <!-- Einkaufshilfe -->
       <div class="card">
         <div class="card__inner">
@@ -283,7 +330,7 @@
               <p>Beschreibung, <br/>Beschreibung.</p>
             </div>
             <div class="card__button-wrapper"> 
-              <a class="card__button card__button-outline" href="">Mehr</a>
+              <a class="card__button card__button-outline" href="assets/pages/Seniorenbetreuung.html">Mehr</a>
               <button class="card__button card__button-fill flip-btn">Kontakt</button>
             </div>
           </div>
@@ -419,7 +466,196 @@
   
 </footer>
 <!-- End FOOTER -->
+
+
+
+
+
+
+
+
+<!-- ========================================================= -->
+<!-- 1. ЕДИНОЕ СЛОЖНОЕ МОДАЛЬНОЕ ОКНО (FAQ + ФОРМА)            -->
+<!-- ========================================================= -->
+<div id="complexModal" class="modal-overlay">
+    <div class="modal-content">
+        <!-- Заголовок окна -->
+        <div class="modal-header">
+            <h2 id="complexModalTitle">Service Name</h2>
+            <button class="close-modal-btn">&times;</button>
+        </div>
+
+        <div class="modal-body-grid">
+            
+            <!-- ЛЕВАЯ КОЛОНКА: Сюда JS будет вставлять FAQ из шаблона -->
+            <div class="modal-col-left">
+                <h3 class="modal-subtitle">Häufige Fragen (FAQ)</h3>
+                <div id="modalFaqContainer">
+                    <!-- Сюда загрузится контент -->
+                </div>
+            </div>
+
+            <!-- ПРАВАЯ КОЛОНКА: Форма заявки (Одна на всех) -->
+            <div class="modal-col-right">
+                <h3 class="modal-subtitle">Unverbindliche Anfrage</h3>
+                <form action="#" method="POST"> <!-- Добавьте ваш обработчик формы -->
+                    
+                    <!-- Скрытое поле, JS заполнит его названием услуги -->
+                    <input type="hidden" id="formServiceSubject" name="service" value="">
+
+                    <div class="form-group">
+                        <label class="form-label">Ihr Name</label>
+                        <input type="text" class="form-input" placeholder="Max Mustermann" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">E-Mail Adresse</label>
+                        <input type="email" class="form-input" placeholder="email@beispiel.de" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Ihre Nachricht / Wünsche</label>
+                        <textarea class="form-textarea" placeholder="Beschreiben Sie kurz, was Sie benötigen..."></textarea>
+                    </div>
+
+                    <button type="submit" class="form-submit-btn">Anfrage senden</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- ========================================================= -->
+<!-- 2. ШАБЛОНЫ КОНТЕНТА (Templates)                           -->
+<!-- ========================================================= -->
+
+<!-- Шаблон для "Einkaufshilfe" -->
+<template id="tmpl-einkauf">
+    <!-- Question 1 -->
+    <details open>
+      <summary>Warum braucht man das? </summary>
+      <div class="faq-answer">
+        Passiert
+      </div>
+    </details>
+    <!-- Question 2 -->
+    <details>
+      <summary>Preise</summary>
+      <div class="faq-answer">
+        Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
+        Spaziergang / Gesellschaft: 24 € / Stunde
+        Einkaufsbegleitung: 27 € / Stunde
+        Arzt-/Terminbegleitung: 27 € / Stunde
+        Nachtbegleitung (20–06 Uhr): 95 € pauschal
+
+        <details>
+          <summary>Zuschläge & Extras:</summary>
+          <div class="faq-answer">
+            Zuschläge & Extras:
+            Wochenende / Feiertage: +20 %
+            Express / kurzfristig (<24h): +20 %
+          </div>
+        </details>
+      </div>
+    </details>
+    <!-- Question 3 -->
+    <details>
+        <summary>Welche Zahlungsmethoden gibt es?</summary>
+        <div class="faq-answer">
+            Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
+        </div>
+    </details>
+    <!-- Question 4 -->
+    <details>
+        <summary>Welche Zahlungsmethoden gibt es?</summary>
+        <div class="faq-answer">
+            Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
+        </div>
+    </details>
+</template>
+
+
+
+
+<!-- Шаблон для "Общий" (заглушка для остальных карт) -->
+<template id="tmpl-general">
+    <details open>
+        <summary>Wie kann ich buchen?</summary>
+        <div class="faq-answer">Nutzen Sie einfach das Formular rechts.</div>
+    </details>
+    <details>
+        <summary>Gibt es eine Garantie?</summary>
+        <div class="faq-answer">Ja, wir garantieren Zufriedenheit.</div>
+    </details>
+</template>
+
+
+
+
+
 <script src="assets/js/main.js"></script>
 <script src="assets/js/locales.js"></script>
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+  // Логика переворота карточек (старая)
+  document.querySelectorAll('.flip-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+          const cardInner = e.target.closest('.card__inner');
+          if(cardInner) cardInner.classList.toggle('is-flipped');
+      });
+  });
+
+  // --- НОВАЯ ЛОГИКА POPUP ---
+  const modal = document.getElementById('complexModal');
+  const closeBtn = document.querySelector('.close-modal-btn');
+  const modalTitle = document.getElementById('complexModalTitle');
+  const faqContainer = document.getElementById('modalFaqContainer');
+  const hiddenInput = document.getElementById('formServiceSubject');
+
+  // Находим кнопки с классом trigger-complex-modal
+  const openButtons = document.querySelectorAll('.trigger-complex-modal');
+
+  openButtons.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+          e.preventDefault();
+
+          // 1. Получаем заголовок и ID шаблона из кнопки
+          const title = btn.getAttribute('data-title');
+          const templateId = btn.getAttribute('data-template');
+
+          // 2. Заполняем заголовок и скрытое поле формы
+          modalTitle.textContent = title;
+          hiddenInput.value = title;
+
+          // 3. Очищаем старый FAQ
+          faqContainer.innerHTML = '';
+
+          // 4. Ищем шаблон и клонируем его контент
+          const template = document.getElementById(templateId);
+          if (template) {
+              const clone = template.content.cloneNode(true);
+              faqContainer.appendChild(clone);
+          } else {
+              faqContainer.innerHTML = '<p>Informationen werden geladen...</p>';
+          }
+
+          // 5. Открываем окно
+          modal.classList.add('open');
+      });
+  });
+
+  // Закрытие
+  closeBtn.addEventListener('click', () => modal.classList.remove('open'));
+  window.addEventListener('click', (e) => {
+      if (e.target === modal) modal.classList.remove('open');
+  });
+
+});
+</script>
 </body>
 </html>

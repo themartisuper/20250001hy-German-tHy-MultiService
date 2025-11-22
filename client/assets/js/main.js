@@ -55,6 +55,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+
+
+
+
 // FAQ
 document.addEventListener("DOMContentLoaded", () => {
   const items = document.querySelectorAll(".faq__item");
@@ -227,6 +231,7 @@ tabButtons.forEach(btn => {
     }, 300);
   });
 });
+
 
 
 

@@ -48,3 +48,166 @@
   border: 1px solid rgba(255, 255, 255, 0.08); /* слабый холодный контур */
   z-index: 1;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+
+    .catalog { z-index: 2; }
+    .section__page-title {
+      display: flex; flex-direction: column; justify-content: center; align-items: center;    
+      gap: 0.5rem; margin-top: 10rem; margin-bottom: 1.5rem;
+    }
+    .catalog__background-personal-and-events {
+      position: relative;
+      background-image: url("../images/home_1_1_blured.jpg");
+      background-position: center; background-size: cover; background-repeat: no-repeat;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      text-align: start; color: var(--color-text, #333); overflow: hidden;
+    }
+    .catalog__background-personal-and-events::after {
+      content: ""; position: absolute; inset: 0;
+      background: rgba(0, 0, 0, 0.55); border: 1px solid rgba(255, 255, 255, 0.08); z-index: 1;
+    }
+
+    /* --- НОВЫЕ СТИЛИ ДЛЯ СЛОЖНОГО POPUP --- */
+    
+    .modal-overlay {
+        display: none;
+        position: fixed; z-index: 9999; left: 0; top: 0;
+        width: 100%; height: 100%; overflow: auto; 
+        background-color: rgba(0,0,0,0.6);
+        opacity: 0; transition: opacity 0.3s ease;
+        justify-content: center; align-items: flex-start; /* Выравнивание сверху для длинных форм */
+        backdrop-filter: blur(5px);
+        padding-top: 50px; /* Отступ сверху */
+        padding-bottom: 50px;
+    }
+
+    .modal-overlay.open { display: flex; opacity: 1; }
+
+    .modal-content {
+        background-color: #fff;
+        margin: auto; padding: 0;
+        border-radius: 12px;
+        width: 90%; max-width: 900px; /* Шире, чтобы вместить 2 колонки */
+        box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+        position: relative;
+        transform: translateY(-20px); transition: transform 0.3s ease;
+        font-family: 'Lato', sans-serif;
+        display: flex; flex-direction: column;
+        max-height: 90vh; /* Чтобы не вылезало за экран */
+    }
+
+    .modal-overlay.open .modal-content { transform: translateY(0); }
+
+    /* Шапка */
+    .modal-header {
+        padding: 20px 30px;
+        background-color: #2980b9; 
+        color: white;
+        display: flex; justify-content: space-between; align-items: center;
+        border-radius: 12px 12px 0 0;
+        flex-shrink: 0;
+    }
+
+    .modal-header h2 { margin: 0; font-size: 1.8rem; font-family: 'Righteous', cursive; }
+    .close-modal-btn {
+        color: white; font-size: 32px; font-weight: bold; cursor: pointer;
+        background: none; border: none; padding: 0; line-height: 1;
+    }
+
+    /* Тело: Сетка из двух колонок */
+    .modal-body-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Две равные колонки */
+        gap: 0;
+        overflow-y: auto; /* Скролл внутри контента */
+    }
+
+    /* Левая колонка: FAQ */
+    .modal-col-left {
+        padding: 30px;
+        background-color: #f8f9fa;
+        border-right: 1px solid #eee;
+    }
+
+    /* Правая колонка: Форма */
+    .modal-col-right {
+        padding: 30px;
+        background-color: #fff;
+    }
+
+    h3.modal-subtitle {
+        margin-top: 0; margin-bottom: 20px;
+        color: #2980b9; font-size: 1.4rem; border-bottom: 2px solid #eee; padding-bottom: 10px;
+    }
+
+    /* Стили для Аккордеона (FAQ) */
+    details {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        margin-bottom: 10px;
+        overflow: hidden;
+    }
+    summary {
+        padding: 15px; cursor: pointer; font-weight: bold; color: #333;
+        background-color: #fff; list-style: none; position: relative;
+        transition: background 0.2s;
+    }
+    summary:hover { background-color: #f1f1f1; }
+    summary::-webkit-details-marker { display: none; } /* Убрать стандартный треугольник */
+    summary::after {
+        content: '+'; position: absolute; right: 20px; font-size: 1.2rem; color: #2980b9;
+    }
+    details[open] summary::after { content: '-'; }
+    .faq-answer {
+        padding: 15px; border-top: 1px solid #eee; color: #555; line-height: 1.5;
+        background-color: #fafafa;
+    }
+
+    /* Стили для Формы */
+    .form-group { margin-bottom: 15px; }
+    .form-label { display: block; margin-bottom: 5px; font-weight: bold; color: #555; font-size: 0.9rem; }
+    .form-input, .form-textarea {
+        width: 100%; padding: 12px;
+        border: 1px solid #ccc; border-radius: 6px;
+        font-family: inherit; font-size: 1rem;
+        transition: border-color 0.3s;
+    }
+    .form-input:focus, .form-textarea:focus {
+        outline: none; border-color: #2980b9;
+    }
+    .form-textarea { resize: vertical; min-height: 100px; }
+    .form-submit-btn {
+        width: 100%; padding: 12px;
+        background-color: #2980b9; color: white;
+        border: none; border-radius: 6px;
+        font-size: 1.1rem; font-weight: bold; cursor: pointer;
+        transition: background 0.3s;
+    }
+    .form-submit-btn:hover { background-color: #1f6391; }
+
+    /* Адаптив для мобильных: колонки друг под друга */
+    @media (max-width: 768px) {
+        .modal-body-grid { grid-template-columns: 1fr; }
+        .modal-col-left { border-right: none; border-bottom: 1px solid #eee; }
+    }
