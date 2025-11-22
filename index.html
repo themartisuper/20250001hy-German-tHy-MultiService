@@ -524,7 +524,7 @@
 
 
 
-<section class="fixed-price__container" id="fixed-price">
+<!-- <section class="fixed-price__container" id="fixed-price">
 
   <div class="fixed-price__text-container">
     <h2 class="fixed-price__title">Our Plans & Special Discounts</h2>
@@ -537,7 +537,7 @@
   <div class="fixed-price__card">
     <form class="card__inner" id="fixed-price-form">
       
-      <!-- ================= FRONT ================= -->
+
       <div class="card__front">
         <div class="fixed-price__content-wrapper">
 
@@ -548,7 +548,6 @@
             <p class="fixed-price__card-price"></p>
             <p class="fixed-price__discount"></p>
 
-            <!-- Service dropdown -->
             <div class="fixed-price__dropdown-wrapper">
               <button class="fixed-price__card-btn" type="button" data-dropdown="service">Auswählen</button>
               <div class="fixed-price__dropdown" data-type="service">
@@ -565,7 +564,7 @@
               </div>
             </div>
 
-            <!-- Weekly / Months -->
+
             <div class="fixed-price__dropdown-row-buttons">
 
               <div class="fixed-price__dropdown-wrapper">
@@ -607,7 +606,7 @@
             </div>
           </div>
 
-          <!-- Hidden inputs -->
+
           <input type="hidden" name="service" id="service-value" required>
           <input type="hidden" name="weekly" id="weekly-value" required>
           <input type="hidden" name="months" id="months-value" required>
@@ -631,7 +630,7 @@
       </div>
 
 
-      <!-- ================= BACK ================= -->
+
       <div class="card__back">
         <div class="fixed-price__content-wrapper service-form">
           <p class="fixed-price__card-categories-title">Transport & Logistik</p>
@@ -680,7 +679,587 @@
 
     </form>
   </div>
+</section>-->
+
+
+
+
+
+
+
+
+
+
+<section class="fixed-price__container" id="fixed-price">
+  <div class="fixed-price__text-container">
+    <h2 class="fixed-price__title">Our Plans & Special Discounts</h2>
+    <p class="fixed-price__description">
+      I'm a paragraph. Click here to add your own text and edit me. It's easy.
+    </p>
+  </div>
+
+  <div class="fixed-price__card">
+    
+    <form id="fixed-price-form">
+      <div class="card__multistep">
+        <p class="fixed-price__card-categories-title">Transport & Logistik</p>
+
+        <div class="progress-bar">
+          <div class="progress-bar__inner"></div>
+        </div>
+
+        <div class="step-indicator">
+          <span class="step-circle active">1</span>
+          <span class="step-circle">2</span>
+          <span class="step-circle">3</span>
+        </div>
+
+        
+        <div class="steps-wrapper">
+          
+          <div class="step active">
+            <h2 class="fixed-price__card-tile">Wähle eine Leistung</h2>
+            <h3 class="fixed-price__card-price">0.00€</h3>
+            <p class="fixed-price__discount">Kein Rabatt</p>
+            <div class="fixed-price__card-options">
+
+              <div class="fixed-price__dropdown-field">
+                <label for="service-value">Leistung*</label>
+                <div class="fixed-price__dropdown-wrapper">
+                  <button class="fixed-price__card-btn" type="button" data-dropdown="service">Auswählen</button>
+                  <div class="fixed-price__dropdown" data-type="service">
+                    <p class="fixed-price__dropdown-title">Wähle deine Option:</p>
+                    <ul>
+                      <li data-value="Fahrzeugüberführung">Fahrzeugüberführung</li>
+                      <li data-value="Kurierdienste">Kurierdienste</li>
+                      <li data-value="Lieferant">Lieferant</li>
+                      <li data-value="Möbeltransport / Umzugshilfe">Möbeltransport / Umzugshilfe</li>
+                      <li data-value="Tragehilfe">Tragehilfe</li>
+                      <li data-value="Zum Flughafen hin-zurück fahren">Zum Flughafen hin-zurück fahren</li>
+                      <li data-value="call" data-custom="true">Telefonisch besprechen</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="fixed-price__dropdown-row-buttons">
+
+                <div class="fixed-price__dropdown-field">
+                  <label for="weekly-value">Pro Woche*</label>
+                  <div class="fixed-price__dropdown-wrapper">
+                    <button class="fixed-price__card-btn" type="button" data-dropdown="weekly">Auswählen</button>
+                    <div class="fixed-price__dropdown" data-type="weekly">
+                      <p class="fixed-price__dropdown-title">Wähle deine Option:</p>
+                      <ul>
+                        <li data-value="1 mal">1&nbsp;mal</li>
+                        <li data-value="2 mal">2&nbsp;mal</li>
+                        <li data-value="3 mal">3&nbsp;mal</li>
+                        <li data-value="4 mal">4&nbsp;mal</li>
+                        <li data-value="5 mal">5&nbsp;mal</li>
+                        <li data-value="6 mal">6&nbsp;mal</li>
+                        <li data-value="7 mal">7&nbsp;mal</li>
+                        <li data-value="call" data-custom="true">Telefonisch besprechen</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="fixed-price__dropdown-field">
+                  <label for="months-value">Laufzeit in Monaten*</label>
+                  <div class="fixed-price__dropdown-wrapper">
+                    <button class="fixed-price__card-btn" type="button" data-dropdown="months">Auswählen</button>
+                    <div class="fixed-price__dropdown" data-type="months">
+                      <p class="fixed-price__dropdown-title">Wähle deine Option:</p>
+                      <ul>
+                        <li data-value="1 Monat">1 Monat</li>
+                        <li data-value="2 Monate">2 Monate</li>
+                        <li data-value="3 Monate">3 Monate</li>
+                        <li data-value="4 Monate">4 Monate</li>
+                        <li data-value="5 Monate">5 Monate</li>
+                        <li data-value="6 Monate">6 Monate</li>
+                        <li data-value="12 Monate">12 Monate</li>
+                        <li data-value="18 Monate">18 Monate</li>
+                        <li data-value="24 Monate">24 Monate</li>
+                        <li data-value="call" data-custom="true">Telefonisch besprechen</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <input type="text" name="service" id="service-value" required class="input-validator">
+            <input type="text" name="weekly" id="weekly-value" required class="input-validator">
+            <input type="text" name="months" id="months-value" required class="input-validator">
+
+            <div class="fixed-price__card-description">
+              <p>I’m a benefit</p>
+              <p>I’m a benefit</p>
+              <p>I’m a benefit</p>
+            </div>
+          </div>
+
+          <div class="step">
+            <h2>Kontakt</h2>
+            <div class="fixed-price__card-back-name">
+              <label>
+                Vorname*
+                <input type="text" name="first_name" required>
+              </label>
+              <label>
+                Nachname*
+                <input type="text" name="last_name" required>
+              </label>
+            </div>
+            <label>
+              E-Mail*
+              <input type="email" name="email" required>
+            </label>
+            <label>
+              Telefon*
+              <input type="tel" name="phone" required>
+            </label>
+            <label>
+              Nachricht (optional)
+              <textarea name="message"></textarea>
+            </label>
+          </div>
+
+          <div class="step">
+            <h2>Ihre Adresse</h2>
+            <div class="fixed-price__card-back-name">
+              <label>
+                Straße*
+                <input type="text" name="street" required>
+              </label>
+              <label>
+                Hausnummer*
+                <input type="text" name="house" required>
+              </label>
+            </div>
+
+            <label>
+              Adresszusatz (z.B. Hinterhaus, Etage)
+              <input type="text" name="address_supplement">
+            </label>
+
+            <label>
+              Postleitzahl*
+              <input type="text" name="zip" required>
+            </label>
+            <label>
+              Stadt*
+              <input type="text" name="city" required>
+            </label>
+          </div>
+
+        </div>
+
+        <div class="form-nav">
+          <button type="button" class="btn-back hidden">Zurück</button>
+          <button type="button" class="btn-next">Weiter</button>
+          <button type="submit" class="btn-submit hidden">Anfrage absenden</button>
+        </div>
+      </div>
+    </form>
+  </div>
 </section>
+
+
+
+
+
+
+
+<style>
+    /* === Helper Classes === */
+    .hidden { display: none !important; }
+
+    .input-validator {
+        opacity: 0;
+        height: 1px;
+        width: 1px;
+        position: absolute;
+        z-index: -1;
+        bottom: 0;
+    }
+
+    /* === Section root === */
+    #fixed-price {
+        scroll-margin-top: 4.5rem;
+        padding: 4rem 2rem;
+        font-family: 'Inter', system-ui, sans-serif;
+        background: #f5f5f5;
+        color: #222;
+    }
+
+    /* === Layout === */
+    .fixed-price__container {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 3rem;
+        flex-wrap: wrap;
+    }
+
+    .fixed-price__text-container {
+        flex: 1 1 300px;
+        max-width: 400px;
+    }
+
+    .fixed-price__title {
+        font-size: 2.2rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: #222;
+    }
+
+    .fixed-price__description {
+        font-size: 1rem;
+        line-height: 1.6;
+        color: #555;
+    }
+
+    /* === Card wrapper === */
+    .fixed-price__card {
+        flex: 1 1 350px;
+        max-width: 500px;
+        width: 100%;
+    }
+
+    .card__multistep {
+        position: relative;
+        background: #fff;
+        border-radius: 1.8rem;
+        box-shadow: 0 16px 32px rgba(0, 0, 0, 0.08);
+        padding-bottom: 2rem;
+        overflow: visible;
+    }
+
+    /* Progress bar */
+    .progress-bar {
+        margin: 2rem 0;
+        width: 100%;
+        height: 6px;
+        background: #e5e5e5;
+        border-radius: 6px;
+        overflow: hidden;
+    }
+
+    .progress-bar__inner {
+        height: 100%;
+        width: 33%;
+        background: linear-gradient(135deg, #4c5b5c, #2c3e3f);
+        transition: width 0.35s ease;
+    }
+
+    /* Step Indicators */
+    .step-indicator {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin: 1.5rem 0;
+    }
+
+    .step-circle {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: #e0e0e0;
+        color: #666;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+    }
+
+    .step-circle.active {
+        background: #4c5b5c;
+        color: #fff;
+        transform: scale(1.1);
+    }
+
+    /* Steps Wrapper */
+    .steps-wrapper {
+        padding: 0 2rem;
+        min-height: 350px;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(5px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .step {
+        display: none;
+        animation: fadeIn 0.4s ease forwards;
+    }
+
+    .step.active {
+        display: block;
+    }
+
+    /* Form Elements */
+    .step h2 {
+        margin-top: 0;
+        
+        margin-bottom: 1.5rem;
+    }
+    
+    .fixed-price__card-tile {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin: 1rem 0 0.5rem 0;
+        min-height: 1.8rem; /* Для сохранения высоты, пока пусто */
+        color: #4c5b5c; 
+    }
+
+    .fixed-price__card-price {
+        font-size: 2.25rem;
+        font-weight: 700;
+        color: #4c5b5c;
+        margin: 0 0 0.2rem 0;
+        min-height: 2.5rem; /* Для сохранения высоты, пока пусто */
+    }
+
+    .fixed-price__discount {
+        font-size: 0.9rem;
+        color: #e67e22;
+        margin-bottom: 1.5rem;
+        min-height: 0.9rem; /* Для сохранения высоты, пока пусто */
+    }
+
+    .step label {
+        display: block;
+        margin-bottom: 1rem;
+        font-weight: 500;
+        font-size: 0.9rem;
+        color: #333;
+    }
+
+    .step input,
+    .step textarea {
+        width: 100%;
+        padding: 12px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 0.95rem;
+        background: #fafafa;
+        box-sizing: border-box;
+        transition: 0.25s;
+    }
+
+    .step input:focus,
+    .step textarea:focus {
+        border-color: #0082ff;
+        background: #fff;
+        outline: none;
+    }
+
+    .fixed-price__card-back-name {
+        display: flex;
+        gap: 1rem;
+    }
+    
+    .fixed-price__card-back-name label {
+        flex: 1;
+    }
+
+    /* Dropdown Field Wrapper (New style for Step 1 labels) */
+    .fixed-price__dropdown-field {
+        margin-bottom: 1rem;
+    }
+    .fixed-price__dropdown-field label {
+        margin-bottom: 0.5rem; /* Сделать отступ между заголовком и кнопкой */
+    }
+
+    /* Dropdowns */
+    .fixed-price__card-categories-title {
+        position: absolute;
+        padding: 0.4rem 1rem;
+        border-radius: 666px;
+        background: linear-gradient(135deg, #3a4546, #1f2a2b);
+        color: #fff;
+        font-size: 0.9rem;
+        top: -1rem;
+        left: 35%;
+    }
+
+    .fixed-price__dropdown-wrapper {
+        position: relative;
+    }
+
+    .fixed-price__dropdown-row-buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: space-between;
+        
+    }
+
+
+    .fixed-price__dropdown-row-buttons .fixed-price__dropdown-field {
+        flex: 1;
+    }
+
+    .fixed-price__card-btn {
+        width: 100%;
+        text-align: left;
+        padding: 12px 15px;
+        background: #fafafa;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 0.95rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: border-color 0.2s ease; /* Добавлен transition */
+    }
+    
+    .fixed-price__card-btn::after {
+        content: '▼';
+        font-size: 0.7em;
+        color: #666;
+    }
+
+    .fixed-price__dropdown {
+        position: absolute;
+        top: calc(100% + 5px);
+        left: 0;
+        width: 100%;
+        background: #fff;
+        border-radius: 1rem;
+        padding: 0.5rem;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        opacity: 0;
+        visibility: hidden;
+        transform: scaleY(0.9);
+        transform-origin: top center;
+        transition: all 0.2s ease;
+        z-index: 100;
+        box-sizing: border-box;
+        max-height: 250px;
+        overflow-y: auto;
+    }
+
+    .fixed-price__dropdown.open {
+        opacity: 1;
+        visibility: visible;
+        transform: scaleY(1);
+    }
+
+    .fixed-price__dropdown-title {
+        font-size: 0.85rem;
+        font-weight: bold;
+        padding: 0.5rem;
+        margin: 0;
+        color: #999;
+    }
+
+    .fixed-price__dropdown ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .fixed-price__dropdown li {
+        padding: 10px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 0.95rem;
+    }
+
+    .fixed-price__dropdown li:hover {
+        background: #f3f3f3;
+    }
+
+    .fixed-price__dropdown li.active {
+        background: #4c5b5c;
+        color: #fff;
+    }
+
+    .fixed-price__card-description {
+        margin-top: 1.5rem;
+        border-top: 1px solid #eee;
+        padding-top: 1rem;
+        color: #555;
+        font-size: 0.9rem;
+    }
+
+    .fixed-price__card-description p {
+        margin: 0.3rem 0;
+    }
+
+    /* Navigation */
+    .form-nav {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 2rem;
+        margin-top: 2rem;
+        gap: 1rem;
+    }
+
+    .btn-next,
+    .btn-back,
+    .btn-submit {
+        padding: 12px 24px;
+        border-radius: 50px;
+        border: none;
+        cursor: pointer;
+        font-weight: 600;
+        transition: all 0.25s ease;
+    }
+
+    .btn-next {
+        background: #2c3e3f;
+        color: #fff;
+        margin-left: auto;
+    }
+
+    .btn-back {
+        background: #e5e5e5;
+        color: #333;
+    }
+
+    .btn-submit {
+        background: #0082ff;
+        color: #fff;
+    }
+
+    .btn-submit:hover { background: #006ad1; }
+    .btn-next:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+
+    @media (max-width: 480px) {
+        .fixed-price__dropdown-row-buttons {
+            flex-direction: column;
+            gap: 0;
+        }
+        .fixed-price__card-back-name {
+            flex-direction: column;
+            gap: 0;
+        }
+        .fixed-price__dropdown-field {
+            margin-bottom: 0.8rem;
+        }
+        .fixed-price__dropdown-field label {
+            margin-bottom: 0.3rem;
+        }
+    }
+</style>
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -790,9 +1369,345 @@
 
 <script src="client/assets/js/main.js"></script>
 <script src="client/assets/js/locales.js"></script>
-<script src="client/assets/js/fixed_price.js"></script>
+<!-- <script src="client/assets/js/fixed_price.js"></script> -->
+
 
 <script>
+document.addEventListener("DOMContentLoaded", () => {
+    // ---------------------------------------------
+    // ИНИЦИАЛИЗАЦИЯ И СКРЫТЫЕ ПОЛЯ
+    // ---------------------------------------------
+    const priceEl = document.querySelector('.fixed-price__card-price');
+    const discountEl = document.querySelector('.fixed-price__discount');
+    const cardTitleEl = document.querySelector('.fixed-price__card-tile'); // Добавлена ссылка на заголовок
+    const form = document.getElementById('fixed-price-form');
+
+    // Ссылки на скрытые поля
+    const serviceInput = document.getElementById('service-value');
+    const weeklyInput = document.getElementById('weekly-value');
+    const monthsInput = document.getElementById('months-value');
+
+    const selections = { service: null, weekly: null, months: null };
+    const basePrice = {
+        "Fahrzeugüberführung": 30,
+        "Kurierdienste": 25,
+        "Lieferant": 28,
+        "Möbeltransport / Umzugshilfe": 40,
+        "Tragehilfe": 22,
+        "Zum Flughafen hin-zurück fahren": 35
+    };
+
+    function getDiscount(months) {
+        if (months >= 12) return 20;
+        if (months >= 6) return 10;
+        if (months >= 3) return 5;
+        return 0;
+    }
+
+    function calculatePrice() {
+        const { service, weekly, months } = selections;
+
+        // --- ОБНОВЛЕНИЕ СКРЫТЫХ ПОЛЕЙ ---
+        serviceInput.value = service || '';
+        weeklyInput.value = weekly || '';
+        monthsInput.value = months || '';
+        
+        // Обработка кастомного выбора
+        if ([service, weekly, months].includes("custom")) {
+            if (priceEl) priceEl.textContent = "nach Vereinbarung";
+            if (discountEl) discountEl.textContent = '';
+            
+            // Установка/снятие required только для полей, где выбран "custom"
+            if (service === "custom") serviceInput.removeAttribute('required'); else serviceInput.setAttribute('required', 'required');
+            if (weekly === "custom") weeklyInput.removeAttribute('required'); else weeklyInput.setAttribute('required', 'required');
+            if (months === "custom") monthsInput.removeAttribute('required'); else monthsInput.setAttribute('required', 'required');
+            
+            return;
+        }
+
+        // Возвращаем required, если это не кастомный выбор
+        serviceInput.setAttribute('required', 'required');
+        weeklyInput.setAttribute('required', 'required');
+        monthsInput.setAttribute('required', 'required');
+
+        // Если что-то не выбрано — скрываем цену
+        if (!service || !weekly || !months) {
+            if (priceEl) priceEl.textContent = "";
+            if (discountEl) discountEl.textContent = '';
+            // if (cardTitleEl) cardTitleEl.textContent = ""; // Оставляем, если хотим сбросить заголовок при неполном выборе
+            return;
+        }
+
+        // Расчет цены
+        const total = basePrice[service] * weekly * months;
+        const discount = getDiscount(months);
+        const finalPrice = total - (total * discount / 100);
+
+        if (priceEl) priceEl.textContent = `${finalPrice.toFixed(2)}€`;
+        if (discountEl) discountEl.textContent = discount ? `zusätzlicher Rabatt ${discount}%` : '';
+    }
+
+    // ---------------------------------------------
+    // МУЛЬТИШАГОВАЯ ЛОГИКА
+    // ---------------------------------------------
+    const steps = document.querySelectorAll(".step");
+    const indicators = document.querySelectorAll(".step-circle");
+    const btnNext = document.querySelector(".btn-next");
+    const btnBack = document.querySelector(".btn-back");
+    const btnSubmit = document.querySelector(".btn-submit");
+    const progressBar = document.querySelector(".progress-bar__inner");
+    let currentStep = 0;
+
+    const validateStep = (index) => {
+        const activeStep = steps[index];
+        const inputs = activeStep.querySelectorAll("input, textarea, select, .input-validator");
+        let isValid = true;
+
+        inputs.forEach(input => {
+            // Проверка, что required не стоит на элементе (например, для custom)
+            if (input.hasAttribute('required') && !input.value) {
+                 isValid = false;
+                 input.reportValidity();
+            } else if (input.checkValidity() === false) {
+                 isValid = false;
+                 input.reportValidity();
+            }
+            
+            // Логика подсветки кнопки дропдауна при ошибке
+            if (input.classList.contains('input-validator') && !input.value) {
+                const type = input.id.replace('-value', '');
+                const btn = document.querySelector(`.fixed-price__card-btn[data-dropdown="${type}"]`);
+                if(btn) {
+                    btn.style.borderColor = "red";
+                    setTimeout(() => btn.style.borderColor = "#ccc", 2000);
+                }
+            }
+        });
+        return isValid;
+    };
+
+    const updateStep = () => {
+        steps.forEach((s, i) => {
+            s.classList.toggle("active", i === currentStep);
+        });
+
+        indicators.forEach((ind, i) => {
+            ind.classList.toggle("active", i <= currentStep);
+        });
+
+        btnBack.classList.toggle("hidden", currentStep === 0);
+        
+        if (currentStep === steps.length - 1) {
+            btnNext.classList.add("hidden");
+            btnSubmit.classList.remove("hidden");
+        } else {
+            btnNext.classList.remove("hidden");
+            btnSubmit.classList.add("hidden");
+        }
+
+        progressBar.style.width = `${((currentStep + 1) / steps.length) * 100}%`;
+    };
+
+    // === Обработчики навигации ===
+    if (btnNext) {
+        btnNext.addEventListener("click", () => {
+            if (!validateStep(currentStep)) return;
+
+            if (currentStep < steps.length - 1) {
+                currentStep++;
+                updateStep();
+            }
+        });
+    }
+
+    if (btnBack) {
+        btnBack.addEventListener("click", () => {
+            if (currentStep > 0) {
+                currentStep--;
+                updateStep();
+            }
+        });
+    }
+
+    // ---------------------------------------------
+    // DROPDOWN
+    // ---------------------------------------------
+    document.querySelectorAll('.fixed-price__card-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            
+            const dropdownType = btn.dataset.dropdown;
+            const dd = document.querySelector(`.fixed-price__dropdown[data-type="${dropdownType}"]`);
+
+            if (dd) {
+                document.querySelectorAll('.fixed-price__dropdown.open').forEach(d => {
+                    if (d !== dd) d.classList.remove('open');
+                });
+                dd.classList.toggle('open');
+            }
+        });
+    });
+
+    // Закрытие при клике вне
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.fixed-price__dropdown-wrapper') && !e.target.closest('.fixed-price__card-btn')) {
+            document.querySelectorAll('.fixed-price__dropdown.open').forEach(dd => dd.classList.remove('open'));
+        }
+    });
+
+    // ---------------------------------------------
+    // SELECTION (С ИСПРАВЛЕНИЕМ card-title)
+    // ---------------------------------------------
+    document.querySelectorAll('.fixed-price__dropdown li').forEach(li => {
+        li.addEventListener('click', () => {
+            const dropdown = li.closest('.fixed-price__dropdown');
+            const type = dropdown.dataset.type;
+            const isCustom = li.dataset.custom === "true";
+            const btn = document.querySelector(`.fixed-price__card-btn[data-dropdown="${type}"]`);
+
+            if (isCustom) {
+                selections[type] = "custom"; // Установка "custom"
+                
+                // Визуальное обновление и закрытие
+                if(btn) btn.textContent = li.textContent.trim();
+                
+                // !!! ВОССТАНОВЛЕННАЯ ЛОГИКА ЗАГОЛОВКА ДЛЯ CUSTOM !!!
+                if (type === 'service' && cardTitleEl) { 
+                    cardTitleEl.textContent = li.textContent.trim();
+                }
+
+                dropdown.classList.remove('open');
+                
+                // Снимаем красную рамку с кнопки
+                if(btn) btn.style.borderColor = "#ccc"; 
+
+                // Обновляем цену и скрытые поля
+                calculatePrice(); 
+                return;
+            }
+
+            // --- обычная логика ---
+            selections[type] = type === 'service'
+                ? li.dataset.value
+                // Извлекаем числовое значение из data-value
+                : parseInt(li.dataset.value.match(/\d+/)[0], 10); 
+
+            dropdown.querySelectorAll('li').forEach(x => x.classList.remove('active'));
+            li.classList.add('active');
+            
+            // Обновляем текст кнопки
+            if(btn) btn.textContent = li.textContent.trim(); 
+            
+            // !!! ВОССТАНОВЛЕННАЯ ЛОГИКА ЗАГОЛОВКА ДЛЯ ОБЫЧНОГО ВЫБОРА !!!
+            if (type === 'service' && cardTitleEl) {
+                cardTitleEl.textContent = li.textContent.trim();
+            }
+            
+            // Снимаем красную рамку с кнопки
+            if(btn) btn.style.borderColor = "#ccc"; 
+
+            dropdown.classList.remove('open');
+            calculatePrice();
+        });
+    });
+
+    // ---------------------------------------------
+    // ЛОГИКА ОТПРАВКИ ФОРМЫ (SUBMIT)
+    // ---------------------------------------------
+    if (form) {
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault(); 
+            
+            // Блокируем кнопку
+            const sendBtn = document.querySelector('.btn-submit');
+            if (sendBtn) {
+                sendBtn.disabled = true;
+                sendBtn.textContent = 'Senden...';
+            }
+
+            // Собираем данные формы
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries()); 
+            
+            // Добавляем итоговую цену и скидку
+            data.final_price = priceEl ? priceEl.textContent : '';
+            data.discount_info = discountEl ? discountEl.textContent : '';
+
+            // Формирование service_details
+            if (selections.service === 'custom' || selections.weekly === 'custom' || selections.months === 'custom') { 
+                data.service_details = `Telefonisch besprechen (Anfrage Custom-Preis) - Details: ${data.message || 'keine Nachricht'}`;
+            } else {
+                // Ищем текст опции в списках для красивого оформления в письме
+                const weeklyText = document.querySelector(`.fixed-price__dropdown[data-type="weekly"] li[data-value="${data.weekly} mal"]`)?.textContent.trim() || `${data.weekly} mal`;
+                const monthsText = document.querySelector(`.fixed-price__dropdown[data-type="months"] li[data-value="${data.months} Monate"]`)?.textContent.trim() || `${data.months} Monate`;
+                data.service_details = `${data.service} (${weeklyText} pro Woche, ${monthsText}) - Preis: ${data.final_price}`;
+            }
+
+            try {
+                // РЕАЛЬНЫЙ FETCH-ЗАПРОС
+                const response = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    // Успех
+                    alert('✅ Anfrage erfolgreich gesendet! Wir melden uns in Kürze.');
+                    form.reset(); 
+                    
+                    // Сброс JS-состояния и визуальных элементов
+                    selections.service = null; selections.weekly = null; selections.months = null;
+                    calculatePrice(); // Сбросит скрытые поля и цену
+
+                    // Сброс заголовка, кнопок и активного состояния
+                    if (cardTitleEl) cardTitleEl.textContent = ""; 
+                    document.querySelectorAll('.fixed-price__dropdown li').forEach(x => x.classList.remove('active'));
+                    document.querySelector('button[data-dropdown="service"]').textContent = 'Auswählen';
+                    document.querySelector('button[data-dropdown="weekly"]').textContent = 'Auswählen';
+                    document.querySelector('button[data-dropdown="months"]').textContent = 'Auswählen';
+                    
+                    // Возвращение на первый шаг
+                    currentStep = 0;
+                    updateStep();
+
+                } else {
+                    // Ошибка
+                    console.error('Fehler beim Senden:', result);
+                    const missingFields = result.missing ? ` (${result.missing.join(', ')})` : '';
+                    alert(`❌ Fehler beim Senden der Anfrage. Bitte überprüfen Sie die Eingaben. Fehlende Felder: ${missingFields}`);
+                }
+
+            } catch (error) {
+                console.error('Netzwerk- oder Serverfehler:', error);
+                alert('❌ Ein kritischer Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.');
+            } finally {
+                // Разблокируем кнопку
+                if (sendBtn) {
+                    sendBtn.disabled = false;
+                    sendBtn.textContent = 'Anfrage absenden';
+                }
+            }
+        });
+    }
+
+    // Инициализация при загрузке страницы
+    updateStep();
+    calculatePrice();
+});
+</script>
+
+
+
+
+
+
+
+<!--<script>
 document.querySelectorAll('.card__inner').forEach(card => {
   const flipButtons = card.querySelectorAll('.flip-btn');
   if (!flipButtons.length) return;
@@ -803,6 +1718,7 @@ document.querySelectorAll('.card__inner').forEach(card => {
     });
   });
 });
-</script>
+</script> -->
+
 </body>
 </html>

@@ -140,3 +140,34 @@ p {
   filter: drop-shadow(0 10px 5px rgba(0,0,0,0.125));
   transition: all .3s ease;    
 }
+
+
+
+
+
+
+/*  ==========================================================
+  adaptation
+    ========================================================== */
+@media (max-width: 1366px) {
+  
+}
+
+@media (max-width: 1024px) {
+  
+}
+
+/* Для экранов до 768px (планшеты) */
+@media (max-width: 768px) {
+  
+}
+
+/* iPhone 15 Pro Max */
+@media (max-width: 480px) {
+
+}
+
+/* iPhone 12 Pro */
+@media (max-width: 390px) {
+
+}
