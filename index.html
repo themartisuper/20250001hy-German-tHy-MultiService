@@ -1397,7 +1397,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const priceEl = document.querySelector('.fixed-price__card-price');
     const discountEl = document.querySelector('.fixed-price__discount');
     const cardTitleEl = document.querySelector('.fixed-price__card-tile');
-    // >>> ДОБАВЛЕНА ССЫЛКА НА БЛОК ОПИСАНИЯ
     const cardDescriptionEl = document.querySelector('.fixed-price__card-description'); 
     const form = document.getElementById('fixed-price-form');
 
@@ -1416,7 +1415,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "Zum Flughafen hin-zurück fahren": 35
     };
 
-    // >>> НОВЫЕ ДАННЫЕ ДЛЯ ОПИСАНИЙ
+    // ОПИСАНИЯ
     const serviceDescriptions = {
         "Fahrzeugüberführung": [
             "• Schnelle und sichere Überführung",
@@ -1462,25 +1461,18 @@ document.addEventListener("DOMContentLoaded", () => {
         return 0;
     }
 
-    // >>> НОВАЯ ФУНКЦИЯ ДЛЯ ОБНОВЛЕНИЯ ОПИСАНИЯ
     function updateDescription(serviceKey) {
         if (!cardDescriptionEl) return;
-
-        const descriptionItems = serviceDescriptions[serviceKey] || serviceDescriptions["call"]; // По умолчанию используем "call" (Telefonisch besprechen)
-
+        const descriptionItems = serviceDescriptions[serviceKey] || serviceDescriptions["call"];
         let html = '';
-        descriptionItems.forEach(text => {
-            html += `<p>${text}</p>`;
-        });
-
+        descriptionItems.forEach(text => { html += `<p>${text}</p>`; });
         cardDescriptionEl.innerHTML = html;
     }
-
 
     function calculatePrice() {
         const { service, weekly, months } = selections;
 
-        // --- ОБНОВЛЕНИЕ СКРЫТЫХ ПОЛЕЙ ---
+        // Обновление скрытых полей
         serviceInput.value = service || '';
         weeklyInput.value = weekly || '';
         monthsInput.value = months || '';
@@ -1490,33 +1482,26 @@ document.addEventListener("DOMContentLoaded", () => {
             if (priceEl) priceEl.textContent = "nach Vereinbarung";
             if (discountEl) discountEl.textContent = '';
             
-            // Установка/снятие required только для полей, где выбран "custom"
             if (service === "custom") serviceInput.removeAttribute('required'); else serviceInput.setAttribute('required', 'required');
             if (weekly === "custom") weeklyInput.removeAttribute('required'); else weeklyInput.setAttribute('required', 'required');
             if (months === "custom") monthsInput.removeAttribute('required'); else monthsInput.setAttribute('required', 'required');
             
-            // >>> ОБНОВЛЕНИЕ ОПИСАНИЯ ПРИ CUSTOM ВЫБОРЕ (например, Telefonisch besprechen)
             updateDescription("call");
-            
             return;
         }
 
-        // Возвращаем required, если это не кастомный выбор
+        // Возвращаем required
         serviceInput.setAttribute('required', 'required');
         weeklyInput.setAttribute('required', 'required');
         monthsInput.setAttribute('required', 'required');
 
-        // Если что-то не выбрано — скрываем цену и устанавливаем общее описание
         if (!service || !weekly || !months) {
-            if (priceEl) priceEl.textContent = "0.00€"; // Установим 0.00€ как начальное значение
-            if (discountEl) discountEl.textContent = 'Kein Rabatt'; // Установим начальное значение
-            // >>> ОБНОВЛЕНИЕ ОПИСАНИЯ ПРИ НЕПОЛНОМ ВЫБОРЕ (можно оставить пустым или установить дефолтное)
-            updateDescription(service); // Обновляем только по выбранной услуге
-            
+            if (priceEl) priceEl.textContent = "0.00€";
+            if (discountEl) discountEl.textContent = 'Kein Rabatt';
+            updateDescription(service);
             return;
         }
 
-        // Расчет цены
         const total = basePrice[service] * weekly * months;
         const discount = getDiscount(months);
         const finalPrice = total - (total * discount / 100);
@@ -1524,12 +1509,11 @@ document.addEventListener("DOMContentLoaded", () => {
         if (priceEl) priceEl.textContent = `${finalPrice.toFixed(2)}€`;
         if (discountEl) discountEl.textContent = discount ? `zusätzlicher Rabatt ${discount}%` : 'Kein Rabatt';
         
-        // >>> ОБНОВЛЕНИЕ ОПИСАНИЯ ПРИ ПОЛНОМ ВЫБОРЕ
         updateDescription(service);
     }
 
     // ---------------------------------------------
-    // МУЛЬТИШАГОВАЯ ЛОГИКА (оставлена без изменений)
+    // МУЛЬТИШАГОВАЯ ЛОГИКА
     // ---------------------------------------------
     const steps = document.querySelectorAll(".step");
     const indicators = document.querySelectorAll(".step-circle");
@@ -1545,7 +1529,6 @@ document.addEventListener("DOMContentLoaded", () => {
         let isValid = true;
 
         inputs.forEach(input => {
-            // Проверка, что required не стоит на элементе (например, для custom)
             if (input.hasAttribute('required') && !input.value) {
                  isValid = false;
                  input.reportValidity();
@@ -1554,7 +1537,6 @@ document.addEventListener("DOMContentLoaded", () => {
                  input.reportValidity();
             }
             
-            // Логика подсветки кнопки дропдауна при ошибке
             if (input.classList.contains('input-validator') && !input.value) {
                 const type = input.id.replace('-value', '');
                 const btn = document.querySelector(`.fixed-price__card-btn[data-dropdown="${type}"]`);
@@ -1568,16 +1550,10 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     const updateStep = () => {
-        steps.forEach((s, i) => {
-            s.classList.toggle("active", i === currentStep);
-        });
-
-        indicators.forEach((ind, i) => {
-            ind.classList.toggle("active", i <= currentStep);
-        });
-
-        btnBack.classList.toggle("hidden", currentStep === 0);
+        steps.forEach((s, i) => { s.classList.toggle("active", i === currentStep); });
+        indicators.forEach((ind, i) => { ind.classList.toggle("active", i <= currentStep); });
         
+        btnBack.classList.toggle("hidden", currentStep === 0);
         if (currentStep === steps.length - 1) {
             btnNext.classList.add("hidden");
             btnSubmit.classList.remove("hidden");
@@ -1585,15 +1561,12 @@ document.addEventListener("DOMContentLoaded", () => {
             btnNext.classList.remove("hidden");
             btnSubmit.classList.add("hidden");
         }
-
         progressBar.style.width = `${((currentStep + 1) / steps.length) * 100}%`;
     };
 
-    // === Обработчики навигации ===
     if (btnNext) {
         btnNext.addEventListener("click", () => {
             if (!validateStep(currentStep)) return;
-
             if (currentStep < steps.length - 1) {
                 currentStep++;
                 updateStep();
@@ -1611,15 +1584,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ---------------------------------------------
-    // DROPDOWN (оставлена без изменений)
+    // DROPDOWN
     // ---------------------------------------------
     document.querySelectorAll('.fixed-price__card-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.stopPropagation();
-            
             const dropdownType = btn.dataset.dropdown;
             const dd = document.querySelector(`.fixed-price__dropdown[data-type="${dropdownType}"]`);
-
             if (dd) {
                 document.querySelectorAll('.fixed-price__dropdown.open').forEach(d => {
                     if (d !== dd) d.classList.remove('open');
@@ -1629,16 +1600,12 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Закрытие при клике вне
     document.addEventListener('click', (e) => {
         if (!e.target.closest('.fixed-price__dropdown-wrapper') && !e.target.closest('.fixed-price__card-btn')) {
             document.querySelectorAll('.fixed-price__dropdown.open').forEach(dd => dd.classList.remove('open'));
         }
     });
 
-    // ---------------------------------------------
-    // SELECTION (С ИСПРАВЛЕНИЕМ card-title и ДОБАВЛЕНИЕМ updateDescription)
-    // ---------------------------------------------
     document.querySelectorAll('.fixed-price__dropdown li').forEach(li => {
         li.addEventListener('click', () => {
             const dropdown = li.closest('.fixed-price__dropdown');
@@ -1647,127 +1614,120 @@ document.addEventListener("DOMContentLoaded", () => {
             const btn = document.querySelector(`.fixed-price__card-btn[data-dropdown="${type}"]`);
 
             if (isCustom) {
-                selections[type] = "custom"; // Установка "custom"
-                
-                // Визуальное обновление и закрытие
+                selections[type] = "custom";
                 if(btn) btn.textContent = li.textContent.trim();
-                
-                // ВОССТАНОВЛЕННАЯ ЛОГИКА ЗАГОЛОВКА ДЛЯ CUSTOM
-                if (type === 'service' && cardTitleEl) { 
-                    cardTitleEl.textContent = li.textContent.trim();
-                }
-
+                if (type === 'service' && cardTitleEl) cardTitleEl.textContent = li.textContent.trim();
                 dropdown.classList.remove('open');
-                
-                // Снимаем красную рамку с кнопки
                 if(btn) btn.style.borderColor = "#ccc"; 
-
-                // Обновляем цену и скрытые поля, что вызовет updateDescription
                 calculatePrice(); 
                 return;
             }
 
-            // --- обычная логика ---
-            selections[type] = type === 'service'
-                ? li.dataset.value
-                // Извлекаем числовое значение из data-value
-                : parseInt(li.dataset.value.match(/\d+/)[0], 10); 
-
+            selections[type] = type === 'service' ? li.dataset.value : parseInt(li.dataset.value.match(/\d+/)[0], 10); 
             dropdown.querySelectorAll('li').forEach(x => x.classList.remove('active'));
             li.classList.add('active');
             
-            // Обновляем текст кнопки
             if(btn) btn.textContent = li.textContent.trim(); 
-            
-            // ВОССТАНОВЛЕННАЯ ЛОГИКА ЗАГОЛОВКА ДЛЯ ОБЫЧНОГО ВЫБОРА
-            if (type === 'service' && cardTitleEl) {
-                cardTitleEl.textContent = li.textContent.trim();
-            }
-            
-            // Снимаем красную рамку с кнопки
+            if (type === 'service' && cardTitleEl) cardTitleEl.textContent = li.textContent.trim();
             if(btn) btn.style.borderColor = "#ccc"; 
 
             dropdown.classList.remove('open');
-            calculatePrice(); // Вызываем calculatePrice, которая вызовет updateDescription
+            calculatePrice();
         });
     });
 
     // ---------------------------------------------
-    // ЛОГИКА ОТПРАВКИ ФОРМЫ (SUBMIT) (оставлена без изменений)
+    // ЛОГИКА ОТПРАВКИ ФОРМЫ (ОБНОВЛЕННАЯ)
     // ---------------------------------------------
     if (form) {
         form.addEventListener('submit', async (e) => {
             e.preventDefault(); 
             
-            // Блокируем кнопку
             const sendBtn = document.querySelector('.btn-submit');
             if (sendBtn) {
                 sendBtn.disabled = true;
                 sendBtn.textContent = 'Senden...';
             }
 
-            // Собираем данные формы
-            const formData = new FormData(form);
-            const data = Object.fromEntries(formData.entries()); 
+            // Получаем текстовые значения для красивого письма
+            let weeklyText = weeklyInput.value;
+            let monthsText = monthsInput.value;
             
-            // Добавляем итоговую цену и скидку
-            data.final_price = priceEl ? priceEl.textContent : '';
-            data.discount_info = discountEl ? discountEl.textContent : '';
+            // Ищем красивый текст в списках
+            const weeklyLi = document.querySelector(`.fixed-price__dropdown[data-type="weekly"] li[data-value="${weeklyText} mal"]`) 
+                             || document.querySelector(`.fixed-price__dropdown[data-type="weekly"] li.active`);
+            if(weeklyLi) weeklyText = weeklyLi.textContent.trim();
 
-            // Формирование service_details
-            if (selections.service === 'custom' || selections.weekly === 'custom' || selections.months === 'custom') { 
-                data.service_details = `Telefonisch besprechen (Anfrage Custom-Preis) - Details: ${data.message || 'keine Nachricht'}`;
+            const monthsLi = document.querySelector(`.fixed-price__dropdown[data-type="months"] li[data-value="${monthsText} Monate"]`)
+                             || document.querySelector(`.fixed-price__dropdown[data-type="months"] li.active`);
+            if(monthsLi) monthsText = monthsLi.textContent.trim();
+
+            // Собираем Payload вручную
+            const payload = {
+                first_name: form.querySelector('[name="first_name"]').value,
+                last_name: form.querySelector('[name="last_name"]').value,
+                email: form.querySelector('[name="email"]').value,
+                phone: form.querySelector('[name="phone"]').value,
+                message: form.querySelector('[name="message"]').value,
+
+                street: form.querySelector('[name="street"]').value,
+                house: form.querySelector('[name="house"]').value,
+                address_supplement: form.querySelector('[name="address_supplement"]').value,
+                zip: form.querySelector('[name="zip"]').value,
+                city: form.querySelector('[name="city"]').value,
+
+                service: serviceInput.value,
+                weekly: weeklyInput.value,
+                months: monthsInput.value,
+
+                final_price: priceEl ? priceEl.textContent : '0.00€',
+                discount_info: discountEl ? discountEl.textContent : '',
+            };
+
+            // Формируем service_details
+            if (payload.service === 'custom' || payload.weekly === 'custom' || payload.months === 'custom') { 
+                payload.service_details = `Telefonisch besprechen (Anfrage Custom-Preis)`;
+                payload.final_price = "Nach Vereinbarung";
             } else {
-                // Ищем текст опции в списках для красивого оформления в письме
-                const weeklyText = document.querySelector(`.fixed-price__dropdown[data-type="weekly"] li[data-value="${data.weekly} mal"]`)?.textContent.trim() || `${data.weekly} mal`;
-                const monthsText = document.querySelector(`.fixed-price__dropdown[data-type="months"] li[data-value="${data.months} Monate"]`)?.textContent.trim() || `${data.months} Monate`;
-                data.service_details = `${data.service} (${weeklyText} pro Woche, ${monthsText}) - Preis: ${data.final_price}`;
+                payload.service_details = `${payload.service} (${weeklyText}, ${monthsText})`;
             }
 
             try {
-                // РЕАЛЬНЫЙ FETCH-ЗАПРОС
+                // ОТПРАВКА НА НОВЫЙ ENDPOINT /api/fixed_price
                 const response = await fetch('/api/fixed_price', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify(data),
+                    body: JSON.stringify(payload),
                 });
 
                 const result = await response.json();
 
-                if (response.ok) {
-                    // Успех
+                if (response.ok && result.success) {
                     alert('✅ Anfrage erfolgreich gesendet! Wir melden uns in Kürze.');
-                    form.reset(); 
+                    form.reset();
                     
-                    // Сброс JS-состояния и визуальных элементов
+                    // Сброс состояния
                     selections.service = null; selections.weekly = null; selections.months = null;
-                    calculatePrice(); // Сбросит скрытые поля и цену
-
-                    // Сброс заголовка, кнопок и активного состояния
-                    if (cardTitleEl) cardTitleEl.textContent = ""; 
+                    calculatePrice();
+                    if (cardTitleEl) cardTitleEl.textContent = "Wähle eine Leistung";
                     document.querySelectorAll('.fixed-price__dropdown li').forEach(x => x.classList.remove('active'));
-                    document.querySelector('button[data-dropdown="service"]').textContent = 'Auswählen';
-                    document.querySelector('button[data-dropdown="weekly"]').textContent = 'Auswählen';
-                    document.querySelector('button[data-dropdown="months"]').textContent = 'Auswählen';
-                    
-                    // Возвращение на первый шаг
+                    document.querySelectorAll('.fixed-price__card-btn').forEach(btn => btn.textContent = 'Auswählen');
+
                     currentStep = 0;
                     updateStep();
 
                 } else {
-                    // Ошибка
-                    console.error('Fehler beim Senden:', result);
-                    const missingFields = result.missing ? ` (${result.missing.join(', ')})` : '';
-                    alert(`❌ Fehler beim Senden der Anfrage. Bitte überprüfen Sie die Eingaben. Fehlende Felder: ${missingFields}`);
+                    console.error('Server Error:', result);
+                    const missingMsg = result.missing ? `\nFehlende Felder: ${result.missing.join(', ')}` : '';
+                    alert(`❌ Fehler beim Senden: ${result.error || 'Unbekannter Fehler'} ${missingMsg}`);
                 }
 
             } catch (error) {
-                console.error('Netzwerk- oder Serverfehler:', error);
-                alert('❌ Ein kritischer Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.');
+                console.error('Network Error:', error);
+                alert('❌ Ein Verbindungsfehler ist aufgetreten.');
             } finally {
-                // Разблокируем кнопку
                 if (sendBtn) {
                     sendBtn.disabled = false;
                     sendBtn.textContent = 'Anfrage absenden';
@@ -1776,11 +1736,10 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Инициализация при загрузке страницы
+    // Инициализация
     updateStep();
     calculatePrice();
-    // >>> ИНИЦИАЛИЗАЦИЯ ОПИСАНИЯ ПРИ ЗАГРУЗКЕ
-    updateDescription("call"); // Установим дефолтное описание, пока услуга не выбрана
+    updateDescription("call");
 });
 </script>
 
