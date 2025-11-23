@@ -478,52 +478,125 @@
 <!-- 1. ЕДИНОЕ СЛОЖНОЕ МОДАЛЬНОЕ ОКНО (FAQ + ФОРМА)            -->
 <!-- ========================================================= -->
 <div id="complexModal" class="modal-overlay">
-    <div class="modal-content">
-        <!-- Заголовок окна -->
-        <div class="modal-header">
-            <h2 id="complexModalTitle">Service Name</h2>
-            <button class="close-modal-btn">&times;</button>
-        </div>
-
-        <div class="modal-body-grid">
-            
-            <!-- ЛЕВАЯ КОЛОНКА: Сюда JS будет вставлять FAQ из шаблона -->
-            <div class="modal-col-left">
-                <h3 class="modal-subtitle">Häufige Fragen (FAQ)</h3>
-                <div id="modalFaqContainer">
-                    <!-- Сюда загрузится контент -->
-                </div>
-            </div>
-
-            <!-- ПРАВАЯ КОЛОНКА: Форма заявки (Одна на всех) -->
-            <div class="modal-col-right">
-                <h3 class="modal-subtitle">Unverbindliche Anfrage</h3>
-                <form action="#" method="POST"> <!-- Добавьте ваш обработчик формы -->
-                    
-                    <!-- Скрытое поле, JS заполнит его названием услуги -->
-                    <input type="hidden" id="formServiceSubject" name="service" value="">
-
-                    <div class="form-group">
-                        <label class="form-label">Ihr Name</label>
-                        <input type="text" class="form-input" placeholder="Max Mustermann" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label">E-Mail Adresse</label>
-                        <input type="email" class="form-input" placeholder="email@beispiel.de" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label">Ihre Nachricht / Wünsche</label>
-                        <textarea class="form-textarea" placeholder="Beschreiben Sie kurz, was Sie benötigen..."></textarea>
-                    </div>
-
-                    <button type="submit" class="form-submit-btn">Anfrage senden</button>
-                </form>
-            </div>
-
-        </div>
+  <div class="modal-content">
+    
+    <div class="modal-header">
+      <h2 id="complexModalTitle">Service Name</h2>
+      <button class="close-modal-btn">&times;</button>
     </div>
+
+    <div class="modal-body-grid">
+      
+      <div class="modal-col-left">
+        <h3 class="modal-subtitle">Häufige Fragen (FAQ)</h3>
+        <div id="modalFaqContainer">
+          </div>
+      </div>
+
+      <div class="modal-col-right">
+        
+        <form id="multiStepForm" action="#" method="POST">
+          <input type="hidden" id="formServiceSubject" name="service" value="">
+
+          <div class="ms-header">
+            <div class="step-indicator">
+              <span class="step-circle active">1</span>
+              <span class="step-circle">2</span>
+              <span class="step-circle">3</span>
+            </div>
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill" style="width: 33%;"></div>
+            </div>
+          </div>
+
+          <div class="steps-container">
+
+            <div class="form-step active" data-step="1">
+              <h3 class="modal-subtitle">Ihre Anfrage</h3>
+              
+              <div class="form-group">
+                <label class="form-label">Wann wird Hilfe benötigt?</label>
+                <select class="form-input" name="timing">
+                  <option value="So schnell wie möglich">So schnell wie möglich</option>
+                  <option value="In den nächsten Tagen">In den nächsten Tagen</option>
+                  <option value="Datum wählen">Bestimmtes Datum (siehe unten)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Details / Wünsche</label>
+                <textarea class="form-textarea" name="message" placeholder="Beschreiben Sie kurz, was genau erledigt werden soll (z.B. Einkaufsliste, Apotheke, Begleitung)..."></textarea>
+              </div>
+            </div>
+
+            <div class="form-step" data-step="2">
+              <h3 class="modal-subtitle">Kontaktdaten</h3>
+              
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label">Vorname*</label>
+                  <input type="text" class="form-input required-field" name="first_name" placeholder="Max">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Nachname*</label>
+                  <input type="text" class="form-input required-field" name="last_name" placeholder="Mustermann">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">E-Mail Adresse*</label>
+                <input type="email" class="form-input required-field" name="email" placeholder="beispiel@mail.de">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Telefonnummer*</label>
+                <input type="tel" class="form-input required-field" name="phone" placeholder="+49 123 456789">
+              </div>
+            </div>
+
+            <div class="form-step" data-step="3">
+              <h3 class="modal-subtitle">Adresse & Abschluss</h3>
+              
+              <div class="form-row">
+                <div class="form-group" style="flex: 2;">
+                  <label class="form-label">Straße*</label>
+                  <input type="text" class="form-input required-field" name="street">
+                </div>
+                <div class="form-group" style="flex: 1;">
+                  <label class="form-label">Nr.*</label>
+                  <input type="text" class="form-input required-field" name="house_number">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group" style="flex: 1;">
+                  <label class="form-label">PLZ*</label>
+                  <input type="text" class="form-input required-field" name="zip">
+                </div>
+                <div class="form-group" style="flex: 2;">
+                  <label class="form-label">Stadt*</label>
+                  <input type="text" class="form-input required-field" name="city">
+                </div>
+              </div>
+              
+              <div class="form-info-text">
+                <small>Mit dem Absenden akzeptieren Sie unsere Datenschutzbestimmungen.</small>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="form-nav">
+            <button type="button" class="form-btn-prev disabled" disabled>Zurück</button>
+            <button type="button" class="form-btn-next">Weiter</button>
+            <button type="submit" class="form-submit-btn hidden">Anfrage senden</button>
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
 </div>
 
 <!-- ========================================================= -->
@@ -602,7 +675,9 @@
 <script>
 document.addEventListener('DOMContentLoaded', () => {
 
-  // Логика переворота карточек (старая)
+  /* =========================================
+     1. ЛОГИКА ПЕРЕВОРОТА КАРТОЧЕК
+     ========================================= */
   document.querySelectorAll('.flip-btn').forEach(btn => {
       btn.addEventListener('click', (e) => {
           const cardInner = e.target.closest('.card__inner');
@@ -610,32 +685,26 @@ document.addEventListener('DOMContentLoaded', () => {
       });
   });
 
-  // --- НОВАЯ ЛОГИКА POPUP ---
+  /* =========================================
+     2. МОДАЛЬНОЕ ОКНО (Открытие/Закрытие)
+     ========================================= */
   const modal = document.getElementById('complexModal');
   const closeBtn = document.querySelector('.close-modal-btn');
   const modalTitle = document.getElementById('complexModalTitle');
   const faqContainer = document.getElementById('modalFaqContainer');
   const hiddenInput = document.getElementById('formServiceSubject');
 
-  // Находим кнопки с классом trigger-complex-modal
-  const openButtons = document.querySelectorAll('.trigger-complex-modal');
-
-  openButtons.forEach(btn => {
+  // Открытие модального окна
+  document.querySelectorAll('.trigger-complex-modal').forEach(btn => {
       btn.addEventListener('click', (e) => {
           e.preventDefault();
-
-          // 1. Получаем заголовок и ID шаблона из кнопки
           const title = btn.getAttribute('data-title');
           const templateId = btn.getAttribute('data-template');
 
-          // 2. Заполняем заголовок и скрытое поле формы
           modalTitle.textContent = title;
           hiddenInput.value = title;
-
-          // 3. Очищаем старый FAQ
           faqContainer.innerHTML = '';
 
-          // 4. Ищем шаблон и клонируем его контент
           const template = document.getElementById(templateId);
           if (template) {
               const clone = template.content.cloneNode(true);
@@ -643,17 +712,111 @@ document.addEventListener('DOMContentLoaded', () => {
           } else {
               faqContainer.innerHTML = '<p>Informationen werden geladen...</p>';
           }
-
-          // 5. Открываем окно
+          
+          // СБРОС ФОРМЫ ПРИ ОТКРЫТИИ
+          resetMultiStepForm(); 
           modal.classList.add('open');
       });
   });
 
   // Закрытие
-  closeBtn.addEventListener('click', () => modal.classList.remove('open'));
+  const closeModal = () => modal.classList.remove('open');
+  closeBtn.addEventListener('click', closeModal);
   window.addEventListener('click', (e) => {
-      if (e.target === modal) modal.classList.remove('open');
+      if (e.target === modal) closeModal();
   });
+
+  /* =========================================
+     3. МНОГОШАГОВАЯ ФОРМА (Multi-step Logic)
+     ========================================= */
+  const steps = document.querySelectorAll('.form-step');
+  const btnNext = document.querySelector('.form-btn-next');
+  const btnPrev = document.querySelector('.form-btn-prev');
+  const btnSubmit = document.querySelector('.form-submit-btn');
+  const progressFill = document.querySelector('.progress-bar-fill');
+  const stepCircles = document.querySelectorAll('.step-indicator .step-circle');
+  
+  let currentStep = 0;
+
+  function updateFormUI() {
+    // 1. Переключение видимости шагов
+    steps.forEach((step, index) => {
+      step.classList.toggle('active', index === currentStep);
+    });
+
+    // 2. Обновление кружков (индикаторов)
+    stepCircles.forEach((circle, index) => {
+      circle.classList.toggle('active', index <= currentStep);
+    });
+
+    // 3. Обновление полосы прогресса (33%, 66%, 100%)
+    const progress = ((currentStep + 1) / steps.length) * 100;
+    progressFill.style.width = `${progress}%`;
+
+    // 4. Управление кнопками
+    // Кнопка "Назад" неактивна на первом шаге
+    if (currentStep === 0) {
+      btnPrev.classList.add('disabled');
+      btnPrev.disabled = true;
+    } else {
+      btnPrev.classList.remove('disabled');
+      btnPrev.disabled = false;
+    }
+
+    // Кнопка "Далее" скрывается на последнем шаге, появляется "Отправить"
+    if (currentStep === steps.length - 1) {
+      btnNext.classList.add('hidden');
+      btnSubmit.classList.remove('hidden');
+    } else {
+      btnNext.classList.remove('hidden');
+      btnSubmit.classList.add('hidden');
+    }
+  }
+
+  function validateStep(stepIndex) {
+    const currentStepEl = steps[stepIndex];
+    const inputs = currentStepEl.querySelectorAll('.required-field');
+    let isValid = true;
+
+    inputs.forEach(input => {
+      if (!input.value.trim()) {
+        isValid = false;
+        input.style.borderColor = 'red'; // Подсветка ошибки
+      } else {
+        input.style.borderColor = ''; // Убираем ошибку
+      }
+    });
+    return isValid;
+  }
+
+  // Обработчик кнопки "Далее"
+  btnNext.addEventListener('click', () => {
+    if (validateStep(currentStep)) {
+      if (currentStep < steps.length - 1) {
+        currentStep++;
+        updateFormUI();
+      }
+    } else {
+      alert('Bitte füllen Sie alle Pflichtfelder aus.');
+    }
+  });
+
+  // Обработчик кнопки "Назад"
+  btnPrev.addEventListener('click', () => {
+    if (currentStep > 0) {
+      currentStep--;
+      updateFormUI();
+    }
+  });
+
+  // Функция сброса формы (вызывается при открытии модалки)
+  function resetMultiStepForm() {
+    currentStep = 0;
+    document.getElementById('multiStepForm').reset();
+    // Сброс стилей ошибок
+    document.querySelectorAll('.required-field').forEach(i => i.style.borderColor = '');
+    updateFormUI();
+  }
 
 });
 </script>

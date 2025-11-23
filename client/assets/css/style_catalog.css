@@ -192,6 +192,7 @@
         border: 1px solid #ccc; border-radius: 6px;
         font-family: inherit; font-size: 1rem;
         transition: border-color 0.3s;
+        color: #000;
     }
     .form-input:focus, .form-textarea:focus {
         outline: none; border-color: #2980b9;
@@ -211,3 +212,169 @@
         .modal-body-grid { grid-template-columns: 1fr; }
         .modal-col-left { border-right: none; border-bottom: 1px solid #eee; }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- MULTI-STEP FORM STYLES --- */
+
+/* Шапка с кружочками */
+.ms-header {
+  margin-bottom: 25px;
+  position: relative;
+  text-align: center;
+}
+
+.step-indicator {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 2;
+  width: 80%; /* ширина полоски с шагами */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.step-circle {
+  width: 35px;
+  height: 35px;
+  background-color: #e0e0e0;
+  color: #666;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-family: 'Righteous', sans-serif;
+  transition: all 0.3s ease;
+  border: 2px solid #fff; /* обводка чтобы отделить от линии */
+}
+
+.step-circle.active {
+  background-color: #2980b9;
+  color: #fff;
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(41, 128, 185, 0.4);
+}
+
+.step-circle.completed {
+  background-color: #27ae60; /* Зеленый для пройденных */
+  color: #fff;
+}
+
+/* Линия прогресса */
+.progress-bar-bg {
+  position: absolute;
+  top: 17px; /* По центру кружков */
+  left: 10%;
+  right: 10%;
+  height: 4px;
+  background-color: #e0e0e0;
+  z-index: 1;
+  border-radius: 2px;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background-color: #2980b9;
+  transition: width 0.4s ease;
+  border-radius: 2px;
+}
+
+/* Шаги */
+.form-step {
+  display: none; /* Скрываем все шаги по умолчанию */
+  animation: fadeIn 0.4s ease;
+}
+
+.form-step.active {
+  display: block; /* Показываем активный */
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Строки для полей (два поля в ряд) */
+.form-row {
+  display: flex;
+  gap: 15px;
+}
+.form-row .form-group {
+  width: 100%;
+}
+
+/* Кнопки навигации */
+.form-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  border-top: 1px solid #eee;
+  padding-top: 20px;
+}
+
+.form-btn-next, .form-btn-prev {
+  padding: 10px 25px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  font-size: 1rem;
+  transition: all 0.3s;
+}
+
+.form-btn-next {
+  background-color: #2980b9;
+  color: white;
+  margin-left: auto; /* Сдвиг вправо */
+}
+.form-btn-next:hover { background-color: #1f6391; }
+
+.form-btn-prev {
+  background-color: #f1f1f1;
+  color: #555;
+}
+.form-btn-prev:hover { background-color: #e2e2e2; }
+.form-btn-prev.disabled {
+  opacity: 0; 
+  pointer-events: none;
+}
+
+/* Скрываем кнопку Submit пока не дойдем до конца */
+.form-submit-btn.hidden { display: none; }
+.form-btn-next.hidden { display: none; }
+
+/* Валидация */
+.input-error {
+  border-color: #e74c3c !important;
+  background-color: #fdf2f2;
+}
