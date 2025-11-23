@@ -866,390 +866,402 @@
 </section>
 
 
-
-
-
-
-
 <style>
-    /* === Helper Classes === */
-    .hidden { display: none !important; }
+/* === Helper Classes === */
+.hidden { display: none !important; }
 
-    .input-validator {
-        opacity: 0;
-        height: 1px;
-        width: 1px;
-        position: absolute;
-        z-index: -1;
-        bottom: 0;
-    }
+.input-validator {
+  opacity: 0;
+  height: 1px;
+  width: 1px;
+  position: absolute;
+  z-index: -1;
+  bottom: 0;
+}
 
-    /* === Section root === */
-    #fixed-price {
-        scroll-margin-top: 4.5rem;
-        padding: 4rem 2rem;
-        font-family: 'Inter', system-ui, sans-serif;
-        background: #f5f5f5;
-        color: #222;
-    }
+/* === Section root === */
+#fixed-price {
+  scroll-margin-top: 4.5rem;
+  padding: 4rem 2rem;
+  font-family: 'Inter', system-ui, sans-serif;
+  background: #f5f5f5;
+  color: #222;
+}
 
-    /* === Layout === */
-    .fixed-price__container {
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        gap: 3rem;
-        flex-wrap: wrap;
-    }
+/* === Layout === */
+.fixed-price__container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
 
-    .fixed-price__text-container {
-        flex: 1 1 300px;
-        max-width: 400px;
-    }
+.fixed-price__text-container {
+  flex: 1 1 300px;
+  max-width: 400px;
+}
 
-    .fixed-price__title {
-        font-size: 2.2rem;
-        font-weight: 700;
-        margin-bottom: 1rem;
-        color: #222;
-    }
+.fixed-price__title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #222;
+}
 
-    .fixed-price__description {
-        font-size: 1rem;
-        line-height: 1.6;
-        color: #555;
-    }
+.fixed-price__description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+}
 
-    /* === Card wrapper === */
-    .fixed-price__card {
-        flex: 1 1 350px;
-        max-width: 500px;
-        width: 100%;
-    }
+/* === Card wrapper === */
+.fixed-price__card {
+  flex: 1 1 350px;
+  max-width: 500px;
+  width: 100%;
+}
 
-    .card__multistep {
-        position: relative;
-        background: #fff;
-        border-radius: 1.8rem;
-        box-shadow: 0 16px 32px rgba(0, 0, 0, 0.08);
-        padding-bottom: 2rem;
-        overflow: visible;
-    }
+.card__multistep {
+  position: relative;
+  background: #fff;
+  border-radius: 1.8rem;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.08);
+  overflow: visible;
+  padding: 0 0 2rem;
+}
 
-    /* Progress bar */
-    .progress-bar {
-        margin: 0.5rem 0 2rem;
-        width: 100%;
-        height: 6px;
-        background: #e5e5e5;
-        border-radius: 6px;
-        overflow: hidden;
-    }
+/* Progress bar */
+.progress-bar {
+  margin: 0.5rem 0 2rem;
+  width: 100%;
+  height: 6px;
+  background: #e5e5e5;
+  border-radius: 6px;
+  overflow: hidden;
+}
 
-    .progress-bar__inner {
-        height: 100%;
-        width: 33%;
-        background: linear-gradient(135deg, #4c5b5c, #2c3e3f);
-        transition: width 0.35s ease;
-    }
+.progress-bar__inner {
+  height: 100%;
+  width: 33%;
+  background: linear-gradient(135deg, #4c5b5c, #2c3e3f);
+  transition: width 0.35s ease;
+}
 
-    /* Step Indicators */
-    .step-indicator {
-      position: relative;
-        display: flex;
-        justify-content: center;
-        gap: 1rem;
-        margin: 1.5rem 0 0;
-    }
+/* Step Indicators */
+.step-indicator {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2.5rem 0 0;
+}
 
-    .step-circle {
-        width: 32px;
-        height: 32px;
-        border-radius: 50%;
-        background: #e0e0e0;
-        color: #666;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: bold;
-        font-size: 0.9rem;
-        transition: all 0.3s ease;
-    }
+.step-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #e0e0e0;
+  color: #666;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
 
-    .step-circle.active {
-        background: #4c5b5c;
-        color: #fff;
-        transform: scale(1.1);
-    }
+.step-circle.active {
+  background: #4c5b5c;
+  color: #fff;
+  transform: scale(1.1);
+}
 
-    /* Steps Wrapper */
-    .steps-wrapper {
-        padding: 0 2rem;
-        min-height: 350px;
-    }
+/* Steps Wrapper */
+.steps-wrapper {
+  padding: 0 2rem;
+  min-height: 350px;
+}
 
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(5px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
-    .step {
-        display: none;
-        animation: fadeIn 0.4s ease forwards;
-    }
+.step {
+  display: none;
+  animation: fadeIn 0.4s ease forwards;
+}
 
-    .step.active {
-        display: block;
-    }
+.step.active {
+  display: block;
+}
 
-    /* Form Elements */
-    .step h2 {
-        margin-top: 0;
-        
-        margin-bottom: 1.5rem;
-    }
-    
-    .fixed-price__card-tile {
-        font-size: 2.5rem;
-        font-weight: 700;
-        margin: 1rem 0 0.5rem 0;
-        min-height: 1.8rem; /* Для сохранения высоты, пока пусто */
-        color: #4c5b5c; 
-    }
+/* Form Elements */
+.step h2 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
 
-    .fixed-price__card-price {
-        font-size: 2.25rem;
-        font-weight: 700;
-        color: #4c5b5c;
-        margin: 0 0 0.2rem 0;
-        min-height: 2.5rem; /* Для сохранения высоты, пока пусто */
-    }
+.fixed-price__card-tile {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 1rem 0 0.5rem 0;
+  min-height: 1.8rem;
+  color: #4c5b5c;
+}
 
-    .fixed-price__discount {
-        font-size: 0.9rem;
-        color: #e67e22;
-        margin-bottom: 1.5rem;
-        min-height: 0.9rem; /* Для сохранения высоты, пока пусто */
-    }
+.fixed-price__card-price {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #4c5b5c;
+  margin: 0 0 0.2rem 0;
+  min-height: 2.5rem;
+}
 
-    .step label {
-        display: block;
-        margin-bottom: 1rem;
-        font-weight: 500;
-        font-size: 0.9rem;
-        color: #333;
-    }
+.fixed-price__discount {
+  font-size: 0.9rem;
+  color: #e67e22;
+  margin-bottom: 1.5rem;
+  min-height: 0.9rem;
+}
 
-    .step input,
-    .step textarea {
-        width: 100%;
-        padding: 12px;
-        margin-top: 5px;
-        border: 1px solid #ccc;
-        border-radius: 8px;
-        font-size: 0.95rem;
-        background: #fafafa;
-        box-sizing: border-box;
-        transition: 0.25s;
-    }
+.step label {
+  display: block;
+  margin-bottom: 1rem;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: #333;
+}
 
-    .step input:focus,
-    .step textarea:focus {
-        border-color: #0082ff;
-        background: #fff;
-        outline: none;
-    }
+.step input,
+.step textarea {
+  width: 100%;
+  padding: 12px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  background: #fafafa;
+  box-sizing: border-box;
+  transition: 0.25s;
+}
 
-    .fixed-price__card-back-name {
-        display: flex;
-        gap: 1rem;
-    }
-    
-    .fixed-price__card-back-name label {
-        flex: 1;
-    }
+.step input:focus,
+.step textarea:focus {
+  border-color: #0082ff;
+  background: #fff;
+  outline: none;
+}
 
-    /* Dropdown Field Wrapper (New style for Step 1 labels) */
-    .fixed-price__dropdown-field {
-        margin-bottom: 1rem;
-    }
-    .fixed-price__dropdown-field label {
-        margin-bottom: 0.5rem; /* Сделать отступ между заголовком и кнопкой */
-    }
+.fixed-price__card-back-name {
+  display: flex;
+  gap: 1rem;
+}
 
-    /* Dropdowns */
-    .fixed-price__card-categories-title {
-        position: absolute;
-        padding: 0.4rem 1rem;
-        border-radius: 666px;
-        background: linear-gradient(135deg, #3a4546, #1f2a2b);
-        color: #fff;
-        font-size: 0.9rem;
-        top: -1rem;
-        left: 35%;
-    }
+.fixed-price__card-back-name label {
+  flex: 1;
+}
 
-    .fixed-price__dropdown-wrapper {
-        position: relative;
-    }
+/* Dropdown Field Wrapper */
+.fixed-price__dropdown-field {
+  margin-bottom: 1rem;
+}
 
-    .fixed-price__dropdown-row-buttons {
-        display: flex;
-        gap: 1rem;
-        justify-content: space-between;
-        
-    }
+.fixed-price__dropdown-field label {
+  margin-bottom: 0.5rem;
+}
+
+/* Dropdowns */
+.fixed-price__card-categories-title {
+  position: absolute;
+  padding: 0.4rem 1rem;
+  border-radius: 666px;
+  background: linear-gradient(135deg, #3a4546, #1f2a2b);
+  color: #fff;
+  font-size: 0.9rem;
+  top: -1rem;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 3;
+}
+
+.fixed-price__dropdown-wrapper {
+  position: relative;
+}
+
+.fixed-price__dropdown-row-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+.fixed-price__dropdown-row-buttons .fixed-price__dropdown-field {
+  flex: 1;
+}
+
+.fixed-price__card-btn {
+  width: 100%;
+  text-align: left;
+  padding: 12px 15px;
+  background: #fafafa;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: border-color 0.2s ease;
+}
+
+.fixed-price__card-btn::after {
+  content: '▼';
+  font-size: 0.7em;
+  color: #666;
+}
+
+.fixed-price__dropdown {
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  width: 100%;
+  background: #fff;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  visibility: hidden;
+  transform: scaleY(0.9);
+  transform-origin: top center;
+  transition: all 0.2s ease;
+  z-index: 100;
+  box-sizing: border-box;
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.fixed-price__dropdown.open {
+  opacity: 1;
+  visibility: visible;
+  transform: scaleY(1);
+}
+
+.fixed-price__dropdown-title {
+  font-size: 0.85rem;
+  font-weight: bold;
+  padding: 0.5rem;
+  margin: 0;
+  color: #999;
+}
+
+.fixed-price__dropdown ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.fixed-price__dropdown li {
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.fixed-price__dropdown li:hover {
+  background: #f3f3f3;
+}
+
+.fixed-price__dropdown li.active {
+  background: #4c5b5c;
+  color: #fff;
+}
+
+.fixed-price__card-description {
+  margin-top: 1.5rem;
+  border-top: 1px solid #eee;
+  padding-top: 1rem;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.fixed-price__card-description p {
+  margin: 0.3rem 0;
+}
+
+/* Navigation */
+.form-nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2rem;
+  margin-top: 2rem;
+  gap: 1rem;
+}
+
+.btn-next,
+.btn-back,
+.btn-submit {
+  padding: 12px 24px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+
+.btn-next {
+  background: #2c3e3f;
+  color: #fff;
+  margin-left: auto;
+}
+
+.btn-back {
+  background: #e5e5e5;
+  color: #333;
+}
+
+.btn-submit {
+  background: #0082ff;
+  color: #fff;
+}
+
+.btn-submit:hover { background: #006ad1; }
+.btn-next:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 480px) {
+  .fixed-price__card-tile {
+    font-size: 1.75rem;
+  }
+
+  .fixed-price__card-price {
+    font-size: 1.75rem;
+  }
+
+  .fixed-price__dropdown-row-buttons {
+    flex-direction: column;
+    gap: 0;
+  }
+  .fixed-price__card-back-name {
+    flex-direction: column;
+    gap: 0;
+  }
+  .fixed-price__dropdown-field {
+    margin-bottom: 0.8rem;
+  }
+  .fixed-price__dropdown-field label {
+    margin-bottom: 0.3rem;
+  }
+}
 
 
-    .fixed-price__dropdown-row-buttons .fixed-price__dropdown-field {
-        flex: 1;
-    }
 
-    .fixed-price__card-btn {
-        width: 100%;
-        text-align: left;
-        padding: 12px 15px;
-        background: #fafafa;
-        border: 1px solid #ccc;
-        border-radius: 8px;
-        cursor: pointer;
-        font-size: 0.95rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        transition: border-color 0.2s ease; /* Добавлен transition */
-    }
-    
-    .fixed-price__card-btn::after {
-        content: '▼';
-        font-size: 0.7em;
-        color: #666;
-    }
 
-    .fixed-price__dropdown {
-        position: absolute;
-        top: calc(100% + 5px);
-        left: 0;
-        width: 100%;
-        background: #fff;
-        border-radius: 1rem;
-        padding: 0.5rem;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-        opacity: 0;
-        visibility: hidden;
-        transform: scaleY(0.9);
-        transform-origin: top center;
-        transition: all 0.2s ease;
-        z-index: 100;
-        box-sizing: border-box;
-        max-height: 250px;
-        overflow-y: auto;
-    }
 
-    .fixed-price__dropdown.open {
-        opacity: 1;
-        visibility: visible;
-        transform: scaleY(1);
-    }
-
-    .fixed-price__dropdown-title {
-        font-size: 0.85rem;
-        font-weight: bold;
-        padding: 0.5rem;
-        margin: 0;
-        color: #999;
-    }
-
-    .fixed-price__dropdown ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    .fixed-price__dropdown li {
-        padding: 10px;
-        border-radius: 6px;
-        cursor: pointer;
-        font-size: 0.95rem;
-    }
-
-    .fixed-price__dropdown li:hover {
-        background: #f3f3f3;
-    }
-
-    .fixed-price__dropdown li.active {
-        background: #4c5b5c;
-        color: #fff;
-    }
-
-    .fixed-price__card-description {
-        margin-top: 1.5rem;
-        border-top: 1px solid #eee;
-        padding-top: 1rem;
-        color: #555;
-        font-size: 0.9rem;
-    }
-
-    .fixed-price__card-description p {
-        margin: 0.3rem 0;
-    }
-
-    /* Navigation */
-    .form-nav {
-        display: flex;
-        justify-content: space-between;
-        padding: 0 2rem;
-        margin-top: 2rem;
-        gap: 1rem;
-    }
-
-    .btn-next,
-    .btn-back,
-    .btn-submit {
-        padding: 12px 24px;
-        border-radius: 50px;
-        border: none;
-        cursor: pointer;
-        font-weight: 600;
-        transition: all 0.25s ease;
-    }
-
-    .btn-next {
-        background: #2c3e3f;
-        color: #fff;
-        margin-left: auto;
-    }
-
-    .btn-back {
-        background: #e5e5e5;
-        color: #333;
-    }
-
-    .btn-submit {
-        background: #0082ff;
-        color: #fff;
-    }
-
-    .btn-submit:hover { background: #006ad1; }
-    .btn-next:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-
-    @media (max-width: 480px) {
-        .fixed-price__dropdown-row-buttons {
-            flex-direction: column;
-            gap: 0;
-        }
-        .fixed-price__card-back-name {
-            flex-direction: column;
-            gap: 0;
-        }
-        .fixed-price__dropdown-field {
-            margin-bottom: 0.8rem;
-        }
-        .fixed-price__dropdown-field label {
-            margin-bottom: 0.3rem;
-        }
-    }
 </style>
+
 
 
 
