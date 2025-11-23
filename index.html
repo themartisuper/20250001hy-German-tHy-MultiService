@@ -999,6 +999,7 @@
 
 /* Form Elements */
 .step h2 {
+  color: #4c5b5c;
   margin-top: 0;
   margin-bottom: 1.5rem;
 }
@@ -1182,7 +1183,7 @@
   border-top: 1px solid #eee;
   padding-top: 1rem;
   color: #555;
-  font-size: 0.9rem;
+  font-size: 1.25rem;
 }
 
 .fixed-price__card-description p {
@@ -1238,6 +1239,10 @@
 
   .fixed-price__card-price {
     font-size: 1.75rem;
+  }
+
+  .fixed-price__card-description {
+    font-size: 1.15rem;
   }
 
   .fixed-price__dropdown-row-buttons {
@@ -1391,7 +1396,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // ---------------------------------------------
     const priceEl = document.querySelector('.fixed-price__card-price');
     const discountEl = document.querySelector('.fixed-price__discount');
-    const cardTitleEl = document.querySelector('.fixed-price__card-tile'); // Добавлена ссылка на заголовок
+    const cardTitleEl = document.querySelector('.fixed-price__card-tile');
+    // >>> ДОБАВЛЕНА ССЫЛКА НА БЛОК ОПИСАНИЯ
+    const cardDescriptionEl = document.querySelector('.fixed-price__card-description'); 
     const form = document.getElementById('fixed-price-form');
 
     // Ссылки на скрытые поля
@@ -1409,12 +1416,66 @@ document.addEventListener("DOMContentLoaded", () => {
         "Zum Flughafen hin-zurück fahren": 35
     };
 
+    // >>> НОВЫЕ ДАННЫЕ ДЛЯ ОПИСАНИЙ
+    const serviceDescriptions = {
+        "Fahrzeugüberführung": [
+            "• Schnelle und sichere Überführung",
+            "• Vollkaskoversicherung inklusive",
+            "• Termingerechte Zustellung bundesweit"
+        ],
+        "Kurierdienste": [
+            "• Zustellung am selben Tag möglich",
+            "• Sendungsverfolgung in Echtzeit",
+            "• Flexible Abholzeiten"
+        ],
+        "Lieferant": [
+            "• Regelmäßige Lieferungen nach Plan",
+            "• Zuverlässiges und geschultes Personal",
+            "• Optionale Lagerhaltung verfügbar"
+        ],
+        "Möbeltransport / Umzugshilfe": [
+            "• Professionelle Trage- und Montierhilfe",
+            "• Spezialausrüstung für schwere Gegenstände",
+            "• Schadensversicherung für Ihren Umzug"
+        ],
+        "Tragehilfe": [
+            "• Stundenweise Buchung möglich",
+            "• Hilfe beim Be- und Entladen",
+            "• Ideal für spontane Großeinkäufe"
+        ],
+        "Zum Flughafen hin-zurück fahren": [
+            "• Pünktlicher Transfer ohne Stress",
+            "• Gepäckservice inklusive",
+            "• Fahrten zu allen großen Flughäfen"
+        ],
+        "call": [
+            "• Maßgeschneidertes Angebot",
+            "• Persönliche Beratung am Telefon",
+            "• Kostenlose und unverbindliche Besprechung"
+        ]
+    };
+
     function getDiscount(months) {
         if (months >= 12) return 20;
         if (months >= 6) return 10;
         if (months >= 3) return 5;
         return 0;
     }
+
+    // >>> НОВАЯ ФУНКЦИЯ ДЛЯ ОБНОВЛЕНИЯ ОПИСАНИЯ
+    function updateDescription(serviceKey) {
+        if (!cardDescriptionEl) return;
+
+        const descriptionItems = serviceDescriptions[serviceKey] || serviceDescriptions["call"]; // По умолчанию используем "call" (Telefonisch besprechen)
+
+        let html = '';
+        descriptionItems.forEach(text => {
+            html += `<p>${text}</p>`;
+        });
+
+        cardDescriptionEl.innerHTML = html;
+    }
+
 
     function calculatePrice() {
         const { service, weekly, months } = selections;
@@ -1434,6 +1495,9 @@ document.addEventListener("DOMContentLoaded", () => {
             if (weekly === "custom") weeklyInput.removeAttribute('required'); else weeklyInput.setAttribute('required', 'required');
             if (months === "custom") monthsInput.removeAttribute('required'); else monthsInput.setAttribute('required', 'required');
             
+            // >>> ОБНОВЛЕНИЕ ОПИСАНИЯ ПРИ CUSTOM ВЫБОРЕ (например, Telefonisch besprechen)
+            updateDescription("call");
+            
             return;
         }
 
@@ -1442,11 +1506,13 @@ document.addEventListener("DOMContentLoaded", () => {
         weeklyInput.setAttribute('required', 'required');
         monthsInput.setAttribute('required', 'required');
 
-        // Если что-то не выбрано — скрываем цену
+        // Если что-то не выбрано — скрываем цену и устанавливаем общее описание
         if (!service || !weekly || !months) {
-            if (priceEl) priceEl.textContent = "";
-            if (discountEl) discountEl.textContent = '';
-            // if (cardTitleEl) cardTitleEl.textContent = ""; // Оставляем, если хотим сбросить заголовок при неполном выборе
+            if (priceEl) priceEl.textContent = "0.00€"; // Установим 0.00€ как начальное значение
+            if (discountEl) discountEl.textContent = 'Kein Rabatt'; // Установим начальное значение
+            // >>> ОБНОВЛЕНИЕ ОПИСАНИЯ ПРИ НЕПОЛНОМ ВЫБОРЕ (можно оставить пустым или установить дефолтное)
+            updateDescription(service); // Обновляем только по выбранной услуге
+            
             return;
         }
 
@@ -1456,11 +1522,14 @@ document.addEventListener("DOMContentLoaded", () => {
         const finalPrice = total - (total * discount / 100);
 
         if (priceEl) priceEl.textContent = `${finalPrice.toFixed(2)}€`;
-        if (discountEl) discountEl.textContent = discount ? `zusätzlicher Rabatt ${discount}%` : '';
+        if (discountEl) discountEl.textContent = discount ? `zusätzlicher Rabatt ${discount}%` : 'Kein Rabatt';
+        
+        // >>> ОБНОВЛЕНИЕ ОПИСАНИЯ ПРИ ПОЛНОМ ВЫБОРЕ
+        updateDescription(service);
     }
 
     // ---------------------------------------------
-    // МУЛЬТИШАГОВАЯ ЛОГИКА
+    // МУЛЬТИШАГОВАЯ ЛОГИКА (оставлена без изменений)
     // ---------------------------------------------
     const steps = document.querySelectorAll(".step");
     const indicators = document.querySelectorAll(".step-circle");
@@ -1542,7 +1611,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ---------------------------------------------
-    // DROPDOWN
+    // DROPDOWN (оставлена без изменений)
     // ---------------------------------------------
     document.querySelectorAll('.fixed-price__card-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
@@ -1568,7 +1637,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // ---------------------------------------------
-    // SELECTION (С ИСПРАВЛЕНИЕМ card-title)
+    // SELECTION (С ИСПРАВЛЕНИЕМ card-title и ДОБАВЛЕНИЕМ updateDescription)
     // ---------------------------------------------
     document.querySelectorAll('.fixed-price__dropdown li').forEach(li => {
         li.addEventListener('click', () => {
@@ -1583,7 +1652,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Визуальное обновление и закрытие
                 if(btn) btn.textContent = li.textContent.trim();
                 
-                // !!! ВОССТАНОВЛЕННАЯ ЛОГИКА ЗАГОЛОВКА ДЛЯ CUSTOM !!!
+                // ВОССТАНОВЛЕННАЯ ЛОГИКА ЗАГОЛОВКА ДЛЯ CUSTOM
                 if (type === 'service' && cardTitleEl) { 
                     cardTitleEl.textContent = li.textContent.trim();
                 }
@@ -1593,7 +1662,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Снимаем красную рамку с кнопки
                 if(btn) btn.style.borderColor = "#ccc"; 
 
-                // Обновляем цену и скрытые поля
+                // Обновляем цену и скрытые поля, что вызовет updateDescription
                 calculatePrice(); 
                 return;
             }
@@ -1610,7 +1679,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // Обновляем текст кнопки
             if(btn) btn.textContent = li.textContent.trim(); 
             
-            // !!! ВОССТАНОВЛЕННАЯ ЛОГИКА ЗАГОЛОВКА ДЛЯ ОБЫЧНОГО ВЫБОРА !!!
+            // ВОССТАНОВЛЕННАЯ ЛОГИКА ЗАГОЛОВКА ДЛЯ ОБЫЧНОГО ВЫБОРА
             if (type === 'service' && cardTitleEl) {
                 cardTitleEl.textContent = li.textContent.trim();
             }
@@ -1619,12 +1688,12 @@ document.addEventListener("DOMContentLoaded", () => {
             if(btn) btn.style.borderColor = "#ccc"; 
 
             dropdown.classList.remove('open');
-            calculatePrice();
+            calculatePrice(); // Вызываем calculatePrice, которая вызовет updateDescription
         });
     });
 
     // ---------------------------------------------
-    // ЛОГИКА ОТПРАВКИ ФОРМЫ (SUBMIT)
+    // ЛОГИКА ОТПРАВКИ ФОРМЫ (SUBMIT) (оставлена без изменений)
     // ---------------------------------------------
     if (form) {
         form.addEventListener('submit', async (e) => {
@@ -1657,7 +1726,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             try {
                 // РЕАЛЬНЫЙ FETCH-ЗАПРОС
-                const response = await fetch('/api/contact', {
+                const response = await fetch('/api/fixed_price', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -1710,6 +1779,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // Инициализация при загрузке страницы
     updateStep();
     calculatePrice();
+    // >>> ИНИЦИАЛИЗАЦИЯ ОПИСАНИЯ ПРИ ЗАГРУЗКЕ
+    updateDescription("call"); // Установим дефолтное описание, пока услуга не выбрана
 });
 </script>
 
