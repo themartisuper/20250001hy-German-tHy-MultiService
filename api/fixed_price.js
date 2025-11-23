@@ -55,11 +55,11 @@ export default async function handler(req, res) {
   const dateString = now.toLocaleString("de-DE", {
     timeZone: "Europe/Berlin",
     year: "numeric", month: "2-digit", day: "2-digit",
-    hour: "2-digit", minute: "2-digit"
+    hour: "2-digit", minute: "2-digit", second: "2-digit"
   });
 
   // 6) Subject
-  const subject = `Anfrage Festpreis: ${last_name} – ${dateString}`;
+  const subject = `Anfrage Pauschal: ${last_name} – ${dateString}`;
 
   // 7) Отправка через Mailjet (БЕЗ БИБЛИОТЕКИ, как у вас)
   try {
@@ -78,7 +78,7 @@ export default async function handler(req, res) {
           {
             From: {
               Email: process.env.EMAIL_FROM,
-              Name: "Website Anfrage"
+              Name: "Pauschal Anfrage"
             },
             ReplyTo: {
               Email: email,
@@ -89,7 +89,7 @@ export default async function handler(req, res) {
 
             // HTML Версия
             HTMLPart: `
-              <h2 style="color: #4c5b5c;">Neue Anfrage (Festpreis)</h2>
+              <h2 style="color: #4c5b5c;">Neue Anfrage - Pauschal</h2>
               <p><strong>Datum:</strong> ${dateString}</p>
 
               <h3 style="background: #eee; padding: 5px;">👤 Kontakt</h3>
@@ -108,8 +108,8 @@ export default async function handler(req, res) {
 
               <h3 style="background: #eee; padding: 5px;">📦 Details zum Auftrag</h3>
               <p><strong>Service:</strong> ${service}</p>
-              <p><strong>Frequenz:</strong> ${weekly}</p>
-              <p><strong>Laufzeit:</strong> ${months}</p>
+              <p><strong>Frequenz (pro Woche):</strong> ${weekly}</p>
+              <p><strong>Laufzeit in Monaten:</strong> ${months}</p>
               <hr>
               <p><strong>Zusammenfassung:</strong> ${service_details}</p>
               <p style="font-size: 1.2em;"><strong>Preis (laut Kalkulator): ${final_price}</strong></p>
@@ -121,7 +121,7 @@ export default async function handler(req, res) {
 
             // Текстовая версия
             TextPart: `
-Neue Anfrage (Festpreis)
+Neue Anfrage - Pauschal
 Datum: ${dateString}
 
 KONTAKT:
@@ -136,8 +136,8 @@ ${zip} ${city}
 
 AUFTRAG:
 Service: ${service}
-Frequenz: ${weekly}
-Laufzeit: ${months}
+Frequenz (pro Woche): ${weekly}
+Laufzeit in Monaten: ${months}
 Zusammenfassung: ${service_details}
 
 PREIS: ${final_price}
