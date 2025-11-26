@@ -203,36 +203,69 @@ slider.addEventListener('touchmove', (e) => moveDragging(e.touches[0]));
 
 
 
-const tabButtons = document.querySelectorAll(".custom__button");
-const tabContent = document.getElementById("custom-content");
 
-const tabTexts = {
-  logistics: "Текст о логистике...",
-  garden: "Информация о саде...",
-  events: "Информация о иветах...",
-  cleaning: "Информация о уборке..."
-};
 
-tabButtons.forEach(btn => {
-  btn.addEventListener("click", () => {
-    const activeBtn = document.querySelector(".custom__button--active");
+
+
+
+
+// Используем новые селекторы
+const tabButtons = document.querySelectorAll(".services-tabs__button");
+
+// Функция для обработки клика по кнопке-табу
+function handleTabClick(btn) {
+    // Получаем текущую активную кнопку и контент
+    const activeBtn = document.querySelector(".services-tabs__button--active");
+    const currentContent = document.querySelector(".services-tabs__content-item.active-content");
+
+    // Если кликнули по активной кнопке, ничего не делаем
     if (activeBtn === btn) return;
 
-    activeBtn.classList.remove("custom__button--active");
-    btn.classList.add("custom__button--active");
+    // Смена активной кнопки
+    if (activeBtn) {
+        activeBtn.classList.remove("services-tabs__button--active");
+    }
+    btn.classList.add("services-tabs__button--active");
 
     const key = btn.getAttribute("data-content");
+    const targetContent = document.querySelector(`.services-tabs__content-item[data-content-key="${key}"]`);
 
-    // Плавная смена контента
-    tabContent.style.opacity = 0;
-    setTimeout(() => {
-      tabContent.innerHTML = `<p>${tabTexts[key]}</p>`;
-      tabContent.style.opacity = 1;
-    }, 300);
-  });
+    if (currentContent && targetContent) {
+        // 1. Запускаем плавное скрытие текущего контента
+        // Удаляем класс 'fade-in' и устанавливаем opacity: 0 (переход начнется)
+        currentContent.classList.remove("fade-in");
+        currentContent.style.opacity = 0;
+
+        // 2. Ждем 300мс (время transition)
+        setTimeout(() => {
+            // 3. Скрываем предыдущий элемент (display: none)
+            currentContent.classList.remove("active-content");
+
+            // 4. Показываем новый элемент (display: block)
+            targetContent.classList.add("active-content");
+            
+            // 5. Запускаем плавное появление нового контента
+            // Устанавливаем opacity: 1 (через класс fade-in), которое 
+            // гарантированно сработает, даже если мы переключимся обратно
+            // на вкладку, так как transition не будет "заморожен"
+            targetContent.classList.add("fade-in"); 
+            targetContent.style.opacity = 1; // Добавим для надежности, если transition не успел сработать
+            
+        }, 300); // 300ms соответствует времени transition в CSS
+    }
+}
+
+// Прикрепляем слушатели событий к кнопкам
+tabButtons.forEach(btn => {
+    btn.addEventListener("click", () => handleTabClick(btn));
 });
 
-
-
-
-
+// Инициализация при загрузке страницы: убедитесь, что активный контент виден
+document.addEventListener('DOMContentLoaded', () => {
+    const initialContent = document.querySelector(".services-tabs__content-item.active-content");
+    if (initialContent) {
+        // Устанавливаем начальную прозрачность в 1 и добавляем класс для старта
+        initialContent.style.opacity = 1;
+        initialContent.classList.add("fade-in");
+    }
+});

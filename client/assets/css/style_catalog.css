@@ -378,3 +378,72 @@
   border-color: #e74c3c !important;
   background-color: #fdf2f2;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+/* Сетка для 3 выпадающих списков */
+.schedule-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* 3 колонки */
+  gap: 10px;
+  margin-top: 15px;
+  transition: all 0.3s ease;
+}
+
+/* На мобильном - в одну колонку */
+@media (max-width: 600px) {
+  .schedule-grid {
+    grid-template-columns: 1fr; 
+  }
+}
+
+.form-label-small {
+  display: block;
+  font-size: 0.85rem;
+  margin-bottom: 4px;
+  color: #555;
+  font-weight: 600;
+}
+
+/* Стилизация чекбокса "Einmalig" под кнопку */
+.toggle-option-wrapper {
+  margin-bottom: 10px;
+}
+.toggle-option-wrapper input[type="checkbox"] {
+  display: none; /* Скрываем стандартный чекбокс */
+}
+.btn-checkbox-face {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background-color: #f0f0f0;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  text-align: center;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.2s;
+}
+
+/* Состояние "Einmalig" выбрано */
+.toggle-option-wrapper input[type="checkbox"]:checked + .btn-checkbox-face {
+  background-color: #4CAF50; /* Ваш основной цвет (зеленый) */
+  color: white;
+  border-color: #4CAF50;
+}
+
+/* Состояние "Disabled" для группы списков */
+.schedule-grid.disabled-area {
+  opacity: 0.4;
+  pointer-events: none; /* Блокирует клики мышкой */
+  filter: grayscale(100%);
+}

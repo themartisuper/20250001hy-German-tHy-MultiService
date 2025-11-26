@@ -1,65 +1,87 @@
 /* === Секция === */
-.custom {
-  text-align: center;
-  padding: 50px 20px;
-  font-family: 'Arial', sans-serif;
-  background: #4c5b5c; 
-  border: 1px solid black;
+.services-tabs {
+    padding: 50px 20px;
+    font-family: 'Arial', sans-serif;
+    background: #4c5b5c; 
+    border: 1px solid black;
 }
 
-.custom__title {
-  font-size: 28px;
-  margin-bottom: 30px;
-  color: #333;
+.services-tabs__title {
+    /* Заголовок секции */
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: #f7f7f7;
 }
 
-/* === Кнопки === */
-.custom__buttons {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-bottom: 40px;
+/* === Кнопки-табы === */
+.services-tabs__buttons {
+    /* Контейнер для кнопок */
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 40px;
 }
 
-.custom__button {
-  background: linear-gradient(145deg, #ffffff, #e6e6e6);
-  border: none;
-  padding: 12px 25px;
-  font-size: 16px;
-  cursor: pointer;
-  position: relative;
-  border-radius: 8px;
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
-  transition: all 0.3s ease;
+.services-tabs__button {
+    /* Стиль обычной кнопки */
+    background: linear-gradient(145deg, #ffffff, #e6e6e6);
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    cursor: pointer;
+    position: relative;
+    border-radius: 8px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
 }
 
-.custom__button:hover {
-  background: linear-gradient(145deg, #007BFF, #00BFFF);
-  color: white;
-  box-shadow: 4px 4px 15px rgba(0,123,255,0.3);
+.services-tabs__button:hover {
+    /* Стиль кнопки при наведении */
+    background: linear-gradient(145deg, #007BFF, #00BFFF);
+    color: white;
+    box-shadow: 4px 4px 15px rgba(0,123,255,0.3);
 }
 
-.custom__button--active {
-  font-weight: bold;
-  color: #007BFF;
+.services-tabs__button--active {
+    /* Стиль активной кнопки */
+    font-weight: bold;
+    color: #007BFF;
 }
 
-.custom__button--active::after {
-  content: "";
-  position: absolute;
-  bottom: -5px;
-  left: 10%;
-  width: 80%;
-  height: 4px;
-  background: #007BFF;
-  border-radius: 2px;
+.services-tabs__button--active::after {
+    /* Нижняя подчеркивающая линия активной кнопки */
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 10%;
+    width: 80%;
+    height: 4px;
+    background: #007BFF;
+    border-radius: 2px;
 }
 
-/* === Контент === */
-.custom__content {
-  font-size: 18px;
-  max-width: 600px;
-  margin: 0 auto;
-  opacity: 1;
-  transition: opacity 0.5s ease;
+/* === Контейнер контента === */
+.services-tabs__content {
+    /* Общий контейнер для всех блоков контента */
+    margin: 0 auto;
+}
+
+/* === Отдельный элемент контента (логика переключения) === */
+.services-tabs__content-item {
+    /* Элемент, который содержит вашу форму */
+    opacity: 0;
+    /* Время перехода (300ms) должно совпадать с задержкой в setTimeout в JS */
+    transition: opacity 0.3s ease-in-out; 
+    display: none; /* Скрываем по умолчанию */
+}
+
+/* Активный элемент, который показывается (display: block) */
+.services-tabs__content-item.active-content {
+    display: block;
+}
+
+/* Класс для плавного появления (используется в JS) */
+.services-tabs__content-item.fade-in {
+    /* Элемент должен быть полностью видим после переключения */
+    opacity: 1; 
 }

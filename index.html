@@ -394,292 +394,260 @@
 
 
 
-<!-- Pauschale -->
-<!--<section class="custom">
-  <h2 class="custom__title">Наши услуги</h2>
 
-  <div class="custom__buttons">
-    <button class="custom__button custom__button--active" data-content="logistics">Логистика</button>
-    <button class="custom__button" data-content="garden">Сад</button>
-    <button class="custom__button" data-content="events">Ивенты</button>
-    <button class="custom__button" data-content="cleaning">Уборка</button>
+
+
+
+
+<section class="services-tabs">
+  <h2 class="services-tabs__title">Наши услуги</h2>
+
+  <div class="services-tabs__buttons">
+    <button class="services-tabs__button services-tabs__button--active" data-content="logistics">Логистика</button>
+    <button class="services-tabs__button" data-content="garden">Сад</button>
+    <button class="services-tabs__button" data-content="events">Ивенты</button>
+    <button class="services-tabs__button" data-content="cleaning">Уборка</button>
   </div>
 
-  <div class="custom__content" id="custom-content">
-    <p>Текст о логистике...</p>
-  </div>
-</section>-->
-<!-- End Pauschale -->
+  <div class="services-tabs__content" id="services-tabs-content">
 
-
-
-<!-- fixed-price -->
-<!--<section class="fixed-price__container" id="fixed-price">
-
-  <div class="fixed-price__text-container">
-    <h2 class="fixed-price__title">Our Plans & Special Discounts</h2>
-    <p class="fixed-price__description">
-      I'm a paragraph. Click here to add your own text and edit me. 
-      It's easy.
-    </p>
-  </div>
-
-  <div class="fixed-price__card">
-    <p class="fixed-price__card-categories-title">Transport & Logistik</p>
-    
-    <form id="fixed-price-form">
-      
-      <div class="fixed-price__card-options">
-        <p class="fixed-price__card-title"></p>
-        <p class="fixed-price__card-price"></p>
-        <p class="fixed-price__discount"></p>
-
-        <div class="fixed-price__dropdown-wrapper">
-          <button class="fixed-price__card-btn" type="button" data-dropdown="service">Auswählen</button>
-          <div class="fixed-price__dropdown" data-type="service">
-            <p class="fixed-price__dropdown-title">Wähle deine Option:</p>
-            <ul>
-              <li data-value="Fahrzeugüberführung">Fahrzeugüberführung</li>
-              <li data-value="Kurierdienste">Kurierdienste</li>
-              <li data-value="Lieferant">Lieferant</li>
-              <li data-value="Möbeltransport / Umzugshilfe">Möbeltransport / Umzugshilfe</li>
-              <li data-value="Tragehilfe">Tragehilfe</li>
-              <li data-value="Zum Flughafen hin-zurück fahren">Zum Flughafen hin-zurück fahren</li>
-              <li data-value="call" data-custom="true">Telefonisch besprechen</li>
-            </ul>
-          </div>
+    <div class="services-tabs__content-item active-content" data-content-key="logistics">
+      <section class="fixed-price__container" id="fixed-price-logistics">
+        <div class="fixed-price__text-container">
+          <h2 class="fixed-price__title">Our Plans & Special Discounts</h2>
+          <p class="fixed-price__description">
+            I'm a paragraph. Click here to add your own text and edit me. It's easy.
+          </p>
         </div>
-        
-        <div class="fixed-price__dropdown-row-buttons">
-          <div class="fixed-price__dropdown-wrapper"> 
-            <button class="fixed-price__card-btn" type="button" data-dropdown="weekly">pro Woche</button>
-            <div class="fixed-price__dropdown" data-type="weekly">
-              <p class="fixed-price__dropdown-title">Wähle deine Option:</p>
-              <ul>
-                <li data-value="1 mal">1&nbsp;mal</li>
-                <li data-value="2 mal">2&nbsp;mal</li>
-                <li data-value="3 mal">3&nbsp;mal</li>
-                <li data-value="4 mal">4&nbsp;mal</li>
-                <li data-value="5 mal">5&nbsp;mal</li>
-                <li data-value="6 mal">6&nbsp;mal</li>
-                <li data-value="7 mal">7&nbsp;mal</li>
-                <li data-value="call" data-custom="true">Telefonisch besprechen</li>
-              </ul>
-            </div>
-          </div>
-          
-          <div class="fixed-price__dropdown-wrapper">
-            <button class="fixed-price__card-btn" type="button" data-dropdown="months">Monate</button>
-            <div class="fixed-price__dropdown" data-type="months">
-              <p class="fixed-price__dropdown-title">Wähle deine Option:</p>
-              <ul>
-                <li data-value="1 Monat">1&nbsp;Monat</li>
-                <li data-value="2 Monate">2&nbsp;Monate</li>
-                <li data-value="3 Monate">3&nbsp;Monate</li>
-                <li data-value="4 Monate">4&nbsp;Monate</li>
-                <li data-value="5 Monate">5&nbsp;Monate</li>
-                <li data-value="6 Monate">6&nbsp;Monate</li>
-                <li data-value="12 Monate">12&nbsp;Monate</li>
-                <li data-value="18 Monate">18&nbsp;Monate</li>
-                <li data-value="24 Monate">24&nbsp;Monate</li>
-                <li data-value="call" data-custom="true">Telefonisch besprechen</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="fixed-price__input-group">
-        <input type="text" name="first_name" placeholder="Vorname*" required>
-        <input type="text" name="last_name" placeholder="Nachname*" required>
-        <input type="email" name="email" placeholder="E-Mail*" required>
-        <input type="tel" name="phone" placeholder="Telefon*" required>
-        
-        <input type="text" name="birthday" placeholder="Geburtsdatum (optional)">
-        
-        <textarea name="message" placeholder="Ihre Nachricht (optional)"></textarea>
-        
-        <input type="hidden" name="service" id="service-value" required>
-        <input type="hidden" name="weekly" id="weekly-value" required>
-        <input type="hidden" name="months" id="months-value" required>
-        
-        <input type="hidden" name="recipient" value="Für mich selbst">
-        <input type="hidden" name="delivery" value="selbst">
+        <div class="fixed-price__card">
+          <form id="fixed-price-form-logistics">
+            <div class="card__multistep">
+              <p class="fixed-price__card-categories-title">Transport & Logistik</p>
 
-      </div>
-      <div class="fixed-price__card-description">
-        <p>I’m a benefit</p>
-        <p>I’m a benefit</p>
-        <p>I’m a benefit</p>
-        <p>I’m a benefit</p>
-        <p>I’m a benefit</p>
-      </div>
-
-      <button class="fixed-price__card-btn-send" type="submit">Anfrage absenden</button>
-    
-    </form>
-  </div>
-</section>-->
-<!-- End fixed-price -->
-
-
-
-<!-- <section class="fixed-price__container" id="fixed-price">
-
-  <div class="fixed-price__text-container">
-    <h2 class="fixed-price__title">Our Plans & Special Discounts</h2>
-    <p class="fixed-price__description">
-      I'm a paragraph. Click here to add your own text and edit me. 
-      It's easy.
-    </p>
-  </div>
-
-  <div class="fixed-price__card">
-    <form class="card__inner" id="fixed-price-form">
-      
-
-      <div class="card__front">
-        <div class="fixed-price__content-wrapper">
-
-          <p class="fixed-price__card-categories-title">Transport & Logistik</p>
-
-          <div class="fixed-price__card-options">
-            <p class="fixed-price__card-title"></p>
-            <p class="fixed-price__card-price"></p>
-            <p class="fixed-price__discount"></p>
-
-            <div class="fixed-price__dropdown-wrapper">
-              <button class="fixed-price__card-btn" type="button" data-dropdown="service">Auswählen</button>
-              <div class="fixed-price__dropdown" data-type="service">
-                <p class="fixed-price__dropdown-title">Wähle deine Option:</p>
-                <ul>
-                  <li data-value="Fahrzeugüberführung">Fahrzeugüberführung</li>
-                  <li data-value="Kurierdienste">Kurierdienste</li>
-                  <li data-value="Lieferant">Lieferant</li>
-                  <li data-value="Möbeltransport / Umzugshilfe">Möbeltransport / Umzugshilfe</li>
-                  <li data-value="Tragehilfe">Tragehilfe</li>
-                  <li data-value="Zum Flughafen hin-zurück fahren">Zum Flughafen hin-zurück fahren</li>
-                  <li data-value="call" data-custom="true">Telefonisch besprechen</li>
-                </ul>
+              <div class="step-indicator">
+                <span class="step-circle active">1</span>
+                <span class="step-circle">2</span>
+                <span class="step-circle">3</span>
               </div>
-            </div>
 
+              <div class="progress-bar">
+                <div class="progress-bar__inner"></div>
+              </div>
 
-            <div class="fixed-price__dropdown-row-buttons">
+              <div class="steps-wrapper">
 
-              <div class="fixed-price__dropdown-wrapper">
-                <button class="fixed-price__card-btn" type="button" data-dropdown="weekly">pro Woche</button>
-                <div class="fixed-price__dropdown" data-type="weekly">
-                  <p class="fixed-price__dropdown-title">Wähle deine Option:</p>
-                  <ul>
-                    <li data-value="1 mal">1&nbsp;mal</li>
-                    <li data-value="2 mal">2&nbsp;mal</li>
-                    <li data-value="3 mal">3&nbsp;mal</li>
-                    <li data-value="4 mal">4&nbsp;mal</li>
-                    <li data-value="5 mal">5&nbsp;mal</li>
-                    <li data-value="6 mal">6&nbsp;mal</li>
-                    <li data-value="7 mal">7&nbsp;mal</li>
-                    <li data-value="call" data-custom="true">Telefonisch besprechen</li>
-                  </ul>
+                <div class="step active">
+                  <h2 class="fixed-price__card-tile">Wähle eine Leistung</h2>
+                  <h3 class="fixed-price__card-price">0.00€</h3>
+                  <p class="fixed-price__discount">Kein Rabatt</p>
+                  <div class="fixed-price__card-options">
+
+                    <div class="fixed-price__dropdown-field">
+                      <label for="service-value">Leistung*</label>
+                      <div class="fixed-price__dropdown-wrapper">
+                        <button class="fixed-price__card-btn" type="button" data-dropdown="service">Auswählen</button>
+                        <div class="fixed-price__dropdown" data-type="service">
+                          <p class="fixed-price__dropdown-title">Wähle deine Option:</p>
+                          <ul>
+                            <li data-value="Fahrzeugüberführung">Fahrzeugüberführung</li>
+                            <li data-value="Kurierdienste">Kurierdienste</li>
+                            <li data-value="Lieferant">Lieferant</li>
+                            <li data-value="Möbeltransport / Umzugshilfe">Möbeltransport / Umzugshilfe</li>
+                            <li data-value="Tragehilfe">Tragehilfe</li>
+                            <li data-value="Zum Flughafen hin-zurück fahren">Zum Flughafen hin-zurück fahren</li>
+                            <li data-value="call" data-custom="true">Telefonisch besprechen</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="fixed-price__dropdown-row-buttons">
+
+                      <div class="fixed-price__dropdown-field">
+                        <label for="weekly-value">Pro Woche*</label>
+                        <div class="fixed-price__dropdown-wrapper">
+                          <button class="fixed-price__card-btn" type="button" data-dropdown="weekly">Auswählen</button>
+                          <div class="fixed-price__dropdown" data-type="weekly">
+                            <p class="fixed-price__dropdown-title">Wähle deine Option:</p>
+                            <ul>
+                              <li data-value="1 mal">1&nbsp;mal</li>
+                              <li data-value="2 mal">2&nbsp;mal</li>
+                              <li data-value="3 mal">3&nbsp;mal</li>
+                              <li data-value="4 mal">4&nbsp;mal</li>
+                              <li data-value="5 mal">5&nbsp;mal</li>
+                              <li data-value="6 mal">6&nbsp;mal</li>
+                              <li data-value="7 mal">7&nbsp;mal</li>
+                              <li data-value="call" data-custom="true">Telefonisch besprechen</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="fixed-price__dropdown-field">
+                        <label for="months-value">Laufzeit in Monaten*</label>
+                        <div class="fixed-price__dropdown-wrapper">
+                          <button class="fixed-price__card-btn" type="button" data-dropdown="months">Auswählen</button>
+                          <div class="fixed-price__dropdown" data-type="months">
+                            <p class="fixed-price__dropdown-title">Wähle deine Option:</p>
+                            <ul>
+                              <li data-value="1 Monat">1 Monat</li>
+                              <li data-value="2 Monate">2 Monate</li>
+                              <li data-value="3 Monate">3 Monate</li>
+                              <li data-value="4 Monate">4 Monate</li>
+                              <li data-value="5 Monate">5 Monate</li>
+                              <li data-value="6 Monate">6 Monate</li>
+                              <li data-value="12 Monate">12 Monate</li>
+                              <li data-value="18 Monate">18 Monate</li>
+                              <li data-value="24 Monate">24 Monate</li>
+                              <li data-value="call" data-custom="true">Telefonisch besprechen</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+
+                  <input type="text" name="service" id="service-value" required class="input-validator">
+                  <input type="text" name="weekly" id="weekly-value" required class="input-validator">
+                  <input type="text" name="months" id="months-value" required class="input-validator">
+
+                  <div class="fixed-price__card-description">
+                    <p>I’m a benefit</p>
+                    <p>I’m a benefit</p>
+                    <p>I’m a benefit</p>
+                  </div>
                 </div>
-              </div>
 
-              <div class="fixed-price__dropdown-wrapper">
-                <button class="fixed-price__card-btn" type="button" data-dropdown="months">Monate</button>
-                <div class="fixed-price__dropdown" data-type="months">
-                  <p class="fixed-price__dropdown-title">Wähle deine Option:</p>
-                  <ul>
-                    <li data-value="1 Monat">1 Monat</li>
-                    <li data-value="2 Monate">2 Monate</li>
-                    <li data-value="3 Monate">3 Monate</li>
-                    <li data-value="4 Monate">4 Monate</li>
-                    <li data-value="5 Monate">5 Monate</li>
-                    <li data-value="6 Monate">6 Monate</li>
-                    <li data-value="12 Monate">12 Monate</li>
-                    <li data-value="18 Monate">18 Monate</li>
-                    <li data-value="24 Monate">24 Monate</li>
-                    <li data-value="call" data-custom="true">Telefonisch besprechen</li>
-                  </ul>
+                <div class="step">
+                  <h2>Kontakt</h2>
+                  <div class="fixed-price__card-back-name">
+                    <label>
+                      Vorname*
+                      <input type="text" name="first_name" required>
+                    </label>
+                    <label>
+                      Nachname*
+                      <input type="text" name="last_name" required>
+                    </label>
+                  </div>
+                  <label>
+                    E-Mail*
+                    <input type="email" name="email" required>
+                  </label>
+                  <label>
+                    Telefon*
+                    <input type="tel" name="phone" required>
+                  </label>
+                  <label>
+                    Nachricht (optional)
+                    <textarea name="message"></textarea>
+                  </label>
                 </div>
+
+                <div class="step">
+                  <h2>Ihre Adresse</h2>
+                  <div class="fixed-price__card-back-name">
+                    <label>
+                      Straße*
+                      <input type="text" name="street" required>
+                    </label>
+                    <label>
+                      Hausnummer*
+                      <input type="text" name="house" required>
+                    </label>
+                  </div>
+
+                  <label>
+                    Adresszusatz (z.B. Hinterhaus, Etage)
+                    <input type="text" name="address_supplement">
+                  </label>
+
+                  <label>
+                    Postleitzahl*
+                    <input type="text" name="zip" required>
+                  </label>
+                  <label>
+                    Stadt*
+                    <input type="text" name="city" required>
+                  </label>
+                </div>
+
               </div>
 
+              <div class="form-nav">
+                <button type="button" class="btn-back hidden">Zurück</button>
+                <button type="button" class="btn-next">Weiter</button>
+                <button type="submit" class="btn-submit hidden">Anfrage absenden</button>
+              </div>
             </div>
-          </div>
-
-
-          <input type="hidden" name="service" id="service-value" required>
-          <input type="hidden" name="weekly" id="weekly-value" required>
-          <input type="hidden" name="months" id="months-value" required>
-          <input type="hidden" name="recipient" value="Für mich selbst">
-          <input type="hidden" name="delivery" value="selbst">
-
-          <div class="fixed-price__card-description">
-            <p>I’m a benefit</p>
-            <p>I’m a benefit</p>
-            <p>I’m a benefit</p>
-            <p>I’m a benefit</p>
-            <p>I’m a benefit</p>
-          </div>
-
-          <button class="fixed-price__card-btn-send flip-btn" type="button">
-            Weiter <i class="fa-solid fa-arrow-right" style="margin-left: 8px;"></i>
-          </button>
-
+          </form>
         </div>
-        
-      </div>
+      </section>
+    </div>
 
-
-
-      <div class="card__back">
-        <div class="fixed-price__content-wrapper service-form">
-          <p class="fixed-price__card-categories-title">Transport & Logistik</p>
-
-          <h2>Ihre Kontaktdaten</h2>
-          <div class="fixed-price__card-back-name">
-            <label>
-              Vorname*
-              <input type="text" name="first_name" required>
-            </label>
-
-            <label>
-              Nachname*
-              <input type="text" name="last_name" required>
-            </label>
-          </div>
-          
-
-          <label>
-            E-Mail*
-            <input type="email" name="email" required>
-          </label>
-
-          <label>
-            Telefon*
-            <input type="tel" name="phone" required>
-          </label>
-
-          <label>
-            Geburtsdatum (optional)
-            <input type="text" name="birthday">
-          </label>
-
-          <label>
-            Ihre Nachricht (optional)
-            <textarea name="message"></textarea>
-          </label>
-
-          <button class="btn-back flip-btn" type="button">Zurück</button>
-
-          <button class="btn-submit" type="submit">
-            Anfrage absenden
-          </button>
+    <div class="services-tabs__content-item" data-content-key="garden">
+      <section class="fixed-price__container" id="fixed-price-garden">
+        <div class="fixed-price__text-container">
+          <h2 class="fixed-price__title">Our Plans & Special Discounts</h2>
+          <p class="fixed-price__description">...</p>
         </div>
-      </div>
+        <div class="fixed-price__card">
+          <form id="fixed-price-form-garden">
+            <div class="card__multistep">
+              <p class="fixed-price__card-categories-title">Gartenpflege</p>
+              <div class="step-indicator">...</div>
+              <div class="progress-bar">...</div>
+              <div class="steps-wrapper">...</div>
+              <div class="form-nav">...</div>
+            </div>
+          </form>
+        </div>
+      </section>
+    </div>
 
-    </form>
+    <div class="services-tabs__content-item" data-content-key="events">
+      <section class="fixed-price__container" id="fixed-price-events">
+        <div class="fixed-price__text-container">
+          <h2 class="fixed-price__title">Our Plans & Special Discounts</h2>
+          <p class="fixed-price__description">...</p>
+        </div>
+        <div class="fixed-price__card">
+          <form id="fixed-price-form-events">
+            <div class="card__multistep">
+              <p class="fixed-price__card-categories-title">Event-Organisation</p>
+              <div class="step-indicator">...</div>
+              <div class="progress-bar">...</div>
+              <div class="steps-wrapper">...</div>
+              <div class="form-nav">...</div>
+            </div>
+          </form>
+        </div>
+      </section>
+    </div>
+
+    <div class="services-tabs__content-item" data-content-key="cleaning">
+      <section class="fixed-price__container" id="fixed-price-cleaning">
+        <div class="fixed-price__text-container">
+          <h2 class="fixed-price__title">Our Plans & Special Discounts</h2>
+          <p class="fixed-price__description">...</p>
+        </div>
+        <div class="fixed-price__card">
+          <form id="fixed-price-form-cleaning">
+            <div class="card__multistep">
+              <p class="fixed-price__card-categories-title">Reinigungsservice</p>
+              <div class="step-indicator">...</div>
+              <div class="progress-bar">...</div>
+              <div class="steps-wrapper">...</div>
+              <div class="form-nav">...</div>
+            </div>
+          </form>
+        </div>
+      </section>
+    </div>
+
   </div>
-</section>-->
+</section>
 
 
 
@@ -687,9 +655,7 @@
 
 
 
-
-
-
+<!--
 <section class="fixed-price__container" id="fixed-price">
   <div class="fixed-price__text-container">
     <h2 class="fixed-price__title">Our Plans & Special Discounts</h2>
@@ -864,7 +830,7 @@
     </form>
   </div>
 </section>
-
+-->
 
 <style>
 /* === Helper Classes === */

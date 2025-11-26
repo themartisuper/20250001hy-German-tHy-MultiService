@@ -513,19 +513,67 @@
 
             <div class="form-step active" data-step="1">
               <h3 class="modal-subtitle">Ihre Anfrage</h3>
-              
-              <div class="form-group">
-                <label class="form-label">Wann wird Hilfe benötigt?</label>
-                <select class="form-input" name="timing">
-                  <option value="So schnell wie möglich">So schnell wie möglich</option>
-                  <option value="In den nächsten Tagen">In den nächsten Tagen</option>
-                  <option value="Datum wählen">Bestimmtes Datum (siehe unten)</option>
-                </select>
-              </div>
 
               <div class="form-group">
+                <label class="form-label" style="margin-bottom: 10px;">Laufzeit & Frequenz</label>
+                
+                <div class="toggle-option-wrapper">
+                  <input type="checkbox" id="cb_einmalig" name="timing_onetime" value="yes">
+                  <label for="cb_einmalig" class="btn-checkbox-face">
+                    Einmalig (einzelner Termin)
+                  </label>
+                </div>
+
+                <div id="regularSchedule" class="schedule-grid">
+                  
+                  <div class="schedule-item">
+                    <label class="form-label-small">Wochen</label>
+                    <select class="form-input required-field" name="timing_weeks">
+                      <option value="" disabled selected>Bitte wählen</option>
+                      <option value="0">0</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="telefonisch">telefonisch besprechen</option>
+                    </select>
+                  </div>
+
+                  <div class="schedule-item">
+                    <label class="form-label-small">Tage pro Woche</label>
+                    <select class="form-input required-field" name="timing_days_per_week">
+                      <option value="" disabled selected>Bitte wählen</option>
+                      <option value="0">0</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="telefonisch">telefonisch besprechen</option>
+                    </select>
+                  </div>
+
+                  <div class="schedule-item">
+                    <label class="form-label-small">Monaten</label>
+                    <select class="form-input required-field" name="timing_months">
+                      <option value="" disabled selected>Bitte wählen</option>
+                      <option value="0">0</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="6">6</option>
+                      <option value="12">12</option>
+                      <option value="telefonisch">telefonisch besprechen</option>
+                    </select>
+                  </div>
+
+                </div>
+              </div>
+              <div class="form-group">
                 <label class="form-label">Details / Wünsche</label>
-                <textarea class="form-textarea" name="message" placeholder="Beschreiben Sie kurz, was genau erledigt werden soll (z.B. Einkaufsliste, Apotheke, Begleitung)..."></textarea>
+                <textarea class="form-textarea" name="message" placeholder="Beschreiben Sie kurz, was genau erledigt werden soll..."></textarea>
               </div>
             </div>
 
@@ -713,7 +761,7 @@ document.addEventListener('DOMContentLoaded', () => {
               faqContainer.innerHTML = '<p>Informationen werden geladen...</p>';
           }
           
-          // СБРОС ФОРМЫ ПРИ ОТКРЫТИИ
+          // Полный сброс формы и состояния кнопок при открытии
           resetMultiStepForm(); 
           modal.classList.add('open');
       });
@@ -738,6 +786,38 @@ document.addEventListener('DOMContentLoaded', () => {
   
   let currentStep = 0;
 
+  /* --- НОВАЯ ЛОГИКА: EINMALIG vs REGULAR --- */
+  const cbEinmalig = document.getElementById('cb_einmalig');
+  const regularScheduleGroup = document.getElementById('regularSchedule');
+  
+  // Если элементы существуют (на случай если код используется на странице без этой формы)
+  if (cbEinmalig && regularScheduleGroup) {
+      const regularSelects = regularScheduleGroup.querySelectorAll('select');
+
+      cbEinmalig.addEventListener('change', function() {
+          if (this.checked) {
+              // Если нажали "Einmalig":
+              // 1. Делаем остальные поля серыми
+              regularScheduleGroup.classList.add('disabled-area');
+              // 2. Отключаем инпуты внутри, чтобы валидация их игнорировала
+              regularSelects.forEach(sel => {
+                  sel.disabled = true;
+                  sel.value = ""; // Сбрасываем значение
+                  sel.style.borderColor = ""; // Убираем красную рамку, если была
+              });
+          } else {
+              // Если отжали "Einmalig":
+              // 1. Возвращаем цвет
+              regularScheduleGroup.classList.remove('disabled-area');
+              // 2. Включаем инпуты обратно
+              regularSelects.forEach(sel => {
+                  sel.disabled = false;
+              });
+          }
+      });
+  }
+
+  /* --- ОБНОВЛЕНИЕ UI ФОРМЫ --- */
   function updateFormUI() {
     // 1. Переключение видимости шагов
     steps.forEach((step, index) => {
@@ -749,12 +829,11 @@ document.addEventListener('DOMContentLoaded', () => {
       circle.classList.toggle('active', index <= currentStep);
     });
 
-    // 3. Обновление полосы прогресса (33%, 66%, 100%)
+    // 3. Обновление полосы прогресса
     const progress = ((currentStep + 1) / steps.length) * 100;
     progressFill.style.width = `${progress}%`;
 
     // 4. Управление кнопками
-    // Кнопка "Назад" неактивна на первом шаге
     if (currentStep === 0) {
       btnPrev.classList.add('disabled');
       btnPrev.disabled = true;
@@ -763,7 +842,6 @@ document.addEventListener('DOMContentLoaded', () => {
       btnPrev.disabled = false;
     }
 
-    // Кнопка "Далее" скрывается на последнем шаге, появляется "Отправить"
     if (currentStep === steps.length - 1) {
       btnNext.classList.add('hidden');
       btnSubmit.classList.remove('hidden');
@@ -773,12 +851,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  /* --- ВАЛИДАЦИЯ --- */
   function validateStep(stepIndex) {
     const currentStepEl = steps[stepIndex];
     const inputs = currentStepEl.querySelectorAll('.required-field');
     let isValid = true;
 
     inputs.forEach(input => {
+      // ГЛАВНОЕ ИЗМЕНЕНИЕ: Пропускаем валидацию, если поле отключено (disabled)
+      // Это нужно, чтобы когда выбрано "Einmalig", форма не требовала заполнить недели/месяцы
+      if (input.disabled) {
+          return; 
+      }
+
       if (!input.value.trim()) {
         isValid = false;
         input.style.borderColor = 'red'; // Подсветка ошибки
@@ -797,7 +882,7 @@ document.addEventListener('DOMContentLoaded', () => {
         updateFormUI();
       }
     } else {
-      alert('Bitte füllen Sie alle Pflichtfelder aus.');
+      alert('Bitte füllen Sie alle markierten Felder aus.');
     }
   });
 
@@ -809,12 +894,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Функция сброса формы (вызывается при открытии модалки)
+  // Функция сброса формы (вызывается при открытии)
   function resetMultiStepForm() {
     currentStep = 0;
     document.getElementById('multiStepForm').reset();
-    // Сброс стилей ошибок
+    
+    // Сброс красных рамок
     document.querySelectorAll('.required-field').forEach(i => i.style.borderColor = '');
+    
+    // Сброс состояния "Einmalig" в исходное положение
+    if (cbEinmalig && regularScheduleGroup) {
+        cbEinmalig.checked = false;
+        regularScheduleGroup.classList.remove('disabled-area');
+        regularScheduleGroup.querySelectorAll('select').forEach(sel => sel.disabled = false);
+    }
+    
     updateFormUI();
   }
 
