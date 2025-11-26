@@ -258,6 +258,10 @@ a:not(.header__brand, .card__button):hover {
 
 
 
+.custom-select-wrapper {
+  margin-left: 2rem;
+}
+
 
 
 
@@ -284,6 +288,30 @@ a:not(.header__brand, .card__button):hover {
   transition: 0.3s ease;
 }
 
+
+
+/* === При больших экранах — меню обычное === */
+@media (min-width: 1367px) {
+  .nav {
+    display: flex !important;
+    position: static;
+    background: none;
+    border: none;
+    padding: 0;
+    box-shadow: none;
+  }
+
+  .nav ul {
+    flex-direction: row;
+  }
+}
+
+
+/*  ==========================================================
+  adaptation
+    ========================================================== */
+
+/* === burger === */
 /* ====== Мобильная логика ====== */
 @media (max-width: 1366px) {
   .burger {
@@ -309,6 +337,7 @@ a:not(.header__brand, .card__button):hover {
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
+
   }
 
   .nav.active {
@@ -329,6 +358,7 @@ a:not(.header__brand, .card__button):hover {
   /* locales */
   .custom-select-wrapper {
     width: 2.5rem;
+    margin-left: 0;
   }
   /* End locales */
 
@@ -336,20 +366,27 @@ a:not(.header__brand, .card__button):hover {
     from { opacity: 0; transform: translateY(-10px); }
     to { opacity: 1; transform: translateY(0); }
   }
+
+  .sign-up {
+    display: none;
+  }
 }
 
-/* === При больших экранах — меню обычное === */
-@media (min-width: 1367px) {
-  .nav {
-    display: flex !important;
-    position: static;
-    background: none;
-    border: none;
-    padding: 0;
-    box-shadow: none;
-  }
+@media (max-width: 1024px) {
+  
+}
 
-  .nav ul {
-    flex-direction: row;
-  }
+/* Для экранов до 768px (планшеты) */
+@media (max-width: 768px) {
+  
+}
+
+/* iPhone 15 Pro Max */
+@media (max-width: 480px) {
+
+}
+
+/* iPhone 12 Pro */
+@media (max-width: 390px) {
+
 }
