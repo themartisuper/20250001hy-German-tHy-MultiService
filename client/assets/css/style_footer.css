@@ -317,3 +317,93 @@ footer a, footer h4, footer h5, footer h6, .footer__body-contact a {
     font-size: 18px;
   }
 }
+
+/*  ==========================================================
+  adaptation
+    ========================================================== */
+@media (max-width: 1366px) {
+  .footer__body {
+    padding: 1.75rem 1.25rem;
+  }
+  footer a, footer h5 { font-size: 1.15rem; }
+  .socials { gap: 18px; }
+}
+
+@media (max-width: 1024px) {
+  .footer__body {
+    padding: 1.5rem 1rem;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+  .section-footer { gap: 24px; }
+  .footer__body-legal, .footer__body-operating-hours-and-socials, .footer__body-contact { max-width: 420px; }
+}
+
+/* Для экранов до 768px (планшеты) */
+@media (max-width: 768px) {
+  .footer__body {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.25rem 1rem;
+  }
+  .footer__body-legal {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.8rem;
+    text-align: center;
+  }
+  .footer__body-links {
+    align-items: center;
+    gap: 0.7rem;
+  }
+  .footer__body-operating-hours-and-socials {
+    align-items: center;
+    gap: 0.9rem;
+    text-align: center;
+  }
+  .footer__body-operating-hours h5 { font-size: 1rem; }
+  .socials { justify-content: center; gap: 14px; }
+  .footer__body-contact { align-items: center; text-align: center; }
+  .social__icons { flex-direction: column; gap: 0.9rem; align-items: center; }
+  .social__icons-settings { flex-direction: row; justify-content: center; gap: 0.5rem; }
+  .social__icons-settings a { font-size: 20px; }
+  footer a, footer h5 { font-size: 0.95rem; }
+  .legal { font-size: 0.9rem; padding: 0.3rem; }
+}
+
+/* iPhone 15 Pro Max */
+@media (max-width: 480px) {
+  .footer__body { gap: 1rem; padding: 0.9rem 0.5rem; }
+  .footer__body-links a,
+  .footer__body-legal a,
+  .footer__body-contact a,
+  .footer__body-operating-hours h5 { font-size: 0.9rem; }
+  .socials a, .social__icons-settings a { font-size: 18px; }
+  .legal { font-size: 0.85rem; }
+
+  .footer__body-links {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .footer__body-operating-hours {
+    flex-direction: row;
+  }
+
+  .footer__body-contact {
+    display: none;
+  }
+}
+
+/* iPhone 12 Pro */
+@media (max-width: 390px) {
+  .footer__body { gap: 0.9rem; padding: 0.8rem 0.4rem; }
+  .footer__body-links a,
+  .footer__body-legal a,
+  .footer__body-contact a,
+  .footer__body-operating-hours h5 { font-size: 0.85rem; }
+  .socials a, .social__icons-settings a { font-size: 17px; }
+  .legal { font-size: 0.8rem; padding: 0.25rem; }
+}
