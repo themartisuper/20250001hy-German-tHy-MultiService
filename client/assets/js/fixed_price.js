@@ -205,6 +205,7 @@ window.initFixedPriceForm = function(container) {
     }
 
     try {
+      console.info('DEBUG: sending /api/fixed_price', { url: '/api/fixed_price', payloadSize: JSON.stringify(data).length });
       const response = await fetch('/api/fixed_price', {
         method: 'POST',
         headers: {
@@ -213,10 +214,21 @@ window.initFixedPriceForm = function(container) {
         body: JSON.stringify(data),
       });
 
-      const result = await response.json();
+      console.info('DEBUG: /api/fixed_price response status', response.status);
 
-      if (response.ok && result.success) {
-        alert('✅ Anfrage erfolgreich gesendet! Wir melden uns in Kürze.');
+      let result = null;
+      try {
+        result = await response.json();
+      } catch (jsonErr) {
+        console.error('DEBUG_CODE: INVALID_JSON_RESPONSE', { err: jsonErr });
+        alert('❌ Ein ungültiges Server-Antwortformat wurde empfangen. (CODE: INVALID_JSON_RESPONSE)');
+        return;
+      }
+
+      // Map common server responses to diagnostic codes
+      if (response.ok && result && result.success) {
+        console.info('DEBUG_CODE: SUCCESS_200', result);
+        alert('✅ Anfrage erfolgreich gesendet! Wir melden uns in Kürze. (CODE: SUCCESS_200)');
         form.reset();
         selections.service = null;
         selections.weekly = null;
@@ -231,14 +243,27 @@ window.initFixedPriceForm = function(container) {
           else if (type === 'months') btn.textContent = 'Monate';
         });
       } else {
-        console.error('Server Error:', result);
-        const missingMsg = result.missing ? `\nFehlende Felder: ${result.missing.join(', ')}` : '';
-        alert(`❌ Fehler beim Senden: ${result.error || 'Unbekannter Fehler'} ${missingMsg}`);
+        // Not OK — determine code
+        const codeInfo = { httpStatus: response.status, serverError: result && result.error, missing: result && result.missing };
+        if (response.status === 400 && result && result.missing) {
+          console.error('DEBUG_CODE: VALIDATION_400', codeInfo);
+          alert(`❌ Validierungsfehler. Fehlende Felder: ${result.missing.join(', ')} (CODE: VALIDATION_400)`);
+        } else if (response.status === 500 && result && result.error === 'Mailjet credentials missing') {
+          console.error('DEBUG_CODE: MAILJET_CREDS_500', codeInfo);
+          alert('❌ Server konfiguriert nicht korrekt (Mailjet). (CODE: MAILJET_CREDS_500)');
+        } else if (response.status === 500 && result && result.error === 'Email send failed') {
+          console.error('DEBUG_CODE: MAILJET_SEND_500', codeInfo);
+          alert('❌ Mailversand fehlgeschlagen. (CODE: MAILJET_SEND_500)');
+        } else {
+          console.error('DEBUG_CODE: UNKNOWN_SERVER_ERROR', codeInfo);
+          alert(`❌ Fehler beim Senden: ${result && result.error ? result.error : 'Unbekannter Fehler'} (CODE: UNKNOWN_SERVER_ERROR, HTTP ${response.status})`);
+        }
       }
 
     } catch (error) {
-      console.error('Network Error:', error);
-      alert('❌ Ein Verbindungsfehler ist aufgetreten.');
+      // Network-level errors (DNS, CORS blocking, TLS, offline)
+      console.error('DEBUG_CODE: NETWORK_ERROR', error);
+      alert('❌ Ein Verbindungsfehler ist aufgetreten. (CODE: NETWORK_ERROR)');
     } finally {
       if (sendBtn) {
         sendBtn.disabled = false;
