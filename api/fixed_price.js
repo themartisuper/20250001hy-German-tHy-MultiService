@@ -1,167 +1,251 @@
-export default async function handler(req, res) {
-  // 1) Пропускаем только POST
-  if (req.method !== "POST") {
-    return res.status(405).json({ error: "Method Not Allowed" });
-  }
+// fixed_price.js
 
-  // 2) Логируем
-  console.log("FIXED PRICE REQUEST BODY:", req.body);
+// Глобальная переменная для хранения ССЫЛКИ на активный обработчик закрытия
+let currentGlobalDropdownCloser = null;
 
-  // 3) Распаковываем поля (адаптировано под вашу новую форму)
-  const {
-    // Контакты
-    first_name,
-    last_name,
-    email,
-    phone,
-    message,
+// --- ДАННЫЕ ЦЕНЫ И ОПИСАНИЙ ДЛЯ ВСЕХ ВКЛАДОК ---
+const CUSTOM_SERVICE_DATA = {
+    // Единые данные для "Telefonisch besprechen"
+    price: "nach Vereinbarung",
+    discount: '',
+    descriptions: [
+        "• Maßgeschneidertes Angebot", 
+        "• Persönliche Beratung am Telefon", 
+        "• Kostenlose und unverbindliche Besprechung"
+    ]
+};
+
+const ALL_SERVICE_DATA = {
+    "logistics": {
+        title: "Transport & Logistik",
+        basePrice: {
+            "Fahrzeugüberführung": 30,
+            "Kurierdienste": 25,
+            "Lieferant": 28,
+            "Möbeltransport / Umzugshilfe": 40,
+            "Tragehilfe": 22,
+            "Zum Flughafen hin-zurück fahren": 35,
+        },
+        serviceDescriptions: {
+            "Fahrzeugüberführung": ["• Schnelle und sichere Überführung", "• Vollkaskoversicherung inklusive", "• Termingerechte Zustellung bundesweit"],
+            "Kurierdienste": ["• Zustellung am selben Tag möglich", "• Sendungsverfolgung in Echtzeit", "• Flexible Abholzeiten"],
+            "Lieferant": ["• Regelmäßige Lieferungen nach Plan", "• Zuverlässiges und geschultes Personal", "• Optionale Lagerhaltung verfügbar"],
+            "Möbeltransport / Umzugshilfe": ["• Professionelle Trage- und Montierhilfe", "• Spezialausrüstung für schwere Gegenstände", "• Schadensversicherung für Ihren Umzug"],
+            "Tragehilfe": ["• Stundenweise Buchung möglich", "• Hilfe beim Be- und Entladen", "• Ideal für spontane Großeinkäufe"],
+            "Zum Flughafen hin-zurück fahren": ["• Pünktlicher Transfer ohne Stress", "• Gepäckservice inklusive", "• Fahrten zu allen großen Flughäfen"],
+        }
+    },
+    "garden": {
+        title: "Garten & Haus",
+        basePrice: {
+            "Rasenpflege": 20,
+            "Heckenschnitt": 30,
+            "Reparaturen": 25,
+            "Reinigungsdienste": 18,
+        },
+        serviceDescriptions: {
+            "Rasenpflege": ["• Wöchentliche oder monatliche Pflege", "• Düngung inklusive", "• Vertikutieren und Entsorgung"],
+            "Heckenschnitt": ["• Form- und Pflegeschnitt", "• Entfernung von Grünschnitt", "• Professionelle Werkzeuge"],
+            "Reparaturen": ["• Часовая оплата", "• Мелкий ремонт", "• Без учета стоимости материалов"],
+            "Reinigungsdienste": ["• Очистка террасы/балкона", "• Мойка фасадов", "• Индивидуальный график"],
+        }
+    },
+    "events": {
+        title: "Persönliche Dienste & Events",
+        basePrice: {
+            "Catering": 45, // Пример цены за час/чел
+            "Haushaltshilfe": 20,
+            "Kinderbetreuung": 15,
+            "Eventplanung": 50,
+        },
+        serviceDescriptions: {
+            "Catering": ["• Полная организация питания", "• Разработка меню", "• Персонал и обслуживание"],
+            "Haushaltshilfe": ["• Глажка, стирка, уборка", "• Индивидуальные задания", "• Гибкий график"],
+            "Kinderbetreuung": ["• Опытные няни", "• Занятия и игры", "• Дневная/вечерняя смена"],
+            "Eventplanung": ["• Планирование и координация", "• Поиск локаций", "• Управление бюджетом"],
+        }
+    },
+    "cleaning": {
+        title: "Reinigung & Pflege",
+        basePrice: {
+            "Standardreinigung": 18,
+            "Tiefenreinigung": 25,
+            "Büroreinigung": 22,
+            "Fensterreinigung": 35,
+        },
+        serviceDescriptions: {
+            "Standardreinigung": ["• Постоянная еженедельная уборка", "• Мытье полов и пылесос", "• Дезинфекция поверхностей"],
+            "Tiefenreinigung": ["• Сезонная или разовая", "• Глубокая очистка ковров/мебели", "• Труднодоступные места"],
+            "Büroreinigung": ["• Гибкий график (вне рабочего времени)", "• Уборка офисной техники", "• Поставка расходников"],
+            "Fensterreinigung": ["• Мойка окон и рам", "• Без разводов", "• Доступна для всех типов зданий"],
+        }
+    }
+};
+
+// Глобальная функция, которая будет вызываться из main.js
+// container - это активный элемент .services-tabs__content-item
+function initFixedPriceForm(container) {
     
-    // Адрес
-    street,
-    house,
-    address_supplement,
-    zip,
-    city,
+    // Получаем ключ текущей вкладки (logistics, garden, events, cleaning)
+    const contentKey = container.dataset.contentKey;
+    const currentData = ALL_SERVICE_DATA[contentKey];
+    if (!currentData) return; // Выход, если данные не найдены
 
-    // Детали услуги (из скрытых полей и расчетов)
-    service,
-    weekly,
-    months,
-    final_price,
-    discount_info,
-    service_details // Это поле мы сформируем на фронте
-  } = req.body;
+    const { basePrice, serviceDescriptions } = currentData;
+    
+    // --- ИНИЦИАЛИЗАЦИЯ ПЕРЕМЕННЫХ, привязанных к текущему контейнеру ---
+    const form = container.querySelector('form');
+    if (!form) return; 
 
-  // 4) Проверяем обязательные поля
-  const missing = [];
-  if (!first_name) missing.push("first_name");
-  if (!last_name) missing.push("last_name");
-  if (!email) missing.push("email");
-  if (!phone) missing.push("phone");
-  // Проверяем поля заказа, если они не "custom"
-  if (!service) missing.push("service"); 
-  if (!street) missing.push("street");
-  if (!city) missing.push("city");
+    // Используем локальные переменные для этой формы
+    const priceEl = form.querySelector('.fixed-price__card-price');
+    const discountEl = form.querySelector('.fixed-price__discount');
+    const cardTitleEl = form.querySelector('.fixed-price__card-tile');
+    const cardDescriptionEl = form.querySelector('.fixed-price__card-description'); 
 
-  if (missing.length > 0) {
-    return res.status(400).json({
-      error: "Missing required fields",
-      missing
-    });
-  }
+    // Ссылки на СКРЫТЫЕ ПОЛЯ (поиск по name)
+    const serviceInput = form.querySelector('[name="service"]'); 
+    const weeklyInput = form.querySelector('[name="weekly"]'); 
+    const monthsInput = form.querySelector('[name="months"]');
 
-  // 5) Timestamp
-  const now = new Date();
-  const dateString = now.toLocaleString("de-DE", {
-    timeZone: "Europe/Berlin",
-    year: "numeric", month: "2-digit", day: "2-digit",
-    hour: "2-digit", minute: "2-digit", second: "2-digit"
-  });
-
-  // 6) Subject
-  const subject = `Anfrage Pauschal: ${last_name} – ${dateString}`;
-
-  // 7) Отправка через Mailjet (БЕЗ БИБЛИОТЕКИ, как у вас)
-  try {
-    const result = await fetch("https://api.mailjet.com/v3.1/send", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization:
-          "Basic " +
-          Buffer.from(
-            process.env.MJ_PUBLIC + ":" + process.env.MJ_PRIVATE
-          ).toString("base64")
-      },
-      body: JSON.stringify({
-        Messages: [
-          {
-            From: {
-              Email: process.env.EMAIL_FROM,
-              Name: "Pauschal Anfrage"
-            },
-            ReplyTo: {
-              Email: email,
-              Name: `${first_name} ${last_name}`
-            },
-            To: [{ Email: process.env.EMAIL_TO }],
-            Subject: subject,
-
-            // HTML Версия
-            HTMLPart: `
-              <h2 style="color: #4c5b5c;">Neue Anfrage - Pauschal</h2>
-              <p><strong>Datum:</strong> ${dateString}</p>
-
-              <h3 style="background: #eee; padding: 5px;">👤 Kontakt</h3>
-              <p>
-                <strong>Name:</strong> ${first_name} ${last_name}<br>
-                <strong>Email:</strong> <a href="mailto:${email}">${email}</a><br>
-                <strong>Telefon:</strong> <a href="tel:${phone}">${phone}</a>
-              </p>
-
-              <h3 style="background: #eee; padding: 5px;">📍 Adresse</h3>
-              <p>
-                ${street} ${house}<br>
-                ${address_supplement ? address_supplement + '<br>' : ''}
-                ${zip} ${city}
-              </p>
-
-              <h3 style="background: #eee; padding: 5px;">📦 Details zum Auftrag</h3>
-              <p><strong>Service:</strong> ${service}</p>
-              <p><strong>Frequenz (pro Woche):</strong> ${weekly}</p>
-              <p><strong>Laufzeit in Monaten:</strong> ${months}</p>
-              <hr>
-              <p><strong>Zusammenfassung:</strong> ${service_details}</p>
-              <p style="font-size: 1.2em;"><strong>Preis (laut Kalkulator): ${final_price}</strong></p>
-              <p style="color: #e67e22;">${discount_info}</p>
-
-              <h3 style="background: #eee; padding: 5px;">💬 Nachricht</h3>
-              <p>${message ? message.replace(/\n/g, '<br>') : "Keine Nachricht"}</p>
-            `,
-
-            // Текстовая версия
-            TextPart: `
-Neue Anfrage - Pauschal
-Datum: ${dateString}
-
-KONTAKT:
-Name: ${first_name} ${last_name}
-Email: ${email}
-Tel: ${phone}
-
-ADRESSE:
-${street} ${house}
-${address_supplement || ''}
-${zip} ${city}
-
-AUFTRAG:
-Service: ${service}
-Frequenz (pro Woche): ${weekly}
-Laufzeit in Monaten: ${months}
-Zusammenfassung: ${service_details}
-
-PREIS: ${final_price}
-RABATT: ${discount_info}
-
-NACHRICHT:
-${message || "-"}
-            `
-          }
-        ]
-      })
-    });
-
-    const data = await result.json();
-
-    if (!result.ok) {
-      console.error("Mailjet Error Response:", data);
-      return res.status(500).json({ error: "Email send failed", mailjet: data });
+    // !!! ВАЖНО: Используем локальное состояние для этой формы
+    let selections = { 
+        service: serviceInput ? serviceInput.value || null : null, 
+        weekly: weeklyInput ? weeklyInput.value || null : null, 
+        months: monthsInput ? monthsInput.value || null : null 
+    };
+    
+    // --- ФУНКЦИИ РАСЧЕТА И ОПИСАНИЯ ---
+    function getDiscount(months) {
+        if (months >= 12) return 20;
+        if (months >= 6) return 10;
+        if (months >= 3) return 5;
+        return 0;
     }
 
-    return res.status(200).json({ success: true });
+    function updateDescription(serviceKey) {
+        if (!cardDescriptionEl) return;
+        
+        const isCustom = serviceKey === "custom";
+        const descriptionSource = isCustom 
+            ? CUSTOM_SERVICE_DATA.descriptions 
+            : serviceDescriptions[serviceKey] || CUSTOM_SERVICE_DATA.descriptions;
+            
+        let html = '';
+        descriptionSource.forEach(text => { html += `<p>${text}</p>`; });
+        cardDescriptionEl.innerHTML = html;
+    }
 
-  } catch (e) {
-    console.error("FATAL ERROR:", e);
-    return res.status(500).json({ error: "Server error", details: e.message });
-  }
+    function calculatePrice() {
+        const { service, weekly, months } = selections;
+
+        // Обновление скрытых полей
+        if (serviceInput) serviceInput.value = service || '';
+        if (weeklyInput) weeklyInput.value = weekly || '';
+        if (monthsInput) monthsInput.value = months || '';
+        
+        // --- Обработка Custom/Telefonisch besprechen ---
+        const isCustom = [service, weekly, months].some(val => val === "custom");
+
+        if (isCustom) {
+            if (priceEl) priceEl.textContent = CUSTOM_SERVICE_DATA.price;
+            if (discountEl) discountEl.textContent = CUSTOM_SERVICE_DATA.discount;
+            
+            // Убираем/ставим required для валидации
+            if (serviceInput) serviceInput.toggleAttribute('required', service !== "custom");
+            if (weeklyInput) weeklyInput.toggleAttribute('required', weekly !== "custom");
+            if (monthsInput) monthsInput.toggleAttribute('required', months !== "custom");
+            
+            updateDescription("custom");
+            return;
+        }
+
+        // Возвращаем required
+        if (serviceInput) serviceInput.setAttribute('required', 'required');
+        if (weeklyInput) weeklyInput.setAttribute('required', 'required');
+        if (monthsInput) monthsInput.setAttribute('required', 'required');
+
+        if (!service || !weekly || !months || !basePrice[service]) {
+            if (priceEl) priceEl.textContent = "0.00€";
+            if (discountEl) discountEl.textContent = 'Kein Rabatt';
+            updateDescription(service);
+            return;
+        }
+
+        const pricePerUnit = basePrice[service];
+        const total = pricePerUnit * weekly * months;
+        const discount = getDiscount(months);
+        const finalPrice = total - (total * discount / 100);
+
+        if (priceEl) priceEl.textContent = `${finalPrice.toFixed(2)}€`;
+        if (discountEl) discountEl.textContent = discount ? `zusätzlicher Rabatt ${discount}%` : 'Kein Rabatt';
+        
+        updateDescription(service);
+    }
+
+    // --- ЛОГИКА DROPDOWN И ВЫБОРА (ОСТАВЛЕНА БЕЗ ИЗМЕНЕНИЙ) ---
+    // (Этот код работает корректно, так как использует form.querySelectorAll)
+    
+    // ... (ваш код для form.querySelectorAll('.fixed-price__card-btn')) ...
+    form.querySelectorAll('.fixed-price__card-btn').forEach(btn => {
+        btn.onclick = (e) => { 
+            e.stopPropagation();
+            const dropdownType = btn.dataset.dropdown;
+            const dd = form.querySelector(`.fixed-price__dropdown[data-type="${dropdownType}"]`);
+            if (dd) {
+                form.querySelectorAll('.fixed-price__dropdown.open').forEach(d => {
+                    if (d !== dd) d.classList.remove('open');
+                });
+                dd.classList.toggle('open');
+            }
+        };
+    });
+
+    // 🚨 КЛЮЧЕВОЕ ИСПРАВЛЕНИЕ: Удаляем старый обработчик, добавляем новый
+    if (currentGlobalDropdownCloser) {
+        document.removeEventListener('click', currentGlobalDropdownCloser);
+    }
+    
+    // Создаем новый обработчик, привязанный к ТЕКУЩЕЙ форме
+    currentGlobalDropdownCloser = (e) => {
+        if (!form.contains(e.target) && !e.target.closest('.fixed-price__dropdown-wrapper') && !e.target.closest('.fixed-price__card-btn')) {
+            form.querySelectorAll('.fixed-price__dropdown.open').forEach(dd => dd.classList.remove('open'));
+        }
+    };
+    document.addEventListener('click', currentGlobalDropdownCloser);
+
+
+    // --- Выбор элемента Dropdown ---
+    // (Этот код использует form.querySelectorAll и работает локально)
+    form.querySelectorAll('.fixed-price__dropdown li').forEach(li => {
+        li.onclick = () => { 
+            const dropdown = li.closest('.fixed-price__dropdown');
+            const type = dropdown.dataset.type;
+            const isCustom = li.dataset.custom === "true";
+            const btn = form.querySelector(`.fixed-price__card-btn[data-dropdown="${type}"]`);
+
+            dropdown.querySelectorAll('li').forEach(x => x.classList.remove('active'));
+            li.classList.add('active');
+
+            if (isCustom) {
+                selections[type] = "custom";
+            } else {
+                selections[type] = type === 'service' 
+                    ? li.dataset.value 
+                    : parseInt(li.dataset.value.match(/\d+/)[0], 10); 
+            }
+
+            if(btn) btn.textContent = li.textContent.trim(); 
+            // 🚨 Ключевое: Обновляем заголовок карточки
+            if (type === 'service' && cardTitleEl) cardTitleEl.textContent = li.textContent.trim();
+            if(btn) btn.style.borderColor = "#ccc"; 
+
+            if (dropdown) dropdown.classList.remove('open');
+            
+            calculatePrice();
+        };
+    });
+    
+    // --- Инициализация при запуске ---
+    calculatePrice();
 }

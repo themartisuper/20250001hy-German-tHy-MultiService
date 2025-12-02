@@ -398,15 +398,14 @@
 
 
 
-
 <section class="services-tabs">
-  <h2 class="services-tabs__title">Наши услуги</h2>
+  <h2 class="services-tabs__title">Pauschale</h2>
 
   <div class="services-tabs__buttons">
-    <button class="services-tabs__button services-tabs__button--active" data-content="logistics">Логистика</button>
-    <button class="services-tabs__button" data-content="garden">Сад</button>
-    <button class="services-tabs__button" data-content="events">Ивенты</button>
-    <button class="services-tabs__button" data-content="cleaning">Уборка</button>
+    <button class="services-tabs__button services-tabs__button--active" data-content="logistics">Transport & Logistik</button>
+    <button class="services-tabs__button" data-content="garden">Garten & Haus</button>
+    <button class="services-tabs__button" data-content="events">Persönliche Dienste & Events</button>
+    <button class="services-tabs__button" data-content="cleaning">Reinigung & Pflege</button>
   </div>
 
   <div class="services-tabs__content" id="services-tabs-content">
@@ -429,7 +428,6 @@
                 <span class="step-circle">2</span>
                 <span class="step-circle">3</span>
               </div>
-
               <div class="progress-bar">
                 <div class="progress-bar__inner"></div>
               </div>
@@ -441,7 +439,6 @@
                   <h3 class="fixed-price__card-price">0.00€</h3>
                   <p class="fixed-price__discount">Kein Rabatt</p>
                   <div class="fixed-price__card-options">
-
                     <div class="fixed-price__dropdown-field">
                       <label for="service-value">Leistung*</label>
                       <div class="fixed-price__dropdown-wrapper">
@@ -460,9 +457,172 @@
                         </div>
                       </div>
                     </div>
+                    <div class="fixed-price__dropdown-row-buttons">
+                      <div class="fixed-price__dropdown-field">
+                        <label for="weekly-value">Pro Woche*</label>
+                        <div class="fixed-price__dropdown-wrapper">
+                          <button class="fixed-price__card-btn" type="button" data-dropdown="weekly">Auswählen</button>
+                          <div class="fixed-price__dropdown" data-type="weekly">
+                            <p class="fixed-price__dropdown-title">Wähle deine Option:</p>
+                            <ul>
+                              <li data-value="1 mal">1&nbsp;mal</li>
+                              <li data-value="2 mal">2&nbsp;mal</li>
+                              <li data-value="3 mal">3&nbsp;mal</li>
+                              <li data-value="4 mal">4&nbsp;mal</li>
+                              <li data-value="5 mal">5&nbsp;mal</li>
+                              <li data-value="6 mal">6&nbsp;mal</li>
+                              <li data-value="7 mal">7&nbsp;mal</li>
+                              <li data-value="call" data-custom="true">Telefonisch besprechen</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="fixed-price__dropdown-field">
+                        <label for="months-value">Laufzeit in Monaten*</label>
+                        <div class="fixed-price__dropdown-wrapper">
+                          <button class="fixed-price__card-btn" type="button" data-dropdown="months">Auswählen</button>
+                          <div class="fixed-price__dropdown" data-type="months">
+                            <p class="fixed-price__dropdown-title">Wähle deine Option:</p>
+                            <ul>
+                              <li data-value="1 Monat">1 Monat</li>
+                              <li data-value="2 Monate">2 Monate</li>
+                              <li data-value="3 Monate">3 Monate</li>
+                              <li data-value="4 Monate">4 Monate</li>
+                              <li data-value="5 Monate">5 Monate</li>
+                              <li data-value="6 Monate">6 Monate</li>
+                              <li data-value="12 Monate">12 Monate</li>
+                              <li data-value="18 Monate">18 Monate</li>
+                              <li data-value="24 Monate">24 Monate</li>
+                              <li data-value="call" data-custom="true">Telefonisch besprechen</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <input type="text" name="service" id="service-value" required class="input-validator">
+                  <input type="text" name="weekly" id="weekly-value" required class="input-validator">
+                  <input type="text" name="months" id="months-value" required class="input-validator">
+                  <div class="fixed-price__card-description">
+                    <p>I’m a benefit</p>
+                    <p>I’m a benefit</p>
+                    <p>I’m a benefit</p>
+                  </div>
+                </div>
+
+                <div class="step">
+                  <h2>Kontakt</h2>
+                  <div class="fixed-price__card-back-name">
+                    <label>
+                      Vorname*
+                      <input type="text" name="first_name" required>
+                    </label>
+                    <label>
+                      Nachname*
+                      <input type="text" name="last_name" required>
+                    </label>
+                  </div>
+                  <label>
+                    E-Mail*
+                    <input type="email" name="email" required>
+                  </label>
+                  <label>
+                    Telefon*
+                    <input type="tel" name="phone" required>
+                  </label>
+                  <label>
+                    Nachricht (optional)
+                    <textarea name="message"></textarea>
+                  </label>
+                </div>
+
+                <div class="step">
+                  <h2>Ihre Adresse</h2>
+                  <div class="fixed-price__card-back-name">
+                    <label>
+                      Straße*
+                      <input type="text" name="street" required>
+                    </label>
+                    <label>
+                      Hausnummer*
+                      <input type="text" name="house" required>
+                    </label>
+                  </div>
+                  <label>
+                    Adresszusatz (z.B. Hinterhaus, Etage)
+                    <input type="text" name="address_supplement">
+                  </label>
+                  <label>
+                    Postleitzahl*
+                    <input type="text" name="zip" required>
+                  </label>
+                  <label>
+                    Stadt*
+                    <input type="text" name="city" required>
+                  </label>
+                </div>
+
+              </div>
+
+              <div class="form-nav">
+                <button type="button" class="btn-back hidden">Zurück</button>
+                <button type="button" class="btn-next">Weiter</button>
+                <button type="submit" class="btn-submit hidden">Anfrage absenden</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+    </div>
+
+    <div class="services-tabs__content-item" data-content-key="garden">
+      <section class="fixed-price__container" id="fixed-price-garden">
+        <div class="fixed-price__text-container">
+          <h2 class="fixed-price__title">Our Plans & Special Discounts</h2>
+          <p class="fixed-price__description">
+            Wählen Sie aus unseren Garten- und Hausdienstleistungen und erhalten Sie attraktive Rabatte.
+          </p>
+        </div>
+        <div class="fixed-price__card">
+          <form id="fixed-price-form-garden">
+            <div class="card__multistep">
+              <p class="fixed-price__card-categories-title">Garten & Haus</p>
+
+              <div class="step-indicator">
+                <span class="step-circle active">1</span>
+                <span class="step-circle">2</span>
+                <span class="step-circle">3</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-bar__inner"></div>
+              </div>
+
+              <div class="steps-wrapper">
+
+                <div class="step active">
+                  <h2 class="fixed-price__card-tile">Wähle eine Leistung</h2>
+                  <h3 class="fixed-price__card-price">0.00€</h3>
+                  <p class="fixed-price__discount">Kein Rabatt</p>
+                  <div class="fixed-price__card-options">
+
+                    <div class="fixed-price__dropdown-field">
+                      <label for="service-value-garden">Leistung*</label>
+                      <div class="fixed-price__dropdown-wrapper">
+                        <button class="fixed-price__card-btn" type="button" data-dropdown="service">Auswählen</button>
+                        <div class="fixed-price__dropdown" data-type="service">
+                          <p class="fixed-price__dropdown-title">Wähle deine Option:</p>
+                          <ul>
+                            <li data-value="Rasenpflege">Rasenpflege</li>
+                            <li data-value="Heckenschnitt">Heckenschnitt</li>
+                            <li data-value="Reparaturen">Kleine Reparaturen im Haus</li>
+                            <li data-value="Reinigungsdienste">Reinigung von Außenbereichen</li>
+                            <li data-value="call" data-custom="true">Telefonisch besprechen</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
 
                     <div class="fixed-price__dropdown-row-buttons">
-
                       <div class="fixed-price__dropdown-field">
                         <label for="weekly-value">Pro Woche*</label>
                         <div class="fixed-price__dropdown-wrapper">
@@ -504,13 +664,12 @@
                           </div>
                         </div>
                       </div>
-
                     </div>
                   </div>
 
-                  <input type="text" name="service" id="service-value" required class="input-validator">
-                  <input type="text" name="weekly" id="weekly-value" required class="input-validator">
-                  <input type="text" name="months" id="months-value" required class="input-validator">
+                  <input type="text" name="service" id="service-value-garden" required class="input-validator">
+                  <input type="text" name="weekly" id="weekly-value-garden" required class="input-validator">
+                  <input type="text" name="months" id="months-value-garden" required class="input-validator">
 
                   <div class="fixed-price__card-description">
                     <p>I’m a benefit</p>
@@ -557,12 +716,10 @@
                       <input type="text" name="house" required>
                     </label>
                   </div>
-
                   <label>
                     Adresszusatz (z.B. Hinterhaus, Etage)
                     <input type="text" name="address_supplement">
                   </label>
-
                   <label>
                     Postleitzahl*
                     <input type="text" name="zip" required>
@@ -586,40 +743,168 @@
       </section>
     </div>
 
-    <div class="services-tabs__content-item" data-content-key="garden">
-      <section class="fixed-price__container" id="fixed-price-garden">
-        <div class="fixed-price__text-container">
-          <h2 class="fixed-price__title">Our Plans & Special Discounts</h2>
-          <p class="fixed-price__description">...</p>
-        </div>
-        <div class="fixed-price__card">
-          <form id="fixed-price-form-garden">
-            <div class="card__multistep">
-              <p class="fixed-price__card-categories-title">Gartenpflege</p>
-              <div class="step-indicator">...</div>
-              <div class="progress-bar">...</div>
-              <div class="steps-wrapper">...</div>
-              <div class="form-nav">...</div>
-            </div>
-          </form>
-        </div>
-      </section>
-    </div>
-
     <div class="services-tabs__content-item" data-content-key="events">
       <section class="fixed-price__container" id="fixed-price-events">
         <div class="fixed-price__text-container">
           <h2 class="fixed-price__title">Our Plans & Special Discounts</h2>
-          <p class="fixed-price__description">...</p>
+          <p class="fixed-price__description">
+            Buchen Sie persönliche услуги и организацию мероприятий по выгодной цене.
+          </p>
         </div>
         <div class="fixed-price__card">
           <form id="fixed-price-form-events">
             <div class="card__multistep">
-              <p class="fixed-price__card-categories-title">Event-Organisation</p>
-              <div class="step-indicator">...</div>
-              <div class="progress-bar">...</div>
-              <div class="steps-wrapper">...</div>
-              <div class="form-nav">...</div>
+              <p class="fixed-price__card-categories-title">Persönliche Dienste & Events</p>
+
+              <div class="step-indicator">
+                <span class="step-circle active">1</span>
+                <span class="step-circle">2</span>
+                <span class="step-circle">3</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-bar__inner"></div>
+              </div>
+
+              <div class="steps-wrapper">
+
+                <div class="step active">
+                  <h2 class="fixed-price__card-tile">Wähle eine Leistung</h2>
+                  <h3 class="fixed-price__card-price">0.00€</h3>
+                  <p class="fixed-price__discount">Kein Rabatt</p>
+                  <div class="fixed-price__card-options">
+
+                    <div class="fixed-price__dropdown-field">
+                      <label for="service-value-events">Leistung*</label>
+                      <div class="fixed-price__dropdown-wrapper">
+                        <button class="fixed-price__card-btn" type="button" data-dropdown="service">Auswählen</button>
+                        <div class="fixed-price__dropdown" data-type="service">
+                          <p class="fixed-price__dropdown-title">Wähle deine Option:</p>
+                          <ul>
+                            <li data-value="Catering">Catering-Organisation</li>
+                            <li data-value="Haushaltshilfe">Haushaltshilfe</li>
+                            <li data-value="Kinderbetreuung">Kinderbetreuung</li>
+                            <li data-value="Eventplanung">Eventplanung</li>
+                            <li data-value="call" data-custom="true">Telefonisch besprechen</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="fixed-price__dropdown-row-buttons">
+                      <div class="fixed-price__dropdown-field">
+                        <label for="weekly-value">Pro Woche*</label>
+                        <div class="fixed-price__dropdown-wrapper">
+                          <button class="fixed-price__card-btn" type="button" data-dropdown="weekly">Auswählen</button>
+                          <div class="fixed-price__dropdown" data-type="weekly">
+                            <p class="fixed-price__dropdown-title">Wähle deine Option:</p>
+                            <ul>
+                              <li data-value="1 mal">1&nbsp;mal</li>
+                              <li data-value="2 mal">2&nbsp;mal</li>
+                              <li data-value="3 mal">3&nbsp;mal</li>
+                              <li data-value="4 mal">4&nbsp;mal</li>
+                              <li data-value="5 mal">5&nbsp;mal</li>
+                              <li data-value="6 mal">6&nbsp;mal</li>
+                              <li data-value="7 mal">7&nbsp;mal</li>
+                              <li data-value="call" data-custom="true">Telefonisch besprechen</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="fixed-price__dropdown-field">
+                        <label for="months-value">Laufzeit in Monaten*</label>
+                        <div class="fixed-price__dropdown-wrapper">
+                          <button class="fixed-price__card-btn" type="button" data-dropdown="months">Auswählen</button>
+                          <div class="fixed-price__dropdown" data-type="months">
+                            <p class="fixed-price__dropdown-title">Wähle deine Option:</p>
+                            <ul>
+                              <li data-value="1 Monat">1 Monat</li>
+                              <li data-value="2 Monate">2 Monate</li>
+                              <li data-value="3 Monate">3 Monate</li>
+                              <li data-value="4 Monate">4 Monate</li>
+                              <li data-value="5 Monate">5 Monate</li>
+                              <li data-value="6 Monate">6 Monate</li>
+                              <li data-value="12 Monate">12 Monate</li>
+                              <li data-value="18 Monate">18 Monate</li>
+                              <li data-value="24 Monate">24 Monate</li>
+                              <li data-value="call" data-custom="true">Telefonisch besprechen</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <input type="text" name="service" id="service-value-events" required class="input-validator">
+                  <input type="text" name="weekly" id="weekly-value-events" required class="input-validator">
+                  <input type="text" name="months" id="months-value-events" required class="input-validator">
+
+                  <div class="fixed-price__card-description">
+                    <p>I’m a benefit</p>
+                    <p>I’m a benefit</p>
+                    <p>I’m a benefit</p>
+                  </div>
+                </div>
+
+                <div class="step">
+                  <h2>Kontakt</h2>
+                  <div class="fixed-price__card-back-name">
+                    <label>
+                      Vorname*
+                      <input type="text" name="first_name" required>
+                    </label>
+                    <label>
+                      Nachname*
+                      <input type="text" name="last_name" required>
+                    </label>
+                  </div>
+                  <label>
+                    E-Mail*
+                    <input type="email" name="email" required>
+                  </label>
+                  <label>
+                    Telefon*
+                    <input type="tel" name="phone" required>
+                  </label>
+                  <label>
+                    Nachricht (optional)
+                    <textarea name="message"></textarea>
+                  </label>
+                </div>
+
+                <div class="step">
+                  <h2>Ihre Adresse</h2>
+                  <div class="fixed-price__card-back-name">
+                    <label>
+                      Straße*
+                      <input type="text" name="street" required>
+                    </label>
+                    <label>
+                      Hausnummer*
+                      <input type="text" name="house" required>
+                    </label>
+                  </div>
+                  <label>
+                    Adresszusatz (z.B. Hinterhaus, Etage)
+                    <input type="text" name="address_supplement">
+                  </label>
+                  <label>
+                    Postleitzahl*
+                    <input type="text" name="zip" required>
+                  </label>
+                  <label>
+                    Stadt*
+                    <input type="text" name="city" required>
+                  </label>
+                </div>
+
+              </div>
+
+              <div class="form-nav">
+                <button type="button" class="btn-back hidden">Zurück</button>
+                <button type="button" class="btn-next">Weiter</button>
+                <button type="submit" class="btn-submit hidden">Anfrage absenden</button>
+              </div>
             </div>
           </form>
         </div>
@@ -630,16 +915,164 @@
       <section class="fixed-price__container" id="fixed-price-cleaning">
         <div class="fixed-price__text-container">
           <h2 class="fixed-price__title">Our Plans & Special Discounts</h2>
-          <p class="fixed-price__description">...</p>
+          <p class="fixed-price__description">
+            Идеальная чистота в доме с нашими гибкими планами по уборке и уходу.
+          </p>
         </div>
         <div class="fixed-price__card">
           <form id="fixed-price-form-cleaning">
             <div class="card__multistep">
-              <p class="fixed-price__card-categories-title">Reinigungsservice</p>
-              <div class="step-indicator">...</div>
-              <div class="progress-bar">...</div>
-              <div class="steps-wrapper">...</div>
-              <div class="form-nav">...</div>
+              <p class="fixed-price__card-categories-title">Reinigung & Pflege</p>
+
+              <div class="step-indicator">
+                <span class="step-circle active">1</span>
+                <span class="step-circle">2</span>
+                <span class="step-circle">3</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-bar__inner"></div>
+              </div>
+
+              <div class="steps-wrapper">
+
+                <div class="step active">
+                  <h2 class="fixed-price__card-tile">Wähle eine Leistung</h2>
+                  <h3 class="fixed-price__card-price">0.00€</h3>
+                  <p class="fixed-price__discount">Kein Rabatt</p>
+                  <div class="fixed-price__card-options">
+
+                    <div class="fixed-price__dropdown-field">
+                      <label for="service-value-cleaning">Leistung*</label>
+                      <div class="fixed-price__dropdown-wrapper">
+                        <button class="fixed-price__card-btn" type="button" data-dropdown="service">Auswählen</button>
+                        <div class="fixed-price__dropdown" data-type="service">
+                          <p class="fixed-price__dropdown-title">Wähle deine Option:</p>
+                          <ul>
+                            <li data-value="Standardreinigung">Standardreinigung (Wöchentlich)</li>
+                            <li data-value="Tiefenreinigung">Tiefenreinigung (Monatlich)</li>
+                            <li data-value="Büroreinigung">Büroreinigung</li>
+                            <li data-value="Fensterreinigung">Fensterreinigung</li>
+                            <li data-value="call" data-custom="true">Telefonisch besprechen</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="fixed-price__dropdown-row-buttons">
+                      <div class="fixed-price__dropdown-field">
+                        <label for="weekly-value">Pro Woche*</label>
+                        <div class="fixed-price__dropdown-wrapper">
+                          <button class="fixed-price__card-btn" type="button" data-dropdown="weekly">Auswählen</button>
+                          <div class="fixed-price__dropdown" data-type="weekly">
+                            <p class="fixed-price__dropdown-title">Wähle deine Option:</p>
+                            <ul>
+                              <li data-value="1 mal">1&nbsp;mal</li>
+                              <li data-value="2 mal">2&nbsp;mal</li>
+                              <li data-value="3 mal">3&nbsp;mal</li>
+                              <li data-value="4 mal">4&nbsp;mal</li>
+                              <li data-value="5 mal">5&nbsp;mal</li>
+                              <li data-value="6 mal">6&nbsp;mal</li>
+                              <li data-value="7 mal">7&nbsp;mal</li>
+                              <li data-value="call" data-custom="true">Telefonisch besprechen</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="fixed-price__dropdown-field">
+                        <label for="months-value">Laufzeit in Monaten*</label>
+                        <div class="fixed-price__dropdown-wrapper">
+                          <button class="fixed-price__card-btn" type="button" data-dropdown="months">Auswählen</button>
+                          <div class="fixed-price__dropdown" data-type="months">
+                            <p class="fixed-price__dropdown-title">Wähle deine Option:</p>
+                            <ul>
+                              <li data-value="1 Monat">1 Monat</li>
+                              <li data-value="2 Monate">2 Monate</li>
+                              <li data-value="3 Monate">3 Monate</li>
+                              <li data-value="4 Monate">4 Monate</li>
+                              <li data-value="5 Monate">5 Monate</li>
+                              <li data-value="6 Monate">6 Monate</li>
+                              <li data-value="12 Monate">12 Monate</li>
+                              <li data-value="18 Monate">18 Monate</li>
+                              <li data-value="24 Monate">24 Monate</li>
+                              <li data-value="call" data-custom="true">Telefonisch besprechen</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <input type="text" name="service" id="service-value-cleaning" required class="input-validator">
+                  <input type="text" name="weekly" id="weekly-value-cleaning" required class="input-validator">
+                  <input type="text" name="months" id="months-value-cleaning" required class="input-validator">
+
+                  <div class="fixed-price__card-description">
+                    <p>I’m a benefit</p>
+                    <p>I’m a benefit</p>
+                    <p>I’m a benefit</p>
+                  </div>
+                </div>
+
+                <div class="step">
+                  <h2>Kontakt</h2>
+                  <div class="fixed-price__card-back-name">
+                    <label>
+                      Vorname*
+                      <input type="text" name="first_name" required>
+                    </label>
+                    <label>
+                      Nachname*
+                      <input type="text" name="last_name" required>
+                    </label>
+                  </div>
+                  <label>
+                    E-Mail*
+                    <input type="email" name="email" required>
+                  </label>
+                  <label>
+                    Telefon*
+                    <input type="tel" name="phone" required>
+                  </label>
+                  <label>
+                    Nachricht (optional)
+                    <textarea name="message"></textarea>
+                  </label>
+                </div>
+
+                <div class="step">
+                  <h2>Ihre Adresse</h2>
+                  <div class="fixed-price__card-back-name">
+                    <label>
+                      Straße*
+                      <input type="text" name="street" required>
+                    </label>
+                    <label>
+                      Hausnummer*
+                      <input type="text" name="house" required>
+                    </label>
+                  </div>
+                  <label>
+                    Adresszusatz (z.B. Hinterhaus, Etage)
+                    <input type="text" name="address_supplement">
+                  </label>
+                  <label>
+                    Postleitzahl*
+                    <input type="text" name="zip" required>
+                  </label>
+                  <label>
+                    Stadt*
+                    <input type="text" name="city" required>
+                  </label>
+                </div>
+
+              </div>
+
+              <div class="form-nav">
+                <button type="button" class="btn-back hidden">Zurück</button>
+                <button type="button" class="btn-next">Weiter</button>
+                <button type="submit" class="btn-submit hidden">Anfrage absenden</button>
+              </div>
             </div>
           </form>
         </div>
@@ -653,585 +1086,6 @@
 
 
 
-
-
-<!--
-<section class="fixed-price__container" id="fixed-price">
-  <div class="fixed-price__text-container">
-    <h2 class="fixed-price__title">Our Plans & Special Discounts</h2>
-    <p class="fixed-price__description">
-      I'm a paragraph. Click here to add your own text and edit me. It's easy.
-    </p>
-  </div>
-
-  <div class="fixed-price__card">
-    
-    <form id="fixed-price-form">
-      <div class="card__multistep">
-        <p class="fixed-price__card-categories-title">Transport & Logistik</p>
-
-        <div class="step-indicator">
-          <span class="step-circle active">1</span>
-          <span class="step-circle">2</span>
-          <span class="step-circle">3</span>
-        </div>
-
-        <div class="progress-bar">
-          <div class="progress-bar__inner"></div>
-        </div>
-
-        <div class="steps-wrapper">
-          
-          <div class="step active">
-            <h2 class="fixed-price__card-tile">Wähle eine Leistung</h2>
-            <h3 class="fixed-price__card-price">0.00€</h3>
-            <p class="fixed-price__discount">Kein Rabatt</p>
-            <div class="fixed-price__card-options">
-
-              <div class="fixed-price__dropdown-field">
-                <label for="service-value">Leistung*</label>
-                <div class="fixed-price__dropdown-wrapper">
-                  <button class="fixed-price__card-btn" type="button" data-dropdown="service">Auswählen</button>
-                  <div class="fixed-price__dropdown" data-type="service">
-                    <p class="fixed-price__dropdown-title">Wähle deine Option:</p>
-                    <ul>
-                      <li data-value="Fahrzeugüberführung">Fahrzeugüberführung</li>
-                      <li data-value="Kurierdienste">Kurierdienste</li>
-                      <li data-value="Lieferant">Lieferant</li>
-                      <li data-value="Möbeltransport / Umzugshilfe">Möbeltransport / Umzugshilfe</li>
-                      <li data-value="Tragehilfe">Tragehilfe</li>
-                      <li data-value="Zum Flughafen hin-zurück fahren">Zum Flughafen hin-zurück fahren</li>
-                      <li data-value="call" data-custom="true">Telefonisch besprechen</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-
-              <div class="fixed-price__dropdown-row-buttons">
-
-                <div class="fixed-price__dropdown-field">
-                  <label for="weekly-value">Pro Woche*</label>
-                  <div class="fixed-price__dropdown-wrapper">
-                    <button class="fixed-price__card-btn" type="button" data-dropdown="weekly">Auswählen</button>
-                    <div class="fixed-price__dropdown" data-type="weekly">
-                      <p class="fixed-price__dropdown-title">Wähle deine Option:</p>
-                      <ul>
-                        <li data-value="1 mal">1&nbsp;mal</li>
-                        <li data-value="2 mal">2&nbsp;mal</li>
-                        <li data-value="3 mal">3&nbsp;mal</li>
-                        <li data-value="4 mal">4&nbsp;mal</li>
-                        <li data-value="5 mal">5&nbsp;mal</li>
-                        <li data-value="6 mal">6&nbsp;mal</li>
-                        <li data-value="7 mal">7&nbsp;mal</li>
-                        <li data-value="call" data-custom="true">Telefonisch besprechen</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="fixed-price__dropdown-field">
-                  <label for="months-value">Laufzeit in Monaten*</label>
-                  <div class="fixed-price__dropdown-wrapper">
-                    <button class="fixed-price__card-btn" type="button" data-dropdown="months">Auswählen</button>
-                    <div class="fixed-price__dropdown" data-type="months">
-                      <p class="fixed-price__dropdown-title">Wähle deine Option:</p>
-                      <ul>
-                        <li data-value="1 Monat">1 Monat</li>
-                        <li data-value="2 Monate">2 Monate</li>
-                        <li data-value="3 Monate">3 Monate</li>
-                        <li data-value="4 Monate">4 Monate</li>
-                        <li data-value="5 Monate">5 Monate</li>
-                        <li data-value="6 Monate">6 Monate</li>
-                        <li data-value="12 Monate">12 Monate</li>
-                        <li data-value="18 Monate">18 Monate</li>
-                        <li data-value="24 Monate">24 Monate</li>
-                        <li data-value="call" data-custom="true">Telefonisch besprechen</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-
-            <input type="text" name="service" id="service-value" required class="input-validator">
-            <input type="text" name="weekly" id="weekly-value" required class="input-validator">
-            <input type="text" name="months" id="months-value" required class="input-validator">
-
-            <div class="fixed-price__card-description">
-              <p>I’m a benefit</p>
-              <p>I’m a benefit</p>
-              <p>I’m a benefit</p>
-            </div>
-          </div>
-
-          <div class="step">
-            <h2>Kontakt</h2>
-            <div class="fixed-price__card-back-name">
-              <label>
-                Vorname*
-                <input type="text" name="first_name" required>
-              </label>
-              <label>
-                Nachname*
-                <input type="text" name="last_name" required>
-              </label>
-            </div>
-            <label>
-              E-Mail*
-              <input type="email" name="email" required>
-            </label>
-            <label>
-              Telefon*
-              <input type="tel" name="phone" required>
-            </label>
-            <label>
-              Nachricht (optional)
-              <textarea name="message"></textarea>
-            </label>
-          </div>
-
-          <div class="step">
-            <h2>Ihre Adresse</h2>
-            <div class="fixed-price__card-back-name">
-              <label>
-                Straße*
-                <input type="text" name="street" required>
-              </label>
-              <label>
-                Hausnummer*
-                <input type="text" name="house" required>
-              </label>
-            </div>
-
-            <label>
-              Adresszusatz (z.B. Hinterhaus, Etage)
-              <input type="text" name="address_supplement">
-            </label>
-
-            <label>
-              Postleitzahl*
-              <input type="text" name="zip" required>
-            </label>
-            <label>
-              Stadt*
-              <input type="text" name="city" required>
-            </label>
-          </div>
-
-        </div>
-
-        <div class="form-nav">
-          <button type="button" class="btn-back hidden">Zurück</button>
-          <button type="button" class="btn-next">Weiter</button>
-          <button type="submit" class="btn-submit hidden">Anfrage absenden</button>
-        </div>
-      </div>
-    </form>
-  </div>
-</section>
--->
-
-<style>
-/* === Helper Classes === */
-.hidden { display: none !important; }
-
-.input-validator {
-  opacity: 0;
-  height: 1px;
-  width: 1px;
-  position: absolute;
-  z-index: -1;
-  bottom: 0;
-}
-
-/* === Section root === */
-#fixed-price {
-  scroll-margin-top: 4.5rem;
-  padding: 4rem 2rem;
-  font-family: 'Inter', system-ui, sans-serif;
-  background: #f5f5f5;
-  color: #222;
-}
-
-/* === Layout === */
-.fixed-price__container {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 3rem;
-  flex-wrap: wrap;
-}
-
-.fixed-price__text-container {
-  flex: 1 1 300px;
-  max-width: 400px;
-}
-
-.fixed-price__title {
-  font-size: 2.2rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  color: #222;
-}
-
-.fixed-price__description {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #555;
-}
-
-/* === Card wrapper === */
-.fixed-price__card {
-  flex: 1 1 350px;
-  max-width: 500px;
-  width: 100%;
-}
-
-.card__multistep {
-  position: relative;
-  background: #fff;
-  border-radius: 1.8rem;
-  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.08);
-  overflow: visible;
-  padding: 0 0 2rem;
-}
-
-/* Progress bar */
-.progress-bar {
-  margin: 0.5rem 0 2rem;
-  width: 100%;
-  height: 6px;
-  background: #e5e5e5;
-  border-radius: 6px;
-  overflow: hidden;
-}
-
-.progress-bar__inner {
-  height: 100%;
-  width: 33%;
-  background: linear-gradient(135deg, #4c5b5c, #2c3e3f);
-  transition: width 0.35s ease;
-}
-
-/* Step Indicators */
-.step-indicator {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  padding: 2.5rem 0 0;
-}
-
-.step-circle {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: #e0e0e0;
-  color: #666;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  font-size: 0.9rem;
-  transition: all 0.3s ease;
-}
-
-.step-circle.active {
-  background: #4c5b5c;
-  color: #fff;
-  transform: scale(1.1);
-}
-
-/* Steps Wrapper */
-.steps-wrapper {
-  padding: 0 2rem;
-  min-height: 350px;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(5px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.step {
-  display: none;
-  animation: fadeIn 0.4s ease forwards;
-}
-
-.step.active {
-  display: block;
-}
-
-/* Form Elements */
-.step h2 {
-  color: #4c5b5c;
-  margin-top: 0;
-  margin-bottom: 1.5rem;
-}
-
-.fixed-price__card-tile {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin: 1rem 0 0.5rem 0;
-  min-height: 1.8rem;
-  color: #4c5b5c;
-}
-
-.fixed-price__card-price {
-  font-size: 2.25rem;
-  font-weight: 700;
-  color: #4c5b5c;
-  margin: 0 0 0.2rem 0;
-  min-height: 2.5rem;
-}
-
-.fixed-price__discount {
-  font-size: 0.9rem;
-  color: #e67e22;
-  margin-bottom: 1.5rem;
-  min-height: 0.9rem;
-}
-
-.step label {
-  display: block;
-  margin-bottom: 1rem;
-  font-weight: 500;
-  font-size: 0.9rem;
-  color: #333;
-}
-
-.step input,
-.step textarea {
-  width: 100%;
-  padding: 12px;
-  margin-top: 5px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 0.95rem;
-  background: #fafafa;
-  box-sizing: border-box;
-  transition: 0.25s;
-}
-
-.step input:focus,
-.step textarea:focus {
-  border-color: #0082ff;
-  background: #fff;
-  outline: none;
-}
-
-.fixed-price__card-back-name {
-  display: flex;
-  gap: 1rem;
-}
-
-.fixed-price__card-back-name label {
-  flex: 1;
-}
-
-/* Dropdown Field Wrapper */
-.fixed-price__dropdown-field {
-  margin-bottom: 1rem;
-}
-
-.fixed-price__dropdown-field label {
-  margin-bottom: 0.5rem;
-}
-
-/* Dropdowns */
-.fixed-price__card-categories-title {
-  position: absolute;
-  padding: 0.4rem 1rem;
-  border-radius: 666px;
-  background: linear-gradient(135deg, #3a4546, #1f2a2b);
-  color: #fff;
-  font-size: 0.9rem;
-  top: -1rem;
-  left: 50%;
-  transform: translate(-50%, 0);
-  z-index: 3;
-}
-
-.fixed-price__dropdown-wrapper {
-  position: relative;
-}
-
-.fixed-price__dropdown-row-buttons {
-  display: flex;
-  gap: 1rem;
-  justify-content: space-between;
-}
-
-.fixed-price__dropdown-row-buttons .fixed-price__dropdown-field {
-  flex: 1;
-}
-
-.fixed-price__card-btn {
-  width: 100%;
-  text-align: left;
-  padding: 12px 15px;
-  background: #fafafa;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 0.95rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: border-color 0.2s ease;
-}
-
-.fixed-price__card-btn::after {
-  content: '▼';
-  font-size: 0.7em;
-  color: #666;
-}
-
-.fixed-price__dropdown {
-  position: absolute;
-  top: calc(100% + 5px);
-  left: 0;
-  width: 100%;
-  background: #fff;
-  border-radius: 1rem;
-  padding: 0.5rem;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-  opacity: 0;
-  visibility: hidden;
-  transform: scaleY(0.9);
-  transform-origin: top center;
-  transition: all 0.2s ease;
-  z-index: 100;
-  box-sizing: border-box;
-  max-height: 250px;
-  overflow-y: auto;
-}
-
-.fixed-price__dropdown.open {
-  opacity: 1;
-  visibility: visible;
-  transform: scaleY(1);
-}
-
-.fixed-price__dropdown-title {
-  font-size: 0.85rem;
-  font-weight: bold;
-  padding: 0.5rem;
-  margin: 0;
-  color: #999;
-}
-
-.fixed-price__dropdown ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.fixed-price__dropdown li {
-  padding: 10px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 0.95rem;
-}
-
-.fixed-price__dropdown li:hover {
-  background: #f3f3f3;
-}
-
-.fixed-price__dropdown li.active {
-  background: #4c5b5c;
-  color: #fff;
-}
-
-.fixed-price__card-description {
-  margin-top: 1.5rem;
-  border-top: 1px solid #eee;
-  padding-top: 1rem;
-  color: #555;
-  font-size: 1.25rem;
-}
-
-.fixed-price__card-description p {
-  margin: 0.3rem 0;
-}
-
-/* Navigation */
-.form-nav {
-  display: flex;
-  justify-content: space-between;
-  padding: 0 2rem;
-  margin-top: 2rem;
-  gap: 1rem;
-}
-
-.btn-next,
-.btn-back,
-.btn-submit {
-  padding: 12px 24px;
-  border-radius: 50px;
-  border: none;
-  cursor: pointer;
-  font-weight: 600;
-  transition: all 0.25s ease;
-}
-
-.btn-next {
-  background: #2c3e3f;
-  color: #fff;
-  margin-left: auto;
-}
-
-.btn-back {
-  background: #e5e5e5;
-  color: #333;
-}
-
-.btn-submit {
-  background: #0082ff;
-  color: #fff;
-}
-
-.btn-submit:hover { background: #006ad1; }
-.btn-next:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-@media (max-width: 480px) {
-  .fixed-price__card-tile {
-    font-size: 1.75rem;
-  }
-
-  .fixed-price__card-price {
-    font-size: 1.75rem;
-  }
-
-  .fixed-price__card-description {
-    font-size: 1.15rem;
-  }
-
-  .fixed-price__dropdown-row-buttons {
-    flex-direction: column;
-    gap: 0;
-  }
-  .fixed-price__card-back-name {
-    flex-direction: column;
-    gap: 0;
-  }
-  .fixed-price__dropdown-field {
-    margin-bottom: 0.8rem;
-  }
-  .fixed-price__dropdown-field label {
-    margin-bottom: 0.3rem;
-  }
-}
-
-
-
-
-
-</style>
 
 
 
@@ -1352,282 +1206,157 @@
 
 <script src="client/assets/js/main.js"></script>
 <script src="client/assets/js/locales.js"></script>
-<!-- <script src="client/assets/js/fixed_price.js"></script> -->
+<script src="client/assets/js/fixed_price.js"></script>
 
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-    // ---------------------------------------------
-    // ИНИЦИАЛИЗАЦИЯ И СКРЫТЫЕ ПОЛЯ
-    // ---------------------------------------------
-    const priceEl = document.querySelector('.fixed-price__card-price');
-    const discountEl = document.querySelector('.fixed-price__discount');
-    const cardTitleEl = document.querySelector('.fixed-price__card-tile');
-    const cardDescriptionEl = document.querySelector('.fixed-price__card-description'); 
-    const form = document.getElementById('fixed-price-form');
-
-    // Ссылки на скрытые поля
-    const serviceInput = document.getElementById('service-value');
-    const weeklyInput = document.getElementById('weekly-value');
-    const monthsInput = document.getElementById('months-value');
-
-    const selections = { service: null, weekly: null, months: null };
-    const basePrice = {
-        "Fahrzeugüberführung": 30,
-        "Kurierdienste": 25,
-        "Lieferant": 28,
-        "Möbeltransport / Umzugshilfe": 40,
-        "Tragehilfe": 22,
-        "Zum Flughafen hin-zurück fahren": 35
-    };
-
-    // ОПИСАНИЯ
-    const serviceDescriptions = {
-        "Fahrzeugüberführung": [
-            "• Schnelle und sichere Überführung",
-            "• Vollkaskoversicherung inklusive",
-            "• Termingerechte Zustellung bundesweit"
-        ],
-        "Kurierdienste": [
-            "• Zustellung am selben Tag möglich",
-            "• Sendungsverfolgung in Echtzeit",
-            "• Flexible Abholzeiten"
-        ],
-        "Lieferant": [
-            "• Regelmäßige Lieferungen nach Plan",
-            "• Zuverlässiges und geschultes Personal",
-            "• Optionale Lagerhaltung verfügbar"
-        ],
-        "Möbeltransport / Umzugshilfe": [
-            "• Professionelle Trage- und Montierhilfe",
-            "• Spezialausrüstung für schwere Gegenstände",
-            "• Schadensversicherung für Ihren Umzug"
-        ],
-        "Tragehilfe": [
-            "• Stundenweise Buchung möglich",
-            "• Hilfe beim Be- und Entladen",
-            "• Ideal für spontane Großeinkäufe"
-        ],
-        "Zum Flughafen hin-zurück fahren": [
-            "• Pünktlicher Transfer ohne Stress",
-            "• Gepäckservice inklusive",
-            "• Fahrten zu allen großen Flughäfen"
-        ],
-        "call": [
-            "• Maßgeschneidertes Angebot",
-            "• Persönliche Beratung am Telefon",
-            "• Kostenlose und unverbindliche Besprechung"
-        ]
-    };
-
-    function getDiscount(months) {
-        if (months >= 12) return 20;
-        if (months >= 6) return 10;
-        if (months >= 3) return 5;
-        return 0;
-    }
-
-    function updateDescription(serviceKey) {
-        if (!cardDescriptionEl) return;
-        const descriptionItems = serviceDescriptions[serviceKey] || serviceDescriptions["call"];
-        let html = '';
-        descriptionItems.forEach(text => { html += `<p>${text}</p>`; });
-        cardDescriptionEl.innerHTML = html;
-    }
-
-    function calculatePrice() {
-        const { service, weekly, months } = selections;
-
-        // Обновление скрытых полей
-        serviceInput.value = service || '';
-        weeklyInput.value = weekly || '';
-        monthsInput.value = months || '';
-        
-        // Обработка кастомного выбора
-        if ([service, weekly, months].includes("custom")) {
-            if (priceEl) priceEl.textContent = "nach Vereinbarung";
-            if (discountEl) discountEl.textContent = '';
-            
-            if (service === "custom") serviceInput.removeAttribute('required'); else serviceInput.setAttribute('required', 'required');
-            if (weekly === "custom") weeklyInput.removeAttribute('required'); else weeklyInput.setAttribute('required', 'required');
-            if (months === "custom") monthsInput.removeAttribute('required'); else monthsInput.setAttribute('required', 'required');
-            
-            updateDescription("call");
-            return;
-        }
-
-        // Возвращаем required
-        serviceInput.setAttribute('required', 'required');
-        weeklyInput.setAttribute('required', 'required');
-        monthsInput.setAttribute('required', 'required');
-
-        if (!service || !weekly || !months) {
-            if (priceEl) priceEl.textContent = "0.00€";
-            if (discountEl) discountEl.textContent = 'Kein Rabatt';
-            updateDescription(service);
-            return;
-        }
-
-        const total = basePrice[service] * weekly * months;
-        const discount = getDiscount(months);
-        const finalPrice = total - (total * discount / 100);
-
-        if (priceEl) priceEl.textContent = `${finalPrice.toFixed(2)}€`;
-        if (discountEl) discountEl.textContent = discount ? `zusätzlicher Rabatt ${discount}%` : 'Kein Rabatt';
-        
-        updateDescription(service);
-    }
+    
+    const tabButtons = document.querySelectorAll(".services-tabs__button");
+    const contentItems = document.querySelectorAll(".services-tabs__content-item");
 
     // ---------------------------------------------
-    // МУЛЬТИШАГОВАЯ ЛОГИКА
+    // ЛОГИКА ПЕРЕКЛЮЧЕНИЯ ВКЛАДОК
     // ---------------------------------------------
-    const steps = document.querySelectorAll(".step");
-    const indicators = document.querySelectorAll(".step-circle");
-    const btnNext = document.querySelector(".btn-next");
-    const btnBack = document.querySelector(".btn-back");
-    const btnSubmit = document.querySelector(".btn-submit");
-    const progressBar = document.querySelector(".progress-bar__inner");
-    let currentStep = 0;
+    function switchTab(button) {
+        // 1. Сброс активного состояния
+        tabButtons.forEach(btn => btn.classList.remove("services-tabs__button--active"));
+        contentItems.forEach(item => item.classList.remove("active-content"));
 
-    const validateStep = (index) => {
-        const activeStep = steps[index];
-        const inputs = activeStep.querySelectorAll("input, textarea, select, .input-validator");
-        let isValid = true;
+        // 2. Установка активного состояния
+        button.classList.add("services-tabs__button--active");
 
-        inputs.forEach(input => {
-            if (input.hasAttribute('required') && !input.value) {
-                 isValid = false;
-                 input.reportValidity();
-            } else if (input.checkValidity() === false) {
-                 isValid = false;
-                 input.reportValidity();
+        // 3. Нахождение и отображение контента
+        const contentKey = button.dataset.content;
+        const targetContent = document.querySelector(`.services-tabs__content-item[data-content-key="${contentKey}"]`);
+
+        if (targetContent) {
+            targetContent.classList.add("active-content");
+
+            // 4. Инициализация логики формы для НОВОЙ активной вкладки
+            if (typeof initFixedPriceForm === 'function') {
+                initFixedPriceForm(targetContent);
             }
-            
-            if (input.classList.contains('input-validator') && !input.value) {
-                const type = input.id.replace('-value', '');
-                const btn = document.querySelector(`.fixed-price__card-btn[data-dropdown="${type}"]`);
-                if(btn) {
-                    btn.style.borderColor = "red";
-                    setTimeout(() => btn.style.borderColor = "#ccc", 2000);
+        }
+    }
+    
+    // Добавляем слушатели событий
+    tabButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            switchTab(button);
+        });
+    });
+    
+    // ---------------------------------------------
+    // ЛОГИКА МУЛЬТИШАГОВОСТИ И SUBMIT (ВАШ КОД)
+    // ---------------------------------------------
+    
+    // Функция, которая инициализирует логику шагов и обработчик submit для данной формы
+    function initMultistepLogic(form) {
+        // ... (весь ваш код initMultistepLogic без изменений) ...
+        if (!form) return;
+
+        // Элементы навигации
+        const steps = form.querySelectorAll(".step");
+        const indicators = form.querySelectorAll(".step-circle");
+        const btnNext = form.querySelector(".btn-next");
+        const btnBack = form.querySelector(".btn-back");
+        const btnSubmit = form.querySelector(".btn-submit");
+        const progressBar = form.querySelector(".progress-bar__inner");
+        
+        // Локальный счетчик шага для этой формы
+        let currentStep = 0;
+
+        // Поиск скрытых полей и элементов для Submit
+        const serviceInput = form.querySelector('[name="service"]'); 
+        const weeklyInput = form.querySelector('[name="weekly"]'); 
+        const monthsInput = form.querySelector('[name="months"]');
+        const priceEl = form.querySelector('.fixed-price__card-price');
+        const discountEl = form.querySelector('.fixed-price__discount');
+
+
+        const validateStep = (index) => {
+            const activeStep = steps[index];
+            const inputs = activeStep.querySelectorAll("input:required, textarea:required, .input-validator[required]");
+            let isValid = true;
+
+            inputs.forEach(input => {
+                if (!input.value) {
+                    isValid = false;
+                    input.reportValidity();
+                } 
+                
+                // Визуальная ошибка для кнопок-выпадалок
+                if (input.classList.contains('input-validator') && !input.value) {
+                    const type = input.id.replace('-value', '');
+                    const btn = form.querySelector(`.fixed-price__card-btn[data-dropdown="${type}"]`);
+                    if(btn) {
+                        btn.style.borderColor = "red";
+                        setTimeout(() => btn.style.borderColor = "#ccc", 2000);
+                    }
                 }
-            }
-        });
-        return isValid;
-    };
+            });
+            return isValid;
+        };
 
-    const updateStep = () => {
-        steps.forEach((s, i) => { s.classList.toggle("active", i === currentStep); });
-        indicators.forEach((ind, i) => { ind.classList.toggle("active", i <= currentStep); });
-        
-        btnBack.classList.toggle("hidden", currentStep === 0);
-        if (currentStep === steps.length - 1) {
-            btnNext.classList.add("hidden");
-            btnSubmit.classList.remove("hidden");
-        } else {
-            btnNext.classList.remove("hidden");
-            btnSubmit.classList.add("hidden");
-        }
-        progressBar.style.width = `${((currentStep + 1) / steps.length) * 100}%`;
-    };
-
-    if (btnNext) {
-        btnNext.addEventListener("click", () => {
-            if (!validateStep(currentStep)) return;
-            if (currentStep < steps.length - 1) {
-                currentStep++;
-                updateStep();
-            }
-        });
-    }
-
-    if (btnBack) {
-        btnBack.addEventListener("click", () => {
-            if (currentStep > 0) {
-                currentStep--;
-                updateStep();
-            }
-        });
-    }
-
-    // ---------------------------------------------
-    // DROPDOWN
-    // ---------------------------------------------
-    document.querySelectorAll('.fixed-price__card-btn').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            const dropdownType = btn.dataset.dropdown;
-            const dd = document.querySelector(`.fixed-price__dropdown[data-type="${dropdownType}"]`);
-            if (dd) {
-                document.querySelectorAll('.fixed-price__dropdown.open').forEach(d => {
-                    if (d !== dd) d.classList.remove('open');
-                });
-                dd.classList.toggle('open');
-            }
-        });
-    });
-
-    document.addEventListener('click', (e) => {
-        if (!e.target.closest('.fixed-price__dropdown-wrapper') && !e.target.closest('.fixed-price__card-btn')) {
-            document.querySelectorAll('.fixed-price__dropdown.open').forEach(dd => dd.classList.remove('open'));
-        }
-    });
-
-    document.querySelectorAll('.fixed-price__dropdown li').forEach(li => {
-        li.addEventListener('click', () => {
-            const dropdown = li.closest('.fixed-price__dropdown');
-            const type = dropdown.dataset.type;
-            const isCustom = li.dataset.custom === "true";
-            const btn = document.querySelector(`.fixed-price__card-btn[data-dropdown="${type}"]`);
-
-            if (isCustom) {
-                selections[type] = "custom";
-                if(btn) btn.textContent = li.textContent.trim();
-                if (type === 'service' && cardTitleEl) cardTitleEl.textContent = li.textContent.trim();
-                dropdown.classList.remove('open');
-                if(btn) btn.style.borderColor = "#ccc"; 
-                calculatePrice(); 
-                return;
-            }
-
-            selections[type] = type === 'service' ? li.dataset.value : parseInt(li.dataset.value.match(/\d+/)[0], 10); 
-            dropdown.querySelectorAll('li').forEach(x => x.classList.remove('active'));
-            li.classList.add('active');
+        const updateStep = () => {
+            steps.forEach((s, i) => { s.classList.toggle("active", i === currentStep); });
+            indicators.forEach((ind, i) => { ind.classList.toggle("active", i <= currentStep); });
             
-            if(btn) btn.textContent = li.textContent.trim(); 
-            if (type === 'service' && cardTitleEl) cardTitleEl.textContent = li.textContent.trim();
-            if(btn) btn.style.borderColor = "#ccc"; 
+            if(btnBack) btnBack.classList.toggle("hidden", currentStep === 0);
+            if (currentStep === steps.length - 1) {
+                if(btnNext) btnNext.classList.add("hidden");
+                if(btnSubmit) btnSubmit.classList.remove("hidden");
+            } else {
+                if(btnNext) btnNext.classList.remove("hidden");
+                if(btnSubmit) btnSubmit.classList.add("hidden");
+            }
+            if(progressBar) progressBar.style.width = `${((currentStep + 1) / steps.length) * 100}%`;
+        };
 
-            dropdown.classList.remove('open');
-            calculatePrice();
-        });
-    });
+        // --- Обработчики навигации (перезаписываем при каждой инициализации) ---
+        if (btnNext) {
+            btnNext.onclick = () => { 
+                if (!validateStep(currentStep)) return;
+                if (currentStep < steps.length - 1) {
+                    currentStep++;
+                    updateStep();
+                }
+            };
+        }
 
-    // ---------------------------------------------
-    // ЛОГИКА ОТПРАВКИ ФОРМЫ (ОБНОВЛЕННАЯ)
-    // ---------------------------------------------
-    if (form) {
-        form.addEventListener('submit', async (e) => {
+        if (btnBack) {
+            btnBack.onclick = () => { 
+                if (currentStep > 0) {
+                    currentStep--;
+                    updateStep();
+                }
+            };
+        }
+
+        // ---------------------------------------------
+        // ЛОГИКА ОТПРАВКИ ФОРМЫ (перезаписываем при каждой инициализации)
+        // ---------------------------------------------
+        form.onsubmit = async (e) => {
             e.preventDefault(); 
             
-            const sendBtn = document.querySelector('.btn-submit');
+            const sendBtn = form.querySelector('.btn-submit');
             if (sendBtn) {
                 sendBtn.disabled = true;
                 sendBtn.textContent = 'Senden...';
             }
 
-            // Получаем текстовые значения для красивого письма
+            // Получаем текстовые значения для красивого письма (ищем активные элементы)
             let weeklyText = weeklyInput.value;
             let monthsText = monthsInput.value;
             
-            // Ищем красивый текст в списках
-            const weeklyLi = document.querySelector(`.fixed-price__dropdown[data-type="weekly"] li[data-value="${weeklyText} mal"]`) 
-                             || document.querySelector(`.fixed-price__dropdown[data-type="weekly"] li.active`);
+            // Здесь мы используем form.querySelector, чтобы найти элементы внутри текущей формы
+            const weeklyLi = form.querySelector(`.fixed-price__dropdown[data-type="weekly"] li.active`);
             if(weeklyLi) weeklyText = weeklyLi.textContent.trim();
 
-            const monthsLi = document.querySelector(`.fixed-price__dropdown[data-type="months"] li[data-value="${monthsText} Monate"]`)
-                             || document.querySelector(`.fixed-price__dropdown[data-type="months"] li.active`);
+            const monthsLi = form.querySelector(`.fixed-price__dropdown[data-type="months"] li.active`);
             if(monthsLi) monthsText = monthsLi.textContent.trim();
-
+            
             // Собираем Payload вручную
             const payload = {
                 first_name: form.querySelector('[name="first_name"]').value,
@@ -1659,12 +1388,10 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             try {
-                // ОТПРАВКА НА НОВЫЙ ENDPOINT /api/fixed_price
+                // ... (Ваш код fetch) ...
                 const response = await fetch('/api/fixed_price', {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
+                    headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(payload),
                 });
 
@@ -1674,13 +1401,12 @@ document.addEventListener("DOMContentLoaded", () => {
                     alert('✅ Anfrage erfolgreich gesendet! Wir melden uns in Kürze.');
                     form.reset();
                     
-                    // Сброс состояния
-                    selections.service = null; selections.weekly = null; selections.months = null;
-                    calculatePrice();
-                    if (cardTitleEl) cardTitleEl.textContent = "Wähle eine Leistung";
-                    document.querySelectorAll('.fixed-price__dropdown li').forEach(x => x.classList.remove('active'));
-                    document.querySelectorAll('.fixed-price__card-btn').forEach(btn => btn.textContent = 'Auswählen');
+                    // Сбрасываем JS-состояние (цена, выбор) через повторный вызов инициализации
+                    if (typeof initFixedPriceForm === 'function') {
+                        initFixedPriceForm(form.closest('.services-tabs__content-item'));
+                    }
 
+                    // Сброс шага
                     currentStep = 0;
                     updateStep();
 
@@ -1699,16 +1425,39 @@ document.addEventListener("DOMContentLoaded", () => {
                     sendBtn.textContent = 'Anfrage absenden';
                 }
             }
-        });
-    }
+        };
 
-    // Инициализация
-    updateStep();
-    calculatePrice();
-    updateDescription("call");
+        // Инициализация шага
+        updateStep();
+    }
+    
+    // ---------------------------------------------
+    // ПЕРЕХВАТ ИНИЦИАЛИЗАЦИИ И ОБЪЕДИНЕНИЕ ЛОГИК
+    // ---------------------------------------------
+    
+    // Сохраняем оригинальную функцию из fixed_price.js
+    const originalInitFixedPriceForm = window.initFixedPriceForm;
+
+    // Переопределяем/определяем initFixedPriceForm, чтобы добавить логику шагов
+    window.initFixedPriceForm = (container) => {
+        // 1. Сначала вызываем оригинальную логику (цены, выбора)
+        if (typeof originalInitFixedPriceForm === 'function') {
+            originalInitFixedPriceForm(container);
+        }
+        
+        // 2. Затем инициализируем логику мультишаговости для этой же формы
+        const form = container.querySelector('form');
+        initMultistepLogic(form);
+    };
+
+    // При первой загрузке страницы, запускаем логику сразу (для первой активной вкладки)
+    const initialContent = document.querySelector(".services-tabs__content-item.active-content");
+    if (initialContent) {
+        // Вызываем объединенную initFixedPriceForm
+        window.initFixedPriceForm(initialContent);
+    }
 });
 </script>
-
 
 
 

@@ -1,0 +1,516 @@
+
+/* === Helper Classes === */
+.hidden { display: none !important; }
+
+.input-validator {
+  opacity: 0;
+  height: 1px;
+  width: 1px;
+  position: absolute;
+  z-index: -1;
+  bottom: 0;
+}
+
+/* === Section root === */
+#fixed-price {
+  scroll-margin-top: 4.5rem;
+  padding: 4rem 2rem;
+  font-family: 'Inter', system-ui, sans-serif;
+  background: #f5f5f5;
+  color: #222;
+}
+
+/* === Layout === */
+.services-tabs__title {
+  justify-self: center;
+}
+
+
+.fixed-price__container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.fixed-price__text-container {
+  flex: 1 1 300px;
+  max-width: 400px;
+}
+
+.fixed-price__title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.fixed-price__description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #fff;
+}
+
+/* === Card wrapper === */
+.fixed-price__card {
+  flex: 1 1 350px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.card__multistep {
+  position: relative;
+  background: #fff;
+  border-radius: 1.8rem;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.08);
+  overflow: visible;
+  padding: 0 0 2rem;
+}
+
+/* Progress bar */
+.progress-bar {
+  margin: 0.5rem 0 2rem;
+  width: 100%;
+  height: 6px;
+  background: #e5e5e5;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.progress-bar__inner {
+  height: 100%;
+  width: 33%;
+  background: linear-gradient(135deg, #4c5b5c, #2c3e3f);
+  transition: width 0.35s ease;
+}
+
+/* Step Indicators */
+.step-indicator {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2.5rem 0 0;
+}
+
+.step-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #e0e0e0;
+  color: #666;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.step-circle.active {
+  background: #4c5b5c;
+  color: #fff;
+  transform: scale(1.1);
+}
+
+/* Steps Wrapper */
+.steps-wrapper {
+  padding: 0 2rem;
+  min-height: 350px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.step {
+  display: none;
+  animation: fadeIn 0.4s ease forwards;
+}
+
+.step.active {
+  display: block;
+}
+
+/* Form Elements */
+.step h2 {
+  color: #4c5b5c;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+.fixed-price__card-tile {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 1rem 0 0.5rem 0;
+  min-height: 1.8rem;
+  color: #4c5b5c;
+}
+
+.fixed-price__card-price {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #4c5b5c;
+  margin: 0 0 0.2rem 0;
+  min-height: 2.5rem;
+}
+
+.fixed-price__discount {
+  font-size: 0.9rem;
+  color: #e67e22;
+  margin-bottom: 1.5rem;
+  min-height: 0.9rem;
+}
+
+.step label {
+  display: block;
+  margin-bottom: 1rem;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.step input,
+.step textarea {
+  width: 100%;
+  padding: 12px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  background: #fafafa;
+  box-sizing: border-box;
+  transition: 0.25s;
+}
+
+.step input:focus,
+.step textarea:focus {
+  border-color: #0082ff;
+  background: #fff;
+  outline: none;
+}
+
+.fixed-price__card-back-name {
+  display: flex;
+  gap: 1rem;
+}
+
+.fixed-price__card-back-name label {
+  flex: 1;
+}
+
+/* Dropdown Field Wrapper */
+.fixed-price__dropdown-field {
+  margin-bottom: 1rem;
+}
+
+.fixed-price__dropdown-field label {
+  margin-bottom: 0.5rem;
+}
+
+/* Dropdowns */
+.fixed-price__card-categories-title {
+  position: absolute;
+  padding: 0.4rem 1rem;
+  border-radius: 666px;
+  background: linear-gradient(135deg, #3a4546, #1f2a2b);
+  color: #fff;
+  font-size: 0.9rem;
+  top: -1rem;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 3;
+}
+
+.fixed-price__dropdown-wrapper {
+  position: relative;
+  color: #242424;
+}
+
+.fixed-price__dropdown-row-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+.fixed-price__dropdown-row-buttons .fixed-price__dropdown-field {
+  flex: 1;
+}
+
+.fixed-price__card-btn {
+  width: 100%;
+  text-align: left;
+  padding: 12px 15px;
+  background: #fafafa;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: border-color 0.2s ease;
+}
+
+.fixed-price__card-btn::after {
+  content: '▼';
+  font-size: 0.7em;
+  color: #666;
+}
+
+.fixed-price__dropdown {
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  width: 100%;
+  background: #fff;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  visibility: hidden;
+  transform: scaleY(0.9);
+  transform-origin: top center;
+  transition: all 0.2s ease;
+  z-index: 100;
+  box-sizing: border-box;
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.fixed-price__dropdown.open {
+  opacity: 1;
+  visibility: visible;
+  transform: scaleY(1);
+}
+
+.fixed-price__dropdown-title {
+  font-size: 0.85rem;
+  font-weight: bold;
+  padding: 0.5rem;
+  margin: 0;
+  color: #999;
+}
+
+.fixed-price__dropdown ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.fixed-price__dropdown li {
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.fixed-price__dropdown li:hover {
+  background: #f3f3f3;
+}
+
+.fixed-price__dropdown li.active {
+  background: #4c5b5c;
+  color: #fff;
+}
+
+.fixed-price__card-description {
+  margin-top: 1.5rem;
+  border-top: 1px solid #eee;
+  padding-top: 1rem;
+  color: #555;
+  font-size: 1.25rem;
+}
+
+.fixed-price__card-description p {
+  margin: 0.3rem 0;
+}
+
+/* Navigation */
+.form-nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2rem;
+  margin-top: 2rem;
+  gap: 1rem;
+}
+
+.btn-next,
+.btn-back,
+.btn-submit {
+  padding: 12px 24px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+
+.btn-next {
+  background: #2c3e3f;
+  color: #fff;
+  margin-left: auto;
+}
+
+.btn-back {
+  background: #e5e5e5;
+  color: #333;
+}
+
+.btn-submit {
+  background: #0082ff;
+  color: #fff;
+}
+
+.btn-submit:hover { background: #006ad1; }
+.btn-next:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+
+
+
+
+
+/* === Секция === */
+.services-tabs {
+  padding: 50px 20px;
+  font-family: 'Arial', sans-serif;
+  background: #4c5b5c; 
+  border: 1px solid black;
+}
+
+.services-tabs__title {
+  /* Заголовок секции */
+  font-size: 28px;
+  margin-bottom: 30px;
+  color: #f7f7f7;
+}
+
+/* === Кнопки-табы === */
+.services-tabs__buttons {
+  /* Контейнер для кнопок */
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.services-tabs__button {
+  /* Стиль обычной кнопки */
+  /*background: linear-gradient(145deg, #ffffff, #e6e6e6);*/
+  border: none;
+  padding: 12px 25px;
+  font-size: 16px;
+  cursor: pointer;
+  position: relative;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.services-tabs__button:hover {
+  /* Стиль кнопки при наведении */
+  background: linear-gradient(145deg, #007BFF, #00BFFF);
+  color: white;
+  box-shadow: 4px 4px 15px rgba(0,123,255,0.3);
+}
+
+.services-tabs__button--active {
+  /* Стиль активной кнопки */
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.services-tabs__button--active::after {
+  /* Нижняя подчеркивающая линия активной кнопки */
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 10%;
+  width: 80%;
+  height: 4px;
+  background: #ffffff;
+  border-radius: 2px;
+}
+
+/* === Контейнер контента === */
+.services-tabs__content {
+  /* Общий контейнер для всех блоков контента */
+  margin: 0 auto;
+}
+
+/* === Отдельный элемент контента (логика переключения) === */
+.services-tabs__content-item {
+  /* Элемент, который содержит вашу форму */
+  opacity: 0;
+  /* Время перехода (300ms) должно совпадать с задержкой в setTimeout в JS */
+  transition: opacity 0.3s ease-in-out; 
+  display: none; /* Скрываем по умолчанию */
+}
+
+/* Активный элемент, который показывается (display: block) */
+.services-tabs__content-item.active-content {
+  display: block;
+}
+
+/* Класс для плавного появления (используется в JS) */
+.services-tabs__content-item.fade-in {
+  /* Элемент должен быть полностью видим после переключения */
+  opacity: 1; 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 480px) {
+  .fixed-price__card-tile {
+    font-size: 1.75rem;
+  }
+
+  .fixed-price__card-price {
+    font-size: 1.75rem;
+  }
+
+  .fixed-price__card-description {
+    font-size: 1.15rem;
+  }
+
+  .fixed-price__dropdown-row-buttons {
+    flex-direction: column;
+    gap: 0;
+  }
+  .fixed-price__card-back-name {
+    flex-direction: column;
+    gap: 0;
+  }
+  .fixed-price__dropdown-field {
+    margin-bottom: 0.8rem;
+  }
+  .fixed-price__dropdown-field label {
+    margin-bottom: 0.3rem;
+  }
+}

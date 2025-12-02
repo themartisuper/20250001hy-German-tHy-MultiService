@@ -93,7 +93,8 @@ a:hover, a:focus {
   transition: background-color var(--transition-fast);
 }
 
-button:hover, .btn:hover {
+button:hover:not(.services-tabs__button),
+.btn:hover:not(.services-tabs__button) {
   background-color: #1d4ed8;
 }
 

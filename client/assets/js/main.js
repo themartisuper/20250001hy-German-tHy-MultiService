@@ -209,48 +209,45 @@ slider.addEventListener('touchmove', (e) => moveDragging(e.touches[0]));
 
 
 
-// Используем новые селекторы
+// main.js
+
 const tabButtons = document.querySelectorAll(".services-tabs__button");
+const tabContentItems = document.querySelectorAll('.services-tabs__content-item');
 
-// Функция для обработки клика по кнопке-табу
 function handleTabClick(btn) {
-    // Получаем текущую активную кнопку и контент
-    const activeBtn = document.querySelector(".services-tabs__button--active");
-    const currentContent = document.querySelector(".services-tabs__content-item.active-content");
-
-    // Если кликнули по активной кнопке, ничего не делаем
-    if (activeBtn === btn) return;
-
-    // Смена активной кнопки
-    if (activeBtn) {
-        activeBtn.classList.remove("services-tabs__button--active");
-    }
-    btn.classList.add("services-tabs__button--active");
-
     const key = btn.getAttribute("data-content");
     const targetContent = document.querySelector(`.services-tabs__content-item[data-content-key="${key}"]`);
+    
+    // 1. Обновление кнопок
+    tabButtons.forEach(b => {
+        b.classList.remove("services-tabs__button--active");
+    });
+    btn.classList.add("services-tabs__button--active");
+    
+    // 2. Логика смены контента с анимацией
+    let currentContent = document.querySelector(".services-tabs__content-item.active-content");
 
     if (currentContent && targetContent) {
-        // 1. Запускаем плавное скрытие текущего контента
-        // Удаляем класс 'fade-in' и устанавливаем opacity: 0 (переход начнется)
+        if (currentContent === targetContent) return;
+
+        // Скрытие текущего
         currentContent.classList.remove("fade-in");
         currentContent.style.opacity = 0;
 
-        // 2. Ждем 300мс (время transition)
         setTimeout(() => {
-            // 3. Скрываем предыдущий элемент (display: none)
             currentContent.classList.remove("active-content");
 
-            // 4. Показываем новый элемент (display: block)
+            // Показ нового
             targetContent.classList.add("active-content");
-            
-            // 5. Запускаем плавное появление нового контента
-            // Устанавливаем opacity: 1 (через класс fade-in), которое 
-            // гарантированно сработает, даже если мы переключимся обратно
-            // на вкладку, так как transition не будет "заморожен"
             targetContent.classList.add("fade-in"); 
-            targetContent.style.opacity = 1; // Добавим для надежности, если transition не успел сработать
+            targetContent.style.opacity = 1;
             
+            // 3. ПЕРЕИНИЦИАЛИЗАЦИЯ: вызываем функцию, которая теперь определена в index.html, 
+            // но использует логику из fixed_price.js.
+            if (typeof initFixedPriceForm === 'function') {
+                initFixedPriceForm(targetContent);
+            }
+
         }, 300); // 300ms соответствует времени transition в CSS
     }
 }
@@ -263,9 +260,89 @@ tabButtons.forEach(btn => {
 // Инициализация при загрузке страницы: убедитесь, что активный контент виден
 document.addEventListener('DOMContentLoaded', () => {
     const initialContent = document.querySelector(".services-tabs__content-item.active-content");
+    
     if (initialContent) {
-        // Устанавливаем начальную прозрачность в 1 и добавляем класс для старта
         initialContent.style.opacity = 1;
         initialContent.classList.add("fade-in");
+        
+        // 4. ИНИЦИАЛИЗАЦИЯ ФОРМЫ ПРИ ПЕРВОЙ ЗАГРУЗКЕ
+        if (typeof initFixedPriceForm === 'function') {
+             initFixedPriceForm(initialContent);
+        }
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// main.js
+
+document.addEventListener("DOMContentLoaded", () => {
+    const tabButtons = document.querySelectorAll(".services-tabs__button");
+    const contentItems = document.querySelectorAll(".services-tabs__content-item");
+
+    if (tabButtons.length === 0 || contentItems.length === 0) return;
+
+    // Функция переключения вкладок
+    function switchTab(button) {
+        // 1. Сбрасываем активное состояние со всех кнопок и контента
+        tabButtons.forEach(btn => btn.classList.remove("services-tabs__button--active"));
+        contentItems.forEach(item => item.classList.remove("active-content"));
+
+        // 2. Устанавливаем активное состояние для выбранной кнопки
+        button.classList.add("services-tabs__button--active");
+
+        // 3. Находим и отображаем соответствующее содержимое
+        const contentKey = button.dataset.content;
+        const targetContent = document.querySelector(`.services-tabs__content-item[data-content-key="${contentKey}"]`);
+
+        if (targetContent) {
+            targetContent.classList.add("active-content");
+
+            // 4. Инициализируем логику формы для НОВОЙ активной вкладки
+            // Предполагается, что initFixedPriceForm определена в fixed_price.js
+            if (typeof initFixedPriceForm === 'function') {
+                initFixedPriceForm(targetContent);
+            }
+        }
+    }
+
+    // Добавляем слушатель события клика на каждую кнопку
+    tabButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            switchTab(button);
+        });
+    });
+
+    // 💡 При первой загрузке страницы запускаем initFixedPriceForm для уже активной вкладки
+    const initialActiveButton = document.querySelector(".services-tabs__button--active");
+    const initialActiveContent = document.querySelector(".services-tabs__content-item.active-content");
+    
+    // Вызываем инициализацию для первой загруженной формы, 
+    // чтобы применить логику из fixed_price.js и multistep.js.
+    if (initialActiveContent && typeof initFixedPriceForm === 'function') {
+        initFixedPriceForm(initialActiveContent);
+    }
+
+    // При первой загрузке страницы, запускаем логику сразу (для первой активной вкладки)
+    const initialContent = document.querySelector(".services-tabs__content-item.active-content");
+    if (initialContent) {
+        const initialForm = initialContent.querySelector('form');
+        initMultistepLogic(initialForm); // Запускаем мультишаговую логику
     }
 });

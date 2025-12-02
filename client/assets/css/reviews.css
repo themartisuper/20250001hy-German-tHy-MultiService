@@ -141,7 +141,7 @@
     border-color 0.25s ease;
 }
 
-.reviews button:hover, button:focus {
+.reviews button:hover, .reviews button:focus {
   transform: scale(1.05);
   background: transparent;
   color: #1d4ed8;
