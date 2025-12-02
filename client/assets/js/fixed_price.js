@@ -181,8 +181,12 @@ window.initFixedPriceForm = function(container) {
     descriptionEl.innerHTML = '';
   }
   // === ФОРМА SUBMIT ===
+  let isSubmitting = false; // Prevent duplicate submissions
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
+    
+    if (isSubmitting) return; // Already submitting, ignore
+    isSubmitting = true;
 
     const sendBtn = form.querySelector('.btn-submit');
     if (sendBtn) {
@@ -265,6 +269,7 @@ window.initFixedPriceForm = function(container) {
       console.error('DEBUG_CODE: NETWORK_ERROR', error);
       alert('❌ Ein Verbindungsfehler ist aufgetreten. (CODE: NETWORK_ERROR)');
     } finally {
+      isSubmitting = false;
       if (sendBtn) {
         sendBtn.disabled = false;
         sendBtn.textContent = 'Anfrage absenden';

@@ -13,8 +13,60 @@ export default async function handler(req, res) {
   const dateString = now.toLocaleString('de-DE', { timeZone: 'Europe/Berlin' });
 
   const subject = `Neue Anfrage: ${body.service_details || body.service}`;
-  const HTMLPart = `<h3>Neue Anfrage (Fixed Price)</h3><p><strong>Datum/Zeit:</strong> ${dateString}</p>`;
-  const TextPart = `Neue Anfrage (Fixed Price)\nDatum/Zeit: ${dateString}`;
+  
+  // Build full email with all fields
+  const HTMLPart = `
+    <h3>Neue Anfrage (Fixed Price)</h3>
+    <p><strong>Datum/Zeit:</strong> ${dateString}</p>
+    <hr>
+    <h4>Persönliche Informationen:</h4>
+    <p><strong>Vorname:</strong> ${body.first_name || '—'}</p>
+    <p><strong>Nachname:</strong> ${body.last_name || '—'}</p>
+    <p><strong>E-Mail:</strong> ${body.email || '—'}</p>
+    <p><strong>Telefon:</strong> ${body.phone || '—'}</p>
+    <h4>Adresse:</h4>
+    <p><strong>Straße:</strong> ${body.street || '—'}</p>
+    <p><strong>Hausnummer:</strong> ${body.house || '—'}</p>
+    <p><strong>Adresszusatz:</strong> ${body.address_supplement || '—'}</p>
+    <p><strong>PLZ:</strong> ${body.zip || '—'}</p>
+    <p><strong>Stadt:</strong> ${body.city || '—'}</p>
+    <h4>Leistung:</h4>
+    <p><strong>Service:</strong> ${body.service || '—'}</p>
+    <p><strong>Pro Woche:</strong> ${body.weekly || '—'}</p>
+    <p><strong>Laufzeit (Monate):</strong> ${body.months || '—'}</p>
+    <p><strong>Preis:</strong> ${body.final_price || '—'}</p>
+    <p><strong>Rabatt:</strong> ${body.discount_info || '—'}</p>
+    <p><strong>Service Details:</strong> ${body.service_details || '—'}</p>
+    ${body.message ? `<h4>Nachricht:</h4><p>${body.message}</p>` : ''}
+  `;
+  
+  const TextPart = `
+Neue Anfrage (Fixed Price)
+Datum/Zeit: ${dateString}
+
+--- PERSÖNLICHE INFORMATIONEN ---
+Vorname: ${body.first_name || '—'}
+Nachname: ${body.last_name || '—'}
+E-Mail: ${body.email || '—'}
+Telefon: ${body.phone || '—'}
+
+--- ADRESSE ---
+Straße: ${body.street || '—'}
+Hausnummer: ${body.house || '—'}
+Adresszusatz: ${body.address_supplement || '—'}
+PLZ: ${body.zip || '—'}
+Stadt: ${body.city || '—'}
+
+--- LEISTUNG ---
+Service: ${body.service || '—'}
+Pro Woche: ${body.weekly || '—'}
+Laufzeit (Monate): ${body.months || '—'}
+Preis: ${body.final_price || '—'}
+Rabatt: ${body.discount_info || '—'}
+Service Details: ${body.service_details || '—'}
+${body.message ? `
+NACHRICHT:
+${body.message}` : ''}\n`;
 
   const MJ_PUBLIC = process.env.MJ_PUBLIC;
   const MJ_PRIVATE = process.env.MJ_PRIVATE;
