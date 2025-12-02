@@ -10,6 +10,7 @@ window.initFixedPriceForm = function(container) {
   const discountEl = container.querySelector('.fixed-price__discount');
   let form = container.querySelector('form');
   const descriptionEl = container.querySelector('.fixed-price__card-description');
+  const titleEl = container.querySelector('.fixed-price__card-title') || container.querySelector('.fixed-price__card-tile');
   
   if (!form || !priceEl || !discountEl) {
     console.error('DEBUG: Missing required elements', { form: !!form, priceEl: !!priceEl, discountEl: !!discountEl });
@@ -61,43 +62,58 @@ window.initFixedPriceForm = function(container) {
   }
 
   function calculatePrice() {
-    const { service, weekly, months } = selections;
+    try {
+      const { service, weekly, months } = selections;
 
-    // --- ОБНОВЛЕНИЕ СКРЫТЫХ ПОЛЕЙ ---
-    serviceInput.value = service || '';
-    weeklyInput.value = weekly || '';
-    monthsInput.value = months || '';
-    
-    // Показываем "nach Vereinbarung" только если выбран кастомный пункт
-    if ([service, weekly, months].includes("custom")) {
-      priceEl.textContent = "nach Vereinbarung";
+      // --- ОБНОВЛЕНИЕ СКРЫТЫХ ПОЛЕЙ ---
+      serviceInput.value = service || '';
+      weeklyInput.value = weekly || '';
+      monthsInput.value = months || '';
+
+      // Показываем "nach Vereinbarung" только если выбран кастомный пункт
+      if ([service, weekly, months].includes("custom")) {
+        priceEl.textContent = "nach Vereinbarung";
+        discountEl.textContent = '';
+
+        // Убираем required для полей
+        serviceInput.removeAttribute('required');
+        weeklyInput.removeAttribute('required');
+        monthsInput.removeAttribute('required');
+        return;
+      }
+
+      // Возвращаем required
+      serviceInput.setAttribute('required', 'required');
+      weeklyInput.setAttribute('required', 'required');
+      monthsInput.setAttribute('required', 'required');
+
+      // Если что-то не выбрано — показываем 0.00€
+      if (!service || !weekly || !months) {
+        priceEl.textContent = "0.00€";
+        discountEl.textContent = '';
+        return;
+      }
+
+      // Защита: если для service нет базовой цены — логируем и показываем 0
+      const unitPrice = basePrice[service];
+      if (typeof unitPrice !== 'number' || Number.isNaN(unitPrice)) {
+        console.warn('DEBUG: Unknown service price for', service);
+        priceEl.textContent = "0.00€";
+        discountEl.textContent = '';
+        return;
+      }
+
+      const total = unitPrice * weekly * months;
+      const discount = getDiscount(months);
+      const finalPrice = total - (total * discount / 100);
+
+      priceEl.textContent = `${finalPrice.toFixed(2)}€`;
+      discountEl.textContent = discount ? `zusätzlicher Rabatt ${discount}%` : '';
+    } catch (err) {
+      console.error('DEBUG_CODE: CALCULATE_PRICE_ERROR', err);
+      priceEl.textContent = '0.00€';
       discountEl.textContent = '';
-      
-      // Убираем required для полей
-      serviceInput.removeAttribute('required');
-      weeklyInput.removeAttribute('required');
-      monthsInput.removeAttribute('required');
-      return;
     }
-
-    // Возвращаем required
-    serviceInput.setAttribute('required', 'required');
-    weeklyInput.setAttribute('required', 'required');
-    monthsInput.setAttribute('required', 'required');
-
-    // Если что-то не выбрано — показываем 0.00€
-    if (!service || !weekly || !months) {
-      priceEl.textContent = "0.00€";
-      discountEl.textContent = '';
-      return;
-    }
-
-    const total = basePrice[service] * weekly * months;
-    const discount = getDiscount(months);
-    const finalPrice = total - (total * discount / 100);
-
-    priceEl.textContent = `${finalPrice.toFixed(2)}€`;
-    discountEl.textContent = discount ? `zusätzlicher Rabatt ${discount}%` : '';
   }
 
   // === EVENT DELEGATION (вместо привязки к каждому элементу) ===
@@ -154,8 +170,7 @@ window.initFixedPriceForm = function(container) {
       if (btn) btn.textContent = li.textContent.trim();
 
       if (type === 'service') {
-        const title = container.querySelector('.fixed-price__card-title');
-        if (title) title.textContent = li.textContent.trim();
+        if (titleEl) titleEl.textContent = li.textContent.trim();
         if (descriptionEl) {
           const descArr = serviceDescriptions[li.dataset.value] || serviceDescriptions[li.textContent.trim()] || [];
           descriptionEl.innerHTML = descArr.map(line => `<p>${line}</p>`).join('');
@@ -183,8 +198,7 @@ window.initFixedPriceForm = function(container) {
     if (btn) btn.textContent = li.dataset.value;
 
     if (type === 'service') {
-      const title = container.querySelector('.fixed-price__card-title');
-      if (title) title.textContent = li.dataset.value;
+      if (titleEl) titleEl.textContent = li.dataset.value;
       if (descriptionEl) {
         const descArr = serviceDescriptions[li.dataset.value] || serviceDescriptions[li.textContent.trim()] || [];
         descriptionEl.innerHTML = descArr.map(line => `<p>${line}</p>`).join('');
@@ -256,8 +270,7 @@ window.initFixedPriceForm = function(container) {
         selections.weekly = null;
         selections.months = null;
         calculatePrice();
-        const title = container.querySelector('.fixed-price__card-title');
-        if (title) title.textContent = '';
+        if (titleEl) titleEl.textContent = '';
         container.querySelectorAll('.fixed-price__dropdown li').forEach(x => x.classList.remove('active'));
         container.querySelectorAll('.fixed-price__card-btn').forEach(btn => {
           const type = btn.dataset.dropdown;
