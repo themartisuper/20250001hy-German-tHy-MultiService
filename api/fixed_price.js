@@ -127,91 +127,61 @@ function initFixedPriceForm(container) {
         if (!cardDescriptionEl) return;
         
         const isCustom = serviceKey === "custom";
-        const descriptionSource = isCustom 
-            ? CUSTOM_SERVICE_DATA.descriptions 
-            : serviceDescriptions[serviceKey] || CUSTOM_SERVICE_DATA.descriptions;
-            
-        let html = '';
-        descriptionSource.forEach(text => { html += `<p>${text}</p>`; });
-        cardDescriptionEl.innerHTML = html;
-    }
 
-    function calculatePrice() {
-        const { service, weekly, months } = selections;
-
-        // Обновление скрытых полей
-        if (serviceInput) serviceInput.value = service || '';
-        if (weeklyInput) weeklyInput.value = weekly || '';
-        if (monthsInput) monthsInput.value = months || '';
-        
-        // --- Обработка Custom/Telefonisch besprechen ---
-        const isCustom = [service, weekly, months].some(val => val === "custom");
-
-        if (isCustom) {
-            if (priceEl) priceEl.textContent = CUSTOM_SERVICE_DATA.price;
-            if (discountEl) discountEl.textContent = CUSTOM_SERVICE_DATA.discount;
-            
-            // Убираем/ставим required для валидации
-            if (serviceInput) serviceInput.toggleAttribute('required', service !== "custom");
-            if (weeklyInput) weeklyInput.toggleAttribute('required', weekly !== "custom");
-            if (monthsInput) monthsInput.toggleAttribute('required', months !== "custom");
-            
-            updateDescription("custom");
-            return;
-        }
-
-        // Возвращаем required
-        if (serviceInput) serviceInput.setAttribute('required', 'required');
-        if (weeklyInput) weeklyInput.setAttribute('required', 'required');
-        if (monthsInput) monthsInput.setAttribute('required', 'required');
-
-        if (!service || !weekly || !months || !basePrice[service]) {
-            if (priceEl) priceEl.textContent = "0.00€";
-            if (discountEl) discountEl.textContent = 'Kein Rabatt';
-            updateDescription(service);
-            return;
-        }
-
-        const pricePerUnit = basePrice[service];
-        const total = pricePerUnit * weekly * months;
-        const discount = getDiscount(months);
-        const finalPrice = total - (total * discount / 100);
-
-        if (priceEl) priceEl.textContent = `${finalPrice.toFixed(2)}€`;
-        if (discountEl) discountEl.textContent = discount ? `zusätzlicher Rabatt ${discount}%` : 'Kein Rabatt';
-        
-        updateDescription(service);
-    }
-
-    // --- ЛОГИКА DROPDOWN И ВЫБОРА (ОСТАВЛЕНА БЕЗ ИЗМЕНЕНИЙ) ---
-    // (Этот код работает корректно, так как использует form.querySelectorAll)
-    
-    // ... (ваш код для form.querySelectorAll('.fixed-price__card-btn')) ...
-    form.querySelectorAll('.fixed-price__card-btn').forEach(btn => {
-        btn.onclick = (e) => { 
-            e.stopPropagation();
-            const dropdownType = btn.dataset.dropdown;
-            const dd = form.querySelector(`.fixed-price__dropdown[data-type="${dropdownType}"]`);
-            if (dd) {
-                form.querySelectorAll('.fixed-price__dropdown.open').forEach(d => {
-                    if (d !== dd) d.classList.remove('open');
-                });
-                dd.classList.toggle('open');
+        export default async function handler(req, res) {
+            if (req.method !== 'POST') {
+                res.status(405).json({ success: false, error: 'Method Not Allowed' });
+                return;
             }
-        };
-    });
 
-    // 🚨 КЛЮЧЕВОЕ ИСПРАВЛЕНИЕ: Удаляем старый обработчик, добавляем новый
-    if (currentGlobalDropdownCloser) {
-        document.removeEventListener('click', currentGlobalDropdownCloser);
-    }
-    
-    // Создаем новый обработчик, привязанный к ТЕКУЩЕЙ форме
-    currentGlobalDropdownCloser = (e) => {
-        if (!form.contains(e.target) && !e.target.closest('.fixed-price__dropdown-wrapper') && !e.target.closest('.fixed-price__card-btn')) {
-            form.querySelectorAll('.fixed-price__dropdown.open').forEach(dd => dd.classList.remove('open'));
+            const {
+                first_name, last_name, email, phone, message,
+                street, house, address_supplement, zip, city,
+                service, weekly, months,
+                final_price, discount_info, service_details
+            } = req.body;
+
+            const MJ_PUBLIC = process.env.MJ_PUBLIC;
+            const MJ_PRIVATE = process.env.MJ_PRIVATE;
+            const EMAIL_FROM = process.env.EMAIL_FROM;
+            const EMAIL_TO = process.env.EMAIL_TO || EMAIL_FROM;
+
+            if (!MJ_PUBLIC || !MJ_PRIVATE || !EMAIL_FROM) {
+                res.status(500).json({ success: false, error: 'Mailjet credentials missing' });
+                return;
+            }
+
+            const subject = `Neue Anfrage: ${service_details}`;
+            const text = `\nNeue Anfrage von ${first_name} ${last_name}\nE-Mail: ${email}\nTelefon: ${phone}\n\nLeistung: ${service}\nPro Woche: ${weekly}\nLaufzeit: ${months}\nPreis: ${final_price}\nRabatt: ${discount_info}\n\nAdresse:\n${street} ${house}\n${address_supplement}\n${zip} ${city}\n\nNachricht:\n${message}\n`;
+
+            try {
+                const response = await fetch('https://api.mailjet.com/v3.1/send', {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': 'Basic ' + Buffer.from(`${MJ_PUBLIC}:${MJ_PRIVATE}`).toString('base64'),
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        Messages: [
+                            {
+                                From: { Email: EMAIL_FROM },
+                                To: [{ Email: EMAIL_TO }],
+                                Subject: subject,
+                                TextPart: text,
+                            }
+                        ]
+                    })
+                });
+                const result = await response.json();
+                if (response.ok && result.Messages && result.Messages[0].Status === 'success') {
+                    res.status(200).json({ success: true });
+                } else {
+                    res.status(500).json({ success: false, error: result });
+                }
+            } catch (err) {
+                res.status(500).json({ success: false, error: err.message });
+            }
         }
-    };
     document.addEventListener('click', currentGlobalDropdownCloser);
 
 
