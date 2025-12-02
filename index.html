@@ -1359,8 +1359,12 @@ document.addEventListener("DOMContentLoaded", () => {
         initMultistepLogic(form);
     };
 
-    // Инициализация на первой вкладке выполняется в client/assets/js/main.js
-    // Здесь дублировать вызов initFixedPriceForm не нужно.
+    // Безопасная инициализация первой вкладки (с защитой от дубликатов)
+    const initialContent = document.querySelector(".services-tabs__content-item.active-content");
+    if (initialContent && typeof window.initFixedPriceForm === 'function' && !window.__fixedPriceInitialized) {
+      window.__fixedPriceInitialized = true;
+      window.initFixedPriceForm(initialContent);
+    }
 });
 </script>
 
