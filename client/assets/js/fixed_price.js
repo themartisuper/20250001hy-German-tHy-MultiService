@@ -1,4 +1,5 @@
 // === ИНИЦИАЛИЗАЦИЯ ФОРМЫ С КОНТЕЙНЕРОМ ===
+import { serviceDescriptions } from './fixed_price_descriptions.js';
 window.initFixedPriceForm = function(container) {
   if (!container) return;
 
@@ -6,6 +7,7 @@ window.initFixedPriceForm = function(container) {
   const priceEl = container.querySelector('.fixed-price__card-price');
   const discountEl = container.querySelector('.fixed-price__discount');
   const form = container.querySelector('form');
+  const descriptionEl = container.querySelector('.fixed-price__card-description');
   
   if (!form || !priceEl || !discountEl) return;
 
@@ -125,9 +127,15 @@ window.initFixedPriceForm = function(container) {
         const btn = container.querySelector(`.fixed-price__card-btn[data-dropdown="${type}"]`);
         if (btn) btn.textContent = li.textContent.trim();
         
+
         if (type === 'service') {
           const title = container.querySelector('.fixed-price__card-title');
           if (title) title.textContent = li.textContent.trim();
+          // Обновляем описание
+          if (descriptionEl) {
+            const descArr = serviceDescriptions[li.dataset.value] || serviceDescriptions[li.textContent.trim()] || [];
+            descriptionEl.innerHTML = descArr.map(line => `<p>${line}</p>`).join('');
+          }
         }
 
         // Цена и скидка
@@ -151,9 +159,15 @@ window.initFixedPriceForm = function(container) {
       const btn = container.querySelector(`.fixed-price__card-btn[data-dropdown="${type}"]`);
       if (btn) btn.textContent = li.dataset.value;
 
+
       if (type === 'service') {
         const title = container.querySelector('.fixed-price__card-title');
         if (title) title.textContent = li.dataset.value;
+        // Обновляем описание
+        if (descriptionEl) {
+          const descArr = serviceDescriptions[li.dataset.value] || serviceDescriptions[li.textContent.trim()] || [];
+          descriptionEl.innerHTML = descArr.map(line => `<p>${line}</p>`).join('');
+        }
       }
 
       // ⭐ ОБЯЗАТЕЛЬНО закрываем dropdown
@@ -162,6 +176,10 @@ window.initFixedPriceForm = function(container) {
     });
   });
 
+  // При инициализации — сбрасываем описание
+  if (descriptionEl) {
+    descriptionEl.innerHTML = '';
+  }
   // === ФОРМА SUBMIT ===
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
