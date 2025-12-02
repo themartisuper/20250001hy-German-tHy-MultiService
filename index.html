@@ -1310,7 +1310,13 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             // Лёгкие доп. проверки без изменения верстки
-            if (name === 'first_name' || name === 'last_name' || name === 'city' || name === 'street') {
+            if (name === 'first_name' || name === 'last_name') {
+              if (val.length < 1) {
+                isValid = false;
+                input.setCustomValidity('Mindestens 1 Zeichen');
+                input.reportValidity();
+              }
+            } else if (name === 'city' || name === 'street') {
               if (val.length < 2) {
                 isValid = false;
                 input.setCustomValidity('Mindestens 2 Zeichen');
