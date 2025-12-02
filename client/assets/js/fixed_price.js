@@ -6,10 +6,17 @@ window.initFixedPriceForm = function(container) {
   // Ссылки на элементы ВНУТРИ контейнера
   const priceEl = container.querySelector('.fixed-price__card-price');
   const discountEl = container.querySelector('.fixed-price__discount');
-  const form = container.querySelector('form');
+  let form = container.querySelector('form');
   const descriptionEl = container.querySelector('.fixed-price__card-description');
   
   if (!form || !priceEl || !discountEl) return;
+
+  // КРИТИЧЕСКО: Удаляем форму и пересоздаём её, чтобы очистить все обработчики
+  // Это предотвращает дублирование listeners при переключении вкладок
+  const formParent = form.parentNode;
+  const clonedForm = form.cloneNode(true);
+  formParent.replaceChild(clonedForm, form);
+  form = clonedForm;
 
   // Ссылки на скрытые поля
   const serviceInput = form.querySelector('[name="service"]');
