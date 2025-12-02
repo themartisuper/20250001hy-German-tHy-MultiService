@@ -1,9 +1,9 @@
-// === ИНИЦИАЛИЗАЦИЯ ФОРМЫ С КОНТЕЙНЕРОМ (V2 - Event Delegation) ===
+// === ИНИЦИАЛИЗАЦИЯ ФОРМЫ С КОНТЕЙНЕРОМ (V3 - Form-scoped handlers) ===
 import { serviceDescriptions } from './fixed_price_descriptions.js';
 
 window.initFixedPriceForm = function(container) {
   if (!container) return;
-  console.log('DEBUG: initFixedPriceForm called', { containerClass: container.className, containerKey: container.dataset.contentKey });
+  console.log('DEBUG: initFixedPriceForm called', { containerClass: container.className });
 
   // Ссылки на элементы ВНУТРИ контейнера
   const priceEl = container.querySelector('.fixed-price__card-price');
@@ -18,9 +18,7 @@ window.initFixedPriceForm = function(container) {
   }
   console.log('DEBUG: All elements found, proceeding with init');
 
-  // ВАЖНО: Каждый раз при инициализации (переключение вкладок) удаляем форму
-  // и пересоздаём её, чтобы очистить ВСЕ обработчики
-  // Это полностью решает проблему дублирования listeners
+  // КРИТИЧЕСКИ: Удаляем форму и пересоздаём её, чтобы очистить ВСЕ обработчики
   const formParent = form.parentNode;
   const formClone = form.cloneNode(true);
   formParent.replaceChild(formClone, form);
@@ -116,10 +114,11 @@ window.initFixedPriceForm = function(container) {
     }
   }
 
-  // === EVENT DELEGATION (вместо привязки к каждому элементу) ===
+  // === ПРИВЯЗЫВАЕМ ОБРАБОТЧИКИ К ФОРМЕ (не к контейнеру!) ===
+  // Это гарантирует, что обработчики удалятся при клонировании формы
   
   // 1. Клик на кнопку dropdown'а
-  container.addEventListener('click', (e) => {
+  form.addEventListener('click', (e) => {
     const btn = e.target.closest('.fixed-price__card-btn');
     if (!btn) return;
     
@@ -127,30 +126,30 @@ window.initFixedPriceForm = function(container) {
     const dropdownType = btn.dataset.dropdown;
     console.log('DEBUG: Dropdown button clicked', { dropdownType });
     
-    const dd = container.querySelector(`.fixed-price__dropdown[data-type="${dropdownType}"]`);
+    const dd = form.querySelector(`.fixed-price__dropdown[data-type="${dropdownType}"]`);
     if (!dd) {
       console.error('DEBUG: Dropdown not found', { dropdownType });
       return;
     }
 
     // Закрываем все другие
-    container.querySelectorAll('.fixed-price__dropdown').forEach(d => {
+    form.querySelectorAll('.fixed-price__dropdown').forEach(d => {
       if (d !== dd) d.classList.remove('open');
     });
     dd.classList.toggle('open');
     console.log('DEBUG: Dropdown toggled', { dropdownType, isOpen: dd.classList.contains('open') });
   });
 
-  // 2. Клик вне dropdown'а — закрываем всё
-  document.addEventListener('click', (e) => {
-    // Если клик не внутри контейнера — закрываем dropdown'ы
-    if (!container.contains(e.target)) {
-      container.querySelectorAll('.fixed-price__dropdown').forEach(dd => dd.classList.remove('open'));
+  // 2. Клик вне dropdown'а — закрываем всё (на document, но проверяем что клик не внутри формы)
+  const closeDropdowns = (e) => {
+    if (!form.contains(e.target)) {
+      form.querySelectorAll('.fixed-price__dropdown').forEach(dd => dd.classList.remove('open'));
     }
-  });
+  };
+  document.addEventListener('click', closeDropdowns);
 
-  // 3. Клик на элемент dropdown'а (li)
-  container.addEventListener('click', (e) => {
+  // 3. Клик на элемент dropdown'а (li) — привязываем к форме
+  form.addEventListener('click', (e) => {
     const li = e.target.closest('.fixed-price__dropdown li');
     if (!li) return;
 
@@ -166,7 +165,7 @@ window.initFixedPriceForm = function(container) {
     if (isCustom) {
       selections[type] = "custom";
 
-      const btn = container.querySelector(`.fixed-price__card-btn[data-dropdown="${type}"]`);
+      const btn = form.querySelector(`.fixed-price__card-btn[data-dropdown="${type}"]`);
       if (btn) btn.textContent = li.textContent.trim();
 
       if (type === 'service') {
@@ -194,7 +193,7 @@ window.initFixedPriceForm = function(container) {
     dropdown.querySelectorAll('li').forEach(x => x.classList.remove('active'));
     li.classList.add('active');
 
-    const btn = container.querySelector(`.fixed-price__card-btn[data-dropdown="${type}"]`);
+    const btn = form.querySelector(`.fixed-price__card-btn[data-dropdown="${type}"]`);
     if (btn) btn.textContent = li.dataset.value;
 
     if (type === 'service') {
@@ -259,6 +258,11 @@ window.initFixedPriceForm = function(container) {
       } catch (jsonErr) {
         console.error('DEBUG_CODE: INVALID_JSON_RESPONSE', { err: jsonErr });
         alert('❌ Ein ungültiges Server-Antwortformat wurde empfangen. (CODE: INVALID_JSON_RESPONSE)');
+        isSubmitting = false;
+        if (sendBtn) {
+          sendBtn.disabled = false;
+          sendBtn.textContent = 'Anfrage absenden';
+        }
         return;
       }
 
@@ -271,8 +275,8 @@ window.initFixedPriceForm = function(container) {
         selections.months = null;
         calculatePrice();
         if (titleEl) titleEl.textContent = '';
-        container.querySelectorAll('.fixed-price__dropdown li').forEach(x => x.classList.remove('active'));
-        container.querySelectorAll('.fixed-price__card-btn').forEach(btn => {
+        form.querySelectorAll('.fixed-price__dropdown li').forEach(x => x.classList.remove('active'));
+        form.querySelectorAll('.fixed-price__card-btn').forEach(btn => {
           const type = btn.dataset.dropdown;
           if (type === 'service') btn.textContent = 'Auswählen';
           else if (type === 'weekly') btn.textContent = 'pro Woche';
