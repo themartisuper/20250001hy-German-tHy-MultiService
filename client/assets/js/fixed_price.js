@@ -5,18 +5,13 @@ window.initFixedPriceForm = function(container) {
   if (!container) return;
   console.log('DEBUG: initFixedPriceForm called', { containerClass: container.className });
 
-  // Ссылки на элементы ВНУТРИ контейнера
-  const priceEl = container.querySelector('.fixed-price__card-price');
-  const discountEl = container.querySelector('.fixed-price__discount');
+  // Найдём форму для клонирования
   let form = container.querySelector('form');
-  const descriptionEl = container.querySelector('.fixed-price__card-description');
-  const titleEl = container.querySelector('.fixed-price__card-title') || container.querySelector('.fixed-price__card-tile');
   
-  if (!form || !priceEl || !discountEl) {
-    console.error('DEBUG: Missing required elements', { form: !!form, priceEl: !!priceEl, discountEl: !!discountEl });
+  if (!form) {
+    console.error('DEBUG: Form not found in container');
     return;
   }
-  console.log('DEBUG: All elements found, proceeding with init');
 
   // КРИТИЧЕСКИ: Удаляем форму и пересоздаём её, чтобы очистить ВСЕ обработчики
   const formParent = form.parentNode;
@@ -24,9 +19,20 @@ window.initFixedPriceForm = function(container) {
   formParent.replaceChild(formClone, form);
   form = formClone;
 
+  // ПОСЛЕ клонирования ищем все элементы внутри НОВОЙ формы
+  const priceEl = form.querySelector('.fixed-price__card-price');
+  const discountEl = form.querySelector('.fixed-price__discount');
+  const descriptionEl = form.querySelector('.fixed-price__card-description');
+  const titleEl = form.querySelector('.fixed-price__card-title') || form.querySelector('.fixed-price__card-tile');
   const serviceInput = form.querySelector('[name="service"]');
   const weeklyInput = form.querySelector('[name="weekly"]');
   const monthsInput = form.querySelector('[name="months"]');
+
+  if (!priceEl || !discountEl) {
+    console.error('DEBUG: Missing required elements after cloning', { priceEl: !!priceEl, discountEl: !!discountEl });
+    return;
+  }
+  console.log('DEBUG: All elements found in cloned form, proceeding with init');
 
   // Локальное состояние для этой формы
   const selections = { service: null, weekly: null, months: null };
