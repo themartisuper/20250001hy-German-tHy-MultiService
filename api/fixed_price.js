@@ -156,7 +156,9 @@ German tHÿ MultiService © ${now.getFullYear()}
         Messages: [
           {
             From: { Email: EMAIL_FROM, Name: 'Pauschal Price Formular' },
-            ReplyTo: { Email: body.email || EMAIL_FROM, Name: `${body.first_name} ${body.last_name}` },
+            // Mailjet kann ReplyTo auf beliebige Domains zulassen, aber bei manchen Setups
+            // führt это к 500. Делаем безопасный фоллбэк на верифицированный EMAIL_FROM.
+            ReplyTo: { Email: (EMAIL_FROM || body.email), Name: `${body.first_name || ''} ${body.last_name || ''}`.trim() },
             To: [{ Email: EMAIL_TO }],
             Subject: subject,
             HTMLPart,
@@ -167,7 +169,10 @@ German tHÿ MultiService © ${now.getFullYear()}
     });
 
     const data = await result.json();
-    if (!result.ok) return res.status(500).json({ error: 'Email send failed', mailjet: data });
+    if (!result.ok) {
+      console.error('MAILJET_SEND_ERROR', { status: result.status, statusText: result.statusText, data });
+      return res.status(500).json({ error: 'MAILJET_SEND_500', status: result.status, statusText: result.statusText, mailjet: data });
+    }
     return res.status(200).json({ success: true });
   } catch (e) {
     return res.status(500).json({ error: 'Server error', details: e.message });
