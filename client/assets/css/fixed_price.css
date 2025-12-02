@@ -35,6 +35,7 @@
 }
 
 .fixed-price__text-container {
+  align-self: center;
   flex: 1 1 300px;
   max-width: 400px;
 }
