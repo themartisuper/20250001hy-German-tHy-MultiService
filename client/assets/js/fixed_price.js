@@ -70,9 +70,10 @@ window.initFixedPriceForm = function(container) {
     weeklyInput.setAttribute('required', 'required');
     monthsInput.setAttribute('required', 'required');
 
-    // Если что-то не выбрано — скрываем цену
+
+    // Если что-то не выбрано — показываем 0.00€
     if (!service || !weekly || !months) {
-      priceEl.textContent = "";
+      priceEl.textContent = "0.00€";
       discountEl.textContent = '';
       return;
     }
