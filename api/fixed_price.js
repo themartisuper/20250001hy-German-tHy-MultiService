@@ -21,6 +21,7 @@ export default async function handler(req, res) {
     <html>
     <head>
       <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f4f4; margin: 0; padding: 0; }
         .container { max-width: 600px; margin: 20px auto; background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
@@ -32,11 +33,27 @@ export default async function handler(req, res) {
         .block-title { font-size: 16px; font-weight: 600; color: #667eea; margin: 0 0 15px 0; text-transform: uppercase; letter-spacing: 0.5px; }
         .field { margin-bottom: 12px; display: flex; }
         .field-label { font-weight: 600; color: #333; min-width: 140px; }
-        .field-value { color: #555; }
+        .field-value { color: #555; word-break: break-word; }
         .price-highlight { background-color: #f0f4ff; padding: 15px; border-radius: 6px; margin-top: 10px; border-left: 4px solid #667eea; }
         .price-highlight .field { margin-bottom: 8px; }
-        .message-box { background-color: #fffbf0; padding: 15px; border-radius: 6px; border-left: 4px solid #ffa726; margin-top: 10px; }
+        .message-box { background-color: #fffbf0; padding: 15px; border-radius: 6px; border-left: 4px solid #ffa726; margin-top: 10px; word-break: break-word; }
         .footer { background-color: #f9f9f9; padding: 20px; text-align: center; font-size: 12px; color: #999; }
+        
+        /* Мобильная оптимизация */
+        @media only screen and (max-width: 480px) {
+          .container { margin: 10px; border-radius: 4px; }
+          .header { padding: 20px 15px; }
+          .header h1 { font-size: 20px; }
+          .header p { font-size: 12px; }
+          .block { padding: 20px 15px; }
+          .block-title { font-size: 14px; margin-bottom: 12px; }
+          .field { flex-direction: column; margin-bottom: 15px; }
+          .field-label { min-width: auto; margin-bottom: 4px; font-size: 14px; }
+          .field-value { font-size: 14px; padding-left: 0; }
+          .price-highlight { padding: 12px; }
+          .message-box { padding: 12px; font-size: 14px; }
+          .footer { padding: 15px; font-size: 11px; }
+        }
       </style>
     </head>
     <body>
