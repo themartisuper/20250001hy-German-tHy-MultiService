@@ -1359,12 +1359,8 @@ document.addEventListener("DOMContentLoaded", () => {
         initMultistepLogic(form);
     };
 
-    // При первой загрузке страницы, запускаем логику сразу (для первой активной вкладки)
-    const initialContent = document.querySelector(".services-tabs__content-item.active-content");
-    if (initialContent) {
-        // Вызываем объединенную initFixedPriceForm
-        window.initFixedPriceForm(initialContent);
-    }
+    // Инициализация на первой вкладке выполняется в client/assets/js/main.js
+    // Здесь дублировать вызов initFixedPriceForm не нужно.
 });
 </script>
 
@@ -1388,3 +1384,4 @@ document.querySelectorAll('.card__inner').forEach(card => {
 
 </body>
 </html>
+
