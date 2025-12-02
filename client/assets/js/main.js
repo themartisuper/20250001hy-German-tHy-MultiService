@@ -339,10 +339,5 @@ document.addEventListener("DOMContentLoaded", () => {
         initFixedPriceForm(initialActiveContent);
     }
 
-    // При первой загрузке страницы, запускаем логику сразу (для первой активной вкладки)
-    const initialContent = document.querySelector(".services-tabs__content-item.active-content");
-    if (initialContent) {
-        const initialForm = initialContent.querySelector('form');
-        initMultistepLogic(initialForm); // Запускаем мультишаговую логику
-    }
-});
+
+    }); // �������� ���������� DOMContentLoaded
