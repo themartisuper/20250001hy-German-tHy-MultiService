@@ -1322,18 +1322,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 input.setCustomValidity('Bitte 5-stellige PLZ eingeben');
                 input.reportValidity();
               }
-            } else if (name === 'phone') {
-              if (!/^[+0-9 ()-]{7,20}$/.test(val)) {
-                isValid = false;
-                input.setCustomValidity('Bitte gültige Telefonnummer eingeben');
-                input.reportValidity();
-              }
-            } else if (name === 'email') {
-              // type="email" уже проверяет формат, но убедимся, что браузер подсказку покажет сразу
-              if (typeof input.checkValidity === 'function' && !input.checkValidity()) {
-                isValid = false;
-                input.reportValidity();
-              }
             }
           });
           return isValid;
