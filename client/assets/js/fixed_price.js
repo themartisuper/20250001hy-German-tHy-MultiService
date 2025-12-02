@@ -72,7 +72,6 @@ window.initFixedPriceForm = function(container) {
     weeklyInput.setAttribute('required', 'required');
     monthsInput.setAttribute('required', 'required');
 
-
     // Если что-то не выбрано — показываем 0.00€
     if (!service || !weekly || !months) {
       priceEl.textContent = "0.00€";
@@ -113,7 +112,7 @@ window.initFixedPriceForm = function(container) {
   // === SELECTION ЛОГИКА ===
   container.querySelectorAll('.fixed-price__dropdown li').forEach(li => {
     li.addEventListener('click', (e) => {
-      e.stopPropagation(); // Останавливаем всплытие события
+      e.stopPropagation();
       const dropdown = li.closest('.fixed-price__dropdown');
       if (!dropdown) return;
       
@@ -123,26 +122,21 @@ window.initFixedPriceForm = function(container) {
       if (isCustom) {
         selections[type] = "custom";
 
-        // Кнопка и заголовок
         const btn = container.querySelector(`.fixed-price__card-btn[data-dropdown="${type}"]`);
         if (btn) btn.textContent = li.textContent.trim();
-        
 
         if (type === 'service') {
           const title = container.querySelector('.fixed-price__card-title');
           if (title) title.textContent = li.textContent.trim();
-          // Обновляем описание
           if (descriptionEl) {
             const descArr = serviceDescriptions[li.dataset.value] || serviceDescriptions[li.textContent.trim()] || [];
             descriptionEl.innerHTML = descArr.map(line => `<p>${line}</p>`).join('');
           }
         }
 
-        // Цена и скидка
         priceEl.textContent = "nach Vereinbarung";
         discountEl.textContent = '';
 
-        // ⭐ ОБЯЗАТЕЛЬНО закрываем dropdown
         dropdown.classList.remove('open');
         calculatePrice();
         return;
@@ -159,18 +153,15 @@ window.initFixedPriceForm = function(container) {
       const btn = container.querySelector(`.fixed-price__card-btn[data-dropdown="${type}"]`);
       if (btn) btn.textContent = li.dataset.value;
 
-
       if (type === 'service') {
         const title = container.querySelector('.fixed-price__card-title');
         if (title) title.textContent = li.dataset.value;
-        // Обновляем описание
         if (descriptionEl) {
           const descArr = serviceDescriptions[li.dataset.value] || serviceDescriptions[li.textContent.trim()] || [];
           descriptionEl.innerHTML = descArr.map(line => `<p>${line}</p>`).join('');
         }
       }
 
-      // ⭐ ОБЯЗАТЕЛЬНО закрываем dropdown
       dropdown.classList.remove('open');
       calculatePrice();
     });
@@ -180,12 +171,13 @@ window.initFixedPriceForm = function(container) {
   if (descriptionEl) {
     descriptionEl.innerHTML = '';
   }
-  // === ФОРМА SUBMIT ===
-  let isSubmitting = false; // Prevent duplicate submissions
+
+  // === ФОРМА SUBMIT (ЕДИНСТВЕННЫЙ ОБРАБОТЧИК) ===
+  let isSubmitting = false;
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     
-    if (isSubmitting) return; // Already submitting, ignore
+    if (isSubmitting) return;
     isSubmitting = true;
 
     const sendBtn = form.querySelector('.btn-submit');
@@ -194,14 +186,12 @@ window.initFixedPriceForm = function(container) {
       sendBtn.textContent = 'Senden...';
     }
 
-    // Собираем данные
     const formData = new FormData(form);
     const data = Object.fromEntries(formData.entries());
 
     data.final_price = priceEl.textContent;
     data.discount_info = discountEl.textContent;
 
-    // Деталь услуги для письма
     if ([data.service, data.weekly, data.months].includes('custom')) {
       data.service_details = 'Telefonisch besprechen (Anfrage Custom-Preis)';
     } else {
@@ -229,7 +219,6 @@ window.initFixedPriceForm = function(container) {
         return;
       }
 
-      // Map common server responses to diagnostic codes
       if (response.ok && result && result.success) {
         console.info('DEBUG_CODE: SUCCESS_200', result);
         alert('✅ Anfrage erfolgreich gesendet! Wir melden uns in Kürze. (CODE: SUCCESS_200)');
@@ -247,7 +236,6 @@ window.initFixedPriceForm = function(container) {
           else if (type === 'months') btn.textContent = 'Monate';
         });
       } else {
-        // Not OK — determine code
         const codeInfo = { httpStatus: response.status, serverError: result && result.error, missing: result && result.missing };
         if (response.status === 400 && result && result.missing) {
           console.error('DEBUG_CODE: VALIDATION_400', codeInfo);
@@ -265,7 +253,6 @@ window.initFixedPriceForm = function(container) {
       }
 
     } catch (error) {
-      // Network-level errors (DNS, CORS blocking, TLS, offline)
       console.error('DEBUG_CODE: NETWORK_ERROR', error);
       alert('❌ Ein Verbindungsfehler ist aufgetreten. (CODE: NETWORK_ERROR)');
     } finally {
@@ -277,78 +264,5 @@ window.initFixedPriceForm = function(container) {
     }
   });
 
-  // Начальная инициализация
   calculatePrice();
-};// ---------------------------------------------
-// ЛОГИКА ОТПРАВКИ ФОРМЫ (SUBMIT)
-// ---------------------------------------------
-form.addEventListener('submit', async (e) => {
-  e.preventDefault(); // Предотвращаем стандартную отправку формы
-
-  // Блокируем кнопку
-  const sendBtn = document.querySelector('.fixed-price__card-btn-send');
-  if (sendBtn) {
-    sendBtn.disabled = true;
-    sendBtn.textContent = 'Senden...';
-  }
-
-  // Собираем данные формы
-  const formData = new FormData(form);
-  const data = Object.fromEntries(formData.entries()); // Преобразуем FormData в JSON
-
-  // Добавляем итоговую цену и скидку в данные для отправки (для письма)
-  data.final_price = priceEl.textContent;
-  data.discount_info = discountEl.textContent;
-
-  // Формирование деталей услуги для письма
-  if (data.service === 'Telefonisch besprechen') { 
-    data.service_details = 'Telefonisch besprechen (Anfrage Custom-Preis)';
-  } else {
-    // Используем 'service' из data, который был обновлен из скрытого поля
-    const weeklyValue = document.querySelector(`.fixed-price__dropdown li[data-value="${data.weekly} mal"]`)?.textContent.trim() || data.weekly;
-    const monthsValue = document.querySelector(`.fixed-price__dropdown li[data-value="${data.months} Monate"]`)?.textContent.trim() || data.months;
-    data.service_details = `${data.service} (${weeklyValue} pro Woche, ${monthsValue}) - Preis: ${data.final_price}`;
-  }
-
-
-  try {
-    const response = await fetch('/api/contact', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    });
-
-    const result = await response.json();
-
-    if (response.ok) {
-      // Успех: Выводим сообщение и очищаем форму
-      alert('✅ Anfrage erfolgreich gesendet! Wir melden uns in Kürze.');
-      form.reset(); 
-      // Сброс JS-состояния и визуальных элементов
-      selections.service = null; selections.weekly = null; selections.months = null;
-      calculatePrice(); 
-      document.querySelector('.fixed-price__card-title').textContent = '';
-      document.querySelectorAll('.fixed-price__dropdown li').forEach(x => x.classList.remove('active'));
-      document.querySelector('button[data-dropdown="service"]').textContent = 'Auswählen';
-      document.querySelector('button[data-dropdown="weekly"]').textContent = 'pro Woche';
-      document.querySelector('button[data-dropdown="months"]').textContent = 'Monate';
-    } else {
-      // Ошибка
-      console.error('Fehler beim Senden:', result);
-      const missingFields = result.missing ? ` (${result.missing.join(', ')})` : '';
-      alert(`❌ Fehler beim Senden der Anfrage. Bitte überprüfen Sie die Eingaben. Fehlende поля: ${missingFields}`);
-    }
-
-  } catch (error) {
-    console.error('Netzwerk- oder Serverfehler:', error);
-    alert('❌ Ein kritischer Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.');
-  } finally {
-    // Разблокируем кнопку
-    if (sendBtn) {
-      sendBtn.disabled = false;
-      sendBtn.textContent = 'Anfrage absenden';
-    }
-  }
-});
+};
