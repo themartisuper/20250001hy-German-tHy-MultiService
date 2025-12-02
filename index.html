@@ -1275,27 +1275,68 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         const validateStep = (index) => {
-            const activeStep = steps[index];
-            const inputs = activeStep.querySelectorAll("input:required, textarea:required, .input-validator[required]");
-            let isValid = true;
+          const activeStep = steps[index];
+          const inputs = activeStep.querySelectorAll("input:required, textarea:required, .input-validator[required]");
+          let isValid = true;
 
-            inputs.forEach(input => {
-                if (!input.value) {
-                    isValid = false;
-                    input.reportValidity();
-                } 
-                
-                // Визуальная ошибка для кнопок-выпадалок
-                if (input.classList.contains('input-validator') && !input.value) {
-                    const type = input.id.replace('-value', '');
-                    const btn = form.querySelector(`.fixed-price__card-btn[data-dropdown="${type}"]`);
-                    if(btn) {
-                        btn.style.borderColor = "red";
-                        setTimeout(() => btn.style.borderColor = "#ccc", 2000);
-                    }
+          inputs.forEach(input => {
+            // Сбрасываем предыдущие сообщения
+            if (typeof input.setCustomValidity === 'function') input.setCustomValidity('');
+
+            const name = (input.getAttribute('name') || '').toLowerCase();
+            const val = (input.value || '').trim();
+
+            // Блок выпадающих скрытых полей (service/weekly/months)
+            if (input.classList.contains('input-validator')) {
+              if (!val) {
+                isValid = false;
+                if (typeof input.setCustomValidity === 'function') input.setCustomValidity('Bitte wählen');
+                input.reportValidity();
+                const type = input.id.replace('-value', '');
+                const btn = form.querySelector(`.fixed-price__card-btn[data-dropdown="${type}"]`);
+                if (btn) {
+                  btn.style.borderColor = 'red';
+                  setTimeout(() => btn.style.borderColor = '#ccc', 2000);
                 }
-            });
-            return isValid;
+              }
+              return; // переходим к следующему input
+            }
+
+            // Общая проверка на пустоту
+            if (!val) {
+              isValid = false;
+              input.reportValidity();
+              return;
+            }
+
+            // Лёгкие доп. проверки без изменения верстки
+            if (name === 'first_name' || name === 'last_name' || name === 'city' || name === 'street') {
+              if (val.length < 2) {
+                isValid = false;
+                input.setCustomValidity('Mindestens 2 Zeichen');
+                input.reportValidity();
+              }
+            } else if (name === 'zip') {
+              if (!/^\d{5}$/.test(val)) {
+                isValid = false;
+                input.setCustomValidity('Bitte 5-stellige PLZ eingeben');
+                input.reportValidity();
+              }
+            } else if (name === 'phone') {
+              if (!/^[+0-9 ()-]{7,20}$/.test(val)) {
+                isValid = false;
+                input.setCustomValidity('Bitte gültige Telefonnummer eingeben');
+                input.reportValidity();
+              }
+            } else if (name === 'email') {
+              // type="email" уже проверяет формат, но убедимся, что браузер подсказку покажет сразу
+              if (typeof input.checkValidity === 'function' && !input.checkValidity()) {
+                isValid = false;
+                input.reportValidity();
+              }
+            }
+          });
+          return isValid;
         };
 
         const updateStep = () => {
