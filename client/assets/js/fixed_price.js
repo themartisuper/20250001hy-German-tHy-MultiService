@@ -1,141 +1,236 @@
-// ---------------------------------------------
-// ИНИЦИАЛИЗАЦИЯ И СКРЫТЫЕ ПОЛЯ
-// ---------------------------------------------
-const priceEl = document.querySelector('.fixed-price__card-price');
-const discountEl = document.querySelector('.fixed-price__discount');
-const form = document.getElementById('fixed-price-form'); // Ссылка на форму
+// === ИНИЦИАЛИЗАЦИЯ ФОРМЫ С КОНТЕЙНЕРОМ ===
+window.initFixedPriceForm = function(container) {
+  if (!container) return;
 
-// Ссылки на скрытые поля, добавленные в HTML
-const serviceInput = document.getElementById('service-value');
-const weeklyInput = document.getElementById('weekly-value');
-const monthsInput = document.getElementById('months-value');
+  // Ссылки на элементы ВНУТРИ контейнера
+  const priceEl = container.querySelector('.fixed-price__card-price');
+  const discountEl = container.querySelector('.fixed-price__discount');
+  const form = container.querySelector('form');
+  
+  if (!form || !priceEl || !discountEl) return;
 
-const selections = { service: null, weekly: null, months: null };
-const basePrice = {
-  "Fahrzeugüberführung": 30,
-  "Kurierdienste": 25,
-  "Lieferant": 28,
-  "Möbeltransport / Umzugshilfe": 40,
-  "Tragehilfe": 22,
-  "Zum Flughafen hin-zurück fahren": 35
-};
+  // Ссылки на скрытые поля
+  const serviceInput = form.querySelector('[name="service"]');
+  const weeklyInput = form.querySelector('[name="weekly"]');
+  const monthsInput = form.querySelector('[name="months"]');
 
-function getDiscount(months) {
-  if (months >= 12) return 20;
-  if (months >= 6) return 10;
-  if (months >= 3) return 5;
-  return 0;
-}
+  // Локальное состояние для этой формы
+  const selections = { service: null, weekly: null, months: null };
+  
+  const basePrice = {
+    "Fahrzeugüberführung": 30,
+    "Kurierdienste": 25,
+    "Lieferant": 28,
+    "Möbeltransport / Umzugshilfe": 40,
+    "Tragehilfe": 22,
+    "Zum Flughafen hin-zurück fahren": 35,
+    "Rasenpflege": 20,
+    "Heckenschnitt": 25,
+    "Reparaturen": 30,
+    "Reinigungsdienste": 22,
+    "Catering": 35,
+    "Haushaltshilfe": 18,
+    "Kinderbetreuung": 15,
+    "Eventplanung": 40,
+    "Standardreinigung": 20,
+    "Tiefenreinigung": 35,
+    "Büroreinigung": 25,
+    "Fensterreinigung": 15
+  };
 
-function calculatePrice() {
-  const { service, weekly, months } = selections;
+  function getDiscount(months) {
+    if (months >= 12) return 20;
+    if (months >= 6) return 10;
+    if (months >= 3) return 5;
+    return 0;
+  }
 
-  // --- ОБНОВЛЕНИЕ СКРЫТЫХ ПОЛЕЙ ---
-  serviceInput.value = service || '';
-  weeklyInput.value = weekly || '';
-  monthsInput.value = months || '';
-  
-  // Показываем "nach Vereinbarung" только если выбран кастомный пункт
-  if ([service, weekly, months].includes("custom")) {
-    priceEl.textContent = "nach Vereinbarung";
-    discountEl.textContent = '';
-    
-    // Убираем required для полей, если выбран кастомный пункт
-    serviceInput.removeAttribute('required');
-    weeklyInput.removeAttribute('required');
-    monthsInput.removeAttribute('required');
-    return;
-  }
+  function calculatePrice() {
+    const { service, weekly, months } = selections;
 
-  // Возвращаем required, если это не кастомный выбор
-  serviceInput.setAttribute('required', 'required');
-  weeklyInput.setAttribute('required', 'required');
-  monthsInput.setAttribute('required', 'required');
+    // --- ОБНОВЛЕНИЕ СКРЫТЫХ ПОЛЕЙ ---
+    serviceInput.value = service || '';
+    weeklyInput.value = weekly || '';
+    monthsInput.value = months || '';
+    
+    // Показываем "nach Vereinbarung" только если выбран кастомный пункт
+    if ([service, weekly, months].includes("custom")) {
+      priceEl.textContent = "nach Vereinbarung";
+      discountEl.textContent = '';
+      
+      // Убираем required для полей
+      serviceInput.removeAttribute('required');
+      weeklyInput.removeAttribute('required');
+      monthsInput.removeAttribute('required');
+      return;
+    }
 
-  // Если что-то не выбрано — просто скрываем цену
-  if (!service || !weekly || !months) {
-    priceEl.textContent = "";
-    discountEl.textContent = '';
-    return;
-  }
+    // Возвращаем required
+    serviceInput.setAttribute('required', 'required');
+    weeklyInput.setAttribute('required', 'required');
+    monthsInput.setAttribute('required', 'required');
 
-  const total = basePrice[service] * weekly * months;
-  const discount = getDiscount(months);
-  const finalPrice = total - (total * discount / 100);
+    // Если что-то не выбрано — скрываем цену
+    if (!service || !weekly || !months) {
+      priceEl.textContent = "";
+      discountEl.textContent = '';
+      return;
+    }
 
-  priceEl.textContent = `${finalPrice.toFixed(2)}€`;
-  discountEl.textContent = discount ? `zusätzlicher Rabatt ${discount}%` : '';
-}
+    const total = basePrice[service] * weekly * months;
+    const discount = getDiscount(months);
+    const finalPrice = total - (total * discount / 100);
 
-// ---------------------------------------------
-// DROPDOWN
-// ---------------------------------------------
-document.querySelectorAll('.fixed-price__card-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const dropdownType = btn.dataset.dropdown;
-    const dd = document.querySelector(`.fixed-price__dropdown[data-type="${dropdownType}"]`);
+    priceEl.textContent = `${finalPrice.toFixed(2)}€`;
+    discountEl.textContent = discount ? `zusätzlicher Rabatt ${discount}%` : '';
+  }
 
-    document.querySelectorAll('.fixed-price__dropdown').forEach(d => {
-      if (d !== dd) d.classList.remove('open');
-    });
-    dd.classList.toggle('open');
-  });
-});
+  // === DROPDOWN ЛОГИКА ===
+  container.querySelectorAll('.fixed-price__card-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const dropdownType = btn.dataset.dropdown;
+      const dd = container.querySelector(`.fixed-price__dropdown[data-type="${dropdownType}"]`);
 
-// Закрытие при клике вне
-document.addEventListener('click', (e) => {
-  if (!e.target.closest('.fixed-price__card-options')) {
-    document.querySelectorAll('.fixed-price__dropdown').forEach(dd => dd.classList.remove('open'));
-  }
-});
+      // Закрываем все другие
+      container.querySelectorAll('.fixed-price__dropdown').forEach(d => {
+        if (d !== dd) d.classList.remove('open');
+      });
+      dd.classList.toggle('open');
+    });
+  });
 
-// ---------------------------------------------
-// SELECTION
-// ---------------------------------------------
-document.querySelectorAll('.fixed-price__dropdown li').forEach(li => {
-  li.addEventListener('click', () => {
-    const dropdown = li.closest('.fixed-price__dropdown');
-    const type = dropdown.dataset.type;
-    const isCustom = li.dataset.custom === "true";
+  // Закрытие при клике вне (только внутри контейнера)
+  container.addEventListener('click', (e) => {
+    if (!e.target.closest('.fixed-price__card-options')) {
+      container.querySelectorAll('.fixed-price__dropdown').forEach(dd => dd.classList.remove('open'));
+    }
+  });
 
-    if (isCustom) {
-      selections[type] = "custom";
+  // === SELECTION ЛОГИКА ===
+  container.querySelectorAll('.fixed-price__dropdown li').forEach(li => {
+    li.addEventListener('click', (e) => {
+      e.stopPropagation(); // Останавливаем всплытие события
+      const dropdown = li.closest('.fixed-price__dropdown');
+      if (!dropdown) return;
+      
+      const type = dropdown.dataset.type;
+      const isCustom = li.dataset.custom === "true";
 
-      // Кнопка и заголовок
-      document.querySelector(`.fixed-price__card-btn[data-dropdown="${type}"]`).textContent = li.textContent.trim();
-      if (type === 'service') {
-        document.querySelector('.fixed-price__card-title').textContent = li.textContent.trim();
-      }
+      if (isCustom) {
+        selections[type] = "custom";
 
-      // Цена и скидка скрыты только для кастомного пункта
-      priceEl.textContent = "nach Vereinbarung";
-      discountEl.textContent = '';
+        // Кнопка и заголовок
+        const btn = container.querySelector(`.fixed-price__card-btn[data-dropdown="${type}"]`);
+        if (btn) btn.textContent = li.textContent.trim();
+        
+        if (type === 'service') {
+          const title = container.querySelector('.fixed-price__card-title');
+          if (title) title.textContent = li.textContent.trim();
+        }
 
-      dropdown.classList.remove('open');
-      calculatePrice(); // <-- ВЫЗОВ ДЛЯ ОБНОВЛЕНИЯ СКРЫТЫХ ПОЛЕЙ
-      return;
-    }
+        // Цена и скидка
+        priceEl.textContent = "nach Vereinbarung";
+        discountEl.textContent = '';
 
-    // --- обычная логика ---
-    selections[type] = type === 'service'
-      ? li.dataset.value
-      : parseInt(li.dataset.value.match(/\d+/)[0], 10);
+        // ⭐ ОБЯЗАТЕЛЬНО закрываем dropdown
+        dropdown.classList.remove('open');
+        calculatePrice();
+        return;
+      }
 
-    dropdown.querySelectorAll('li').forEach(x => x.classList.remove('active'));
-    li.classList.add('active');
+      // --- обычная логика ---
+      selections[type] = type === 'service'
+        ? li.dataset.value
+        : parseInt(li.dataset.value.match(/\d+/)[0], 10);
 
-    document.querySelector(`.fixed-price__card-btn[data-dropdown="${type}"]`).textContent = li.dataset.value;
+      dropdown.querySelectorAll('li').forEach(x => x.classList.remove('active'));
+      li.classList.add('active');
 
-    if (type === 'service') {
-      document.querySelector('.fixed-price__card-title').textContent = li.dataset.value;
-    }
+      const btn = container.querySelector(`.fixed-price__card-btn[data-dropdown="${type}"]`);
+      if (btn) btn.textContent = li.dataset.value;
 
-    dropdown.classList.remove('open');
-    calculatePrice();
-  });
-});
+      if (type === 'service') {
+        const title = container.querySelector('.fixed-price__card-title');
+        if (title) title.textContent = li.dataset.value;
+      }
 
-// ---------------------------------------------
+      // ⭐ ОБЯЗАТЕЛЬНО закрываем dropdown
+      dropdown.classList.remove('open');
+      calculatePrice();
+    });
+  });
+
+  // === ФОРМА SUBMIT ===
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const sendBtn = form.querySelector('.btn-submit');
+    if (sendBtn) {
+      sendBtn.disabled = true;
+      sendBtn.textContent = 'Senden...';
+    }
+
+    // Собираем данные
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+
+    data.final_price = priceEl.textContent;
+    data.discount_info = discountEl.textContent;
+
+    // Деталь услуги для письма
+    if ([data.service, data.weekly, data.months].includes('custom')) {
+      data.service_details = 'Telefonisch besprechen (Anfrage Custom-Preis)';
+    } else {
+      data.service_details = `${data.service} (${data.weekly}, ${data.months})`;
+    }
+
+    try {
+      const response = await fetch('/api/fixed_price', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        alert('✅ Anfrage erfolgreich gesendet! Wir melden uns in Kürze.');
+        form.reset();
+        selections.service = null;
+        selections.weekly = null;
+        selections.months = null;
+        calculatePrice();
+        container.querySelector('.fixed-price__card-title').textContent = '';
+        container.querySelectorAll('.fixed-price__dropdown li').forEach(x => x.classList.remove('active'));
+        container.querySelectorAll('.fixed-price__card-btn').forEach(btn => {
+          const type = btn.dataset.dropdown;
+          if (type === 'service') btn.textContent = 'Auswählen';
+          else if (type === 'weekly') btn.textContent = 'pro Woche';
+          else if (type === 'months') btn.textContent = 'Monate';
+        });
+      } else {
+        console.error('Server Error:', result);
+        const missingMsg = result.missing ? `\nFehlende Felder: ${result.missing.join(', ')}` : '';
+        alert(`❌ Fehler beim Senden: ${result.error || 'Unbekannter Fehler'} ${missingMsg}`);
+      }
+
+    } catch (error) {
+      console.error('Network Error:', error);
+      alert('❌ Ein Verbindungsfehler ist aufgetreten.');
+    } finally {
+      if (sendBtn) {
+        sendBtn.disabled = false;
+        sendBtn.textContent = 'Anfrage absenden';
+      }
+    }
+  });
+
+  // Начальная инициализация
+  calculatePrice();
+};// ---------------------------------------------
 // ЛОГИКА ОТПРАВКИ ФОРМЫ (SUBMIT)
 // ---------------------------------------------
 form.addEventListener('submit', async (e) => {
