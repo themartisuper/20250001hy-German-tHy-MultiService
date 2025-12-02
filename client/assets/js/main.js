@@ -1,19 +1,21 @@
 const header = document.querySelector('.header__content');
-const logo = header.querySelector('.logo');
+const logo = header ? header.querySelector('.logo') : null;
 const maxScroll = 150;
 const startTop = 40;
 
-window.addEventListener('scroll', () => {
-  let scroll = Math.min(window.scrollY, maxScroll);
-  let progress = scroll / maxScroll;
-  header.style.top = `${startTop * (1 - progress)}px`;
-  let paddingY = 1 + (0.4 - 1) * progress;
-  let paddingX = 1.5 - 0.5 * progress;
-  header.style.padding = `${paddingY}rem ${paddingX}rem`;
-  let scale = 1 - 0.2 * progress;
-  logo.style.transform = `scale(${scale})`;
-  header.style.boxShadow = `0 ${5 + 3 * progress}px ${10 + 5 * progress}px rgba(0,0,0,${0.2 + 0.1 * progress})`;
-});
+if (header && logo) {
+  window.addEventListener('scroll', () => {
+    let scroll = Math.min(window.scrollY, maxScroll);
+    let progress = scroll / maxScroll;
+    header.style.top = `${startTop * (1 - progress)}px`;
+    let paddingY = 1 + (0.4 - 1) * progress;
+    let paddingX = 1.5 - 0.5 * progress;
+    header.style.padding = `${paddingY}rem ${paddingX}rem`;
+    let scale = 1 - 0.2 * progress;
+    logo.style.transform = `scale(${scale})`;
+    header.style.boxShadow = `0 ${5 + 3 * progress}px ${10 + 5 * progress}px rgba(0,0,0,${0.2 + 0.1 * progress})`;
+  });
+}
 
 document.addEventListener('DOMContentLoaded', () => {
   const burger = document.getElementById('burger');
@@ -96,13 +98,15 @@ const momentumLoop = () => {
   }
 };
 
-slider.addEventListener('mousedown', startDragging);
-slider.addEventListener('mouseleave', stopDragging);
-slider.addEventListener('mouseup', stopDragging);
-slider.addEventListener('mousemove', moveDragging);
-slider.addEventListener('touchstart', (e) => startDragging(e.touches[0]));
-slider.addEventListener('touchend', stopDragging);
-slider.addEventListener('touchmove', (e) => moveDragging(e.touches[0]));
+if (slider) {
+  slider.addEventListener('mousedown', startDragging);
+  slider.addEventListener('mouseleave', stopDragging);
+  slider.addEventListener('mouseup', stopDragging);
+  slider.addEventListener('mousemove', moveDragging);
+  slider.addEventListener('touchstart', (e) => startDragging(e.touches[0]));
+  slider.addEventListener('touchend', stopDragging);
+  slider.addEventListener('touchmove', (e) => moveDragging(e.touches[0]));
+}
 
 // === TAB SWITCHING LOGIC ===
 document.addEventListener("DOMContentLoaded", () => {
