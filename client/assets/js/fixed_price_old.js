@@ -1,6 +1,5 @@
-// === ИНИЦИАЛИЗАЦИЯ ФОРМЫ С КОНТЕЙНЕРОМ (V2 - Event Delegation) ===
+// === ИНИЦИАЛИЗАЦИЯ ФОРМЫ С КОНТЕЙНЕРОМ ===
 import { serviceDescriptions } from './fixed_price_descriptions.js';
-
 window.initFixedPriceForm = function(container) {
   if (!container) return;
   console.log('DEBUG: initFixedPriceForm called', { containerClass: container.className, containerKey: container.dataset.contentKey });
@@ -100,100 +99,87 @@ window.initFixedPriceForm = function(container) {
     discountEl.textContent = discount ? `zusätzlicher Rabatt ${discount}%` : '';
   }
 
-  // === EVENT DELEGATION (вместо привязки к каждому элементу) ===
-  
-  // 1. Клик на кнопку dropdown'а
-  container.addEventListener('click', (e) => {
-    const btn = e.target.closest('.fixed-price__card-btn');
-    if (!btn) return;
-    
-    e.preventDefault();
-    const dropdownType = btn.dataset.dropdown;
-    console.log('DEBUG: Dropdown button clicked', { dropdownType });
-    
-    const dd = container.querySelector(`.fixed-price__dropdown[data-type="${dropdownType}"]`);
-    if (!dd) {
-      console.error('DEBUG: Dropdown not found', { dropdownType });
-      return;
-    }
+  // === DROPDOWN ЛОГИКА ===
+  container.querySelectorAll('.fixed-price__card-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const dropdownType = btn.dataset.dropdown;
+      const dd = container.querySelector(`.fixed-price__dropdown[data-type="${dropdownType}"]`);
+  console.log('DEBUG: Dropdown button clicked', { dropdownType, ddFound: !!dd });
 
-    // Закрываем все другие
-    container.querySelectorAll('.fixed-price__dropdown').forEach(d => {
-      if (d !== dd) d.classList.remove('open');
+      // Закрываем все другие
+      container.querySelectorAll('.fixed-price__dropdown').forEach(d => {
+        if (d !== dd) d.classList.remove('open');
+      });
+      dd.classList.toggle('open');
     });
-    dd.classList.toggle('open');
-    console.log('DEBUG: Dropdown toggled', { dropdownType, isOpen: dd.classList.contains('open') });
   });
 
-  // 2. Клик вне dropdown'а — закрываем всё
-  document.addEventListener('click', (e) => {
-    // Если клик не внутри контейнера — закрываем dropdown'ы
-    if (!container.contains(e.target)) {
+  // Закрытие при клике вне (только внутри контейнера)
+  container.addEventListener('click', (e) => {
+    if (!e.target.closest('.fixed-price__card-options')) {
       container.querySelectorAll('.fixed-price__dropdown').forEach(dd => dd.classList.remove('open'));
     }
   });
 
-  // 3. Клик на элемент dropdown'а (li)
-  container.addEventListener('click', (e) => {
-    const li = e.target.closest('.fixed-price__dropdown li');
-    if (!li) return;
+  // === SELECTION ЛОГИКА ===
+  container.querySelectorAll('.fixed-price__dropdown li').forEach(li => {
+    li.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const dropdown = li.closest('.fixed-price__dropdown');
+        console.log('DEBUG: Li clicked', { liText: li.textContent.trim(), dropdownType: dropdown?.dataset.type, isCustom: li.dataset.custom });
+      if (!dropdown) return;
+      
+      const type = dropdown.dataset.type;
+      const isCustom = li.dataset.custom === "true";
 
-    e.stopPropagation();
-    const dropdown = li.closest('.fixed-price__dropdown');
-    if (!dropdown) return;
-    
-    const type = dropdown.dataset.type;
-    const isCustom = li.dataset.custom === "true";
+      if (isCustom) {
+        selections[type] = "custom";
 
-    console.log('DEBUG: Li clicked', { liText: li.textContent.trim(), dropdownType: type, isCustom, liDataValue: li.dataset.value });
+        const btn = container.querySelector(`.fixed-price__card-btn[data-dropdown="${type}"]`);
+        if (btn) btn.textContent = li.textContent.trim();
 
-    if (isCustom) {
-      selections[type] = "custom";
+        if (type === 'service') {
+          const title = container.querySelector('.fixed-price__card-title');
+          if (title) title.textContent = li.textContent.trim();
+          if (descriptionEl) {
+            const descArr = serviceDescriptions[li.dataset.value] || serviceDescriptions[li.textContent.trim()] || [];
+            descriptionEl.innerHTML = descArr.map(line => `<p>${line}</p>`).join('');
+          }
+        }
+
+        priceEl.textContent = "nach Vereinbarung";
+        discountEl.textContent = '';
+
+        dropdown.classList.remove('open');
+        calculatePrice();
+        return;
+      }
+
+      // --- обычная логика ---
+      selections[type] = type === 'service'
+        ? li.dataset.value
+        : parseInt(li.dataset.value.match(/\d+/)[0], 10);
+
+      dropdown.querySelectorAll('li').forEach(x => x.classList.remove('active'));
+      li.classList.add('active');
 
       const btn = container.querySelector(`.fixed-price__card-btn[data-dropdown="${type}"]`);
-      if (btn) btn.textContent = li.textContent.trim();
+      if (btn) btn.textContent = li.dataset.value;
 
       if (type === 'service') {
         const title = container.querySelector('.fixed-price__card-title');
-        if (title) title.textContent = li.textContent.trim();
+        if (title) title.textContent = li.dataset.value;
+          console.log('DEBUG: Selection updated', { type, selections, finalPrice: priceEl.textContent });
         if (descriptionEl) {
           const descArr = serviceDescriptions[li.dataset.value] || serviceDescriptions[li.textContent.trim()] || [];
           descriptionEl.innerHTML = descArr.map(line => `<p>${line}</p>`).join('');
         }
       }
 
-      priceEl.textContent = "nach Vereinbarung";
-      discountEl.textContent = '';
-
       dropdown.classList.remove('open');
       calculatePrice();
-      console.log('DEBUG: Custom selection updated', { type, selections });
-      return;
-    }
-
-    // --- обычная логика ---
-    selections[type] = type === 'service'
-      ? li.dataset.value
-      : parseInt(li.dataset.value.match(/\d+/)[0], 10);
-
-    dropdown.querySelectorAll('li').forEach(x => x.classList.remove('active'));
-    li.classList.add('active');
-
-    const btn = container.querySelector(`.fixed-price__card-btn[data-dropdown="${type}"]`);
-    if (btn) btn.textContent = li.dataset.value;
-
-    if (type === 'service') {
-      const title = container.querySelector('.fixed-price__card-title');
-      if (title) title.textContent = li.dataset.value;
-      if (descriptionEl) {
-        const descArr = serviceDescriptions[li.dataset.value] || serviceDescriptions[li.textContent.trim()] || [];
-        descriptionEl.innerHTML = descArr.map(line => `<p>${line}</p>`).join('');
-      }
-    }
-
-    dropdown.classList.remove('open');
-    calculatePrice();
-    console.log('DEBUG: Selection updated', { type, selections, finalPrice: priceEl.textContent });
+    });
   });
 
   // При инициализации — сбрасываем описание
@@ -256,8 +242,7 @@ window.initFixedPriceForm = function(container) {
         selections.weekly = null;
         selections.months = null;
         calculatePrice();
-        const title = container.querySelector('.fixed-price__card-title');
-        if (title) title.textContent = '';
+        container.querySelector('.fixed-price__card-title').textContent = '';
         container.querySelectorAll('.fixed-price__dropdown li').forEach(x => x.classList.remove('active'));
         container.querySelectorAll('.fixed-price__card-btn').forEach(btn => {
           const type = btn.dataset.dropdown;
