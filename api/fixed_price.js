@@ -155,7 +155,7 @@ German tHÿ MultiService © ${now.getFullYear()}
       body: JSON.stringify({
         Messages: [
           {
-            From: { Email: EMAIL_FROM, Name: 'Pauschal Price Formular' },
+            From: { Email: EMAIL_FROM, Name: 'Pauschal Formular' },
             // Mailjet kann ReplyTo auf beliebige Domains zulassen, aber bei manchen Setups
             // führt это к 500. Делаем безопасный фоллбэк на верифицированный EMAIL_FROM.
             ReplyTo: { Email: (EMAIL_FROM || body.email), Name: `${body.first_name || ''} ${body.last_name || ''}`.trim() },
