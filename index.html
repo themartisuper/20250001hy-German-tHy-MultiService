@@ -1349,35 +1349,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Переопределяем/определяем initFixedPriceForm, чтобы добавить логику шагов
     window.initFixedPriceForm = (container) => {
-      // 1. Сначала вызываем оригинальную логику (цены, выбора)
-      if (typeof originalInitFixedPriceForm === 'function') {
-        originalInitFixedPriceForm(container);
-      }
-        
-      // 2. Затем инициализируем логику мультишаговости для этой же формы
-      const form = container.querySelector('form');
-      if (form) {
-        try {
-          console.debug('DEBUG: initMultistepLogic start', { hasForm: true });
-          initMultistepLogic(form);
-          const firstStep = form.querySelector('.step');
-          if (firstStep) {
-            firstStep.classList.add('active');
-          }
-          console.debug('DEBUG: initMultistepLogic done');
-        } catch (e) {
-          console.error('ERROR: initMultistepLogic failed', e);
+        // 1. Сначала вызываем оригинальную логику (цены, выбора)
+        if (typeof originalInitFixedPriceForm === 'function') {
+            originalInitFixedPriceForm(container);
         }
-      } else {
-        console.error('ERROR: Form not found in container for multistep init');
-      }
+        
+        // 2. Затем инициализируем логику мультишаговости для этой же формы
+        const form = container.querySelector('form');
+        initMultistepLogic(form);
     };
 
-    // Безопасная инициализация первой вкладки (с защитой от дубликатов)
+    // При первой загрузке страницы, запускаем логику сразу (для первой активной вкладки)
     const initialContent = document.querySelector(".services-tabs__content-item.active-content");
-    if (initialContent && typeof window.initFixedPriceForm === 'function' && !window.__fixedPriceInitialized) {
-      window.__fixedPriceInitialized = true;
-      window.initFixedPriceForm(initialContent);
+    if (initialContent) {
+        // Вызываем объединенную initFixedPriceForm
+        window.initFixedPriceForm(initialContent);
     }
 });
 </script>
@@ -1402,4 +1388,3 @@ document.querySelectorAll('.card__inner').forEach(card => {
 
 </body>
 </html>
-
