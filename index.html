@@ -1097,51 +1097,69 @@
     <h2 class="before-after__title">Vorher & Nachher</h2>
     <p class="before-after__subtitle">Sehen Sie den Unterschied – Qualität, die überzeugt</p>
     
-    <div class="before-after__grid">
-      <!-- Example 1: Reinigung -->
-      <div class="before-after__item">
-        <h3 class="before-after__item-title">Teppich</h3>
-        <div class="before-after__images">
-          <div class="before-after__image-wrapper">
-            <img src="client/assets/images/before_after/teppich_schmutzig-compressed.jpg" alt="Auto vor der Reinigung" class="before-after__image">
-            <span class="before-after__label before-after__label--before">Vorher</span>
+    <div class="before-after__carousel-wrapper">
+      <button class="before-after__nav before-after__nav--prev" aria-label="Vorherige">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+
+      <div class="before-after__carousel">
+        <div class="before-after__carousel-track">
+          <!-- Example 1: Teppich -->
+          <div class="before-after__item">
+            <h3 class="before-after__item-title">Teppich</h3>
+            <div class="before-after__images">
+              <div class="before-after__image-wrapper">
+                <img src="client/assets/images/before_after/teppich_schmutzig-compressed.jpg" alt="Teppich vor der Reinigung" class="before-after__image">
+                <span class="before-after__label before-after__label--before">Vorher</span>
+              </div>
+              <div class="before-after__image-wrapper">
+                <img src="client/assets/images/before_after/teppich_sauber-compressed.jpg" alt="Teppich nach der Reinigung" class="before-after__image">
+                <span class="before-after__label before-after__label--after">Nachher</span>
+              </div>
+            </div>
           </div>
-          <div class="before-after__image-wrapper">
-            <img src="client/assets/images/before_after/teppich_sauber-compressed.jpg" alt="Auto nach der Reinigung" class="before-after__image">
-            <span class="before-after__label before-after__label--after">Nachher</span>
+
+          <!-- Example 2: Sofa -->
+          <div class="before-after__item">
+            <h3 class="before-after__item-title">Sofa</h3>
+            <div class="before-after__images">
+              <div class="before-after__image-wrapper">
+                <img src="client/assets/images/before_after/sofa_schmutzig-compressed.jpg" alt="Sofa vor der Reinigung" class="before-after__image">
+                <span class="before-after__label before-after__label--before">Vorher</span>
+              </div>
+              <div class="before-after__image-wrapper">
+                <img src="client/assets/images/before_after/sofa_sauber-compressed.jpg" alt="Sofa nach der Reinigung" class="before-after__image">
+                <span class="before-after__label before-after__label--after">Nachher</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Example 3: Fenster -->
+          <div class="before-after__item">
+            <h3 class="before-after__item-title">Fenster</h3>
+            <div class="before-after__images">
+              <div class="before-after__image-wrapper">
+                <img src="client/assets/images/before_after/fenster_schmutzig-compressed.jpg" alt="Fenster vor der Reinigung" class="before-after__image">
+                <span class="before-after__label before-after__label--before">Vorher</span>
+              </div>
+              <div class="before-after__image-wrapper">
+                <img src="client/assets/images/before_after/fenster_sauber-compressed.jpg" alt="Fenster nach der Reinigung" class="before-after__image">
+                <span class="before-after__label before-after__label--after">Nachher</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Example 2: Garten -->
-      <div class="before-after__item">
-        <h3 class="before-after__item-title">Sofa</h3>
-        <div class="before-after__images">
-          <div class="before-after__image-wrapper">
-            <img src="client/assets/images/before_after/sofa_schmutzig-compressed.jpg" alt="Garten vor der Pflege" class="before-after__image">
-            <span class="before-after__label before-after__label--before">Vorher</span>
-          </div>
-          <div class="before-after__image-wrapper">
-            <img src="client/assets/images/before_after/sofa_sauber-compressed.jpg" alt="Garten nach der Pflege" class="before-after__image">
-            <span class="before-after__label before-after__label--after">Nachher</span>
-          </div>
-        </div>
-      </div>
+      <button class="before-after__nav before-after__nav--next" aria-label="Nächste">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+    </div>
 
-      <!-- Example 3: Haus -->
-      <div class="before-after__item">
-        <h3 class="before-after__item-title">Fenster</h3>
-        <div class="before-after__images">
-          <div class="before-after__image-wrapper">
-            <img src="client/assets/images/before_after/fenster_schmutzig-compressed.jpg" alt="Haus vor der Reinigung" class="before-after__image">
-            <span class="before-after__label before-after__label--before">Vorher</span>
-          </div>
-          <div class="before-after__image-wrapper">
-            <img src="client/assets/images/before_after/fenster_sauber-compressed.jpg" alt="Haus nach der Reinigung" class="before-after__image">
-            <span class="before-after__label before-after__label--after">Nachher</span>
-          </div>
-        </div>
-      </div>
+    <div class="before-after__indicators">
+      <span class="before-after__indicator before-after__indicator--active" data-index="0"></span>
+      <span class="before-after__indicator" data-index="1"></span>
+      <span class="before-after__indicator" data-index="2"></span>
     </div>
   </div>
 </div>
@@ -1316,6 +1334,7 @@
 <script src="client/assets/js/main.js"></script>
 <script src="client/assets/js/locales.js"></script>
 <script type="module" src="client/assets/js/fixed_price.js"></script>
+<script src="client/assets/js/before_after_carousel.js"></script>
 
 
 <script>
