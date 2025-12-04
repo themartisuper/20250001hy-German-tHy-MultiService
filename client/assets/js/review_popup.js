@@ -98,16 +98,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
     console.log('Review data:', formData);
 
-    // Здесь можно добавить отправку на сервер
-    // Пока показываем сообщение об успехе
-    alert('Vielen Dank für Ihre Bewertung!');
-    
-    // Закрываем popup и очищаем форму
-    popup?.classList.add('hidden');
-    document.body.style.overflow = '';
-    form.reset();
-    dropdownBtn.textContent = 'Auswählen';
-    dropdownBtn.classList.remove('selected');
-    hiddenInput.value = '';
+    // Отправка на сервер через Vercel + Mailjet
+    try {
+      const response = await fetch('/api/review', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        alert('Vielen Dank für Ihre Bewertung!');
+        
+        // Закрываем popup и очищаем форму
+        popup?.classList.add('hidden');
+        document.body.style.overflow = '';
+        form.reset();
+        dropdownBtn.textContent = 'Auswählen';
+        dropdownBtn.classList.remove('selected');
+        hiddenInput.value = '';
+      } else {
+        console.error('Server error:', result);
+        alert('Es gab einen Fehler beim Senden Ihrer Bewertung. Bitte versuchen Sie es später erneut.');
+      }
+    } catch (error) {
+      console.error('Fetch error:', error);
+      alert('Es gab einen Fehler beim Senden Ihrer Bewertung. Bitte versuchen Sie es später erneut.');
+    }
   });
 });
