@@ -98,6 +98,465 @@
   to { opacity: 1; }
 }
 
+
+
+/* ========================================
+   Review Popup
+   ======================================== */
+
+.review-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.review-popup-overlay.hidden {
+  display: none;
+}
+
+.review-popup-content {
+  position: relative;
+  background: #fff;
+  border-radius: 1.5rem;
+  padding: 2.5rem 2rem;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.3s ease forwards;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.review-popup-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  color: #666;
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.review-popup-close:hover {
+  background: #f0f0f0;
+  color: #333;
+  transform: rotate(90deg);
+}
+
+.review-popup-content h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #242424;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Review Form Styles */
+.review-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.review-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.review-form input[type="text"],
+.review-form textarea {
+  padding: 0.85rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  font-family: 'Inter', system-ui, sans-serif;
+  transition: all 0.3s ease;
+  background: #fafafa;
+}
+
+.review-form input[type="text"]:focus,
+.review-form textarea:focus {
+  outline: none;
+  border-color: rgb(49, 165, 78);
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(49, 165, 78, 0.1);
+}
+
+.review-form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Rating Stars */
+.review-form__rating-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.review-form__rating-field label:first-child {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.review-form__stars {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  gap: 0.25rem;
+}
+
+.review-form__stars input[type="radio"] {
+  display: none;
+}
+
+.review-form__stars .star {
+  font-size: 2rem;
+  color: #ddd;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+  margin: 0;
+  padding: 0;
+}
+
+.review-form__stars .star:hover,
+.review-form__stars .star:hover ~ .star {
+  color: #ffc83a;
+  transform: scale(1.1);
+}
+
+.review-form__stars input[type="radio"]:checked ~ .star {
+  color: #ffc83a;
+}
+
+/* Dropdown styles for review form */
+.review-form__dropdown-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: #333;
+}
+
+.review-form__dropdown-field label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.review-form__dropdown-wrapper {
+  position: relative;
+}
+
+.review-form__dropdown-btn {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  background: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  font-family: 'Inter', system-ui, sans-serif;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #666;
+}
+
+.review-form__dropdown-btn:hover {
+  border-color: rgb(49, 165, 78);
+  background: #fff;
+}
+
+.review-form__dropdown-btn.selected {
+  color: #333;
+  font-weight: 500;
+}
+
+.review-form__dropdown {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 0.75rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  z-index: 100;
+  max-height: 250px;
+  overflow-y: auto;
+  display: none;
+}
+
+.review-form__dropdown.open {
+  display: block;
+  animation: dropdownSlide 0.2s ease forwards;
+}
+
+@keyframes dropdownSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.review-form__dropdown-title {
+  padding: 0.75rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #666;
+  border-bottom: 1px solid #eee;
+  margin: 0;
+}
+
+.review-form__dropdown-category {
+  padding: 0.6rem 1rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: rgb(49, 165, 78);
+  background: rgba(49, 165, 78, 0.08);
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.review-form__dropdown ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.review-form__dropdown li {
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.95rem;
+}
+
+.review-form__dropdown li:hover {
+  background: rgba(49, 165, 78, 0.1);
+  color: rgb(49, 165, 78);
+  padding-left: 1.25rem;
+}
+
+.review-form__submit-btn {
+  margin-top: 1rem;
+  padding: 0.95rem 1.5rem;
+  background: linear-gradient(135deg, rgb(49, 165, 78) 0%, rgb(66, 165, 49) 100%);
+  color: #fff;
+  border: none;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(49, 165, 78, 0.3);
+}
+
+.review-form__submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(49, 165, 78, 0.4);
+}
+
+.review-form__submit-btn:active {
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .review-popup-content {
+    width: 95%;
+    padding: 2rem 1.5rem;
+    max-height: 88vh;
+    overflow-y: auto;
+  }
+  
+  .review-popup-content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  .review-form {
+    gap: 0.7rem;
+  }
+  
+  .review-form label {
+    font-size: 0.9rem;
+  }
+  
+  .review-form input[type="text"],
+  .review-form textarea {
+    padding: 0.75rem 0.85rem;
+    font-size: 0.95rem;
+  }
+  
+  .review-form__dropdown-btn {
+    padding: 0.75rem 0.85rem;
+    font-size: 0.95rem;
+  }
+  
+  .review-form__dropdown {
+    max-height: 200px;
+  }
+  
+  .review-form__dropdown-category {
+    font-size: 0.75rem;
+    padding: 0.5rem 0.85rem;
+  }
+  
+  .review-form__dropdown li {
+    padding: 0.65rem 0.85rem;
+    font-size: 0.9rem;
+  }
+  
+  .review-form__stars .star {
+    font-size: 1.75rem;
+  }
+  
+  .review-form__submit-btn {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .review-popup-content {
+    padding: 1.5rem 1rem;
+    width: 96%;
+    max-height: 82vh;
+    overflow-y: auto;
+  }
+  
+  .review-popup-content h2 {
+    font-size: 1.35rem;
+    margin-bottom: 1rem;
+  }
+  
+  .review-popup-close {
+    top: 0.75rem;
+    right: 0.75rem;
+    width: 32px;
+    height: 32px;
+    font-size: 1.75rem;
+  }
+  
+  .review-form {
+    gap: 0.65rem;
+  }
+  
+  .review-form label {
+    font-size: 0.85rem;
+    gap: 0.4rem;
+  }
+  
+  .review-form input[type="text"],
+  .review-form textarea {
+    padding: 0.7rem 0.8rem;
+    font-size: 0.9rem;
+  }
+  
+  .review-form textarea {
+    min-height: 80px;
+  }
+  
+  .review-form__dropdown-btn {
+    padding: 0.7rem 0.8rem;
+    font-size: 0.9rem;
+  }
+  
+  .review-form__dropdown {
+    max-height: 180px;
+  }
+  
+  .review-form__dropdown-title {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.8rem;
+  }
+  
+  .review-form__dropdown-category {
+    font-size: 0.7rem;
+    padding: 0.45rem 0.8rem;
+  }
+  
+  .review-form__dropdown li {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.85rem;
+  }
+  
+  .review-form__dropdown li:hover {
+    padding-left: 1rem;
+  }
+  
+  .review-form__stars .star {
+    font-size: 1.6rem;
+  }
+  
+  .review-form__submit-btn {
+    padding: 0.85rem 1.25rem;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+  }
+}
+
+@media (max-width: 390px) {
+  .review-popup-content {
+    padding: 1.25rem 0.85rem;
+    width: 98%;
+    max-height: 85vh;
+    overflow-y: auto;
+  }
+  
+  .review-popup-content h2 {
+    font-size: 1.25rem;
+  }
+  
+  .review-form__dropdown {
+    max-height: 160px;
+  }
+  
+  .review-form__dropdown li {
+    font-size: 0.8rem;
+  }
+  
+  .review-form__stars .star {
+    font-size: 1.5rem;
+  }
+}
+
 /* --- АДАПТАЦИЯ ПОД МОБИЛЬНЫЕ --- */
 
 /* Для экранов до 768px (планшеты и телефоны) */

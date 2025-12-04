@@ -424,13 +424,15 @@
   /* Стиль кнопки при наведении */
   background: linear-gradient(145deg, #007BFF, #00BFFF);
   color: white;
-  box-shadow: 4px 4px 15px rgba(0,123,255,0.3);
+  box-shadow: 4px 4px 15px rgba(66, 165, 49,0.3);
+  background: linear-gradient(135deg, rgb(49, 165, 78) 0%, rgba(66, 165, 49, 0.7) 100%);
 }
 
 .services-tabs__button--active {
   /* Стиль активной кнопки */
   font-weight: bold;
   color: #ffffff;
+  background: linear-gradient(135deg, rgb(49, 165, 78) 0%, rgb(66, 165, 49) 100%);
 }
 
 .services-tabs__button--active::after {

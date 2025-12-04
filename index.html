@@ -327,9 +327,114 @@
 
   </div>
 
-  <button type="submit">Bewerten</button>
+  <button type="submit" id="review-btn">Bewerten</button>
 </div>
 <!-- End reviews -->
+
+
+
+<!-- Review Popup -->
+<div class="review-popup-overlay hidden" id="review-popup">
+  <div class="review-popup-content">
+    <button class="review-popup-close" aria-label="Schließen">×</button>
+    <h2>Ihre Bewertung</h2>
+    <form id="review-form" class="review-form">
+      <label>
+        Name*
+        <input type="text" name="review_lastname" required placeholder="Ihr Name">
+      </label>
+      
+      <div class="review-form__dropdown-field">
+        <label>Leistung*</label>
+        <div class="review-form__dropdown-wrapper">
+          <button class="review-form__dropdown-btn" type="button" data-dropdown="service">Auswählen</button>
+          <div class="review-form__dropdown" data-type="service">
+            <p class="review-form__dropdown-title">Wähle deine Option:</p>
+            
+            <!-- Transport & Logistik -->
+            <p class="review-form__dropdown-category">Transport & Logistik</p>
+            <ul>
+              <li data-value="Fahrzeugüberführung">Fahrzeugüberführung</li>
+              <li data-value="Kurierdienste">Kurierdienste</li>
+              <li data-value="Lieferant">Lieferant</li>
+              <li data-value="Möbeltransport / Umzugshilfe">Möbeltransport / Umzugshilfe</li>
+              <li data-value="Tragehilfe">Tragehilfe</li>
+              <li data-value="Zum Flughafen hin-zurück fahren">Zum Flughafen hin-zurück fahren</li>
+            </ul>
+
+            <!-- Reinigung & Pflege -->
+            <p class="review-form__dropdown-category">Reinigung & Pflege</p>
+            <ul>
+              <li data-value="Auto reinigen (Innen und Außenbereich)">Auto reinigen (Innen und Außenbereich)</li>
+              <li data-value="Büroreinigung">Büroreinigung</li>
+              <li data-value="Dachhaut/Dachziegel reinigen">Dachhaut/Dachziegel reinigen</li>
+              <li data-value="Endreinigung / Bauendreinigung">Endreinigung / Bauendreinigung</li>
+              <li data-value="Fassadenreinigung (Schimmel-, Algen- & Moosentfernung)">Fassadenreinigung (Schimmel-, Algen- & Moosentfernung)</li>
+              <li data-value="Fensterreinigung">Fensterreinigung</li>
+              <li data-value="Fliesen Reiniger">Fliesen Reiniger</li>
+              <li data-value="Laubabholung">Laubabholung</li>
+              <li data-value="Haushaltreinigung">Haushaltreinigung</li>
+              <li data-value="Schneeräumung">Schneeräumung</li>
+              <li data-value="Streudienst">Streudienst</li>
+              <li data-value="Teppichreinigung- und Polster-/Sofareinigung">Teppichreinigung- und Polster-/Sofareinigung</li>
+              <li data-value="Eis und Schneebeseitigung am Auto">Eis und Schneebeseitigung am Auto</li>
+            </ul>
+
+            <!-- Haus & Garten -->
+            <p class="review-form__dropdown-category">Haus & Garten</p>
+            <ul>
+              <li data-value="Gartenbewässerung">Gartenbewässerung</li>
+              <li data-value="Gartenpflege">Gartenpflege</li>
+              <li data-value="Haushüter">Haushüter</li>
+              <li data-value="Kleinreparaturen (ohne Handwerksplicht)">Kleinreparaturen (ohne Handwerksplicht)</li>
+              <li data-value="Rasenmäher">Rasenmäher</li>
+              <li data-value="Regale und Gardinenmontage">Regale und Gardinenmontage</li>
+              <li data-value="Sträucherschnitt">Sträucherschnitt</li>
+              <li data-value="Unkrautentfernung">Unkrautentfernung</li>
+              <li data-value="Weihnachtsbeleuchtung Montage">Weihnachtsbeleuchtung Montage</li>
+            </ul>
+
+            <!-- Persönliche Dienste & Events -->
+            <p class="review-form__dropdown-category">Persönliche Dienste & Events</p>
+            <ul>
+              <li data-value="Einkaufshilfe">Einkaufshilfe</li>
+              <li data-value="Einzelhandelskaufmann">Einzelhandelskaufmann</li>
+              <li data-value="Eventhilfe / Servicekraft">Eventhilfe / Servicekraft</li>
+              <li data-value="Hundeausführen / Gassi-Service">Hundeausführen / Gassi-Service</li>
+              <li data-value="Seniorenbetreuung (ohne Pflege)">Seniorenbetreuung (ohne Pflege)</li>
+              <li data-value="Tierbetreuung">Tierbetreuung</li>
+            </ul>
+          </div>
+        </div>
+        <input type="text" name="review_service" id="review-service-value" required class="input-validator">
+      </div>
+      
+      <div class="review-form__rating-field">
+        <label>Bewertung*</label>
+        <div class="review-form__stars">
+          <input type="radio" name="review_rating" id="star5" value="5" required>
+          <label for="star5" class="star">★</label>
+          <input type="radio" name="review_rating" id="star4" value="4">
+          <label for="star4" class="star">★</label>
+          <input type="radio" name="review_rating" id="star3" value="3">
+          <label for="star3" class="star">★</label>
+          <input type="radio" name="review_rating" id="star2" value="2">
+          <label for="star2" class="star">★</label>
+          <input type="radio" name="review_rating" id="star1" value="1">
+          <label for="star1" class="star">★</label>
+        </div>
+      </div>
+      
+      <label>
+        Ihre Bewertung (optional)
+        <textarea name="review_comment" rows="4" placeholder="Teilen Sie Ihre Erfahrung..."></textarea>
+      </label>
+      
+      <button type="submit" class="review-form__submit-btn">Bewertung absenden</button>
+    </form>
+  </div>
+</div>
+<!-- End Review Popup -->
 
 
 
@@ -1335,6 +1440,7 @@
 <script src="client/assets/js/locales.js"></script>
 <script type="module" src="client/assets/js/fixed_price.js"></script>
 <script src="client/assets/js/before_after_carousel.js"></script>
+<script src="client/assets/js/review_popup.js"></script>
 
 
 <script>
@@ -1531,24 +1637,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 </script>
-
-
-
-
-
-
-<!--<script>
-document.querySelectorAll('.card__inner').forEach(card => {
-  const flipButtons = card.querySelectorAll('.flip-btn');
-  if (!flipButtons.length) return;
-
-  flipButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      card.classList.toggle('flipped');
-    });
-  });
-});
-</script> -->
 
 </body>
 </html>
