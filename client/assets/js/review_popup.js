@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const result = await response.json();
 
       if (response.ok && result.success) {
-        alert('Vielen Dank für Ihre Bewertung!');
+        alert('✅ Vielen Dank für Ihre Bewertung!');
         
         // Закрываем popup и очищаем форму
         popup?.classList.add('hidden');
@@ -122,11 +122,11 @@ document.addEventListener('DOMContentLoaded', () => {
         hiddenInput.value = '';
       } else {
         console.error('Server error:', result);
-        alert('Es gab einen Fehler beim Senden Ihrer Bewertung. Bitte versuchen Sie es später erneut.');
+        alert('❌ Es gab einen Fehler beim Senden Ihrer Bewertung. Bitte versuchen Sie es später erneut.');
       }
     } catch (error) {
       console.error('Fetch error:', error);
-      alert('Es gab einen Fehler beim Senden Ihrer Bewertung. Bitte versuchen Sie es später erneut.');
+      alert('❌ Es gab einen Fehler beim Senden Ihrer Bewertung. Bitte versuchen Sie es später erneut.');
     }
   });
 });

@@ -22,8 +22,8 @@ export default async function handler(req, res) {
       subject: "Neue Kontaktanfrage",
       text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
     });
-    res.status(200).json({ message: "Gesendet!" });
+    res.status(200).json({ message: "✅ Gesendet!" });
   } catch (error) {
-    res.status(500).json({ error: "Fehler beim Senden" });
+    res.status(500).json({ error: "❌ Fehler beim Senden" });
   }
 }
