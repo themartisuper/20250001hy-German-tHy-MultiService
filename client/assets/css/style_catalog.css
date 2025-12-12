@@ -120,12 +120,12 @@
 
     /* Шапка */
     .modal-header {
-        padding: 20px 30px;
-        background-color: #2980b9; 
-        color: white;
-        display: flex; justify-content: space-between; align-items: center;
-        border-radius: 12px 12px 0 0;
-        flex-shrink: 0;
+      padding: 20px 30px;
+      background-color: rgb(76, 91, 92);
+      color: white;
+      display: flex; justify-content: space-between; align-items: center;
+      border-radius: 12px 12px 0 0;
+      flex-shrink: 0;
     }
 
     .modal-header h2 { margin: 0; font-size: 1.8rem; font-family: 'Righteous', cursive; }
@@ -156,8 +156,8 @@
     }
 
     h3.modal-subtitle {
-        margin-top: 0; margin-bottom: 20px;
-        color: #2980b9; font-size: 1.4rem; border-bottom: 2px solid #eee; padding-bottom: 10px;
+      margin-top: 0; margin-bottom: 20px;
+      color: rgb(76, 91, 92); font-size: 1.4rem; border-bottom: 2px solid #d9dddd; padding-bottom: 10px;
     }
 
     /* Стили для Аккордеона (FAQ) */
@@ -176,7 +176,7 @@
     summary:hover { background-color: #f1f1f1; }
     summary::-webkit-details-marker { display: none; } /* Убрать стандартный треугольник */
     summary::after {
-        content: '+'; position: absolute; right: 20px; font-size: 1.2rem; color: #2980b9;
+      content: '+'; position: absolute; right: 20px; font-size: 1.2rem; color: rgb(76, 91, 92);
     }
     details[open] summary::after { content: '-'; }
     .faq-answer {
@@ -195,17 +195,17 @@
         color: #000;
     }
     .form-input:focus, .form-textarea:focus {
-        outline: none; border-color: #2980b9;
+      outline: none; border-color: rgb(76, 91, 92);
     }
     .form-textarea { resize: vertical; min-height: 100px; }
     .form-submit-btn {
-        width: 100%; padding: 12px;
-        background-color: #2980b9; color: white;
-        border: none; border-radius: 6px;
-        font-size: 1.1rem; font-weight: bold; cursor: pointer;
-        transition: background 0.3s;
+      width: 100%; padding: 12px;
+      background-color: rgb(76, 91, 92); color: white;
+      border: none; border-radius: 6px;
+      font-size: 1.1rem; font-weight: bold; cursor: pointer;
+      transition: background 0.3s;
     }
-    .form-submit-btn:hover { background-color: #1f6391; }
+    .form-submit-btn:hover { background-color: #3f4a4b; }
 
     /* Адаптив для мобильных: колонки друг под друга */
     @media (max-width: 768px) {
@@ -279,10 +279,10 @@
 }
 
 .step-circle.active {
-  background-color: #2980b9;
+  background-color: rgb(76, 91, 92);
   color: #fff;
   transform: scale(1.1);
-  box-shadow: 0 0 10px rgba(41, 128, 185, 0.4);
+  box-shadow: 0 0 10px rgba(76, 91, 92, 0.4);
 }
 
 .step-circle.completed {
@@ -304,7 +304,7 @@
 
 .progress-bar-fill {
   height: 100%;
-  background-color: #2980b9;
+  background-color: rgb(76, 91, 92);
   transition: width 0.4s ease;
   border-radius: 2px;
 }
@@ -353,11 +353,11 @@
 }
 
 .form-btn-next {
-  background-color: #2980b9;
+  background-color: rgb(76, 91, 92);
   color: white;
   margin-left: auto; /* Сдвиг вправо */
 }
-.form-btn-next:hover { background-color: #1f6391; }
+.form-btn-next:hover { background-color: #3f4a4b; }
 
 .form-btn-prev {
   background-color: #f1f1f1;
@@ -430,15 +430,16 @@
   border-radius: 6px;
   text-align: center;
   cursor: pointer;
-  font-weight: bold;
+  font-weight: normal;
   transition: all 0.2s;
+  color: #242424;
 }
 
 /* Состояние "Einmalig" выбрано */
 .toggle-option-wrapper input[type="checkbox"]:checked + .btn-checkbox-face {
-  background-color: #4CAF50; /* Ваш основной цвет (зеленый) */
+  background-color: rgb(76, 91, 92);
   color: white;
-  border-color: #4CAF50;
+  border-color: rgb(76, 91, 92);
 }
 
 /* Состояние "Disabled" для группы списков */

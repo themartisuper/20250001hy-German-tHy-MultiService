@@ -290,8 +290,17 @@ a:not(.header__brand, .card__button):hover {
 
 
 
+
+
+
+
+/*  ==========================================================
+  adaptation
+    ========================================================== */
+
 /* === При больших экранах — меню обычное === */
-@media (min-width: 1367px) {
+
+@media (min-width: 956px) {
   .nav {
     display: flex !important;
     position: static;
@@ -306,14 +315,9 @@ a:not(.header__brand, .card__button):hover {
   }
 }
 
-
-/*  ==========================================================
-  adaptation
-    ========================================================== */
-
 /* === burger === */
-/* ====== Мобильная логика ====== */
-@media (max-width: 1366px) {
+/* Для экранов до 955px (планшеты) */
+@media (max-width: 955px) {
   .burger {
     display: flex;
   }
@@ -370,15 +374,6 @@ a:not(.header__brand, .card__button):hover {
   .sign-up {
     display: none;
   }
-}
-
-@media (max-width: 1024px) {
-  
-}
-
-/* Для экранов до 768px (планшеты) */
-@media (max-width: 768px) {
-  
 }
 
 /* iPhone 15 Pro Max */

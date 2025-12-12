@@ -59,7 +59,7 @@ p {
 
 small, .small {
   font-size: 0.875rem;
-  color: var(--color-muted);
+  color: var(--color-muted); 
 }
 
 /* Links */
@@ -93,7 +93,7 @@ a:hover, a:focus {
   transition: background-color var(--transition-fast);
 }
 
-button:hover:not(.services-tabs__button),
+button:hover:not(.services-tabs__button, .review-popup-close),
 .btn:hover:not(.services-tabs__button) {
   background-color: #1d4ed8;
 }
