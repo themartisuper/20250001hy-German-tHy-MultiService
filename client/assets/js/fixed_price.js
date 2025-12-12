@@ -38,25 +38,49 @@ window.initFixedPriceForm = function(container) {
   const selections = { service: null, weekly: null, months: null };
   
   const basePrice = {
-    "Fahrzeugüberführung": 30,
-    "Kurierdienste": 25,
-    "Lieferant": 28,
-    "Möbeltransport / Umzugshilfe": 40,
-    "Tragehilfe": 22,
-    "Zum Flughafen hin-zurück fahren": 35,
-    "Rasenpflege": 20,
-    "Heckenschnitt": 25,
-    "Reparaturen": 30,
-    "Reinigungsdienste": 22,
-    "Catering": 35,
-    "Haushaltshilfe": 18,
-    "Kinderbetreuung": 15,
-    "Eventplanung": 40,
-    "Standardreinigung": 20,
-    "Tiefenreinigung": 35,
-    "Büroreinigung": 25,
-    "Fensterreinigung": 15
-  };
+  // Gruppe 1: Transport & Logistik
+  "Fahrzeugüberführung": 0,
+  "Kurierdienste": 0,
+  "Lieferant": 0,
+  "Möbeltransport / Umzugshilfe": 0,
+  "Tragehilfe": 0,
+  "Zum Flughafen hin-zurück fahren": 0,
+
+  // 🟦 Gruppe 2: Reinigung & Pflege
+  "Auto reinigen (Innen und Außenbereich)": 0,
+  "Büroreinigung": 0,
+  "Dachhaut/Dachziegel reinigen": 0,
+  "Endreinigung / Bauendreinigung": 0,
+  "Fassadenreinigung (Schimmel-, Algen- & Moosentfernung)": 0,
+  "Fensterreinigung": 0,
+  "Fliesen Reiniger": 0,
+  "Lauabholung": 0,
+  "Haushaltreinigung": 0,
+  "Schneeräumung": 0,
+  "Streudienst": 0,
+  "Teppichreinigung- und Polster-/Sofareinigung": 0,
+  "Eis und Schneebeseitigung am Auto": 0,
+
+  // 🟧 Gruppe 3: Haus & Garten
+  "Gartenbewässerung": 0,
+  "Gartenpflege": 0,
+  "Haushüter": 0,
+  "Kleinreparaturen (ohne Handwerksplicht)": 0,
+  "Rasenmäher": 0,
+  "Regale und Gardinenmontage": 0,
+  "Sträucherschnitt": 0,
+  "Unkrautentfernung": 0,
+  "Weihnachtsbeleuchtung Montage": 0,
+
+  // 🟨 Persönliche Dienste & Events
+  "Einkaufshilfe": 0,
+  "Einzelhandelskaufmann": 0,
+  "Eventhilfe / Servicekraft": 0,
+  "Hundeausführen / Gassi-Service": 0,
+  "Seniorenbetreuung (ohne Pflege)": 0,
+  "Tierbetreuung": 0
+};
+
 
   function getDiscount(months) {
     if (months >= 12) return 20;
