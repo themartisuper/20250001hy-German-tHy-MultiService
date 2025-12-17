@@ -91,7 +91,7 @@
 .progress-bar__inner {
   height: 100%;
   width: 33%;
-  background: linear-gradient(135deg, #4c5b5c, #2c3e3f);
+  background: #242424;
   transition: width 0.35s ease;
 }
 
@@ -119,7 +119,7 @@
 }
 
 .step-circle.active {
-  background: #4c5b5c;
+  background: #242424;
   color: #fff;
   transform: scale(1.1);
 }
@@ -146,7 +146,7 @@
 
 /* Form Elements */
 .step h2 {
-  color: #4c5b5c;
+  color: #242424;
   margin-top: 0;
   margin-bottom: 1.5rem;
 }
@@ -156,13 +156,13 @@
   font-weight: 700;
   margin: 1rem 0 0.5rem 0;
   min-height: 1.8rem;
-  color: #4c5b5c;
+  color: #242424;
 }
 
 .fixed-price__card-price {
   font-size: 2.25rem;
   font-weight: 700;
-  color: #4c5b5c;
+  color: #242424;
   margin: 0 0 0.2rem 0;
   min-height: 2.5rem;
 }
@@ -179,7 +179,7 @@
   margin-bottom: 1rem;
   font-weight: 500;
   font-size: 0.9rem;
-  color: #333;
+  color: #242424;
 }
 
 .step input,
@@ -265,11 +265,17 @@
   transition: border-color 0.2s ease;
 }
 
+.fixed-price__card-btn:hover {
+  background-color: rgb(250, 238, 108);
+}
+
 .fixed-price__card-btn::after {
   content: '▼';
   font-size: 0.7em;
   color: #666;
 }
+
+
 
 .fixed-price__dropdown {
   position: absolute;
@@ -323,15 +329,15 @@
 }
 
 .fixed-price__dropdown li.active {
-  background: #4c5b5c;
+  background: #242424;
   color: #fff;
 }
 
 .fixed-price__card-description {
-  margin-top: 1.5rem;
-  border-top: 1px solid #eee;
+  margin-top: 1rem;
+  border-top: 1px solid #242424;
   padding-top: 1rem;
-  color: #555;
+  color: #242424;
   font-size: 1.25rem;
 }
 
@@ -360,18 +366,18 @@
 }
 
 .btn-next {
-  background: #2c3e3f;
+  background: #242424;
   color: #fff;
   margin-left: auto;
 }
 
 .btn-back {
   background: #e5e5e5;
-  color: #333;
+  color: #242424;
 }
 
 .btn-submit {
-  background: #0082ff;
+  background: #079e11;
   color: #fff;
 }
 
@@ -393,7 +399,7 @@
 .services-tabs {
   padding: 50px 20px;
   font-family: 'Arial', sans-serif;
-  background: #4c5b5c; 
+  background: #242424; 
   border: 1px solid black;
 }
 

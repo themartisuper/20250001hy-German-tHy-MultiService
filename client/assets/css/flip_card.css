@@ -117,6 +117,7 @@
   background: transparent;
   color: rgba(0, 212, 255, 0.9);
   border: 1px solid rgba(0, 212, 255, 0.6);
+  margin-top: auto;
 }
 .card__button-outline:hover {
   transform: scale(1.125);
