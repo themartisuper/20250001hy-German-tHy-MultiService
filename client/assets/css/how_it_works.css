@@ -1,0 +1,55 @@
+.how-it-works {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.how-it-works__steps {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  gap: 0.5rem;
+  min-width: 100%;
+  min-height: 300px;
+}
+
+
+.how-it-works__steps-settings {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(83, 83, 83, 0);
+  max-width: 14rem;
+  gap: 1rem;
+}
+
+.how-it-works__steps-settings p {
+  margin: 0;
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+
+
+/* === ICONS ===*/
+.fa-arrow-right-long {
+  margin-top: 2rem;
+  font-size: 2rem;
+}
+
+.how-it-works .fa-solid:not(.how-it-works .fa-arrow-right-long), 
+.how-it-works .fa-regular {
+  font-size: 3rem;
+
+  width: 5.5rem;
+  height: 5.5rem;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: rgb(250, 238, 108);
+  color: #242424;
+  border-radius: 50%;
+}
