@@ -1,7 +1,27 @@
 .how-it-works {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  padding-top: 8rem;
+  background-image: url("../images/compressed/how_it_works_aero_compressed.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.overlay::after { /* создание псевдокласса */
+  content: "";  /* отрисовка */
+  position: absolute; /* абсолютное позиционирование относительно родителя */
+  inset: 0; /* элемент растягивается на всю ширину */
+  background: rgba(76, 76, 76, 0.4);  /* цвет наложения */
+  z-index: 1;
+}
+
+.how-it-works > * { /* == all childs are z-index: 2; == */
+  position: relative;
+  z-index: 2;
 }
 
 .how-it-works__steps {
