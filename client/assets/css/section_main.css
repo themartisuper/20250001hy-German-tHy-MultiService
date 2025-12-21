@@ -14,7 +14,7 @@
   position: relative;
   width: 100%;
   height: 100vh; /* или другая высота */
-  background-image: url("../images/compressed/home_main_2_1-compressed.png");
+  background-image: url("../images/compressed/home_main_2_1-compressed_blur.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
