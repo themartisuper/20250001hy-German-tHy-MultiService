@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>German tHÿ MultiService</title>
+
+  <!-- Icons of Website -->
+  <link rel="icon" href="assets/icons/webp/symbol_logo_transparent.webp"  sizes="any"/>
+  <link rel="icon" href="assets/icons/webp/symbol_logo_transparent.webp" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/icons/webp/symbol_logo.webp"> <!-- сайт в виде иконки на смартфоне или планшете -->
+  <!-- End Icons of Website -->
+
+
+  <!-- Libraries -->
+  <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+  />
+  <!-- End Libraries -->
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/header.css">
+  <link rel="stylesheet" href="assets/css/style_footer.css">
+  <link rel="stylesheet" href="assets/css/style_catalog.css">
+
+  <link rel="stylesheet" href="assets/css/accordion.css">
+
+  <link rel="stylesheet" href="assets/css/flip_card.css">
+  <!-- End Styles -->
+
+</head>
+<body>
+<!-- SVG locales -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+	<symbol id="de" viewBox="0 0 5 3">
+		<path d="M0 0h5v3H0z"/><path fill="#D00" d="M0 1h5v2H0z"/><path fill="#FFCE00" d="M0 2h5v1H0z"/>
+	</symbol>
+	<symbol id="en" viewBox="0 0 60 30">
+		<path d="M0 0v30h60V0z"/></clipPath><clipPath id="b"><path d="M30 15h30v15zv15H0zH0V0zV0h30z"/></clipPath><g clip-path="url(#a)"><path d="M0 0v30h60V0z" fill="#012169"/><path d="m0 0 60 30m0-30L0 30" stroke="#fff" stroke-width="6"/><path d="m0 0 60 30m0-30L0 30" clip-path="url(#b)" stroke="#C8102E" stroke-width="4"/><path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"/><path d="M30 0v30M0 15h60" stroke="#C8102E" stroke-width="6"/>
+	</symbol>
+</svg>
+<!-- End SVG locales -->
+
+
+
+
+<!-- HEADER -->
+<div class="header__content">
+  <a class="header__brand" href="../index.html" rel="noopener noreferrer">
+    <img class="header__brand-logo" src="assets/icons/webp/symbol_logo_transparent_16to9-compressed.webp" alt="firmenlogo">
+    <h1 class="brand-name">German tHÿ<br>MultiService</h1>
+  </a>
+
+  <div class="burger" id="burger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <nav class="nav" id="nav">
+    <ul>
+      <li><a data-i18n="home" href="../index.html">Home</a></li>
+      <li><a data-i18n="sale" href="#">Sale</a></li>
+      <li><a ata-i18n="termine" href="#">Termine</a></li>
+      <li><a ata-i18n="service" href="#">Über uns</a></li>
+      <li><a ata-i18n="contact" href="#contact">Kontakt</a></li>
+    </ul>
+
+    <!-- locales -->
+    <div class="custom-select-wrapper">
+      <div class="custom-select">
+        <div class="selected">
+          <svg class="flag-locales flag-de"><use xlink:href="#de"/></svg>
+        </div>
+        <ul class="options">
+          <li data-value="de">
+            <svg class="flag-locales flag-de"><use xlink:href="#de"/></svg> 
+          </li>
+          <li data-value="en">
+            <svg class="flag-locales flag-en"><use xlink:href="#en"/></svg> 
+          </li>
+        </ul>
+      </div>
+      <select id="language-selector" style="display: none;">
+        <option value="de">Deutsch</option>
+        <option value="en">English</option>
+      </select>
+    </div>
+    <!-- End locales -->
+
+    <div class="sign-up">
+      <div class="sign-up__button">
+        <a class="sign-up__text">Anmelden&ensp;</a>
+        <i class="fa-regular fa-circle-user"></i>
+      </div>
+    </div>
+  </nav>
+</div>
+<!-- End HEADER -->
+
+
+
+<!-- catalog -->
+<div class="catalog__background-personal-and-events">
+  <div class="catalog">
+    <div class="section__page-title">
+      <h1 class="page-title">Katalog</h1>
+      <h3>Garten & Haus</h3>
+    </div>
+    
+    <div class="cards">
+
+      <!-- Gartenbewässerung -->
+      <div class="card">
+        <div class="card__inner">
+          <div class="card__front">
+            <div class="card__wrapper">
+              <div class="card__image">
+                <img src="assets/images/cards/personal_and_events/Seniorenbetreuung_1_1.JPG" alt="">
+              </div>
+              <h3>Gartenbewässerung</h3>
+              <p>Beschreibung, <br/>Beschreibung.</p>
+            </div>
+            <div class="card__button-wrapper"> 
+              <a class="card__button card__button-outline" href="">Mehr</a>
+              <button class="card__button card__button-fill flip-btn">Kontakt</button>
+            </div>
+          </div>
+          <div class="card__back">
+            <h3>Sprechen Sie uns an!</h3>
+            <p class="card__back-cta">Wir stehen Ihnen jederzeit zur Verfügung, um Ihre Fragen zu beantworten.</p>
+            <div class="card__back-info">
+              <div class="card__back-info-settings card__back-info-telefonnumber">
+                <a class="fa-brands fa-whatsapp" href="https://wa.me/4917661219130?text=Hallo!%20Ich%20möchte%20mich%20über%20über%20Einkaufshilfe%20informieren." target="_blank" rel="noopener noreferrer"></a>
+                <a class="card__back-info-text" href="https://wa.me/4917661219130?text=Hallo!%20Ich%20möchte%20mich%20über%20über%20Einkaufshilfe%20informieren." target="_blank" rel="noopener noreferrer">+49 176 61219130</a>
+              </div>
+              <div class="card__back-info-settings card__back-info-email">
+                <a class="fa-regular fa-envelope" href="mailto:german.thy.multi@gmail.com?subject=Anfrage%20über%20Einkaufshilfe" target="_blank" rel="noopener noreferrer"></a>
+                <a class="card__back-info-text" href="mailto:german.thy.multi@gmail.com?subject=Anfrage%20über%20Einkaufshilfe">german.thy.multi@gmail.com</a>
+              </div>
+              <div class="card__back-info-settings">
+                <a class="card__fa-icons fa-brands fa-instagram" href="https://www.instagram.com/german_thy_multi" target="_blank" rel="noopener noreferrer"></a>
+                <a class="card__back-info-text" href="https://www.instagram.com/german_thy_multi" target="_blank" rel="noopener noreferrer">@german_thy_multi</a>
+              </div>
+            </div>
+            <button class="card__button card__button-outline flip-btn">Zurück</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gartenpflege -->
+      <div class="card">
+        <div class="card__inner">
+          <div class="card__front">
+            <div class="card__wrapper">
+              <div class="card__image">
+                <img src="assets/images/cards/personal_and_events/Seniorenbetreuung_1_1.JPG" alt="">
+              </div>
+              <h3>Gartenpflege</h3>
+              <p>Beschreibung, <br/>Beschreibung.</p>
+            </div>
+            <div class="card__button-wrapper"> 
+              <a class="card__button card__button-outline" href="">Mehr</a>
+              <button class="card__button card__button-fill flip-btn">Kontakt</button>
+            </div>
+          </div>
+          <div class="card__back">
+            <h3>Sprechen Sie uns an!</h3>
+            <p class="card__back-cta">Wir stehen Ihnen jederzeit zur Verfügung, um Ihre Fragen zu beantworten.</p>
+            <div class="card__back-info">
+              <div class="card__back-info-settings card__back-info-telefonnumber">
+                <a class="fa-brands fa-whatsapp" href="https://wa.me/4917661219130?text=Hallo!%20Ich%20möchte%20mich%20über%20über%20Einzelhandelskaufmann%20informieren." target="_blank" rel="noopener noreferrer"></a>
+                <a class="card__back-info-text" href="https://wa.me/4917661219130?text=Hallo!%20Ich%20möchte%20mich%20über%20über%20Einzelhandelskaufmann%20informieren." target="_blank" rel="noopener noreferrer">+49 176 61219130</a>
+              </div>
+              <div class="card__back-info-settings card__back-info-email">
+                <a class="fa-regular fa-envelope" href="mailto:german.thy.multi@gmail.com?subject=Anfrage%20über%20Einzelhandelskaufmann" target="_blank" rel="noopener noreferrer"></a>
+                <a class="card__back-info-text" href="mailto:german.thy.multi@gmail.com?subject=Anfrage%20über%20Einzelhandelskaufmann">german.thy.multi@gmail.com</a>
+              </div>
+              <div class="card__back-info-settings">
+                <a class="card__fa-icons fa-brands fa-instagram" href="https://www.instagram.com/german_thy_multi" target="_blank" rel="noopener noreferrer"></a>
+                <a class="card__back-info-text" href="https://www.instagram.com/german_thy_multi" target="_blank" rel="noopener noreferrer">@german_thy_multi</a>
+              </div>
+            </div>
+            <button class="card__button card__button-outline flip-btn">Zurück</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Haushüter -->
+      <div class="card">
+        <div class="card__inner">
+          <div class="card__front">
+            <div class="card__wrapper">
+              <div class="card__image">
+                <img src="assets/images/cards/personal_and_events/Seniorenbetreuung_1_1.JPG" alt="">
+              </div>
+              <h3>Haushüter</h3>
+              <p>Beschreibung, <br/>Beschreibung.</p>
+            </div>
+            <div class="card__button-wrapper"> 
+              <a class="card__button card__button-outline" href="">Mehr</a>
+              <button class="card__button card__button-fill flip-btn">Kontakt</button>
+            </div>
+          </div>
+          <div class="card__back">
+            <h3>Sprechen Sie uns an!</h3>
+            <p class="card__back-cta">Wir stehen Ihnen jederzeit zur Verfügung, um Ihre Fragen zu beantworten.</p>
+            <div class="card__back-info">
+              <div class="card__back-info-settings card__back-info-telefonnumber">
+                <a class="fa-brands fa-whatsapp" href="https://wa.me/4917661219130?text=Hallo!%20Ich%20möchte%20mich%20über%20über%20Eventhilfe / Servicekraft%20informieren." target="_blank" rel="noopener noreferrer"></a>
+                <a class="card__back-info-text" href="https://wa.me/4917661219130?text=Hallo!%20Ich%20möchte%20mich%20über%20über%20Eventhilfe / Servicekraft%20informieren." target="_blank" rel="noopener noreferrer">+49 176 61219130</a>
+              </div>
+              <div class="card__back-info-settings card__back-info-email">
+                <a class="fa-regular fa-envelope" href="mailto:german.thy.multi@gmail.com?subject=Anfrage%20über%20Eventhilfe / Servicekraft" target="_blank" rel="noopener noreferrer"></a>
+                <a class="card__back-info-text" href="mailto:german.thy.multi@gmail.com?subject=Anfrage%20über%20Eventhilfe / Servicekraft">german.thy.multi@gmail.com</a>
+              </div>
+              <div class="card__back-info-settings">
+                <a class="card__fa-icons fa-brands fa-instagram" href="https://www.instagram.com/german_thy_multi" target="_blank" rel="noopener noreferrer"></a>
+                <a class="card__back-info-text" href="https://www.instagram.com/german_thy_multi" target="_blank" rel="noopener noreferrer">@german_thy_multi</a>
+              </div>
+            </div>
+            <button class="card__button card__button-outline flip-btn">Zurück</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kleinreparaturen -->
+      <div class="card">
+        <div class="card__inner">
+          <div class="card__front">
+            <div class="card__wrapper">
+              <div class="card__image">
+                <img src="assets/images/cards/personal_and_events/Seniorenbetreuung_1_1.JPG" alt="">
+              </div>
+              <h3>Kleinreparaturen (ohne Handwerksplicht)</h3>
+              <p>Beschreibung, <br/>Beschreibung.</p>
+            </div>
+            <div class="card__button-wrapper"> 
+              <a class="card__button card__button-outline" href="">Mehr</a>
+              <button class="card__button card__button-fill flip-btn">Kontakt</button>
+            </div>
+          </div>
+          <div class="card__back">
+            <h3>Sprechen Sie uns an!</h3>
+            <p class="card__back-cta">Wir stehen Ihnen jederzeit zur Verfügung, um Ihre Fragen zu beantworten.</p>
+            <div class="card__back-info">
+              <div class="card__back-info-settings card__back-info-telefonnumber">
+                <a class="fa-brands fa-whatsapp" href="https://wa.me/4917661219130?text=Hallo!%20Ich%20möchte%20mich%20über%20über%20Hundeausführen / Gassi-Service%20informieren." target="_blank" rel="noopener noreferrer"></a>
+                <a class="card__back-info-text" href="https://wa.me/4917661219130?text=Hallo!%20Ich%20möchte%20mich%20über%20über%20Hundeausführen / Gassi-Service%20informieren." target="_blank" rel="noopener noreferrer">+49 176 61219130</a>
+              </div>
+              <div class="card__back-info-settings card__back-info-email">
+                <a class="fa-regular fa-envelope" href="mailto:german.thy.multi@gmail.com?subject=Anfrage%20über%20Hundeausführen / Gassi-Service" target="_blank" rel="noopener noreferrer"></a>
+                <a class="card__back-info-text" href="mailto:german.thy.multi@gmail.com?subject=Anfrage%20über%20Hundeausführen / Gassi-Service">german.thy.multi@gmail.com</a>
+              </div>
+              <div class="card__back-info-settings">
+                <a class="card__fa-icons fa-brands fa-instagram" href="https://www.instagram.com/german_thy_multi" target="_blank" rel="noopener noreferrer"></a>
+                <a class="card__back-info-text" href="https://www.instagram.com/german_thy_multi" target="_blank" rel="noopener noreferrer">@german_thy_multi</a>
+              </div>
+            </div>
+            <button class="card__button card__button-outline flip-btn">Zurück</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Rasenmäher -->
+      <div class="card">
+        <div class="card__inner">
+          <div class="card__front">
+            <div class="card__wrapper">
+              <div class="card__image">
+                <img src="assets/images/cards/personal_and_events/Seniorenbetreuung_1_1.JPG" alt="">
+              </div>
+              <h3>Rasenmäher</h3>
+              <p>Beschreibung, <br/>Beschreibung.</p>
+            </div>
+            <div class="card__button-wrapper"> 
+              <a class="card__button card__button-outline" href="">Mehr</a>
+              <button class="card__button card__button-fill flip-btn">Kontakt</button>
+            </div>
+          </div>
+          <div class="card__back">
+            <h3>Sprechen Sie uns an!</h3>
+            <p class="card__back-cta">Wir stehen Ihnen jederzeit zur Verfügung, um Ihre Fragen zu beantworten.</p>
+            <div class="card__back-info">
+              <div class="card__back-info-settings card__back-info-telefonnumber">
+                <a class="fa-brands fa-whatsapp" href="https://wa.me/4917661219130?text=Hallo!%20Ich%20möchte%20mich%20über%20über%20Seniorenbetreuung%20informieren." target="_blank" rel="noopener noreferrer"></a>
+                <a class="card__back-info-text" href="https://wa.me/4917661219130?text=Hallo!%20Ich%20möchte%20mich%20über%20über%20Seniorenbetreuung%20informieren." target="_blank" rel="noopener noreferrer">+49 176 61219130</a>
+              </div>
+              <div class="card__back-info-settings card__back-info-email">
+                <a class="fa-regular fa-envelope" href="mailto:german.thy.multi@gmail.com?subject=Anfrage%20über%20Seniorenbetreuung" target="_blank" rel="noopener noreferrer"></a>
+                <a class="card__back-info-text" href="mailto:german.thy.multi@gmail.com?subject=Anfrage%20über%20Seniorenbetreuung">german.thy.multi@gmail.com</a>
+              </div>
+              <div class="card__back-info-settings">
+                <a class="card__fa-icons fa-brands fa-instagram" href="https://www.instagram.com/german_thy_multi" target="_blank" rel="noopener noreferrer"></a>
+                <a class="card__back-info-text" href="https://www.instagram.com/german_thy_multi" target="_blank" rel="noopener noreferrer">@german_thy_multi</a>
+              </div>
+            </div>
+            <button class="card__button card__button-outline flip-btn">Zurück</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Regale und Gardinenmontage -->
+      <div class="card">
+        <div class="card__inner">
+          <div class="card__front">
+            <div class="card__wrapper">
+              <div class="card__image">
+                <img src="assets/images/cards/personal_and_events/Seniorenbetreuung_1_1.JPG" alt="">
+              </div>
+              <h3>Regale und Gardinenmontage</h3>
+              <p>Beschreibung, <br/>Beschreibung.</p>
+            </div>
+            <div class="card__button-wrapper"> 
+              <a class="card__button card__button-outline" href="">Mehr</a>
+              <button class="card__button card__button-fill flip-btn">Kontakt</button>
+            </div>
+          </div>
+          <div class="card__back">
+            <h3>Sprechen Sie uns an!</h3>
+            <p class="card__back-cta">Wir stehen Ihnen jederzeit zur Verfügung, um Ihre Fragen zu beantworten.</p>
+            <div class="card__back-info">
+              <div class="card__back-info-settings card__back-info-telefonnumber">
+                <a class="fa-brands fa-whatsapp" href="https://wa.me/4917661219130?text=Hallo!%20Ich%20möchte%20mich%20über%20über%20Tierbetreuung%20informieren." target="_blank" rel="noopener noreferrer"></a>
+                <a class="card__back-info-text" href="https://wa.me/4917661219130?text=Hallo!%20Ich%20möchte%20mich%20über%20über%20Tierbetreuung%20informieren." target="_blank" rel="noopener noreferrer">+49 176 61219130</a>
+              </div>
+              <div class="card__back-info-settings card__back-info-email">
+                <a class="fa-regular fa-envelope" href="mailto:german.thy.multi@gmail.com?subject=Anfrage%20über%20Tierbetreuung" target="_blank" rel="noopener noreferrer"></a>
+                <a class="card__back-info-text" href="mailto:german.thy.multi@gmail.com?subject=Anfrage%20über%20Tierbetreuung">german.thy.multi@gmail.com</a>
+              </div>
+              <div class="card__back-info-settings">
+                <a class="card__fa-icons fa-brands fa-instagram" href="https://www.instagram.com/german_thy_multi" target="_blank" rel="noopener noreferrer"></a>
+                <a class="card__back-info-text" href="https://www.instagram.com/german_thy_multi" target="_blank" rel="noopener noreferrer">@german_thy_multi</a>
+              </div>
+            </div>
+            <button class="card__button card__button-outline flip-btn">Zurück</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sträucherschnitt -->
+      <div class="card">
+        <div class="card__inner">
+          <div class="card__front">
+            <div class="card__wrapper">
+              <div class="card__image">
+                <img src="assets/images/cards/personal_and_events/Seniorenbetreuung_1_1.JPG" alt="">
+              </div>
+              <h3>Sträucherschnitt</h3>
+              <p>Beschreibung, <br/>Beschreibung.</p>
+            </div>
+            <div class="card__button-wrapper"> 
+              <a class="card__button card__button-outline" href="">Mehr</a>
+              <button class="card__button card__button-fill flip-btn">Kontakt</button>
+            </div>
+          </div>
+          <div class="card__back">
+            <h3>Sprechen Sie uns an!</h3>
+            <p class="card__back-cta">Wir stehen Ihnen jederzeit zur Verfügung, um Ihre Fragen zu beantworten.</p>
+            <div class="card__back-info">
+              <div class="card__back-info-settings card__back-info-telefonnumber">
+                <a class="fa-brands fa-whatsapp" href="https://wa.me/4917661219130?text=Hallo!%20Ich%20möchte%20mich%20über%20über%20Tierbetreuung%20informieren." target="_blank" rel="noopener noreferrer"></a>
+                <a class="card__back-info-text" href="https://wa.me/4917661219130?text=Hallo!%20Ich%20möchte%20mich%20über%20über%20Tierbetreuung%20informieren." target="_blank" rel="noopener noreferrer">+49 176 61219130</a>
+              </div>
+              <div class="card__back-info-settings card__back-info-email">
+                <a class="fa-regular fa-envelope" href="mailto:german.thy.multi@gmail.com?subject=Anfrage%20über%20Tierbetreuung" target="_blank" rel="noopener noreferrer"></a>
+                <a class="card__back-info-text" href="mailto:german.thy.multi@gmail.com?subject=Anfrage%20über%20Tierbetreuung">german.thy.multi@gmail.com</a>
+              </div>
+              <div class="card__back-info-settings">
+                <a class="card__fa-icons fa-brands fa-instagram" href="https://www.instagram.com/german_thy_multi" target="_blank" rel="noopener noreferrer"></a>
+                <a class="card__back-info-text" href="https://www.instagram.com/german_thy_multi" target="_blank" rel="noopener noreferrer">@german_thy_multi</a>
+              </div>
+            </div>
+            <button class="card__button card__button-outline flip-btn">Zurück</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Unkrautentfernung -->
+      <div class="card">
+        <div class="card__inner">
+          <div class="card__front">
+            <div class="card__wrapper">
+              <div class="card__image">
+                <img src="assets/images/cards/personal_and_events/Seniorenbetreuung_1_1.JPG" alt="">
+              </div>
+              <h3>Unkrautentfernung</h3>
+              <p>Beschreibung, <br/>Beschreibung.</p>
+            </div>
+            <div class="card__button-wrapper"> 
+              <a class="card__button card__button-outline" href="">Mehr</a>
+              <button class="card__button card__button-fill flip-btn">Kontakt</button>
+            </div>
+          </div>
+          <div class="card__back">
+            <h3>Sprechen Sie uns an!</h3>
+            <p class="card__back-cta">Wir stehen Ihnen jederzeit zur Verfügung, um Ihre Fragen zu beantworten.</p>
+            <div class="card__back-info">
+              <div class="card__back-info-settings card__back-info-telefonnumber">
+                <a class="fa-brands fa-whatsapp" href="https://wa.me/4917661219130?text=Hallo!%20Ich%20möchte%20mich%20über%20über%20Tierbetreuung%20informieren." target="_blank" rel="noopener noreferrer"></a>
+                <a class="card__back-info-text" href="https://wa.me/4917661219130?text=Hallo!%20Ich%20möchte%20mich%20über%20über%20Tierbetreuung%20informieren." target="_blank" rel="noopener noreferrer">+49 176 61219130</a>
+              </div>
+              <div class="card__back-info-settings card__back-info-email">
+                <a class="fa-regular fa-envelope" href="mailto:german.thy.multi@gmail.com?subject=Anfrage%20über%20Tierbetreuung" target="_blank" rel="noopener noreferrer"></a>
+                <a class="card__back-info-text" href="mailto:german.thy.multi@gmail.com?subject=Anfrage%20über%20Tierbetreuung">german.thy.multi@gmail.com</a>
+              </div>
+              <div class="card__back-info-settings">
+                <a class="card__fa-icons fa-brands fa-instagram" href="https://www.instagram.com/german_thy_multi" target="_blank" rel="noopener noreferrer"></a>
+                <a class="card__back-info-text" href="https://www.instagram.com/german_thy_multi" target="_blank" rel="noopener noreferrer">@german_thy_multi</a>
+              </div>
+            </div>
+            <button class="card__button card__button-outline flip-btn">Zurück</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Weihnachtsbeleuchtung Montage -->
+      <div class="card">
+        <div class="card__inner">
+          <div class="card__front">
+            <div class="card__wrapper">
+              <div class="card__image">
+                <img src="assets/images/cards/personal_and_events/Seniorenbetreuung_1_1.JPG" alt="">
+              </div>
+              <h3>Weihnachtsbeleuchtung Montage</h3>
+              <p>Beschreibung, <br/>Beschreibung.</p>
+            </div>
+            <div class="card__button-wrapper"> 
+              <a class="card__button card__button-outline" href="">Mehr</a>
+              <button class="card__button card__button-fill flip-btn">Kontakt</button>
+            </div>
+          </div>
+          <div class="card__back">
+            <h3>Sprechen Sie uns an!</h3>
+            <p class="card__back-cta">Wir stehen Ihnen jederzeit zur Verfügung, um Ihre Fragen zu beantworten.</p>
+            <div class="card__back-info">
+              <div class="card__back-info-settings card__back-info-telefonnumber">
+                <a class="fa-brands fa-whatsapp" href="https://wa.me/4917661219130?text=Hallo!%20Ich%20möchte%20mich%20über%20über%20Tierbetreuung%20informieren." target="_blank" rel="noopener noreferrer"></a>
+                <a class="card__back-info-text" href="https://wa.me/4917661219130?text=Hallo!%20Ich%20möchte%20mich%20über%20über%20Tierbetreuung%20informieren." target="_blank" rel="noopener noreferrer">+49 176 61219130</a>
+              </div>
+              <div class="card__back-info-settings card__back-info-email">
+                <a class="fa-regular fa-envelope" href="mailto:german.thy.multi@gmail.com?subject=Anfrage%20über%20Tierbetreuung" target="_blank" rel="noopener noreferrer"></a>
+                <a class="card__back-info-text" href="mailto:german.thy.multi@gmail.com?subject=Anfrage%20über%20Tierbetreuung">german.thy.multi@gmail.com</a>
+              </div>
+              <div class="card__back-info-settings">
+                <a class="card__fa-icons fa-brands fa-instagram" href="https://www.instagram.com/german_thy_multi" target="_blank" rel="noopener noreferrer"></a>
+                <a class="card__back-info-text" href="https://www.instagram.com/german_thy_multi" target="_blank" rel="noopener noreferrer">@german_thy_multi</a>
+              </div>
+            </div>
+            <button class="card__button card__button-outline flip-btn">Zurück</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- End catalog -->
+
+
+
+
+
+
+
+
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer__body">
+    <section class="footer__body-legal">
+      <a href="">Impressum</a>
+      <a href="">Datenschutz</a>
+    </section>
+
+    <section class="section-footer"> 
+      <ul class="footer__body-links ul-footer">
+        <li><a data-i18n="home" href="#">Home</a></li>
+        <li><a ata-i18n="about_us" href="#">Über uns</a></li>
+        <li><a ata-i18n="service" href="#">Service</a></li>
+        <li><a ata-i18n="contact" href="#">Kontakt</a></li>
+      </ul>
+    </section>
+
+    <section class="footer__body-operating-hours-and-socials">
+      <div class="footer__body-operating-hours">
+        <h5>Mo-Fr: 08:00-22:00</h5>
+        <h5>Samstag: 08:00-23:00</h5>
+        <h5>Sonntag: 08:00-23:00</h5>
+      </div>
+
+      <ul class="socials ul-footer">
+        <li><a class="fa-brands fa-telegram" href=""></a></li>
+        <li><a class="fa-brands fa-instagram" href="https://www.instagram.com/german_thy_multi?igsh=YjllaG4zcnVzaGVl&utm_source=qr"></a></li>
+        <li><a class="fa-brands fa-x-twitter" href=""></a></li>
+        <li><a class="fa-brands fa-facebook" href=""></a></li>
+      </ul>
+    </section>
+
+    <section class="footer__body-contact" id="contact">
+      <h5>Kontakt</h5>
+      <h5>German tHÿ MultiService</h5>
+      <div class="social__icons">
+        <div class="social__icons-settings">
+          <a class="fa-brands fa-whatsapp" href="https://wa.me/4917661219130?text=Hallo!" target="_blank" rel="noopener noreferrer"></a>
+          <a href="https://wa.me/4917661219130?text=Hallo" target="_blank" rel="noopener noreferrer">+49 176 61219130</a>
+        </div>
+        <div class="social__icons-settings">
+          <a class="fa-regular fa-envelope" href="mailto:german.thy.multi@gmail.com" target="_blank" rel="noopener noreferrer"></a>
+          <a href="mailto:german.thy.multi@gmail.com">german.thy.multi@gmail.com</a>
+        </div>
+        <div class="social__icons-settings">
+          <a class="card__fa-icons fa-brands fa-instagram" href="https://www.instagram.com/german_thy_multi?igsh=YjllaG4zcnVzaGVl&utm_source=qr" target="_blank" rel="noopener noreferrer"></a>
+          <a href="https://www.instagram.com/german_thy_multi?igsh=YjllaG4zcnVzaGVl&utm_source=qr" target="_blank" rel="noopener noreferrer">@german_thy_multi</a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <div class="legal">
+    <h5 class="legal">© 2025 All rights reserved</h5>
+  </div>
+  
+</footer>
+<!-- End FOOTER -->
+<script src="assets/js/main.js"></script>
+<script src="assets/js/locales.js"></script>
+</body>
+</html>
