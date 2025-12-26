@@ -48,9 +48,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // Инициализация
   updateCarousel();
 
-  // Опционально: автоматическое переключение каждые 5 секунд
-  // setInterval(() => {
-  //   currentIndex = (currentIndex + 1) % totalItems;
-  //   updateCarousel();
-  // }, 5000);
+  // Опционально: автоматическое переключение каждые 6 секунд 
+  setInterval(() => {
+    currentIndex = (currentIndex + 1) % totalItems;
+    updateCarousel();
+  }, 6000000);
 });

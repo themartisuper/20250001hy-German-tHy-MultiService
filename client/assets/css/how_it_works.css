@@ -73,3 +73,94 @@
   color: #242424;
   border-radius: 50%;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*  ==========================================================
+  adaptation
+    ========================================================== */
+@media (max-width: 1366px) {
+  
+}
+
+@media (max-width: 1024px) {
+  
+}
+
+/* Для экранов до 768px (планшеты) */
+@media (max-width: 768px) {
+  
+}
+
+/* iPhone 15 Pro Max */
+@media (max-width: 480px) {
+  .overlay::after {
+    background: rgba(76, 76, 76, 0.65);  /* цвет наложения */
+  }
+
+  .how-it-works__titel {
+    font-size: 1.8rem;
+    justify-self: center;
+    margin-top: -5rem;
+    padding: 0 1rem;
+    text-align: center;
+  }
+
+  .how-it-works__steps {
+    flex-direction: column;
+    align-items: center;
+    min-height: auto;
+  }
+
+  .fa-arrow-right-long {
+    transform: rotate(90deg);
+    margin: 1rem 0;
+  }
+
+  .how-it-works__steps p {
+    font-size: 1.3rem;
+    font-weight: bold;
+  }
+
+  .how-it-works__steps {
+    margin-bottom: 2rem;
+  }
+}
+
+/* iPhone 12 Pro */
+@media (max-width: 390px) {
+  .how-it-works__titel {
+    font-size: 1.7rem;
+    justify-self: center;
+    margin-top: -5rem;
+    padding: 0 1rem;
+    text-align: center;
+  }
+
+  .how-it-works__steps p {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+}
