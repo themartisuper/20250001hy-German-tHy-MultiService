@@ -57,7 +57,7 @@
 <div class="header__content">
   <a class="header__brand" href="../index.html" rel="noopener noreferrer">
     <img class="header__brand-logo" src="assets/icons/webp/symbol_logo_transparent_16to9-compressed.webp" alt="firmenlogo">
-    <h1 class="brand-name">German tHÿ<br>MultiService</h1>
+    <h1 class="brand-name">German tHy<br>MultiService</h1>
   </a>
 
   <div class="burger" id="burger">
@@ -117,6 +117,9 @@
       <h3>Reinigung & Pflege</h3>
     </div>
     
+    <!-- =============================================== -->
+    <!-- Catalog                                         -->
+    <!-- =============================================== -->
     <div class="cards">
 
       <!-- Auto reinigen (Innen und Außenbereich) -->
@@ -125,66 +128,79 @@
           <div class="card__front">
             <div class="card__wrapper">
               <div class="card__image">
-                <img src="assets/images/cards/personal_and_events/Seniorenbetreuung_1_1.JPG" alt="">
+                <img src="assets/images/cards/transport_logistik/produktbild-fehlt.jpg" alt="">
               </div>
               <h3>Auto reinigen</h3>
-              <p>Innen und <br/>Außenbereich.</p>
+              <p>Innen und Außenbereich, <br/>Beschreibung.</p>
             </div>
             <div class="card__button-wrapper"> 
-              <a class="card__button card__button-outline" href="">Mehr</a>
+              
+              <!-- КНОПКА MEHR -->
+              <!-- Вместо data-text мы используем data-template="id-шаблона" -->
+              <a class="card__button card__button-outline trigger-complex-modal" 
+                href="#"
+                data-title="Auto reinigen (Innen und Außenbereich)"
+                data-template="tmpl-auto-reinigen"> <!-- Ссылка на ID шаблона внизу -->
+                Mehr
+              </a>
+
               <button class="card__button card__button-fill flip-btn">Kontakt</button>
             </div>
           </div>
+          <!-- Back side ... -->
           <div class="card__back">
             <h3>Sprechen Sie uns an!</h3>
             <p class="card__back-cta">Wir stehen Ihnen jederzeit zur Verfügung, um Ihre Fragen zu beantworten.</p>
             <div class="card__back-info">
               <div class="card__back-info-settings card__back-info-telefonnumber">
-                <a class="fa-solid fa-phone" href="https://wa.me/4917661219130?text=Hallo!%20Ich%20möchte%20mich%20über%20über%20Einkaufshilfe%20informieren." target="_blank" rel="noopener noreferrer"></a>
-                <a class="card__back-info-text" href="https://wa.me/4917661219130?text=Hallo!%20Ich%20möchte%20mich%20über%20über%20Einkaufshilfe%20informieren." target="_blank" rel="noopener noreferrer">+49 176 61219130</a>
-              </div>
-              <div class="card__back-info-settings card__back-info-telefonnumber">
                 <a class="fa-brands fa-whatsapp" href="https://wa.me/4917661219130?text=Hallo!%20Ich%20möchte%20mich%20über%20über%20Einkaufshilfe%20informieren." target="_blank" rel="noopener noreferrer"></a>
-                <a class="card__back-info-text" href="https://wa.me/4917661219130?text=Hallo!%20Ich%20möchte%20mich%20über%20über%20Einkaufshilfe%20informieren." target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                <a class="card__back-info-text" href="https://wa.me/4917661219130?text=Hallo!%20Ich%20möchte%20mich%20über%20über%20Einkaufshilfe%20informieren." target="_blank" rel="noopener noreferrer">+49 176 61219130</a>
               </div>
               <div class="card__back-info-settings card__back-info-email">
                 <a class="fa-regular fa-envelope" href="mailto:german.thy.multi@gmail.com?subject=Anfrage%20über%20Einkaufshilfe" target="_blank" rel="noopener noreferrer"></a>
-                <a class="card__back-info-text" href="mailto:german.thy.multi@gmail.com?subject=Anfrage%20über%20Einkaufshilfe">Mail senden</a>
+                <a class="card__back-info-text" href="mailto:german.thy.multi@gmail.com?subject=Anfrage%20über%20Einkaufshilfe">german.thy.multi@gmail.com</a>
               </div>
               <div class="card__back-info-settings">
                 <a class="card__fa-icons fa-brands fa-instagram" href="https://www.instagram.com/german_thy_multi" target="_blank" rel="noopener noreferrer"></a>
-                <a class="card__back-info-text" href="https://www.instagram.com/german_thy_multi" target="_blank" rel="noopener noreferrer">Instagram</a>
+                <a class="card__back-info-text" href="https://www.instagram.com/german_thy_multi" target="_blank" rel="noopener noreferrer">@german_thy_multi</a>
               </div>
             </div>
             <button class="card__button card__button-outline flip-btn">Zurück</button>
           </div>
         </div>
       </div>
-
+      <!-- End Auto reinigen (Innen und Außenbereich) -->
+      
       <!-- Büroreinigung -->
       <div class="card">
         <div class="card__inner">
           <div class="card__front">
             <div class="card__wrapper">
               <div class="card__image">
-                <img src="assets/images/cards/personal_and_events/Seniorenbetreuung_1_1.JPG" alt="">
+                <img src="assets/images/cards/transport_logistik/produktbild-fehlt.jpg" alt="">
               </div>
               <h3>Büroreinigung</h3>
               <p>Beschreibung, <br/>Beschreibung.</p>
             </div>
             <div class="card__button-wrapper"> 
-              <a class="card__button card__button-outline" href="">Mehr</a>
+              
+              <!-- КНОПКА MEHR -->
+              <!-- Вместо data-text мы используем data-template="id-шаблона" -->
+              <a class="card__button card__button-outline trigger-complex-modal" 
+                href="#"
+                data-title="Büroreinigung"
+                data-template="tmpl-bueroreinigung"> <!-- Ссылка на ID шаблона внизу -->
+                Mehr
+              </a>
+
               <button class="card__button card__button-fill flip-btn">Kontakt</button>
             </div>
           </div>
+          <!-- Back side ... -->
           <div class="card__back">
             <h3>Sprechen Sie uns an!</h3>
             <p class="card__back-cta">Wir stehen Ihnen jederzeit zur Verfügung, um Ihre Fragen zu beantworten.</p>
             <div class="card__back-info">
-              <div class="card__back-info-settings card__back-info-telefonnumber">
-                <a class="fa-solid fa-phone" href="https://wa.me/4917661219130?text=Hallo!%20Ich%20möchte%20mich%20über%20über%20Einkaufshilfe%20informieren." target="_blank" rel="noopener noreferrer"></a>
-                <a class="card__back-info-text" href="https://wa.me/4917661219130?text=Hallo!%20Ich%20möchte%20mich%20über%20über%20Einkaufshilfe%20informieren." target="_blank" rel="noopener noreferrer">+49 176 61219130</a>
-              </div>
               <div class="card__back-info-settings card__back-info-telefonnumber">
                 <a class="fa-brands fa-whatsapp" href="https://wa.me/4917661219130?text=Hallo!%20Ich%20möchte%20mich%20über%20über%20Einzelhandelskaufmann%20informieren." target="_blank" rel="noopener noreferrer"></a>
                 <a class="card__back-info-text" href="https://wa.me/4917661219130?text=Hallo!%20Ich%20möchte%20mich%20über%20über%20Einzelhandelskaufmann%20informieren." target="_blank" rel="noopener noreferrer">+49 176 61219130</a>
@@ -202,6 +218,7 @@
           </div>
         </div>
       </div>
+      <!-- End Büroreinigung -->
 
       <!-- Dachhaut / Dachziegel reinigen -->
       <div class="card">
@@ -209,16 +226,26 @@
           <div class="card__front">
             <div class="card__wrapper">
               <div class="card__image">
-                <img src="assets/images/cards/personal_and_events/Seniorenbetreuung_1_1.JPG" alt="">
+                <img src="assets/images/cards/transport_logistik/produktbild-fehlt.jpg" alt="">
               </div>
               <h3>Dachhaut / Dachziegel reinigen</h3>
               <p>Beschreibung, <br/>Beschreibung.</p>
             </div>
             <div class="card__button-wrapper"> 
-              <a class="card__button card__button-outline" href="">Mehr</a>
+              
+              <!-- КНОПКА MEHR -->
+              <!-- Вместо data-text мы используем data-template="id-шаблона" -->
+              <a class="card__button card__button-outline trigger-complex-modal" 
+                href="#"
+                data-title="Dachhaut / Dachziegel reinigen"
+                data-template="tmpl-dachhaut_dachziegel_reinigen"> <!-- Ссылка на ID шаблона внизу -->
+                Mehr
+              </a>
+
               <button class="card__button card__button-fill flip-btn">Kontakt</button>
             </div>
           </div>
+          <!-- Back side ... -->
           <div class="card__back">
             <h3>Sprechen Sie uns an!</h3>
             <p class="card__back-cta">Wir stehen Ihnen jederzeit zur Verfügung, um Ihre Fragen zu beantworten.</p>
@@ -240,6 +267,7 @@
           </div>
         </div>
       </div>
+      <!-- End Dachhaut / Dachziegel reinigen -->
 
       <!-- Endreinigung / Bauendreinigung -->
       <div class="card">
@@ -247,16 +275,26 @@
           <div class="card__front">
             <div class="card__wrapper">
               <div class="card__image">
-                <img src="assets/images/cards/personal_and_events/Seniorenbetreuung_1_1.JPG" alt="">
+                <img src="assets/images/cards/transport_logistik/produktbild-fehlt.jpg" alt="">
               </div>
               <h3>Endreinigung / Bauendreinigung</h3>
               <p>Beschreibung, <br/>Beschreibung.</p>
             </div>
             <div class="card__button-wrapper"> 
-              <a class="card__button card__button-outline" href="">Mehr</a>
+              
+              <!-- КНОПКА MEHR -->
+              <!-- Вместо data-text мы используем data-template="id-шаблона" -->
+              <a class="card__button card__button-outline trigger-complex-modal" 
+                href="#"
+                data-title="Endreinigung / Bauendreinigung"
+                data-template="tmpl-endreinigung_bauendreinigung"> <!-- Ссылка на ID шаблона внизу -->
+                Mehr
+              </a>
+
               <button class="card__button card__button-fill flip-btn">Kontakt</button>
             </div>
           </div>
+          <!-- Back side ... -->
           <div class="card__back">
             <h3>Sprechen Sie uns an!</h3>
             <p class="card__back-cta">Wir stehen Ihnen jederzeit zur Verfügung, um Ihre Fragen zu beantworten.</p>
@@ -278,23 +316,34 @@
           </div>
         </div>
       </div>
+      <!-- Endreinigung / Bauendreinigung -->
 
-      <!-- Fassadenreinigung -->
+      <!-- Fassadenreinigung (Schimmel-, Algen- & Moosentfernung) -->
       <div class="card">
         <div class="card__inner">
           <div class="card__front">
             <div class="card__wrapper">
               <div class="card__image">
-                <img src="assets/images/cards/personal_and_events/Seniorenbetreuung_1_1.JPG" alt="">
+                <img src="assets/images/cards/transport_logistik/produktbild-fehlt.jpg" alt="">
               </div>
               <h3>Fassadenreinigung</h3>
               <p>Schimmel-,&ensp;Algen- <br/>&&ensp;Moosentfernung</p>
             </div>
             <div class="card__button-wrapper"> 
-              <a class="card__button card__button-outline" href="">Mehr</a>
+              
+              <!-- КНОПКА MEHR -->
+              <!-- Вместо data-text мы используем data-template="id-шаблона" -->
+              <a class="card__button card__button-outline trigger-complex-modal" 
+                href="#"
+                data-title="Fassadenreinigung"
+                data-template="tmpl-fassadenreinigung"> <!-- Ссылка на ID шаблона внизу -->
+                Mehr
+              </a>
+
               <button class="card__button card__button-fill flip-btn">Kontakt</button>
             </div>
           </div>
+          <!-- Back side ... -->
           <div class="card__back">
             <h3>Sprechen Sie uns an!</h3>
             <p class="card__back-cta">Wir stehen Ihnen jederzeit zur Verfügung, um Ihre Fragen zu beantworten.</p>
@@ -316,6 +365,7 @@
           </div>
         </div>
       </div>
+      <!-- End Fassadenreinigung (Schimmel-, Algen- & Moosentfernung) -->
 
       <!-- Fensterreinigung -->
       <div class="card">
@@ -323,16 +373,26 @@
           <div class="card__front">
             <div class="card__wrapper">
               <div class="card__image">
-                <img src="assets/images/cards/personal_and_events/Seniorenbetreuung_1_1.JPG" alt="">
+                <img src="assets/images/cards/transport_logistik/produktbild-fehlt.jpg" alt="">
               </div>
               <h3>Fensterreinigung</h3>
               <p>Beschreibung, <br/>Beschreibung.</p>
             </div>
             <div class="card__button-wrapper"> 
-              <a class="card__button card__button-outline" href="">Mehr</a>
+              
+              <!-- КНОПКА MEHR -->
+              <!-- Вместо data-text мы используем data-template="id-шаблона" -->
+              <a class="card__button card__button-outline trigger-complex-modal" 
+                href="#"
+                data-title="Fensterreinigung"
+                data-template="tmpl-fensterreinigung"> <!-- Ссылка на ID шаблона внизу -->
+                Mehr
+              </a>
+
               <button class="card__button card__button-fill flip-btn">Kontakt</button>
             </div>
           </div>
+          <!-- Back side ... -->
           <div class="card__back">
             <h3>Sprechen Sie uns an!</h3>
             <p class="card__back-cta">Wir stehen Ihnen jederzeit zur Verfügung, um Ihre Fragen zu beantworten.</p>
@@ -354,6 +414,7 @@
           </div>
         </div>
       </div>
+      <!-- End Fensterreinigung -->
 
       <!-- Fliesen Reiniger -->
       <div class="card">
@@ -361,16 +422,26 @@
           <div class="card__front">
             <div class="card__wrapper">
               <div class="card__image">
-                <img src="assets/images/cards/personal_and_events/Seniorenbetreuung_1_1.JPG" alt="">
+                <img src="assets/images/cards/transport_logistik/produktbild-fehlt.jpg" alt="">
               </div>
               <h3>Fliesen Reiniger</h3>
               <p>Beschreibung, <br/>Beschreibung.</p>
             </div>
             <div class="card__button-wrapper"> 
-              <a class="card__button card__button-outline" href="">Mehr</a>
+              
+              <!-- КНОПКА MEHR -->
+              <!-- Вместо data-text мы используем data-template="id-шаблона" -->
+              <a class="card__button card__button-outline trigger-complex-modal" 
+                href="#"
+                data-title="Fliesen Reiniger"
+                data-template="tmpl-fliesenreiniger"> <!-- Ссылка на ID шаблона внизу -->
+                Mehr
+              </a>
+
               <button class="card__button card__button-fill flip-btn">Kontakt</button>
             </div>
           </div>
+          <!-- Back side ... -->
           <div class="card__back">
             <h3>Sprechen Sie uns an!</h3>
             <p class="card__back-cta">Wir stehen Ihnen jederzeit zur Verfügung, um Ihre Fragen zu beantworten.</p>
@@ -392,6 +463,7 @@
           </div>
         </div>
       </div>
+      <!-- End Fliesen Reiniger -->
 
       <!-- Lauabholung -->
       <div class="card">
@@ -399,16 +471,26 @@
           <div class="card__front">
             <div class="card__wrapper">
               <div class="card__image">
-                <img src="assets/images/cards/personal_and_events/Seniorenbetreuung_1_1.JPG" alt="">
+                <img src="assets/images/cards/transport_logistik/produktbild-fehlt.jpg" alt="">
               </div>
               <h3>Lauabholung</h3>
               <p>Beschreibung, <br/>Beschreibung.</p>
             </div>
             <div class="card__button-wrapper"> 
-              <a class="card__button card__button-outline" href="">Mehr</a>
+              
+              <!-- КНОПКА MEHR -->
+              <!-- Вместо data-text мы используем data-template="id-шаблона" -->
+              <a class="card__button card__button-outline trigger-complex-modal" 
+                href="#"
+                data-title="Lauabholung"
+                data-template="tmpl-lauabholung"> <!-- Ссылка на ID шаблона внизу -->
+                Mehr
+              </a>
+
               <button class="card__button card__button-fill flip-btn">Kontakt</button>
             </div>
           </div>
+          <!-- Back side ... -->
           <div class="card__back">
             <h3>Sprechen Sie uns an!</h3>
             <p class="card__back-cta">Wir stehen Ihnen jederzeit zur Verfügung, um Ihre Fragen zu beantworten.</p>
@@ -430,6 +512,7 @@
           </div>
         </div>
       </div>
+      <!-- End Lauabholung -->
 
       <!-- Haushaltreinigung -->
       <div class="card">
@@ -437,16 +520,26 @@
           <div class="card__front">
             <div class="card__wrapper">
               <div class="card__image">
-                <img src="assets/images/cards/personal_and_events/Seniorenbetreuung_1_1.JPG" alt="">
+                <img src="assets/images/cards/transport_logistik/produktbild-fehlt.jpg" alt="">
               </div>
               <h3>Haushaltreinigung</h3>
               <p>Beschreibung, <br/>Beschreibung.</p>
             </div>
             <div class="card__button-wrapper"> 
-              <a class="card__button card__button-outline" href="">Mehr</a>
+              
+              <!-- КНОПКА MEHR -->
+              <!-- Вместо data-text мы используем data-template="id-шаблона" -->
+              <a class="card__button card__button-outline trigger-complex-modal" 
+                href="#"
+                data-title="Haushaltreinigung"
+                data-template="tmpl-haushaltreinigung"> <!-- Ссылка на ID шаблона внизу -->
+                Mehr
+              </a>
+
               <button class="card__button card__button-fill flip-btn">Kontakt</button>
             </div>
           </div>
+          <!-- Back side ... -->
           <div class="card__back">
             <h3>Sprechen Sie uns an!</h3>
             <p class="card__back-cta">Wir stehen Ihnen jederzeit zur Verfügung, um Ihre Fragen zu beantworten.</p>
@@ -468,6 +561,7 @@
           </div>
         </div>
       </div>
+      <!-- End Haushaltreinigung -->
 
       <!-- Schneeräumung -->
       <div class="card">
@@ -475,16 +569,26 @@
           <div class="card__front">
             <div class="card__wrapper">
               <div class="card__image">
-                <img src="assets/images/cards/personal_and_events/Seniorenbetreuung_1_1.JPG" alt="">
+                <img src="assets/images/cards/transport_logistik/produktbild-fehlt.jpg" alt="">
               </div>
               <h3>Schneeräumung</h3>
               <p>Beschreibung, <br/>Beschreibung.</p>
             </div>
             <div class="card__button-wrapper"> 
-              <a class="card__button card__button-outline" href="">Mehr</a>
+              
+              <!-- КНОПКА MEHR -->
+              <!-- Вместо data-text мы используем data-template="id-шаблона" -->
+              <a class="card__button card__button-outline trigger-complex-modal" 
+                href="#"
+                data-title="Schneeräumung"
+                data-template="tmpl-schneeraeumung"> <!-- Ссылка на ID шаблона внизу -->
+                Mehr
+              </a>
+
               <button class="card__button card__button-fill flip-btn">Kontakt</button>
             </div>
           </div>
+          <!-- Back side ... -->
           <div class="card__back">
             <h3>Sprechen Sie uns an!</h3>
             <p class="card__back-cta">Wir stehen Ihnen jederzeit zur Verfügung, um Ihre Fragen zu beantworten.</p>
@@ -506,6 +610,7 @@
           </div>
         </div>
       </div>
+      <!-- End Schneeräumung -->
 
       <!-- Streudienst -->
       <div class="card">
@@ -513,16 +618,26 @@
           <div class="card__front">
             <div class="card__wrapper">
               <div class="card__image">
-                <img src="assets/images/cards/personal_and_events/Seniorenbetreuung_1_1.JPG" alt="">
+                <img src="assets/images/cards/transport_logistik/produktbild-fehlt.jpg" alt="">
               </div>
               <h3>Streudienst</h3>
               <p>Beschreibung, <br/>Beschreibung.</p>
             </div>
             <div class="card__button-wrapper"> 
-              <a class="card__button card__button-outline" href="">Mehr</a>
+              
+              <!-- КНОПКА MEHR -->
+              <!-- Вместо data-text мы используем data-template="id-шаблона" -->
+              <a class="card__button card__button-outline trigger-complex-modal" 
+                href="#"
+                data-title="Streudienst"
+                data-template="tmpl-streudienst"> <!-- Ссылка на ID шаблона внизу -->
+                Mehr
+              </a>
+
               <button class="card__button card__button-fill flip-btn">Kontakt</button>
             </div>
           </div>
+          <!-- Back side ... -->
           <div class="card__back">
             <h3>Sprechen Sie uns an!</h3>
             <p class="card__back-cta">Wir stehen Ihnen jederzeit zur Verfügung, um Ihre Fragen zu beantworten.</p>
@@ -544,23 +659,34 @@
           </div>
         </div>
       </div>
+      <!-- End Streudienst -->
 
-      <!-- Teppichreinigung- und Polster-/Sofareinigung -->
+      <!-- Teppichreinigung- und Polster- / Sofareinigung -->
       <div class="card">
         <div class="card__inner">
           <div class="card__front">
             <div class="card__wrapper">
               <div class="card__image">
-                <img src="assets/images/cards/personal_and_events/Seniorenbetreuung_1_1.JPG" alt="">
+                <img src="assets/images/cards/transport_logistik/produktbild-fehlt.jpg" alt="">
               </div>
-              <h3>Teppichreinigung-, Polster- und Sofareinigung</h3>
+              <h3>Teppichreinigung- und Polster- / Sofareinigung</h3>
               <p>Beschreibung, <br/>Beschreibung.</p>
             </div>
             <div class="card__button-wrapper"> 
-              <a class="card__button card__button-outline" href="">Mehr</a>
+              
+              <!-- КНОПКА MEHR -->
+              <!-- Вместо data-text мы используем data-template="id-шаблона" -->
+              <a class="card__button card__button-outline trigger-complex-modal" 
+                href="#"
+                data-title="Teppichreinigung- und Polster- / Sofareinigung"
+                data-template="tmpl-teppichreinigung"> <!-- Ссылка на ID шаблона внизу -->
+                Mehr
+              </a>
+
               <button class="card__button card__button-fill flip-btn">Kontakt</button>
             </div>
           </div>
+          <!-- Back side ... -->
           <div class="card__back">
             <h3>Sprechen Sie uns an!</h3>
             <p class="card__back-cta">Wir stehen Ihnen jederzeit zur Verfügung, um Ihre Fragen zu beantworten.</p>
@@ -582,6 +708,7 @@
           </div>
         </div>
       </div>
+      <!-- End Teppichreinigung- und Polster- / Sofareinigung -->
 
       <!-- Eis und Schneebeseitigung am Auto -->
       <div class="card">
@@ -589,16 +716,26 @@
           <div class="card__front">
             <div class="card__wrapper">
               <div class="card__image">
-                <img src="assets/images/cards/personal_and_events/Seniorenbetreuung_1_1.JPG" alt="">
+                <img src="assets/images/cards/transport_logistik/produktbild-fehlt.jpg" alt="">
               </div>
               <h3>Eis und Schneebeseitigung am Auto</h3>
               <p>Beschreibung, <br/>Beschreibung.</p>
             </div>
             <div class="card__button-wrapper"> 
-              <a class="card__button card__button-outline" href="">Mehr</a>
+              
+              <!-- КНОПКА MEHR -->
+              <!-- Вместо data-text мы используем data-template="id-шаблона" -->
+              <a class="card__button card__button-outline trigger-complex-modal" 
+                href="#"
+                data-title="Eis und Schneebeseitigung am Auto"
+                data-template="tmpl-eis-schneebeseitigung"> <!-- Ссылка на ID шаблона внизу -->
+                Mehr
+              </a>
+
               <button class="card__button card__button-fill flip-btn">Kontakt</button>
             </div>
           </div>
+          <!-- Back side ... -->
           <div class="card__back">
             <h3>Sprechen Sie uns an!</h3>
             <p class="card__back-cta">Wir stehen Ihnen jederzeit zur Verfügung, um Ihre Fragen zu beantworten.</p>
@@ -620,6 +757,12 @@
           </div>
         </div>
       </div>
+      <!-- End Eis und Schneebeseitigung am Auto -->
+
+
+
+      <!-- =============================================== -->
+      <!-- End Catalog                                     -->
 
     </div>
   </div>
@@ -693,49 +836,1075 @@
   
 </footer>
 <!-- End FOOTER -->
+
+
+
+
+
+
+
+
+<!-- ========================================================= -->
+<!-- 1. ЕДИНОЕ СЛОЖНОЕ МОДАЛЬНОЕ ОКНО (FAQ + ФОРМА)            -->
+<!-- ========================================================= -->
+<div id="complexModal" class="modal-overlay">
+  <div class="modal-content"> 
+    
+    <div class="modal-header">
+      <h2 id="complexModalTitle">Service Name</h2>
+      <button class="close-modal-btn">&times;</button>
+    </div>
+
+    <div class="modal-body-grid">
+      
+      <div class="modal-col-left">
+        <h3 class="modal-subtitle">Häufige Fragen (FAQ)</h3>
+        <div id="modalFaqContainer">
+          </div>
+      </div>
+
+      <div class="modal-col-right">
+        
+        <form id="multiStepForm" action="/api/personal_request" method="POST">
+          <input type="hidden" id="formServiceSubject" name="service" value="">
+
+          <div class="ms-header">
+            <div class="step-indicator">
+              <span class="step-circle active">1</span>
+              <span class="step-circle">2</span>
+              <span class="step-circle">3</span>
+            </div>
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill" style="width: 33%;"></div>
+            </div>
+          </div>
+
+          <div class="steps-container">
+
+            <div class="form-step active" data-step="1">
+              <h3 class="modal-subtitle">Ihre Anfrage</h3>
+
+              <div class="form-group">
+                <label class="form-label" style="margin-bottom: 10px;">Laufzeit & Frequenz</label>
+                
+                <div class="toggle-option-wrapper">
+                  <input type="checkbox" id="cb_einmalig" name="timing_onetime" value="yes">
+                  <label for="cb_einmalig" class="btn-checkbox-face">
+                    Einmalig (einzelner Termin)
+                  </label>
+                </div>
+
+                <div id="regularSchedule" class="schedule-grid">
+                  
+                  <div class="schedule-item">
+                    <label class="form-label-small">Wochen pro Monat</label>
+                    <select class="form-input required-field" name="timing_weeks">
+                      <option value="" disabled selected>Bitte wählen</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="telefonisch">telefonisch besprechen</option>
+                    </select>
+                  </div>
+
+                  <div class="schedule-item">
+                    <label class="form-label-small">Tage pro Woche</label>
+                    <select class="form-input required-field" name="timing_days_per_week">
+                      <option value="" disabled selected>Bitte wählen</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="telefonisch">telefonisch besprechen</option>
+                    </select>
+                  </div>
+
+                  <div class="schedule-item">
+                    <label class="form-label-small">Monaten</label>
+                    <select class="form-input required-field" name="timing_months">
+                      <option value="" disabled selected>Bitte wählen</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="6">6</option>
+                      <option value="12">12</option>
+                      <option value="telefonisch">telefonisch besprechen</option>
+                    </select>
+                  </div>
+
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Details / Wünsche</label>
+                <textarea class="form-textarea" name="message" placeholder="Beschreiben Sie kurz, was genau erledigt werden soll..."></textarea>
+              </div>
+            </div>
+
+            <div class="form-step" data-step="2">
+              <h3 class="modal-subtitle">Kontaktdaten</h3>
+              
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label">Vorname*</label>
+                  <input type="text" class="form-input required-field" name="first_name" placeholder="Max">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Nachname*</label>
+                  <input type="text" class="form-input required-field" name="last_name" placeholder="Mustermann">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">E-Mail Adresse*</label>
+                <input type="email" class="form-input required-field" name="email" placeholder="beispiel@mail.de">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Telefonnummer*</label>
+                <input type="tel" class="form-input required-field" name="phone" placeholder="+49 123 456789">
+              </div>
+            </div>
+
+            <div class="form-step" data-step="3">
+              <h3 class="modal-subtitle">Adresse & Abschluss</h3>
+              
+              <div class="form-row">
+                <div class="form-group" style="flex: 2;">
+                  <label class="form-label">Straße*</label>
+                  <input type="text" class="form-input required-field" name="street">
+                </div>
+                <div class="form-group" style="flex: 1;">
+                  <label class="form-label">Nr.*</label>
+                  <input type="text" class="form-input required-field" name="house_number">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group" style="flex: 1;">
+                  <label class="form-label">PLZ*</label>
+                  <input type="text" class="form-input required-field" name="zip">
+                </div>
+                <div class="form-group" style="flex: 2;">
+                  <label class="form-label">Stadt*</label>
+                  <input type="text" class="form-input required-field" name="city">
+                </div>
+              </div>
+              
+              <div class="form-info-text">
+                <small>Mit dem Absenden akzeptieren Sie unsere <a href="#">Datenschutzbestimmungen.</a></small>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="form-nav">
+            <button type="button" class="form-btn-prev disabled" disabled>Zurück</button>
+            <button type="button" class="form-btn-next">Weiter</button>
+            <button type="submit" class="form-submit-btn hidden">Anfrage senden</button>
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ========================================================= -->
+<!-- 2. ШАБЛОНЫ КОНТЕНТА (Templates)                           -->
+<!-- ========================================================= -->
+
+<template id="tmpl-auto-reinigen">
+    <!-- Question 1 -->
+    <details open>
+      <summary>Warum braucht man das? </summary>
+      <div class="faq-answer">
+        Passiert
+      </div>
+    </details>
+    <!-- Question 2 -->
+    <details>
+      <summary>Preise</summary>
+      <div class="faq-answer">
+        Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
+        Spaziergang / Gesellschaft: 24 € / Stunde
+        Einkaufsbegleitung: 27 € / Stunde
+        Arzt-/Terminbegleitung: 27 € / Stunde
+        Nachtbegleitung (20–06 Uhr): 95 € pauschal
+
+        <details>
+          <summary>Zuschläge & Extras:</summary>
+          <div class="faq-answer">
+            Zuschläge & Extras:
+            Wochenende / Feiertage: +20 %
+            Express / kurzfristig (<24h): +20 %
+          </div>
+        </details>
+      </div>
+    </details>
+    <!-- Question 3 -->
+    <details>
+        <summary>Welche Zahlungsmethoden gibt es?</summary>
+        <div class="faq-answer">
+            Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
+        </div>
+    </details>
+    <!-- Question 4 -->
+    <details>
+        <summary>Welche Zahlungsmethoden gibt es?</summary>
+        <div class="faq-answer">
+            Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
+        </div>
+    </details>
+</template>
+
+
+
+<template id="tmpl-bueroreinigung">
+    <!-- Question 1 -->
+    <details open>
+      <summary>Warum braucht man das? </summary>
+      <div class="faq-answer">
+        Passiert123154154
+      </div>
+    </details>
+    <!-- Question 2 -->
+    <details>
+      <summary>Preise</summary>
+      <div class="faq-answer">
+        Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
+        Spaziergang / Gesellschaft: 24 € / Stunde
+        Einkaufsbegleitung: 27 € / Stunde
+        Arzt-/Terminbegleitung: 27 € / Stunde
+        Nachtbegleitung (20–06 Uhr): 95 € pauschal
+
+        <details>
+          <summary>Zuschläge & Extras:</summary>
+          <div class="faq-answer">
+            Zuschläge & Extras:
+            Wochenende / Feiertage: +20 %
+            Express / kurzfristig (<24h): +20 %
+          </div>
+        </details>
+      </div>
+    </details>
+    <!-- Question 3 -->
+    <details>
+        <summary>Welche Zahlungsmethoden gibt es?</summary>
+        <div class="faq-answer">
+            Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
+        </div>
+    </details>
+    <!-- Question 4 -->
+    <details>
+        <summary>Welche Zahlungsmethoden gibt es?</summary>
+        <div class="faq-answer">
+            Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
+        </div>
+    </details>
+</template>
+
+
+
+<template id="tmpl-dachhaut_dachziegel_reinigen">
+    <!-- Question 1 -->
+    <details open>
+      <summary>Warum braucht man das? </summary>
+      <div class="faq-answer">
+        Passiert123154154
+      </div>
+    </details>
+    <!-- Question 2 -->
+    <details>
+      <summary>Preise</summary>
+      <div class="faq-answer">
+        Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
+        Spaziergang / Gesellschaft: 24 € / Stunde
+        Einkaufsbegleitung: 27 € / Stunde
+        Arzt-/Terminbegleitung: 27 € / Stunde
+        Nachtbegleitung (20–06 Uhr): 95 € pauschal
+
+        <details>
+          <summary>Zuschläge & Extras:</summary>
+          <div class="faq-answer">
+            Zuschläge & Extras:
+            Wochenende / Feiertage: +20 %
+            Express / kurzfristig (<24h): +20 %
+          </div>
+        </details>
+      </div>
+    </details>
+    <!-- Question 3 -->
+    <details>
+        <summary>Welche Zahlungsmethoden gibt es?</summary>
+        <div class="faq-answer">
+            Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
+        </div>
+    </details>
+    <!-- Question 4 -->
+    <details>
+        <summary>Welche Zahlungsmethoden gibt es?</summary>
+        <div class="faq-answer">
+            Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
+        </div>
+    </details>
+</template>
+
+
+
+<template id="tmpl-endreinigung_bauendreinigung">
+    <!-- Question 1 -->
+    <details open>
+      <summary>Warum braucht man das? </summary>
+      <div class="faq-answer">
+        Passiert123154154
+      </div>
+    </details>
+    <!-- Question 2 -->
+    <details>
+      <summary>Preise</summary>
+      <div class="faq-answer">
+        Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
+        Spaziergang / Gesellschaft: 24 € / Stunde
+        Einkaufsbegleitung: 27 € / Stunde
+        Arzt-/Terminbegleitung: 27 € / Stunde
+        Nachtbegleitung (20–06 Uhr): 95 € pauschal
+
+        <details>
+          <summary>Zuschläge & Extras:</summary>
+          <div class="faq-answer">
+            Zuschläge & Extras:
+            Wochenende / Feiertage: +20 %
+            Express / kurzfristig (<24h): +20 %
+          </div>
+        </details>
+      </div>
+    </details>
+    <!-- Question 3 -->
+    <details>
+        <summary>Welche Zahlungsmethoden gibt es?</summary>
+        <div class="faq-answer">
+            Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
+        </div>
+    </details>
+    <!-- Question 4 -->
+    <details>
+        <summary>Welche Zahlungsmethoden gibt es?</summary>
+        <div class="faq-answer">
+            Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
+        </div>
+    </details>
+</template>
+
+
+
+<template id="tmpl-fassadenreinigung">
+    <!-- Question 1 -->
+    <details open>
+      <summary>Warum braucht man das? </summary>
+      <div class="faq-answer">
+        Passiert123154154
+      </div>
+    </details>
+    <!-- Question 2 -->
+    <details>
+      <summary>Preise</summary>
+      <div class="faq-answer">
+        Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
+        Spaziergang / Gesellschaft: 24 € / Stunde
+        Einkaufsbegleitung: 27 € / Stunde
+        Arzt-/Terminbegleitung: 27 € / Stunde
+        Nachtbegleitung (20–06 Uhr): 95 € pauschal
+
+        <details>
+          <summary>Zuschläge & Extras:</summary>
+          <div class="faq-answer">
+            Zuschläge & Extras:
+            Wochenende / Feiertage: +20 %
+            Express / kurzfristig (<24h): +20 %
+          </div>
+        </details>
+      </div>
+    </details>
+    <!-- Question 3 -->
+    <details>
+        <summary>Welche Zahlungsmethoden gibt es?</summary>
+        <div class="faq-answer">
+            Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
+        </div>
+    </details>
+    <!-- Question 4 -->
+    <details>
+        <summary>Welche Zahlungsmethoden gibt es?</summary>
+        <div class="faq-answer">
+            Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
+        </div>
+    </details>
+</template>
+
+
+
+<template id="tmpl-fensterreinigung">
+    <!-- Question 1 -->
+    <details open>
+      <summary>Warum braucht man das? </summary>
+      <div class="faq-answer">
+        Passiert123154154
+      </div>
+    </details>
+    <!-- Question 2 -->
+    <details>
+      <summary>Preise</summary>
+      <div class="faq-answer">
+        Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
+        Spaziergang / Gesellschaft: 24 € / Stunde
+        Einkaufsbegleitung: 27 € / Stunde
+        Arzt-/Terminbegleitung: 27 € / Stunde
+        Nachtbegleitung (20–06 Uhr): 95 € pauschal
+
+        <details>
+          <summary>Zuschläge & Extras:</summary>
+          <div class="faq-answer">
+            Zuschläge & Extras:
+            Wochenende / Feiertage: +20 %
+            Express / kurzfristig (<24h): +20 %
+          </div>
+        </details>
+      </div>
+    </details>
+    <!-- Question 3 -->
+    <details>
+        <summary>Welche Zahlungsmethoden gibt es?</summary>
+        <div class="faq-answer">
+            Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
+        </div>
+    </details>
+    <!-- Question 4 -->
+    <details>
+        <summary>Welche Zahlungsmethoden gibt es?</summary>
+        <div class="faq-answer">
+            Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
+        </div>
+    </details>
+</template>
+
+
+
+<template id="tmpl-fliesenreiniger">
+    <!-- Question 1 -->
+    <details open>
+      <summary>Warum braucht man das? </summary>
+      <div class="faq-answer">
+        Passiert123154154
+      </div>
+    </details>
+    <!-- Question 2 -->
+    <details>
+      <summary>Preise</summary>
+      <div class="faq-answer">
+        Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
+        Spaziergang / Gesellschaft: 24 € / Stunde
+        Einkaufsbegleitung: 27 € / Stunde
+        Arzt-/Terminbegleitung: 27 € / Stunde
+        Nachtbegleitung (20–06 Uhr): 95 € pauschal
+
+        <details>
+          <summary>Zuschläge & Extras:</summary>
+          <div class="faq-answer">
+            Zuschläge & Extras:
+            Wochenende / Feiertage: +20 %
+            Express / kurzfristig (<24h): +20 %
+          </div>
+        </details>
+      </div>
+    </details>
+    <!-- Question 3 -->
+    <details>
+        <summary>Welche Zahlungsmethoden gibt es?</summary>
+        <div class="faq-answer">
+            Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
+        </div>
+    </details>
+    <!-- Question 4 -->
+    <details>
+        <summary>Welche Zahlungsmethoden gibt es?</summary>
+        <div class="faq-answer">
+            Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
+        </div>
+    </details>
+</template>
+
+
+
+<template id="tmpl-lauabholung">
+    <!-- Question 1 -->
+    <details open>
+      <summary>Warum braucht man das? </summary>
+      <div class="faq-answer">
+        Passiert123154154
+      </div>
+    </details>
+    <!-- Question 2 -->
+    <details>
+      <summary>Preise</summary>
+      <div class="faq-answer">
+        Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
+        Spaziergang / Gesellschaft: 24 € / Stunde
+        Einkaufsbegleitung: 27 € / Stunde
+        Arzt-/Terminbegleitung: 27 € / Stunde
+        Nachtbegleitung (20–06 Uhr): 95 € pauschal
+
+        <details>
+          <summary>Zuschläge & Extras:</summary>
+          <div class="faq-answer">
+            Zuschläge & Extras:
+            Wochenende / Feiertage: +20 %
+            Express / kurzfristig (<24h): +20 %
+          </div>
+        </details>
+      </div>
+    </details>
+    <!-- Question 3 -->
+    <details>
+        <summary>Welche Zahlungsmethoden gibt es?</summary>
+        <div class="faq-answer">
+            Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
+        </div>
+    </details>
+    <!-- Question 4 -->
+    <details>
+        <summary>Welche Zahlungsmethoden gibt es?</summary>
+        <div class="faq-answer">
+            Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
+        </div>
+    </details>
+</template>
+
+
+
+<template id="tmpl-haushaltreinigung">
+    <!-- Question 1 -->
+    <details open>
+      <summary>Warum braucht man das? </summary>
+      <div class="faq-answer">
+        Passiert123154154
+      </div>
+    </details>
+    <!-- Question 2 -->
+    <details>
+      <summary>Preise</summary>
+      <div class="faq-answer">
+        Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
+        Spaziergang / Gesellschaft: 24 € / Stunde
+        Einkaufsbegleitung: 27 € / Stunde
+        Arzt-/Terminbegleitung: 27 € / Stunde
+        Nachtbegleitung (20–06 Uhr): 95 € pauschal
+
+        <details>
+          <summary>Zuschläge & Extras:</summary>
+          <div class="faq-answer">
+            Zuschläge & Extras:
+            Wochenende / Feiertage: +20 %
+            Express / kurzfristig (<24h): +20 %
+          </div>
+        </details>
+      </div>
+    </details>
+    <!-- Question 3 -->
+    <details>
+        <summary>Welche Zahlungsmethoden gibt es?</summary>
+        <div class="faq-answer">
+            Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
+        </div>
+    </details>
+    <!-- Question 4 -->
+    <details>
+        <summary>Welche Zahlungsmethoden gibt es?</summary>
+        <div class="faq-answer">
+            Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
+        </div>
+    </details>
+</template>
+
+
+
+<template id="tmpl-schneeraeumung">
+    <!-- Question 1 -->
+    <details open>
+      <summary>Warum braucht man das? </summary>
+      <div class="faq-answer">
+        Passiert123154154
+      </div>
+    </details>
+    <!-- Question 2 -->
+    <details>
+      <summary>Preise</summary>
+      <div class="faq-answer">
+        Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
+        Spaziergang / Gesellschaft: 24 € / Stunde
+        Einkaufsbegleitung: 27 € / Stunde
+        Arzt-/Terminbegleitung: 27 € / Stunde
+        Nachtbegleitung (20–06 Uhr): 95 € pauschal
+
+        <details>
+          <summary>Zuschläge & Extras:</summary>
+          <div class="faq-answer">
+            Zuschläge & Extras:
+            Wochenende / Feiertage: +20 %
+            Express / kurzfristig (<24h): +20 %
+          </div>
+        </details>
+      </div>
+    </details>
+    <!-- Question 3 -->
+    <details>
+        <summary>Welche Zahlungsmethoden gibt es?</summary>
+        <div class="faq-answer">
+            Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
+        </div>
+    </details>
+    <!-- Question 4 -->
+    <details>
+        <summary>Welche Zahlungsmethoden gibt es?</summary>
+        <div class="faq-answer">
+            Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
+        </div>
+    </details>
+</template>
+
+
+
+<template id="tmpl-streudienst">
+    <!-- Question 1 -->
+    <details open>
+      <summary>Warum braucht man das? </summary>
+      <div class="faq-answer">
+        Passiert123154154
+      </div>
+    </details>
+    <!-- Question 2 -->
+    <details>
+      <summary>Preise</summary>
+      <div class="faq-answer">
+        Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
+        Spaziergang / Gesellschaft: 24 € / Stunde
+        Einkaufsbegleitung: 27 € / Stunde
+        Arzt-/Terminbegleitung: 27 € / Stunde
+        Nachtbegleitung (20–06 Uhr): 95 € pauschal
+
+        <details>
+          <summary>Zuschläge & Extras:</summary>
+          <div class="faq-answer">
+            Zuschläge & Extras:
+            Wochenende / Feiertage: +20 %
+            Express / kurzfristig (<24h): +20 %
+          </div>
+        </details>
+      </div>
+    </details>
+    <!-- Question 3 -->
+    <details>
+        <summary>Welche Zahlungsmethoden gibt es?</summary>
+        <div class="faq-answer">
+            Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
+        </div>
+    </details>
+    <!-- Question 4 -->
+    <details>
+        <summary>Welche Zahlungsmethoden gibt es?</summary>
+        <div class="faq-answer">
+            Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
+        </div>
+    </details>
+</template>
+
+
+
+<template id="tmpl-teppichreinigung">
+    <!-- Question 1 -->
+    <details open>
+      <summary>Warum braucht man das? </summary>
+      <div class="faq-answer">
+        Passiert123154154
+      </div>
+    </details>
+    <!-- Question 2 -->
+    <details>
+      <summary>Preise</summary>
+      <div class="faq-answer">
+        Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
+        Spaziergang / Gesellschaft: 24 € / Stunde
+        Einkaufsbegleitung: 27 € / Stunde
+        Arzt-/Terminbegleitung: 27 € / Stunde
+        Nachtbegleitung (20–06 Uhr): 95 € pauschal
+
+        <details>
+          <summary>Zuschläge & Extras:</summary>
+          <div class="faq-answer">
+            Zuschläge & Extras:
+            Wochenende / Feiertage: +20 %
+            Express / kurzfristig (<24h): +20 %
+          </div>
+        </details>
+      </div>
+    </details>
+    <!-- Question 3 -->
+    <details>
+        <summary>Welche Zahlungsmethoden gibt es?</summary>
+        <div class="faq-answer">
+            Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
+        </div>
+    </details>
+    <!-- Question 4 -->
+    <details>
+        <summary>Welche Zahlungsmethoden gibt es?</summary>
+        <div class="faq-answer">
+            Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
+        </div>
+    </details>
+</template>
+
+
+
+<template id="tmpl-eis-schneebeseitigung">
+    <!-- Question 1 -->
+    <details open>
+      <summary>Warum braucht man das? </summary>
+      <div class="faq-answer">
+        Passiert123154154
+      </div>
+    </details>
+    <!-- Question 2 -->
+    <details>
+      <summary>Preise</summary>
+      <div class="faq-answer">
+        Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
+        Spaziergang / Gesellschaft: 24 € / Stunde
+        Einkaufsbegleitung: 27 € / Stunde
+        Arzt-/Terminbegleitung: 27 € / Stunde
+        Nachtbegleitung (20–06 Uhr): 95 € pauschal
+
+        <details>
+          <summary>Zuschläge & Extras:</summary>
+          <div class="faq-answer">
+            Zuschläge & Extras:
+            Wochenende / Feiertage: +20 %
+            Express / kurzfristig (<24h): +20 %
+          </div>
+        </details>
+      </div>
+    </details>
+    <!-- Question 3 -->
+    <details>
+        <summary>Welche Zahlungsmethoden gibt es?</summary>
+        <div class="faq-answer">
+            Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
+        </div>
+    </details>
+    <!-- Question 4 -->
+    <details>
+        <summary>Welche Zahlungsmethoden gibt es?</summary>
+        <div class="faq-answer">
+            Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
+        </div>
+    </details>
+</template>
+
+
+
+<!-- ========================================================= -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Шаблон для "Общий" (заглушка для остальных карт) -->
+<template id="tmpl-general">
+  <details open>
+    <summary>Wie kann ich buchen?</summary>
+    <div class="faq-answer">Nutzen Sie einfach das Formular rechts.</div>
+  </details>
+  <details>
+    <summary>Gibt es eine Garantie?</summary>
+    <div class="faq-answer">Ja, wir garantieren Zufriedenheit.</div>
+  </details>
+</template>
+
+
+
+<!-- ========================================================= -->
+<!-- scripts                                                   -->
+
 <script src="assets/js/main.js"></script>
 <script src="assets/js/locales.js"></script>
 
+<!-- ========================================================= -->
+
 <script>
-  const container = document.querySelector('.catalog');
-const itemHeight = 240; // высота одной карточки
-const buffer = 5; // запас сверху/снизу
-let start = 0;
+document.addEventListener('DOMContentLoaded', () => {
 
-function render() {
-  const scrollTop = container.scrollTop;
-  const viewportHeight = container.clientHeight;
+  /* =========================================
+     1. ЛОГИКА ПЕРЕВОРОТА КАРТОЧЕК
+     ========================================= */
+  document.querySelectorAll('.flip-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+          const cardInner = e.target.closest('.card__inner');
+          if(cardInner) cardInner.classList.toggle('is-flipped');
+      });
+  });
 
-  const firstVisibleIndex = Math.floor(scrollTop / itemHeight);
-  const lastVisibleIndex = Math.ceil((scrollTop + viewportHeight) / itemHeight);
+  /* =========================================
+     2. МОДАЛЬНОЕ ОКНО (Открытие/Закрытие)
+     ========================================= */
+  const modal = document.getElementById('complexModal');
+  const closeBtn = document.querySelector('.close-modal-btn');
+  const modalTitle = document.getElementById('complexModalTitle');
+  const faqContainer = document.getElementById('modalFaqContainer');
+  const hiddenInput = document.getElementById('formServiceSubject');
 
-  const from = Math.max(firstVisibleIndex - buffer, 0);
-  const to = Math.min(lastVisibleIndex + buffer, data.length);
+  // Открытие модального окна
+  document.querySelectorAll('.trigger-complex-modal').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const title = btn.getAttribute('data-title');
+          const templateId = btn.getAttribute('data-template');
 
-  if (from !== start) {
-    start = from;
-    draw(from, to);
+          modalTitle.textContent = title;
+          hiddenInput.value = title;
+          faqContainer.innerHTML = '';
+
+          const template = document.getElementById(templateId);
+          if (template) {
+              const clone = template.content.cloneNode(true);
+              faqContainer.appendChild(clone);
+          } else {
+              faqContainer.innerHTML = '<p>Informationen werden geladen...</p>';
+          }
+          
+          // Полный сброс формы и состояния кнопок при открытии
+          resetMultiStepForm(); 
+          modal.classList.add('open');
+      });
+  });
+
+  // Закрытие
+  const closeModal = () => modal.classList.remove('open');
+  closeBtn.addEventListener('click', closeModal);
+  window.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+  });
+
+  /* =========================================
+     3. МНОГОШАГОВАЯ ФОРМА (Multi-step Logic)
+     ========================================= */
+  const steps = document.querySelectorAll('.form-step');
+  const btnNext = document.querySelector('.form-btn-next');
+  const btnPrev = document.querySelector('.form-btn-prev');
+  const btnSubmit = document.querySelector('.form-submit-btn');
+  const progressFill = document.querySelector('.progress-bar-fill');
+  const stepCircles = document.querySelectorAll('.step-indicator .step-circle');
+  
+  let currentStep = 0;
+
+  /* --- НОВАЯ ЛОГИКА: EINMALIG vs REGULAR --- */
+  const cbEinmalig = document.getElementById('cb_einmalig');
+  const regularScheduleGroup = document.getElementById('regularSchedule');
+  
+  // Если элементы существуют (на случай если код используется на странице без этой формы)
+  if (cbEinmalig && regularScheduleGroup) {
+      const regularSelects = regularScheduleGroup.querySelectorAll('select');
+
+      cbEinmalig.addEventListener('change', function() {
+          if (this.checked) {
+              // Если нажали "Einmalig":
+              // 1. Делаем остальные поля серыми
+              regularScheduleGroup.classList.add('disabled-area');
+              // 2. Отключаем инпуты внутри, чтобы валидация их игнорировала
+              regularSelects.forEach(sel => {
+                  sel.disabled = true;
+                  sel.value = ""; // Сбрасываем значение
+                  sel.style.borderColor = ""; // Убираем красную рамку, если была
+              });
+          } else {
+              // Если отжали "Einmalig":
+              // 1. Возвращаем цвет
+              regularScheduleGroup.classList.remove('disabled-area');
+              // 2. Включаем инпуты обратно
+              regularSelects.forEach(sel => {
+                  sel.disabled = false;
+              });
+          }
+      });
   }
-}
 
-function draw(from, to) {
-  container.innerHTML = '';
-  for (let i = from; i < to; i++) {
-    const item = data[i];
-    const el = document.createElement('div');
-    el.className = 'product-card';
-    el.style.top = (i * itemHeight) + 'px';
-    el.innerHTML = `
-      <img src="${item.image}" loading="lazy" />
-      <h3>${item.title}</h3>
-    `;
-    container.appendChild(el);
+  /* --- ОБНОВЛЕНИЕ UI ФОРМЫ --- */
+  function updateFormUI() {
+    // 1. Переключение видимости шагов
+    steps.forEach((step, index) => {
+      step.classList.toggle('active', index === currentStep);
+    });
+
+    // 2. Обновление кружков (индикаторов)
+    stepCircles.forEach((circle, index) => {
+      circle.classList.toggle('active', index <= currentStep);
+    });
+
+    // 3. Обновление полосы прогресса
+    const progress = ((currentStep + 1) / steps.length) * 100;
+    progressFill.style.width = `${progress}%`;
+
+    // 4. Управление кнопками
+    if (currentStep === 0) {
+      btnPrev.classList.add('disabled');
+      btnPrev.disabled = true;
+    } else {
+      btnPrev.classList.remove('disabled');
+      btnPrev.disabled = false;
+    }
+
+    if (currentStep === steps.length - 1) {
+      btnNext.classList.add('hidden');
+      btnSubmit.classList.remove('hidden');
+    } else {
+      btnNext.classList.remove('hidden');
+      btnSubmit.classList.add('hidden');
+    }
   }
-}
 
-container.addEventListener('scroll', render);
-render();
+  /* --- ВАЛИДАЦИЯ --- */
+  function validateStep(stepIndex) {
+    const currentStepEl = steps[stepIndex];
+    const inputs = currentStepEl.querySelectorAll('.required-field');
+    let isValid = true;
 
+    inputs.forEach(input => {
+      // ГЛАВНОЕ ИЗМЕНЕНИЕ: Пропускаем валидацию, если поле отключено (disabled)
+      // Это нужно, чтобы когда выбрано "Einmalig", форма не требовала заполнить недели/месяцы
+      if (input.disabled) {
+          return; 
+      }
+
+      if (!input.value.trim()) {
+        isValid = false;
+        input.style.borderColor = 'red'; // Подсветка ошибки
+      } else {
+        input.style.borderColor = ''; // Убираем ошибку
+      }
+    });
+    return isValid;
+  }
+
+  // Обработчик кнопки "Далее"
+  btnNext.addEventListener('click', () => {
+    if (validateStep(currentStep)) {
+      if (currentStep < steps.length - 1) {
+        currentStep++;
+        updateFormUI();
+      }
+    } else {
+      alert('Bitte füllen Sie alle markierten Felder aus.');
+    }
+  });
+
+  // Обработчик кнопки "Назад"
+  btnPrev.addEventListener('click', () => {
+    if (currentStep > 0) {
+      currentStep--;
+      updateFormUI();
+    }
+  });
+
+  // Обработчик отправки формы
+  const form = document.getElementById('multiStepForm');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // Валидируем последний шаг перед отправкой
+    if (!validateStep(currentStep)) {
+      alert('Bitte füllen Sie alle markierten Felder aus.');
+      return;
+    }
+
+    // Собираем данные формы
+    const formData = new FormData(form);
+    const data = {
+      first_name: formData.get('first_name'),
+      last_name: formData.get('last_name'),
+      email: formData.get('email'),
+      phone: formData.get('phone'),
+      service: formData.get('service'),
+      street: formData.get('street'),
+      house_number: formData.get('house_number'),
+      zip: formData.get('zip'),
+      city: formData.get('city'),
+      message: formData.get('message'),
+      timing_onetime: formData.get('timing_onetime') ? 'yes' : '',
+      timing_weeks: formData.get('timing_weeks'),
+      timing_days_per_week: formData.get('timing_days_per_week'),
+      timing_months: formData.get('timing_months')
+    };
+
+    // Отправляем на сервер
+    try {
+      btnSubmit.disabled = true;
+      btnSubmit.textContent = 'Wird gesendet...';
+
+      const response = await fetch('/api/personal_request', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+
+      if (response.ok) {
+        alert('✅ Ihre Anfrage wurde erfolgreich gesendet! Wir werden Sie bald kontaktieren.');
+        closeModal();
+        resetMultiStepForm();
+      } else {
+        const errorData = await response.json();
+        console.error('Server error:', errorData);
+        alert('❌ Fehler beim Senden: ' + (errorData.error || 'Unbekannter Fehler'));
+      }
+    } catch (error) {
+      console.error('Network error:', error);
+      alert('❌ Verbindungsfehler: ' + error.message);
+    } finally {
+      btnSubmit.disabled = false;
+      btnSubmit.textContent = 'Anfrage senden';
+    }
+  });
+
+  // Функция сброса формы (вызывается при открытии)
+  function resetMultiStepForm() {
+    currentStep = 0;
+    document.getElementById('multiStepForm').reset();
+    
+    // Сброс красных рамок
+    document.querySelectorAll('.required-field').forEach(i => i.style.borderColor = '');
+    
+    // Сброс состояния "Einmalig" в исходное положение
+    if (cbEinmalig && regularScheduleGroup) {
+        cbEinmalig.checked = false;
+        regularScheduleGroup.classList.remove('disabled-area');
+        regularScheduleGroup.querySelectorAll('select').forEach(sel => sel.disabled = false);
+    }
+    
+    updateFormUI();
+  }
+
+});
 </script>
 </body>
 </html>

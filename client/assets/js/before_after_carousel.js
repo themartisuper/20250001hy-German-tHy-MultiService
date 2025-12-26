@@ -52,5 +52,5 @@ document.addEventListener('DOMContentLoaded', () => {
   setInterval(() => {
     currentIndex = (currentIndex + 1) % totalItems;
     updateCarousel();
-  }, 6000000);
+  }, 6000);
 });
