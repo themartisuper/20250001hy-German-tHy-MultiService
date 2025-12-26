@@ -177,7 +177,9 @@
           <div class="card__front">
             <div class="card__wrapper">
               <div class="card__image">
-                <img src="assets/images/cards/transport_logistik/000000.png" alt="">
+                <img 
+                  src="assets/images/cards/transport_logistik/kurierdienste.jpeg" 
+                  alt="Kurier in blauer Arbeitskleidung reicht einem Mann einen Karton vor einem modernen Bürogebäude.">
               </div>
               <h3>Kurierdienste</h3>
               <p>Beschreibung, <br/>Beschreibung.</p>
@@ -554,7 +556,7 @@
                   <div class="schedule-item">
                     <label class="form-label-small">Wochen pro Monat</label>
                     <select class="form-input required-field" name="timing_weeks">
-                      <option value="" disabled selected>Bitte wählen</option>
+                      <option value="" disabled selected>Wählen</option>
                       <option value="1">1</option>
                       <option value="2">2</option>
                       <option value="3">3</option>
@@ -566,7 +568,7 @@
                   <div class="schedule-item">
                     <label class="form-label-small">Tage pro Woche</label>
                     <select class="form-input required-field" name="timing_days_per_week">
-                      <option value="" disabled selected>Bitte wählen</option>
+                      <option value="" disabled selected>Wählen</option>
                       <option value="1">1</option>
                       <option value="2">2</option>
                       <option value="3">3</option>
@@ -581,7 +583,7 @@
                   <div class="schedule-item">
                     <label class="form-label-small">Monaten</label>
                     <select class="form-input required-field" name="timing_months">
-                      <option value="" disabled selected>Bitte wählen</option>
+                      <option value="" disabled selected>Wählen</option>
                       <option value="1">1</option>
                       <option value="2">2</option>
                       <option value="3">3</option>
@@ -674,278 +676,276 @@
 <!-- ========================================================= -->
 
 <template id="tmpl-fahrzeugüberführung">
-    <!-- Question 1 -->
-    <details open>
-      <summary>Warum braucht man das?</summary>
-      <div class="faq-answer">
-        Fahrzeugüberführung sorgt dafür, dass ein Auto sicher und legal von A nach B kommt, 
-        z. B. nach Kauf oder Umzug. Sie spart Zeit und Stress, wenn das Fahrzeug nicht zugelassen 
-        ist oder weit transportiert werden muss.
-      </div>
-    </details>
-    <!-- Question 2 -->
-    <details>
-      <summary>Preise</summary>
-      <div class="faq-answer">
-        Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
-        Spaziergang / Gesellschaft: 24 € / Stunde
-        Einkaufsbegleitung: 27 € / Stunde
-        Arzt-/Terminbegleitung: 27 € / Stunde
-        Nachtbegleitung (20–06 Uhr): 95 € pauschal
+  <!-- Question 1 -->
+  <details open>
+    <summary>Warum braucht man das?</summary>
+    <div class="faq-answer">
+      Fahrzeugüberführung sorgt dafür, dass ein Auto sicher und legal von A nach B kommt, 
+      z. B. nach Kauf oder Umzug. Sie spart Zeit und Stress, wenn das Fahrzeug nicht zugelassen 
+      ist oder weit transportiert werden muss.
+    </div>
+  </details>
+  <!-- Question 2 -->
+  <details>
+    <summary>Preise</summary>
+    <div class="faq-answer">
+      Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
+      Spaziergang / Gesellschaft: 24 € / Stunde
+      Einkaufsbegleitung: 27 € / Stunde
+      Arzt-/Terminbegleitung: 27 € / Stunde
+      Nachtbegleitung (20–06 Uhr): 95 € pauschal
 
-        <details>
-          <summary>Zuschläge & Extras:</summary>
-          <div class="faq-answer">
-            Zuschläge & Extras:
-            Wochenende / Feiertage: +20 %
-            Express / kurzfristig (<24h): +20 %
-          </div>
-        </details>
-      </div>
-    </details>
-    <!-- Question 3 -->
-    <details>
-      <summary>Welche Zahlungsmethoden gibt es?</summary>
-      <div class="faq-answer">
-        Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
-      </div>
-    </details>
+      <details>
+        <summary>Zuschläge & Extras:</summary>
+        <div class="faq-answer">
+          Zuschläge & Extras:
+          Wochenende / Feiertage: +20 %
+          Express / kurzfristig (<24h): +20 %
+        </div>
+      </details>
+    </div>
+  </details>
+  <!-- Question 3 -->
+  <details>
+    <summary>Welche Zahlungsmethoden gibt es?</summary>
+    <div class="faq-answer">
+      Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
+    </div>
+  </details>
 </template>
 
 
 
 <template id="tmpl-kurierdienste">
-    <!-- Question 1 -->
-    <details open>
-      <summary>Warum braucht man das? </summary>
-      <div class="faq-answer">
-        Kurierdienste braucht man, um wichtige oder zeitkritische Sendungen schnell, 
-        sicher und direkt zuzustellen. Sie sind ideal, wenn Standardversand zu langsam, 
-        zu unflexibel oder zu riskant ist.
-      </div>
-    </details>
-    <!-- Question 2 -->
-    <details>
-      <summary>Preise</summary>
-      <div class="faq-answer">
-        💰 Grundpreise (Privatkunden):
-        <br>Kurierdienst bis 10 km: 32 €
-        <br>Kurierdienst 10–30 km: 55 €
-        <br>Kurierdienst 30–50 km: 85 €
-        <br>Kurierdienst 50–100 km: 130 €
-        <br>Kurierdienst >100 km: 1,40 €/km
-        <br>
-        <br>💼 Grundpreise (Gewerbekunden):
-        <br>Kurierdienst bis 10 km: 40 €
-        <br>Kurierdienst 10–30 km: 65 €
-        <br>Kurierdienst 30–50 km: 105 €
-        <br>Kurierdienst 50–100 km: 155 €
-        <br>Kurierdienst >100 km: 1,60 €/km
-        <br>
-        <br>Mindestauftrag: 30 €
-        <br>Fahrtkosten: Inklusive in Pauschale (keine extra Kosten)
+  <!-- Question 1 -->
+  <details open>
+    <summary>Warum braucht man das? </summary>
+    <div class="faq-answer">
+      Kurierdienste braucht man, um wichtige oder zeitkritische Sendungen schnell, 
+      sicher und direkt zuzustellen. Sie sind ideal, wenn Standardversand zu langsam, 
+      zu unflexibel oder zu riskant ist.
+    </div>
+  </details>
+  <!-- Question 2 -->
+  <details>
+    <summary>Preise</summary>
+    <div class="faq-answer">
+      💰 Grundpreise (Privatkunden):
+      <br>Kurierdienst bis 10 km: 32 €
+      <br>Kurierdienst 10–30 km: 55 €
+      <br>Kurierdienst 30–50 km: 85 €
+      <br>Kurierdienst 50–100 km: 130 €
+      <br>Kurierdienst >100 km: 1,40 €/km
+      <br>
+      <br>💼 Grundpreise (Gewerbekunden):
+      <br>Kurierdienst bis 10 km: 40 €
+      <br>Kurierdienst 10–30 km: 65 €
+      <br>Kurierdienst 30–50 km: 105 €
+      <br>Kurierdienst 50–100 km: 155 €
+      <br>Kurierdienst >100 km: 1,60 €/km
+      <br>
+      <br>Mindestauftrag: 30 €
+      <br>Fahrtkosten: Inklusive in Pauschale (keine extra Kosten)
 
-        <details>
-          <summary>Zuschläge & Extras:</summary>
-          <div class="faq-answer">
-            - Express / gleiche Tag Lieferung: +20 %
-            <br>- Nacht / Wochenende: +30 %
-            <br>- Abholung / Zustellung außerhalb Standardzeiten: +15 €
-            <br>- Pack- oder Tragehilfe: +10 € pro Paket
-            <br>- Regelmäßige Buchung (monatlich): –10 %
-            <br>- Kombi mit Tragehilfe: –10 %
-            <br>- Gewerbe-Volumenrabatt (ab 10 Fahrten/Monat): –15 %
-          </div>
-        </details>
-      </div>
-    </details>
-    <!-- Question 3 -->
-    <details>
-        <summary>Welche Zahlungsmethoden gibt es?</summary>
+      <details>
+        <summary>Zuschläge & Extras:</summary>
         <div class="faq-answer">
-            Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
+          - Express / gleiche Tag Lieferung: +20 %
+          <br>- Nacht / Wochenende: +30 %
+          <br>- Abholung / Zustellung außerhalb Standardzeiten: +15 €
+          <br>- Pack- oder Tragehilfe: +10 € pro Paket
+          <br>- Regelmäßige Buchung (monatlich): –10 %
+          <br>- Kombi mit Tragehilfe: –10 %
+          <br>- Gewerbe-Volumenrabatt (ab 10 Fahrten/Monat): –15 %
         </div>
-    </details>
+      </details>
+    </div>
+  </details>
+  <!-- Question 3 -->
+  <details>
+      <summary>Welche Zahlungsmethoden gibt es?</summary>
+      <div class="faq-answer">
+        Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
+      </div>
+  </details>
 </template>
 
 
 
 <template id="tmpl-lieferant">
-    <!-- Question 1 -->
-    <details open>
-      <summary>Warum braucht man das?</summary>
-      <div class="faq-answer">
-        Lieferanten braucht man, um Waren zuverlässig, planbar und rechtzeitig zu beschaffen. 
-        Ohne ihn bricht die Versorgung zusammen und der Betrieb kann einpacken.
-      </div>
-    </details>
-    <!-- Question 2 -->
-    <details>
-      <summary>Preise</summary>
-      <div class="faq-answer">
-        Fahrer ohne Auto: 20 € / Stunde
-        <br>Fahrer mit Auto: 26 € / Stunde
-        <br>
-        <br>Mindestauftrag: 26 €
-        <br>Fahrtkosten: Inklusive in Pauschale (keine extra Kosten)
+  <!-- Question 1 -->
+  <details open>
+    <summary>Warum braucht man das?</summary>
+    <div class="faq-answer">
+      Lieferanten braucht man, um Waren zuverlässig, planbar und rechtzeitig zu beschaffen. 
+      Ohne ihn bricht die Versorgung zusammen und der Betrieb kann einpacken.
+    </div>
+  </details>
+  <!-- Question 2 -->
+  <details>
+    <summary>Preise</summary>
+    <div class="faq-answer">
+      Fahrer ohne Auto: 20 € / Stunde
+      <br>Fahrer mit Auto: 26 € / Stunde
+      <br>
+      <br>Mindestauftrag: 26 €
+      <br>Fahrtkosten: Inklusive in Pauschale (keine extra Kosten)
 
-        <details>
-          <summary>Zuschläge & Extras:</summary>
-          <div class="faq-answer">
-            Nacht / Feiertage: +30 %
-            <br>Express-Auftrag (<24h): +20 %
-            <br>Regelmäßige Buchung (wöchentlich): –10 %
-            <br>Kombi mit Kurierdienste: –10 %
-            <br>Gewerbe-Volumenrabatt (ab 10 Stunden): –15 %
-          </div>
-        </details>
-      </div>
-    </details>
-    <!-- Question 3 -->
-    <details>
-        <summary>Welche Zahlungsmethoden gibt es?</summary>
+      <details>
+        <summary>Zuschläge & Extras:</summary>
         <div class="faq-answer">
-            Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
+          Nacht / Feiertage: +30 %
+          <br>Express-Auftrag (<24h): +20 %
+          <br>Regelmäßige Buchung (wöchentlich): –10 %
+          <br>Kombi mit Kurierdienste: –10 %
+          <br>Gewerbe-Volumenrabatt (ab 10 Stunden): –15 %
         </div>
-    </details>
+      </details>
+    </div>
+  </details>
+  <!-- Question 3 -->
+  <details>
+      <summary>Welche Zahlungsmethoden gibt es?</summary>
+      <div class="faq-answer">
+        Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
+      </div>
+  </details>
 </template>
 
 
 
 <template id="tmpl-möbeltransport_umzugshilfe">
-    <!-- Question 1 -->
-    <details open>
-      <summary>Warum braucht man das? </summary>
-      <div class="faq-answer">
-        Passiert123154154
-      </div>
-    </details>
-    <!-- Question 2 -->
-    <details>
-      <summary>Preise</summary>
-      <div class="faq-answer">
-        Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
-        Spaziergang / Gesellschaft: 24 € / Stunde
-        Einkaufsbegleitung: 27 € / Stunde
-        Arzt-/Terminbegleitung: 27 € / Stunde
-        Nachtbegleitung (20–06 Uhr): 95 € pauschal
+  <!-- Question 1 -->
+  <details open>
+    <summary>Warum braucht man das? </summary>
+    <div class="faq-answer">
+      Möbeltransport und Umzugshilfe braucht man, um Möbel sicher, schnell und ohne Schäden zu bewegen. 
+      Das spart Zeit, Nerven und verhindert kaputte Möbel oder Verletzungen.
+    </div>
+  </details>
+  <!-- Question 2 -->
+  <details>
+    <summary>Preise</summary>
+    <div class="faq-answer">
+      Info kommt noch
 
-        <details>
-          <summary>Zuschläge & Extras:</summary>
-          <div class="faq-answer">
-            Zuschläge & Extras:
-            Wochenende / Feiertage: +20 %
-            Express / kurzfristig (<24h): +20 %
-          </div>
-        </details>
+      <details>
+        <summary>Zuschläge & Extras:</summary>
+        <div class="faq-answer">
+          Info kommt noch
+        </div>
+      </details>
+    </div>
+  </details>
+  <!-- Question 3 -->
+  <details>
+      <summary>Welche Zahlungsmethoden gibt es?</summary>
+      <div class="faq-answer">
+        Info kommt noch
       </div>
-    </details>
-    <!-- Question 3 -->
-    <details>
-        <summary>Welche Zahlungsmethoden gibt es?</summary>
-        <div class="faq-answer">
-            Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
-        </div>
-    </details>
-    <!-- Question 4 -->
-    <details>
-        <summary>Welche Zahlungsmethoden gibt es?</summary>
-        <div class="faq-answer">
-            Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
-        </div>
-    </details>
+  </details>
 </template>
 
 
 
 <template id="tmpl-tragehilfe">
-    <!-- Question 1 -->
-    <details open>
-      <summary>Warum braucht man das? </summary>
-      <div class="faq-answer">
-        Passiert123154154
-      </div>
-    </details>
-    <!-- Question 2 -->
-    <details>
-      <summary>Preise</summary>
-      <div class="faq-answer">
-        Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
-        Spaziergang / Gesellschaft: 24 € / Stunde
-        Einkaufsbegleitung: 27 € / Stunde
-        Arzt-/Terminbegleitung: 27 € / Stunde
-        Nachtbegleitung (20–06 Uhr): 95 € pauschal
+  <!-- Question 1 -->
+  <details open>
+    <summary>Warum braucht man das? </summary>
+    <div class="faq-answer">
+      Tragehilfe braucht man, um schwere oder sperrige Gegenstände sicher und ohne Verletzungen zu transportieren. 
+      Sie spart Zeit, schont den Rücken und verhindert teure Schäden.
+    </div>
+  </details>
+  <!-- Question 2 -->
+  <details>
+    <summary>Preise</summary>
+    <div class="faq-answer">
+      Grundpreise:
+      <br>Tragehilfe Kühlschrank / Waschmaschine: 35 € pro Stück
+      <br>Möbelstücke (Schrank, Sofa etc.): 25 € pro Stück
+      <br>Kartons / kleine Gegenstände (bis 25 kg): 4 € pro Stück
+      <br>Sperrige / schwere Gegenstände (>50 kg oder >2m): 55 € pro Stück
+      <br>Stundenbasis (bei gemischten Arbeiten): 28 €/h pro Helfer
+      <br>
+      <br>📏 Mindestauftrag: 60 €
+      <br>🚗 Fahrtkosten: 0,50 €/km oder 15 € pauschal (innerhalb 20 km)
 
-        <details>
-          <summary>Zuschläge & Extras:</summary>
-          <div class="faq-answer">
-            Zuschläge & Extras:
-            Wochenende / Feiertage: +20 %
-            Express / kurzfristig (<24h): +20 %
-          </div>
-        </details>
+      <details>
+        <summary>Zuschläge & Extras:</summary>
+        <div class="faq-answer">
+          - Treppen / enge Räume: +15 € pro Gegenstand
+          <br>- Mehrere Stockwerke ohne Aufzug: +5 € pro Stockwerk
+          <br>- Wochenende / Feiertag: +20 %
+          <br>- Express-Service (<24h vorher): +15 %
+          <br>- Regelmäßige Buchung (z.B. monatlich): –10 % Rabatt
+          <br>- Kombi mit anderen Services (z.B. Umzug): –10 % Rabatt
+          <br>- Gewerbe-Volumenrabatt (ab 10 Einsätze): –15 %
+        </div>
+      </details>
+    </div>
+  </details>
+  <!-- Question 3 -->
+  <details>
+      <summary>Welche Zahlungsmethoden gibt es?</summary>
+      <div class="faq-answer">
+        Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
       </div>
-    </details>
-    <!-- Question 3 -->
-    <details>
-        <summary>Welche Zahlungsmethoden gibt es?</summary>
-        <div class="faq-answer">
-            Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
-        </div>
-    </details>
-    <!-- Question 4 -->
-    <details>
-        <summary>Welche Zahlungsmethoden gibt es?</summary>
-        <div class="faq-answer">
-            Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
-        </div>
-    </details>
+  </details>
 </template>
 
 
 
 <template id="tmpl-zum-flughafen-hin-zurück-fahren">
-    <!-- Question 1 -->
-    <details open>
-      <summary>Warum braucht man das? </summary>
-      <div class="faq-answer">
-        Passiert123154154
-      </div>
-    </details>
-    <!-- Question 2 -->
-    <details>
-      <summary>Preise</summary>
-      <div class="faq-answer">
-        Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
-        Spaziergang / Gesellschaft: 24 € / Stunde
-        Einkaufsbegleitung: 27 € / Stunde
-        Arzt-/Terminbegleitung: 27 € / Stunde
-        Nachtbegleitung (20–06 Uhr): 95 € pauschal
+  <!-- Question 1 -->
+  <details open>
+    <summary>Warum braucht man das? </summary>
+    <div class="faq-answer">
+      den Flughafen-Hin- und Rücktransfer braucht man, um pünktlich, 
+      stressfrei und ohne Parkplatz-Chaos zum Flughafen zu kommen. 
+      Er ist zuverlässig, planbar und ideal bei frühem Abflug oder spätem Ankommen.
+    </div>
+  </details>
+  <!-- Question 2 -->
+  <details>
+    <summary>Preise</summary>
+    <div class="faq-answer">
+      🚖 Flughafen Transfer (Hin & Zurück)
+      <br>(inkl. MwSt, Abholung vor der Haustür, Hilfe mit Gepäck, 20 Min. Wartezeit kostenlos)
+      <br>bis 30 km: 65 €
+      <br>bis 50 km: 95 €
+      <br>bis 100 km: 145 €
+      <br>bis 150 km: 195 €
+      <br>bis 200 km: 255 €
+      <br>bis 300 km: 355 €
+      <br>
+      <br>Nur Hinfahrt oder Rückfahrt:
+      <br>+10 € Servicegebühr
+      <br>bis 30 km: 40 €
+      <br>bis 50 km: 55 €
+      <br>bis 100 km: 80 €
+      <br>bis 150 km: 105 €
+      <br>bis 200 km: 135 €
+      <br>bis 300 km: 185 €
+      <details>
+        <summary>Zuschläge & Extras:</summary>
+        <div class="faq-answer">
+          Nacht (22–06 Uhr) / Wochenende / Feiertag: +20 %
+          <br>Kindersitz: +5 € (1. Kindersitz kostenlos bei Neukunden)
+          <br>Zwei Fahrzeugen (bis 8 Pers.): +50 %
 
-        <details>
-          <summary>Zuschläge & Extras:</summary>
-          <div class="faq-answer">
-            Zuschläge & Extras:
-            Wochenende / Feiertage: +20 %
-            Express / kurzfristig (<24h): +20 %
-          </div>
-        </details>
+          <br>Jede weitere Person (ab 5.): +10 €
+        </div>
+      </details>
+    </div>
+  </details>
+  <!-- Question 3 -->
+  <details>
+      <summary>Welche Zahlungsmethoden gibt es?</summary>
+      <div class="faq-answer">
+        Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
       </div>
-    </details>
-    <!-- Question 3 -->
-    <details>
-        <summary>Welche Zahlungsmethoden gibt es?</summary>
-        <div class="faq-answer">
-            Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
-        </div>
-    </details>
-    <!-- Question 4 -->
-    <details>
-        <summary>Welche Zahlungsmethoden gibt es?</summary>
-        <div class="faq-answer">
-            Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
-        </div>
-    </details>
+  </details>
 </template>
 
 <!-- ========================================================= -->

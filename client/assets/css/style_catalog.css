@@ -140,6 +140,7 @@
         grid-template-columns: 1fr 1fr; /* Две равные колонки */
         gap: 0;
         overflow-y: auto; /* Скролл внутри контента */
+        border-radius: 0 0 12px 12px;
     }
 
     /* Левая колонка: FAQ */
