@@ -899,7 +899,7 @@
                   <div class="schedule-item">
                     <label class="form-label-small">Wochen pro Monat</label>
                     <select class="form-input required-field" name="timing_weeks">
-                      <option value="" disabled selected>Bitte wählen</option>
+                      <option value="" disabled selected>Wählen</option>
                       <option value="1">1</option>
                       <option value="2">2</option>
                       <option value="3">3</option>
@@ -911,7 +911,7 @@
                   <div class="schedule-item">
                     <label class="form-label-small">Tage pro Woche</label>
                     <select class="form-input required-field" name="timing_days_per_week">
-                      <option value="" disabled selected>Bitte wählen</option>
+                      <option value="" disabled selected>Wählen</option>
                       <option value="1">1</option>
                       <option value="2">2</option>
                       <option value="3">3</option>
@@ -926,7 +926,7 @@
                   <div class="schedule-item">
                     <label class="form-label-small">Monaten</label>
                     <select class="form-input required-field" name="timing_months">
-                      <option value="" disabled selected>Bitte wählen</option>
+                      <option value="" disabled selected>Wählen</option>
                       <option value="1">1</option>
                       <option value="2">2</option>
                       <option value="3">3</option>
@@ -1019,599 +1019,543 @@
 <!-- ========================================================= -->
 
 <template id="tmpl-auto-reinigen">
-    <!-- Question 1 -->
-    <details open>
-      <summary>Warum braucht man das? </summary>
-      <div class="faq-answer">
-        Passiert
-      </div>
-    </details>
-    <!-- Question 2 -->
-    <details>
-      <summary>Preise</summary>
-      <div class="faq-answer">
-        Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
-        Spaziergang / Gesellschaft: 24 € / Stunde
-        Einkaufsbegleitung: 27 € / Stunde
-        Arzt-/Terminbegleitung: 27 € / Stunde
-        Nachtbegleitung (20–06 Uhr): 95 € pauschal
+  <!-- Question 1 -->
+  <details open>
+    <summary>Warum braucht man das?</summary>
+    <div class="faq-answer">
+      Eine Autoreinigung beauftragt man, um das Fahrzeug gründlich, 
+      professionell und zeitsparend sauber zu machen. 
+      Das erhält den Wert des Autos und spart dir Aufwand und Nerven.
+    </div>
+  </details>
+  <!-- Question 2 -->
+  <details>
+    <summary>Preise</summary>
+    <div class="faq-answer">
+      Grundpreise (Privatkunden):
+      <br><strong>Außenreinigung Handwäsche:</strong> 32 € (inkl. Felgen & Trocknen)
+      <br><strong>Premium Außen:</strong> 65 € (Handwäsche + Lackpflege + Wachs)
+      <br><strong>Innenreinigung Basis:</strong> 42 € (Staubsaugen, Cockpit, Scheiben)
+      <br><strong>Innen Komplett:</strong> 85 € (Polster, Kofferraum, Detail)
+      <br><strong>Standard Paket:</strong> 75 € (Außen Handwäsche + Innen Basis)
+      <br><strong>Premium Paket:</strong> 149 € (Außen Premium + Innen Komplett)
+      <br>
+      <br>Grundpreise (Gewerbekunden, z.B. Flotten):
+      <br><strong>Außenreinigung Handwäsche:</strong> 40 € (inkl. Felgen & Trocknen)
+      <br><strong>Premium Außen:</strong> 80 € (Handwäsche + Lackpflege + Wachs)
+      <br><strong>Innenreinigung Basis:</strong> 52 € (Staubsaugen, Cockpit, Scheiben)
+      <br><strong>Innen Komplett:</strong> 105 € (Polster, Kofferraum, Detail)
+      <br><strong>Standard Paket:</strong> 90 € (Außen Handwäsche + Innen Basis)
+      <br><strong>Premium Paket:</strong> 179 € (Außen Premium + Innen Komplett)
+      <br>
+      <br>Mindestauftrag: 30 €
+      <br>Fahrtkosten: 0,50 €/km oder 15 € pauschal (innerhalb 30 km)
 
-        <details>
-          <summary>Zuschläge & Extras:</summary>
-          <div class="faq-answer">
-            Zuschläge & Extras:
-            Wochenende / Feiertage: +20 %
-            Express / kurzfristig (<24h): +20 %
-          </div>
-        </details>
-      </div>
-    </details>
-    <!-- Question 3 -->
-    <details>
-        <summary>Welche Zahlungsmethoden gibt es?</summary>
+      <details>
+        <summary>Zuschläge & Extras:</summary>
         <div class="faq-answer">
-            Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
+          - Tierhaarentfernung: +25 €
+          <br>- Polster-/Teppichshampoonierung: +10 €
+          <br>- Lederpflege: +35 €
+          <br>- Motorraumreinigung: +29 €
+          <br>- Ozonbehandlung (Geruchsneutralisierung): +49 €
+          <br>- Wochenende / Feiertag: +20 %
+          <br>- Express / kurzfristig (<24h): +20 %
+          <br>- Regelmäßige Buchung (monatlich): –15 % Rabatt
+          <br>- Kombi mit Extras (z.B. Tierhaar + Ozon): –10 % Rabatt
+          <br>- Gewerbe-Volumenrabatt (ab 5 Fahrzeuge): –15 %
         </div>
-    </details>
-    <!-- Question 4 -->
-    <details>
-        <summary>Welche Zahlungsmethoden gibt es?</summary>
-        <div class="faq-answer">
-            Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
-        </div>
-    </details>
+      </details>
+    </div>
+  </details>
+  <!-- Question 3 -->
+  <details>
+    <summary>Welche Zahlungsmethoden akzeptieren Sie?</summary>
+    <div class="faq-answer">
+      Wir akzeptieren Barzahlung sowie Überweisung (Vorkasse oder nach Absprache).
+      <br>Kartenzahlungen (EC-, Kredit- oder Debitkarten) werden derzeit nicht akzeptiert.
+    </div>
+  </details>
 </template>
 
 
 
 <template id="tmpl-bueroreinigung">
-    <!-- Question 1 -->
-    <details open>
-      <summary>Warum braucht man das? </summary>
-      <div class="faq-answer">
-        Passiert123154154
-      </div>
-    </details>
-    <!-- Question 2 -->
-    <details>
-      <summary>Preise</summary>
-      <div class="faq-answer">
-        Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
-        Spaziergang / Gesellschaft: 24 € / Stunde
-        Einkaufsbegleitung: 27 € / Stunde
-        Arzt-/Terminbegleitung: 27 € / Stunde
-        Nachtbegleitung (20–06 Uhr): 95 € pauschal
+  <!-- Question 1 -->
+  <details open>
+    <summary>Warum braucht man das? </summary>
+    <div class="faq-answer">
+      Passiert123154154
+    </div>
+  </details>
+  <!-- Question 2 -->
+  <details>
+    <summary>Preise</summary>
+    <div class="faq-answer">
+      Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
+      Spaziergang / Gesellschaft: 24 € / Stunde
+      Einkaufsbegleitung: 27 € / Stunde
+      Arzt-/Terminbegleitung: 27 € / Stunde
+      Nachtbegleitung (20–06 Uhr): 95 € pauschal
 
-        <details>
-          <summary>Zuschläge & Extras:</summary>
-          <div class="faq-answer">
-            Zuschläge & Extras:
-            Wochenende / Feiertage: +20 %
-            Express / kurzfristig (<24h): +20 %
-          </div>
-        </details>
-      </div>
-    </details>
-    <!-- Question 3 -->
-    <details>
-        <summary>Welche Zahlungsmethoden gibt es?</summary>
+      <details>
+        <summary>Zuschläge & Extras:</summary>
         <div class="faq-answer">
-            Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
+          Zuschläge & Extras:
+          Wochenende / Feiertage: +20 %
+          Express / kurzfristig (<24h): +20 %
         </div>
-    </details>
-    <!-- Question 4 -->
-    <details>
-        <summary>Welche Zahlungsmethoden gibt es?</summary>
-        <div class="faq-answer">
-            Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
-        </div>
-    </details>
+      </details>
+    </div>
+  </details>
+  <!-- Question 3 -->
+  <details>
+    <summary>Welche Zahlungsmethoden akzeptieren Sie?</summary>
+    <div class="faq-answer">
+      Wir akzeptieren Barzahlung sowie Überweisung (Vorkasse oder nach Absprache).
+      <br>Kartenzahlungen (EC-, Kredit- oder Debitkarten) werden derzeit nicht akzeptiert.
+    </div>
+  </details>
 </template>
 
 
 
 <template id="tmpl-dachhaut_dachziegel_reinigen">
-    <!-- Question 1 -->
-    <details open>
-      <summary>Warum braucht man das? </summary>
-      <div class="faq-answer">
-        Passiert123154154
-      </div>
-    </details>
-    <!-- Question 2 -->
-    <details>
-      <summary>Preise</summary>
-      <div class="faq-answer">
-        Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
-        Spaziergang / Gesellschaft: 24 € / Stunde
-        Einkaufsbegleitung: 27 € / Stunde
-        Arzt-/Terminbegleitung: 27 € / Stunde
-        Nachtbegleitung (20–06 Uhr): 95 € pauschal
+  <!-- Question 1 -->
+  <details open>
+    <summary>Warum braucht man das? </summary>
+    <div class="faq-answer">
+      Passiert123154154
+    </div>
+  </details>
+  <!-- Question 2 -->
+  <details>
+    <summary>Preise</summary>
+    <div class="faq-answer">
+      Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
+      Spaziergang / Gesellschaft: 24 € / Stunde
+      Einkaufsbegleitung: 27 € / Stunde
+      Arzt-/Terminbegleitung: 27 € / Stunde
+      Nachtbegleitung (20–06 Uhr): 95 € pauschal
 
-        <details>
-          <summary>Zuschläge & Extras:</summary>
-          <div class="faq-answer">
-            Zuschläge & Extras:
-            Wochenende / Feiertage: +20 %
-            Express / kurzfristig (<24h): +20 %
-          </div>
-        </details>
-      </div>
-    </details>
-    <!-- Question 3 -->
-    <details>
-        <summary>Welche Zahlungsmethoden gibt es?</summary>
+      <details>
+        <summary>Zuschläge & Extras:</summary>
         <div class="faq-answer">
-            Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
+          Zuschläge & Extras:
+          Wochenende / Feiertage: +20 %
+          Express / kurzfristig (<24h): +20 %
         </div>
-    </details>
-    <!-- Question 4 -->
-    <details>
-        <summary>Welche Zahlungsmethoden gibt es?</summary>
-        <div class="faq-answer">
-            Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
-        </div>
-    </details>
+      </details>
+    </div>
+  </details>
+  <!-- Question 3 -->
+  <details>
+    <summary>Welche Zahlungsmethoden akzeptieren Sie?</summary>
+    <div class="faq-answer">
+      Wir akzeptieren Barzahlung sowie Überweisung (Vorkasse oder nach Absprache).
+      <br>Kartenzahlungen (EC-, Kredit- oder Debitkarten) werden derzeit nicht akzeptiert.
+    </div>
+  </details>
 </template>
 
 
 
 <template id="tmpl-endreinigung_bauendreinigung">
-    <!-- Question 1 -->
-    <details open>
-      <summary>Warum braucht man das? </summary>
-      <div class="faq-answer">
-        Passiert123154154
-      </div>
-    </details>
-    <!-- Question 2 -->
-    <details>
-      <summary>Preise</summary>
-      <div class="faq-answer">
-        Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
-        Spaziergang / Gesellschaft: 24 € / Stunde
-        Einkaufsbegleitung: 27 € / Stunde
-        Arzt-/Terminbegleitung: 27 € / Stunde
-        Nachtbegleitung (20–06 Uhr): 95 € pauschal
+  <!-- Question 1 -->
+  <details open>
+    <summary>Warum braucht man das? </summary>
+    <div class="faq-answer">
+      Passiert123154154
+    </div>
+  </details>
+  <!-- Question 2 -->
+  <details>
+    <summary>Preise</summary>
+    <div class="faq-answer">
+      Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
+      Spaziergang / Gesellschaft: 24 € / Stunde
+      Einkaufsbegleitung: 27 € / Stunde
+      Arzt-/Terminbegleitung: 27 € / Stunde
+      Nachtbegleitung (20–06 Uhr): 95 € pauschal
 
-        <details>
-          <summary>Zuschläge & Extras:</summary>
-          <div class="faq-answer">
-            Zuschläge & Extras:
-            Wochenende / Feiertage: +20 %
-            Express / kurzfristig (<24h): +20 %
-          </div>
-        </details>
-      </div>
-    </details>
-    <!-- Question 3 -->
-    <details>
-        <summary>Welche Zahlungsmethoden gibt es?</summary>
+      <details>
+        <summary>Zuschläge & Extras:</summary>
         <div class="faq-answer">
-            Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
+          Zuschläge & Extras:
+          Wochenende / Feiertage: +20 %
+          Express / kurzfristig (<24h): +20 %
         </div>
-    </details>
-    <!-- Question 4 -->
-    <details>
-        <summary>Welche Zahlungsmethoden gibt es?</summary>
-        <div class="faq-answer">
-            Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
-        </div>
-    </details>
+      </details>
+    </div>
+  </details>
+  <!-- Question 3 -->
+  <details>
+    <summary>Welche Zahlungsmethoden akzeptieren Sie?</summary>
+    <div class="faq-answer">
+      Wir akzeptieren Barzahlung sowie Überweisung (Vorkasse oder nach Absprache).
+      <br>Kartenzahlungen (EC-, Kredit- oder Debitkarten) werden derzeit nicht akzeptiert.
+    </div>
+  </details>
 </template>
 
 
 
 <template id="tmpl-fassadenreinigung">
-    <!-- Question 1 -->
-    <details open>
-      <summary>Warum braucht man das? </summary>
-      <div class="faq-answer">
-        Passiert123154154
-      </div>
-    </details>
-    <!-- Question 2 -->
-    <details>
-      <summary>Preise</summary>
-      <div class="faq-answer">
-        Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
-        Spaziergang / Gesellschaft: 24 € / Stunde
-        Einkaufsbegleitung: 27 € / Stunde
-        Arzt-/Terminbegleitung: 27 € / Stunde
-        Nachtbegleitung (20–06 Uhr): 95 € pauschal
+  <!-- Question 1 -->
+  <details open>
+    <summary>Warum braucht man das? </summary>
+    <div class="faq-answer">
+      Passiert123154154
+    </div>
+  </details>
+  <!-- Question 2 -->
+  <details>
+    <summary>Preise</summary>
+    <div class="faq-answer">
+      Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
+      Spaziergang / Gesellschaft: 24 € / Stunde
+      Einkaufsbegleitung: 27 € / Stunde
+      Arzt-/Terminbegleitung: 27 € / Stunde
+      Nachtbegleitung (20–06 Uhr): 95 € pauschal
 
-        <details>
-          <summary>Zuschläge & Extras:</summary>
-          <div class="faq-answer">
-            Zuschläge & Extras:
-            Wochenende / Feiertage: +20 %
-            Express / kurzfristig (<24h): +20 %
-          </div>
-        </details>
-      </div>
-    </details>
-    <!-- Question 3 -->
-    <details>
-        <summary>Welche Zahlungsmethoden gibt es?</summary>
+      <details>
+        <summary>Zuschläge & Extras:</summary>
         <div class="faq-answer">
-            Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
+          Zuschläge & Extras:
+          Wochenende / Feiertage: +20 %
+          Express / kurzfristig (<24h): +20 %
         </div>
-    </details>
-    <!-- Question 4 -->
-    <details>
-        <summary>Welche Zahlungsmethoden gibt es?</summary>
-        <div class="faq-answer">
-            Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
-        </div>
-    </details>
+      </details>
+    </div>
+  </details>
+  <!-- Question 3 -->
+  <details>
+    <summary>Welche Zahlungsmethoden akzeptieren Sie?</summary>
+    <div class="faq-answer">
+      Wir akzeptieren Barzahlung sowie Überweisung (Vorkasse oder nach Absprache).
+      <br>Kartenzahlungen (EC-, Kredit- oder Debitkarten) werden derzeit nicht akzeptiert.
+    </div>
+  </details>
 </template>
 
 
 
 <template id="tmpl-fensterreinigung">
-    <!-- Question 1 -->
-    <details open>
-      <summary>Warum braucht man das? </summary>
-      <div class="faq-answer">
-        Passiert123154154
-      </div>
-    </details>
-    <!-- Question 2 -->
-    <details>
-      <summary>Preise</summary>
-      <div class="faq-answer">
-        Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
-        Spaziergang / Gesellschaft: 24 € / Stunde
-        Einkaufsbegleitung: 27 € / Stunde
-        Arzt-/Terminbegleitung: 27 € / Stunde
-        Nachtbegleitung (20–06 Uhr): 95 € pauschal
+  <!-- Question 1 -->
+  <details open>
+    <summary>Warum braucht man das? </summary>
+    <div class="faq-answer">
+      Passiert123154154
+    </div>
+  </details>
+  <!-- Question 2 -->
+  <details>
+    <summary>Preise</summary>
+    <div class="faq-answer">
+      Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
+      Spaziergang / Gesellschaft: 24 € / Stunde
+      Einkaufsbegleitung: 27 € / Stunde
+      Arzt-/Terminbegleitung: 27 € / Stunde
+      Nachtbegleitung (20–06 Uhr): 95 € pauschal
 
-        <details>
-          <summary>Zuschläge & Extras:</summary>
-          <div class="faq-answer">
-            Zuschläge & Extras:
-            Wochenende / Feiertage: +20 %
-            Express / kurzfristig (<24h): +20 %
-          </div>
-        </details>
-      </div>
-    </details>
-    <!-- Question 3 -->
-    <details>
-        <summary>Welche Zahlungsmethoden gibt es?</summary>
+      <details>
+        <summary>Zuschläge & Extras:</summary>
         <div class="faq-answer">
-            Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
+          Zuschläge & Extras:
+          Wochenende / Feiertage: +20 %
+          Express / kurzfristig (<24h): +20 %
         </div>
-    </details>
-    <!-- Question 4 -->
-    <details>
-        <summary>Welche Zahlungsmethoden gibt es?</summary>
-        <div class="faq-answer">
-            Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
-        </div>
-    </details>
+      </details>
+    </div>
+  </details>
+  <!-- Question 3 -->
+  <details>
+    <summary>Welche Zahlungsmethoden akzeptieren Sie?</summary>
+    <div class="faq-answer">
+      Wir akzeptieren Barzahlung sowie Überweisung (Vorkasse oder nach Absprache).
+      <br>Kartenzahlungen (EC-, Kredit- oder Debitkarten) werden derzeit nicht akzeptiert.
+    </div>
+  </details>
 </template>
 
 
 
 <template id="tmpl-fliesenreiniger">
-    <!-- Question 1 -->
-    <details open>
-      <summary>Warum braucht man das? </summary>
-      <div class="faq-answer">
-        Passiert123154154
-      </div>
-    </details>
-    <!-- Question 2 -->
-    <details>
-      <summary>Preise</summary>
-      <div class="faq-answer">
-        Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
-        Spaziergang / Gesellschaft: 24 € / Stunde
-        Einkaufsbegleitung: 27 € / Stunde
-        Arzt-/Terminbegleitung: 27 € / Stunde
-        Nachtbegleitung (20–06 Uhr): 95 € pauschal
+  <!-- Question 1 -->
+  <details open>
+    <summary>Warum braucht man das? </summary>
+    <div class="faq-answer">
+      Passiert123154154
+    </div>
+  </details>
+  <!-- Question 2 -->
+  <details>
+    <summary>Preise</summary>
+    <div class="faq-answer">
+      Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
+      Spaziergang / Gesellschaft: 24 € / Stunde
+      Einkaufsbegleitung: 27 € / Stunde
+      Arzt-/Terminbegleitung: 27 € / Stunde
+      Nachtbegleitung (20–06 Uhr): 95 € pauschal
 
-        <details>
-          <summary>Zuschläge & Extras:</summary>
-          <div class="faq-answer">
-            Zuschläge & Extras:
-            Wochenende / Feiertage: +20 %
-            Express / kurzfristig (<24h): +20 %
-          </div>
-        </details>
-      </div>
-    </details>
-    <!-- Question 3 -->
-    <details>
-        <summary>Welche Zahlungsmethoden gibt es?</summary>
+      <details>
+        <summary>Zuschläge & Extras:</summary>
         <div class="faq-answer">
-            Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
+          Zuschläge & Extras:
+          Wochenende / Feiertage: +20 %
+          Express / kurzfristig (<24h): +20 %
         </div>
-    </details>
-    <!-- Question 4 -->
-    <details>
-        <summary>Welche Zahlungsmethoden gibt es?</summary>
-        <div class="faq-answer">
-            Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
-        </div>
-    </details>
+      </details>
+    </div>
+  </details>
+  <!-- Question 3 -->
+  <details>
+    <summary>Welche Zahlungsmethoden akzeptieren Sie?</summary>
+    <div class="faq-answer">
+      Wir akzeptieren Barzahlung sowie Überweisung (Vorkasse oder nach Absprache).
+      <br>Kartenzahlungen (EC-, Kredit- oder Debitkarten) werden derzeit nicht akzeptiert.
+    </div>
+  </details>
 </template>
 
 
 
 <template id="tmpl-lauabholung">
-    <!-- Question 1 -->
-    <details open>
-      <summary>Warum braucht man das? </summary>
-      <div class="faq-answer">
-        Passiert123154154
-      </div>
-    </details>
-    <!-- Question 2 -->
-    <details>
-      <summary>Preise</summary>
-      <div class="faq-answer">
-        Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
-        Spaziergang / Gesellschaft: 24 € / Stunde
-        Einkaufsbegleitung: 27 € / Stunde
-        Arzt-/Terminbegleitung: 27 € / Stunde
-        Nachtbegleitung (20–06 Uhr): 95 € pauschal
+  <!-- Question 1 -->
+  <details open>
+    <summary>Warum braucht man das? </summary>
+    <div class="faq-answer">
+      Passiert123154154
+    </div>
+  </details>
+  <!-- Question 2 -->
+  <details>
+    <summary>Preise</summary>
+    <div class="faq-answer">
+      Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
+      Spaziergang / Gesellschaft: 24 € / Stunde
+      Einkaufsbegleitung: 27 € / Stunde
+      Arzt-/Terminbegleitung: 27 € / Stunde
+      Nachtbegleitung (20–06 Uhr): 95 € pauschal
 
-        <details>
-          <summary>Zuschläge & Extras:</summary>
-          <div class="faq-answer">
-            Zuschläge & Extras:
-            Wochenende / Feiertage: +20 %
-            Express / kurzfristig (<24h): +20 %
-          </div>
-        </details>
-      </div>
-    </details>
-    <!-- Question 3 -->
-    <details>
-        <summary>Welche Zahlungsmethoden gibt es?</summary>
+      <details>
+        <summary>Zuschläge & Extras:</summary>
         <div class="faq-answer">
-            Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
+          Zuschläge & Extras:
+          Wochenende / Feiertage: +20 %
+          Express / kurzfristig (<24h): +20 %
         </div>
-    </details>
-    <!-- Question 4 -->
-    <details>
-        <summary>Welche Zahlungsmethoden gibt es?</summary>
-        <div class="faq-answer">
-            Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
-        </div>
-    </details>
+      </details>
+    </div>
+  </details>
+  <!-- Question 3 -->
+  <details>
+    <summary>Welche Zahlungsmethoden akzeptieren Sie?</summary>
+    <div class="faq-answer">
+      Wir akzeptieren Barzahlung sowie Überweisung (Vorkasse oder nach Absprache).
+      <br>Kartenzahlungen (EC-, Kredit- oder Debitkarten) werden derzeit nicht akzeptiert.
+    </div>
+  </details>
 </template>
 
 
 
 <template id="tmpl-haushaltreinigung">
-    <!-- Question 1 -->
-    <details open>
-      <summary>Warum braucht man das? </summary>
-      <div class="faq-answer">
-        Passiert123154154
-      </div>
-    </details>
-    <!-- Question 2 -->
-    <details>
-      <summary>Preise</summary>
-      <div class="faq-answer">
-        Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
-        Spaziergang / Gesellschaft: 24 € / Stunde
-        Einkaufsbegleitung: 27 € / Stunde
-        Arzt-/Terminbegleitung: 27 € / Stunde
-        Nachtbegleitung (20–06 Uhr): 95 € pauschal
+  <!-- Question 1 -->
+  <details open>
+    <summary>Warum braucht man das? </summary>
+    <div class="faq-answer">
+      Passiert123154154
+    </div>
+  </details>
+  <!-- Question 2 -->
+  <details>
+    <summary>Preise</summary>
+    <div class="faq-answer">
+      Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
+      Spaziergang / Gesellschaft: 24 € / Stunde
+      Einkaufsbegleitung: 27 € / Stunde
+      Arzt-/Terminbegleitung: 27 € / Stunde
+      Nachtbegleitung (20–06 Uhr): 95 € pauschal
 
-        <details>
-          <summary>Zuschläge & Extras:</summary>
-          <div class="faq-answer">
-            Zuschläge & Extras:
-            Wochenende / Feiertage: +20 %
-            Express / kurzfristig (<24h): +20 %
-          </div>
-        </details>
-      </div>
-    </details>
-    <!-- Question 3 -->
-    <details>
-        <summary>Welche Zahlungsmethoden gibt es?</summary>
+      <details>
+        <summary>Zuschläge & Extras:</summary>
         <div class="faq-answer">
-            Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
+          Zuschläge & Extras:
+          Wochenende / Feiertage: +20 %
+          Express / kurzfristig (<24h): +20 %
         </div>
-    </details>
-    <!-- Question 4 -->
-    <details>
-        <summary>Welche Zahlungsmethoden gibt es?</summary>
-        <div class="faq-answer">
-            Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
-        </div>
-    </details>
+      </details>
+    </div>
+  </details>
+  <!-- Question 3 -->
+  <details>
+    <summary>Welche Zahlungsmethoden akzeptieren Sie?</summary>
+    <div class="faq-answer">
+      Wir akzeptieren Barzahlung sowie Überweisung (Vorkasse oder nach Absprache).
+      <br>Kartenzahlungen (EC-, Kredit- oder Debitkarten) werden derzeit nicht akzeptiert.
+    </div>
+  </details>
 </template>
 
 
 
 <template id="tmpl-schneeraeumung">
-    <!-- Question 1 -->
-    <details open>
-      <summary>Warum braucht man das? </summary>
-      <div class="faq-answer">
-        Passiert123154154
-      </div>
-    </details>
-    <!-- Question 2 -->
-    <details>
-      <summary>Preise</summary>
-      <div class="faq-answer">
-        Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
-        Spaziergang / Gesellschaft: 24 € / Stunde
-        Einkaufsbegleitung: 27 € / Stunde
-        Arzt-/Terminbegleitung: 27 € / Stunde
-        Nachtbegleitung (20–06 Uhr): 95 € pauschal
+  <!-- Question 1 -->
+  <details open>
+    <summary>Warum braucht man das? </summary>
+    <div class="faq-answer">
+      Passiert123154154
+    </div>
+  </details>
+  <!-- Question 2 -->
+  <details>
+    <summary>Preise</summary>
+    <div class="faq-answer">
+      Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
+      Spaziergang / Gesellschaft: 24 € / Stunde
+      Einkaufsbegleitung: 27 € / Stunde
+      Arzt-/Terminbegleitung: 27 € / Stunde
+      Nachtbegleitung (20–06 Uhr): 95 € pauschal
 
-        <details>
-          <summary>Zuschläge & Extras:</summary>
-          <div class="faq-answer">
-            Zuschläge & Extras:
-            Wochenende / Feiertage: +20 %
-            Express / kurzfristig (<24h): +20 %
-          </div>
-        </details>
-      </div>
-    </details>
-    <!-- Question 3 -->
-    <details>
-        <summary>Welche Zahlungsmethoden gibt es?</summary>
+      <details>
+        <summary>Zuschläge & Extras:</summary>
         <div class="faq-answer">
-            Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
+          Zuschläge & Extras:
+          Wochenende / Feiertage: +20 %
+          Express / kurzfristig (<24h): +20 %
         </div>
-    </details>
-    <!-- Question 4 -->
-    <details>
-        <summary>Welche Zahlungsmethoden gibt es?</summary>
-        <div class="faq-answer">
-            Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
-        </div>
-    </details>
+      </details>
+    </div>
+  </details>
+  <!-- Question 3 -->
+  <details>
+    <summary>Welche Zahlungsmethoden akzeptieren Sie?</summary>
+    <div class="faq-answer">
+      Wir akzeptieren Barzahlung sowie Überweisung (Vorkasse oder nach Absprache).
+      <br>Kartenzahlungen (EC-, Kredit- oder Debitkarten) werden derzeit nicht akzeptiert.
+    </div>
+  </details>
 </template>
 
 
 
 <template id="tmpl-streudienst">
-    <!-- Question 1 -->
-    <details open>
-      <summary>Warum braucht man das? </summary>
-      <div class="faq-answer">
-        Passiert123154154
-      </div>
-    </details>
-    <!-- Question 2 -->
-    <details>
-      <summary>Preise</summary>
-      <div class="faq-answer">
-        Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
-        Spaziergang / Gesellschaft: 24 € / Stunde
-        Einkaufsbegleitung: 27 € / Stunde
-        Arzt-/Terminbegleitung: 27 € / Stunde
-        Nachtbegleitung (20–06 Uhr): 95 € pauschal
+  <!-- Question 1 -->
+  <details open>
+    <summary>Warum braucht man das? </summary>
+    <div class="faq-answer">
+      Passiert123154154
+    </div>
+  </details>
+  <!-- Question 2 -->
+  <details>
+    <summary>Preise</summary>
+    <div class="faq-answer">
+      Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
+      Spaziergang / Gesellschaft: 24 € / Stunde
+      Einkaufsbegleitung: 27 € / Stunde
+      Arzt-/Terminbegleitung: 27 € / Stunde
+      Nachtbegleitung (20–06 Uhr): 95 € pauschal
 
-        <details>
-          <summary>Zuschläge & Extras:</summary>
-          <div class="faq-answer">
-            Zuschläge & Extras:
-            Wochenende / Feiertage: +20 %
-            Express / kurzfristig (<24h): +20 %
-          </div>
-        </details>
-      </div>
-    </details>
-    <!-- Question 3 -->
-    <details>
-        <summary>Welche Zahlungsmethoden gibt es?</summary>
+      <details>
+        <summary>Zuschläge & Extras:</summary>
         <div class="faq-answer">
-            Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
+          Zuschläge & Extras:
+          Wochenende / Feiertage: +20 %
+          Express / kurzfristig (<24h): +20 %
         </div>
-    </details>
-    <!-- Question 4 -->
-    <details>
-        <summary>Welche Zahlungsmethoden gibt es?</summary>
-        <div class="faq-answer">
-            Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
-        </div>
-    </details>
+      </details>
+    </div>
+  </details>
+  <!-- Question 3 -->
+  <details>
+    <summary>Welche Zahlungsmethoden akzeptieren Sie?</summary>
+    <div class="faq-answer">
+      Wir akzeptieren Barzahlung sowie Überweisung (Vorkasse oder nach Absprache).
+      <br>Kartenzahlungen (EC-, Kredit- oder Debitkarten) werden derzeit nicht akzeptiert.
+    </div>
+  </details>
 </template>
 
 
 
 <template id="tmpl-teppichreinigung">
-    <!-- Question 1 -->
-    <details open>
-      <summary>Warum braucht man das? </summary>
-      <div class="faq-answer">
-        Passiert123154154
-      </div>
-    </details>
-    <!-- Question 2 -->
-    <details>
-      <summary>Preise</summary>
-      <div class="faq-answer">
-        Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
-        Spaziergang / Gesellschaft: 24 € / Stunde
-        Einkaufsbegleitung: 27 € / Stunde
-        Arzt-/Terminbegleitung: 27 € / Stunde
-        Nachtbegleitung (20–06 Uhr): 95 € pauschal
+  <!-- Question 1 -->
+  <details open>
+    <summary>Warum braucht man das? </summary>
+    <div class="faq-answer">
+      Passiert123154154
+    </div>
+  </details>
+  <!-- Question 2 -->
+  <details>
+    <summary>Preise</summary>
+    <div class="faq-answer">
+      Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
+      Spaziergang / Gesellschaft: 24 € / Stunde
+      Einkaufsbegleitung: 27 € / Stunde
+      Arzt-/Terminbegleitung: 27 € / Stunde
+      Nachtbegleitung (20–06 Uhr): 95 € pauschal
 
-        <details>
-          <summary>Zuschläge & Extras:</summary>
-          <div class="faq-answer">
-            Zuschläge & Extras:
-            Wochenende / Feiertage: +20 %
-            Express / kurzfristig (<24h): +20 %
-          </div>
-        </details>
-      </div>
-    </details>
-    <!-- Question 3 -->
-    <details>
-        <summary>Welche Zahlungsmethoden gibt es?</summary>
+      <details>
+        <summary>Zuschläge & Extras:</summary>
         <div class="faq-answer">
-            Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
+          Zuschläge & Extras:
+          Wochenende / Feiertage: +20 %
+          Express / kurzfristig (<24h): +20 %
         </div>
-    </details>
-    <!-- Question 4 -->
-    <details>
-        <summary>Welche Zahlungsmethoden gibt es?</summary>
-        <div class="faq-answer">
-            Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
-        </div>
-    </details>
+      </details>
+    </div>
+  </details>
+  <!-- Question 3 -->
+  <details>
+    <summary>Welche Zahlungsmethoden akzeptieren Sie?</summary>
+    <div class="faq-answer">
+      Wir akzeptieren Barzahlung sowie Überweisung (Vorkasse oder nach Absprache).
+      <br>Kartenzahlungen (EC-, Kredit- oder Debitkarten) werden derzeit nicht akzeptiert.
+    </div>
+  </details>
 </template>
 
 
 
 <template id="tmpl-eis-schneebeseitigung">
-    <!-- Question 1 -->
-    <details open>
-      <summary>Warum braucht man das? </summary>
-      <div class="faq-answer">
-        Passiert123154154
-      </div>
-    </details>
-    <!-- Question 2 -->
-    <details>
-      <summary>Preise</summary>
-      <div class="faq-answer">
-        Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
-        Spaziergang / Gesellschaft: 24 € / Stunde
-        Einkaufsbegleitung: 27 € / Stunde
-        Arzt-/Terminbegleitung: 27 € / Stunde
-        Nachtbegleitung (20–06 Uhr): 95 € pauschal
+  <!-- Question 1 -->
+  <details open>
+    <summary>Warum braucht man das? </summary>
+    <div class="faq-answer">
+      Passiert123154154
+    </div>
+  </details>
+  <!-- Question 2 -->
+  <details>
+    <summary>Preise</summary>
+    <div class="faq-answer">
+      Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
+      Spaziergang / Gesellschaft: 24 € / Stunde
+      Einkaufsbegleitung: 27 € / Stunde
+      Arzt-/Terminbegleitung: 27 € / Stunde
+      Nachtbegleitung (20–06 Uhr): 95 € pauschal
 
-        <details>
-          <summary>Zuschläge & Extras:</summary>
-          <div class="faq-answer">
-            Zuschläge & Extras:
-            Wochenende / Feiertage: +20 %
-            Express / kurzfristig (<24h): +20 %
-          </div>
-        </details>
-      </div>
-    </details>
-    <!-- Question 3 -->
-    <details>
-        <summary>Welche Zahlungsmethoden gibt es?</summary>
+      <details>
+        <summary>Zuschläge & Extras:</summary>
         <div class="faq-answer">
-            Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
+          Zuschläge & Extras:
+          Wochenende / Feiertage: +20 %
+          Express / kurzfristig (<24h): +20 %
         </div>
-    </details>
-    <!-- Question 4 -->
-    <details>
-        <summary>Welche Zahlungsmethoden gibt es?</summary>
-        <div class="faq-answer">
-            Sie können bar nach Lieferung bezahlen oder bequem per Überweisung am Ende des Monats.
-        </div>
-    </details>
+      </details>
+    </div>
+  </details>
+  <!-- Question 3 -->
+  <details>
+    <summary>Welche Zahlungsmethoden akzeptieren Sie?</summary>
+    <div class="faq-answer">
+      Wir akzeptieren Barzahlung sowie Überweisung (Vorkasse oder nach Absprache).
+      <br>Kartenzahlungen (EC-, Kredit- oder Debitkarten) werden derzeit nicht akzeptiert.
+    </div>
+  </details>
 </template>
 
 
