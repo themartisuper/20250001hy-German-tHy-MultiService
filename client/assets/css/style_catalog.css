@@ -180,7 +180,7 @@
     }
     details[open] summary::after { content: '-'; }
     .faq-answer {
-        padding: 15px; border-top: 1px solid #eee; color: #555; line-height: 1.5;
+        padding: 15px; border-top: 1px solid #eee; color: #242424; line-height: 1.5;
         background-color: #fafafa;
     }
 
