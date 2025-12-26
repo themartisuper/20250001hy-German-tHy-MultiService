@@ -495,7 +495,7 @@
 
       <div class="modal-col-right">
         
-        <form id="multiStepForm" action="#" method="POST">
+        <form id="multiStepForm" action="/api/personal_request" method="POST">
           <input type="hidden" id="formServiceSubject" name="service" value="">
 
           <div class="ms-header">
@@ -701,14 +701,14 @@
 
 <!-- Шаблон для "Общий" (заглушка для остальных карт) -->
 <template id="tmpl-general">
-    <details open>
-        <summary>Wie kann ich buchen?</summary>
-        <div class="faq-answer">Nutzen Sie einfach das Formular rechts.</div>
-    </details>
-    <details>
-        <summary>Gibt es eine Garantie?</summary>
-        <div class="faq-answer">Ja, wir garantieren Zufriedenheit.</div>
-    </details>
+  <details open>
+    <summary>Wie kann ich buchen?</summary>
+    <div class="faq-answer">Nutzen Sie einfach das Formular rechts.</div>
+  </details>
+  <details>
+    <summary>Gibt es eine Garantie?</summary>
+    <div class="faq-answer">Ja, wir garantieren Zufriedenheit.</div>
+  </details>
 </template>
 
 
@@ -891,6 +891,67 @@ document.addEventListener('DOMContentLoaded', () => {
     if (currentStep > 0) {
       currentStep--;
       updateFormUI();
+    }
+  });
+
+  // Обработчик отправки формы
+  const form = document.getElementById('multiStepForm');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // Валидируем последний шаг перед отправкой
+    if (!validateStep(currentStep)) {
+      alert('Bitte füllen Sie alle markierten Felder aus.');
+      return;
+    }
+
+    // Собираем данные формы
+    const formData = new FormData(form);
+    const data = {
+      first_name: formData.get('first_name'),
+      last_name: formData.get('last_name'),
+      email: formData.get('email'),
+      phone: formData.get('phone'),
+      service: formData.get('service'),
+      street: formData.get('street'),
+      house_number: formData.get('house_number'),
+      zip: formData.get('zip'),
+      city: formData.get('city'),
+      message: formData.get('message'),
+      timing_onetime: formData.get('timing_onetime') ? 'yes' : '',
+      timing_weeks: formData.get('timing_weeks'),
+      timing_days_per_week: formData.get('timing_days_per_week'),
+      timing_months: formData.get('timing_months')
+    };
+
+    // Отправляем на сервер
+    try {
+      btnSubmit.disabled = true;
+      btnSubmit.textContent = 'Wird gesendet...';
+
+      const response = await fetch('/api/personal_request', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+
+      if (response.ok) {
+        alert('✅ Ihre Anfrage wurde erfolgreich gesendet! Wir werden Sie bald kontaktieren.');
+        closeModal();
+        resetMultiStepForm();
+      } else {
+        const errorData = await response.json();
+        console.error('Server error:', errorData);
+        alert('❌ Fehler beim Senden: ' + (errorData.error || 'Unbekannter Fehler'));
+      }
+    } catch (error) {
+      console.error('Network error:', error);
+      alert('❌ Verbindungsfehler: ' + error.message);
+    } finally {
+      btnSubmit.disabled = false;
+      btnSubmit.textContent = 'Anfrage senden';
     }
   });
 
