@@ -44,7 +44,7 @@ window.initFixedPriceForm = function(container) {
   "Kurierdienste (privat)": 29,
   "Kurierdienste (gewerblich)": 29,
   "Lieferant": 26,
-  "Möbeltransport / Umzugshilfe": 0, // отключено 01.01.2026
+  "Möbeltransport / Umzugshilfe": 0, // nach vereinbarung 01.01.2026
   "Tragehilfe": 59,
   "Zum Flughafen hin fahren": 99,
   "Zum Flughafen hin-zurück fahren": 179,
@@ -80,7 +80,7 @@ window.initFixedPriceForm = function(container) {
   // 🟨 Persönliche Dienste & Events
   "Einkaufshilfe": 29,
   "Einzelhandelskaufmann": 69,
-  "Eventhilfe / Servicekraft": 0, // отключено 01.01.2026
+  "Eventhilfe / Servicekraft": 0, // nach vereinbarung 01.01.2026
   "Hundeausführen / Gassi-Service": 29,
   "Seniorenbetreuung (ohne Pflege)": 29,
   "Tierbetreuung": 29
@@ -143,6 +143,19 @@ window.initFixedPriceForm = function(container) {
         console.warn('DEBUG: Unknown service price for', service);
         priceEl.textContent = "0.00€";
         discountEl.textContent = '';
+        return;
+      }
+
+      // НОВАЯ ЛОГИКА: Если basePrice === 0, показываем "nach Vereinbarung"
+      if (unitPrice === 0) {
+        priceEl.textContent = "nach Vereinbarung";
+        discountEl.textContent = '';
+        
+        // СКРЫТЬ averageEl для услуг с ценой 0
+        if (averageEl) {
+          averageEl.style.display = 'none';
+        }
+        
         return;
       }
 
