@@ -39,9 +39,10 @@ window.initFixedPriceForm = function(container) {
   
   const basePrice = {
   // Gruppe 1: Transport & Logistik
-  "Fahrzeugüberführung": 0,
-  "Kurierdienste": 0,
-  "Lieferant": 0,
+  "Fahrzeugüberführung": 49,
+  "Kurierdienste (privat)": 29,
+  "Kurierdienste (gewerblich)": 29,
+  "Lieferant": 26,
   "Möbeltransport / Umzugshilfe": 0,
   "Tragehilfe": 0,
   "Zum Flughafen hin-zurück fahren": 0,

@@ -5,19 +5,27 @@
 export const serviceDescriptions = {
   // Gruppe 1: Transport & Logistik
   "Fahrzeugüberführung": [
-    "Professioneller Transport Ihres Fahrzeugs von A nach B.",
-    "Sichere Handhabung und Versicherung während der Überführung.",
-    "Flexibler Termin nach Ihren Wünschen."
+    "Kurzstrecke (50-150 km): 1.40 €/km",
+    "Mittelstrecke (150-500 km): 1.10 €/km",
+    "Langstrecke (>500 km): 0.95 €/km"
   ],
-  "Kurierdienste": [
-    "Schnelle und zuverlässige Lieferung von Dokumenten oder Paketen.",
-    "Track & Trace Service für volle Transparenz.",
-    "Expresszustellungen auf Wunsch verfügbar."
+  "Kurierdienste (privat)": [
+    "Kurierdienst bis 10 km: 32 €",
+    "Kurierdienst 10-30 km: 55 €",
+    "Kurierdienst 30-50 km: 85 €",
+    "Kurierdienst 50-100 km: 130 €",
+    "Kurierdienst >100 km: 1,40 €/km"
+  ],
+  "Kurierdienste (gewerblich)": [
+    "Kurierdienst bis 10 km: 40 €",
+    "Kurierdienst 10-30 km: 65 €",
+    "Kurierdienst 30-50 km: 105 €",
+    "Kurierdienst 50-100 km: 155 €",
+    "Kurierdienst >100 km: 1,60 €/km"
   ],
   "Lieferant": [
-    "Lieferung von Waren direkt zu Ihnen nach Hause oder ins Büro.",
-    "Flexible Zeitfenster und pünktliche Zustellung.",
-    "Professioneller Umgang mit sensiblen oder wertvollen Gütern."
+    "Fahrer ohne Auto: 20 € / Stunde",
+    "Fahrer mit Auto: 26 € / Stunde"
   ],
   "Möbeltransport / Umzugshilfe": [
     "Sicherer Transport von Möbeln und Umzugsgütern.",

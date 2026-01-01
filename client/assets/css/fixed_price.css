@@ -159,6 +159,21 @@
   color: #242424;
 }
 
+
+.fixed-price__card-price-block {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.fixed-price__card-average {
+  font-size: 2.25rem;
+  font-weight: 500;
+  color: #242424;
+  margin: 0 0 0.2rem 0;
+  min-height: 2.5rem;
+}
+
 .fixed-price__card-price {
   font-size: 2.25rem;
   font-weight: 700;
@@ -461,7 +476,7 @@
   left: 10%;
   width: 80%;
   height: 4px;
-  background: #ffffff;
+  background: #242424;
   border-radius: 2px;
 }
 
@@ -657,6 +672,21 @@
     font-size: 1.75rem;
   }
 
+
+  .fixed-price__card-price-block {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .fixed-price__card-average {
+    font-size: 1.75rem;
+    font-weight: 500;
+    color: #242424;
+    margin: 0 0 0.2rem 0;
+    min-height: 2.5rem;
+  }
+
   .fixed-price__card-price {
     font-size: 1.75rem;
   }
@@ -778,6 +808,20 @@
 
   .fixed-price__card-tile {
     font-size: 1.5rem;
+  }
+
+  .fixed-price__card-price-block {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .fixed-price__card-average {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #242424;
+    margin: 0 0 0.2rem 0;
+    min-height: 2.5rem;
   }
 
   .fixed-price__card-price {
