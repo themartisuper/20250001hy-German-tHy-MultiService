@@ -68,11 +68,12 @@
 
   <nav class="nav" id="nav">
     <ul>
-      <li><a data-i18n="home" href="../index.html">Home</a></li>
-      <li><a data-i18n="sale" href="#">Sale</a></li>
-      <li><a ata-i18n="termine" href="#">Termine</a></li>
-      <li><a ata-i18n="service" href="#">Über uns</a></li>
-      <li><a ata-i18n="contact" href="#contact">Kontakt</a></li>
+      <li><a data-i18n="home" href="../index.html#section__main">Home</a></li>
+      <li><a data-i18n="coupon" href="coupon-form.html">Gutschein</a></li>
+      <li><a data-i18n="categories" href="../index.html#categories">Leistungen </a></li>
+      <li><a data-i18n="package_deal" href="../index.html#fixed-price">Pauschale </a></li>
+      <!--<li><a data-i18n="about_us" href="#">Über uns</a></li>-->
+      <li><a data-i18n="contact" href="#contact">Kontakt</a></li>
     </ul>
 
     <!-- locales -->
@@ -469,40 +470,73 @@
 
 
 <!-- FOOTER -->
-<footer class="footer">
+<footer class="footer" id="contact">
   <div class="footer__body">
     <section class="footer__body-legal">
-      <a href="">Impressum</a>
-      <a href="">Datenschutz</a>
+      <a href="client/impressum.html">Impressum</a>
+      <a href="client/datenschutz.html">Datenschutz</a>
     </section>
+
+    <div class="footer__body-adaptation-nav-and-hours">
+      <section class="section-footer"> 
+        <!--<ul class="footer__body-links ul-footer">
+          <li><a data-i18n="home" href="#section__main">Home</a></li>
+          <li><a data-i18n="coupon" href="client/coupon-form.html">Gutschein</a></li>
+          <li><a data-i18n="categories" href="#categories">Leistungen </a></li>
+          <li><a data-i18n="package_deal" href="#fixed-price">Pauschale </a></li>
+        </ul>-->
+        <div class="footer__body-links ul-footer">
+          <a data-i18n="home" href="../index.html">Home</a>
+          <a data-i18n="coupon" href="coupon-form.html">Gutschein</a>
+          <a data-i18n="categories" href="../index.html#categories">Leistungen</a>
+          <a data-i18n="package_deal" href="../index.html#fixed-price">Pauschale</a>
+          <a href="impressum.html">Impressum</a>
+        </div>
+      </section>
+
+      <section class="footer__body-operating-hours-and-socials">
+        <div class="footer__body-operating-hours">
+          <h5>Öffnungszeiten:</h5>
+          <h5>Mo-Do 06:00-22:00</h5>
+          <h5>Freitag 06:00-23:00</h5>
+          <h5>Samstag 06:00-21:30</h5>
+          <h5>Sonnatag Geschlossen</h5>
+          <a href="datenschutz.html">Datenschutz</a>
+        </div>
+      </section>
+    </div>
 
     <section class="section-footer"> 
       <ul class="footer__body-links ul-footer">
-        <li><a data-i18n="home" href="#">Home</a></li>
-        <li><a ata-i18n="about_us" href="#">Über uns</a></li>
-        <li><a ata-i18n="service" href="#">Service</a></li>
-        <li><a ata-i18n="contact" href="#">Kontakt</a></li>
+        <li><a data-i18n="home" href="#section__main">Home</a></li>
+        <li><a data-i18n="coupon" href="client/coupon-form.html">Gutschein</a></li>
+        <li><a data-i18n="categories" href="#categories">Leistungen </a></li>
+        <li><a data-i18n="package_deal" href="#fixed-price">Pauschale </a></li>
       </ul>
     </section>
 
     <section class="footer__body-operating-hours-and-socials">
       <div class="footer__body-operating-hours">
-        <h5>Mo-Fr: 08:00-22:00</h5>
-        <h5>Samstag: 08:00-23:00</h5>
-        <h5>Sonntag: 08:00-23:00</h5>
+        <h5>Öffnungszeiten:</h5>
+        <h5>Mo-Do 06:00-22:00</h5>
+        <h5>Freitag 06:00-23:00</h5>
+        <h5>Samstag 06:00-21:30</h5>
+        <h5>Sonnatag Geschlossen</h5>
+        
       </div>
-
-      <ul class="socials ul-footer">
-        <li><a class="fa-brands fa-telegram" href=""></a></li>
-        <li><a class="fa-brands fa-instagram" href="https://www.instagram.com/german_thy_multi?igsh=YjllaG4zcnVzaGVl&utm_source=qr"></a></li>
-        <li><a class="fa-brands fa-x-twitter" href=""></a></li>
-        <li><a class="fa-brands fa-facebook" href=""></a></li>
-      </ul>
     </section>
+    
 
-    <section class="footer__body-contact" id="contact">
+    <ul class="socials ul-footer">
+      <li><a class="fa-brands fa-whatsapp" href="https://wa.me/4917661219130?text=Hallo!" target="_blank" rel="noopener noreferrer"></a></li>
+      <li><a class="fa-brands fa-instagram" href="https://www.instagram.com/german_thy_multi?igsh=YjllaG4zcnVzaGVl&utm_source=qr" target="_blank" rel="noopener noreferrer"></a></li>
+      <!--<li><a class="fa-brands fa-x-twitter" href=""></a></li>-->
+      <li><a class="fa-regular fa-envelope" href="mailto:german.thy.multi@gmail.com" target="_blank" rel="noopener noreferrer"></a></li>
+    </ul>
+
+    <section class="footer__body-contact">
       <h5>Kontakt</h5>
-      <h5>German tHÿ MultiService</h5>
+      <h5>German tHy MultiService</h5>
       <div class="social__icons">
         <div class="social__icons-settings">
           <a class="fa-brands fa-whatsapp" href="https://wa.me/4917661219130?text=Hallo!" target="_blank" rel="noopener noreferrer"></a>
@@ -522,7 +556,7 @@
   </div>
 
   <div class="legal">
-    <h5 class="legal">© 2025 All rights reserved</h5>
+    <h5 class="legal">© 2026 Alle Rechte vorbehalten</h5>
   </div>
   
 </footer>
@@ -710,241 +744,260 @@
 <!-- ========================================================= -->
 
 <template id="tmpl-einkauf">
-    <!-- Question 1 -->
-    <details open>
-      <summary>Warum braucht man das? </summary>
-      <div class="faq-answer">
-        Passiert
-      </div>
-    </details>
-    <!-- Question 2 -->
-    <details>
-      <summary>Preise</summary>
-      <div class="faq-answer">
-        Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
-        Spaziergang / Gesellschaft: 24 € / Stunde
-        Einkaufsbegleitung: 27 € / Stunde
-        Arzt-/Terminbegleitung: 27 € / Stunde
-        Nachtbegleitung (20–06 Uhr): 95 € pauschal
+  <!-- Question 1 -->
+  <details open>
+    <summary>Warum braucht man das? </summary>
+    <div class="faq-answer">
+      Einkaufshilfe braucht man, um Besorgungen schnell, bequem und stressfrei erledigen zu lassen. 
+      Sie spart Zeit, Wege und ist besonders praktisch für Menschen mit eingeschränkter Mobilität.
+    </div>
+  </details>
+  <!-- Question 2 -->
+  <details>
+    <summary>Preise</summary>
+    <div class="faq-answer">
+      Grundpreise:
+      <br>Einkaufshilfe (Begleitung): 22 € / Stunde
+      <br>Einkauf erledigen (ohne Kunde): 28 € / Stunde
+      <br>Kleiner Einkauf (bis 1 h): 28 € pauschal
+      <br>Großer Einkauf (bis 2 h): 48 € pauschal
 
-        <details>
-          <summary>Zuschläge & Extras:</summary>
-          <div class="faq-answer">
-            Zuschläge & Extras:
-            Wochenende / Feiertage: +20 %
-            Express / kurzfristig (<24h): +20 %
-          </div>
-        </details>
-      </div>
-    </details>
-    <!-- Question 3 -->
-    <details>
-      <summary>Welche Zahlungsmethoden akzeptieren Sie?</summary>
-      <div class="faq-answer">
-        Wir akzeptieren Barzahlung sowie Überweisung (Vorkasse oder nach Absprache).
-        <br>Kartenzahlungen (EC-, Kredit- oder Debitkarten) werden derzeit nicht akzeptiert.
-      </div>
-    </details>
+      <details>
+        <summary>Zuschläge & Extras:</summary>
+        <div class="faq-answer">
+          Getränkekisten / schwere Last: +5 € / Stück
+          <br>Wochenende / Feiertag: +20 %
+          <br>Express / kurzfristig (<24h): +20 %
+          <br>Regelmäßige Buchung (wöchentlich): –10 % Rabatt
+          <br>Kombi mit Haushüter: –10 % Rabatt
+          <br>Gewerbe-Volumenrabatt (ab 10 Einsätze): –15 %
+        </div>
+      </details>
+    </div>
+  </details>
+  <!-- Question 3 -->
+  <details>
+    <summary>Welche Zahlungsmethoden akzeptieren Sie?</summary>
+    <div class="faq-answer">
+      Wir akzeptieren Barzahlung sowie Überweisung (Vorkasse oder nach Absprache).
+      <br>Kartenzahlungen (EC-, Kredit- oder Debitkarten) werden derzeit nicht akzeptiert.
+    </div>
+  </details>
 </template>
 
 
 
 <template id="tmpl-einzelhandelskaufmann">
-    <!-- Question 1 -->
-    <details open>
-      <summary>Warum braucht man das? </summary>
-      <div class="faq-answer">
-        Passiert123154154
-      </div>
-    </details>
-    <!-- Question 2 -->
-    <details>
-      <summary>Preise</summary>
-      <div class="faq-answer">
-        Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
-        Spaziergang / Gesellschaft: 24 € / Stunde
-        Einkaufsbegleitung: 27 € / Stunde
-        Arzt-/Terminbegleitung: 27 € / Stunde
-        Nachtbegleitung (20–06 Uhr): 95 € pauschal
+  <!-- Question 1 -->
+  <details open>
+    <summary>Warum braucht man das? </summary>
+    <div class="faq-answer">
+      Einzelhandelskaufmann braucht man, um Kunden kompetent zu beraten, Waren zu verkaufen und den Geschäftsbetrieb effizient zu organisieren. 
+      Er sorgt für Umsatz, Kundenzufriedenheit und reibungslose Abläufe.
+    </div>
+  </details>
+  <!-- Question 2 -->
+  <details>
+    <summary>Preise</summary>
+    <div class="faq-answer">
+      Grundpreise:
+      <br>Normale Aushilfe / Regalpflege / Kasse: 18 € / Stunde
+      <br>Erfahrene Kraft / Fachbereich: 24 € / Stunde
 
-        <details>
-          <summary>Zuschläge & Extras:</summary>
-          <div class="faq-answer">
-            Zuschläge & Extras:
-            Wochenende / Feiertage: +20 %
-            Express / kurzfristig (<24h): +20 %
-          </div>
-        </details>
-      </div>
-    </details>
-    <!-- Question 3 -->
-    <details>
-      <summary>Welche Zahlungsmethoden akzeptieren Sie?</summary>
-      <div class="faq-answer">
-        Wir akzeptieren Barzahlung sowie Überweisung (Vorkasse oder nach Absprache).
-        <br>Kartenzahlungen (EC-, Kredit- oder Debitkarten) werden derzeit nicht akzeptiert.
-      </div>
-    </details>
+      <details>
+        <summary>Zuschläge & Extras:</summary>
+        <div class="faq-answer">
+          Nacht / Wochenende / Feiertag: +25 %
+          <br>Express / kurzfristig (<24h): +15 %
+          <br>Regelmäßige Buchung (wöchentlich): –10 % Rabatt
+          <br>Kombi mit Einkaufshilfe: –10 % Rabatt
+          <br>Gewerbe-Volumenrabatt (ab 10 Stunden): –15 %
+        </div>
+      </details>
+    </div>
+  </details>
+  <!-- Question 3 -->
+  <details>
+    <summary>Welche Zahlungsmethoden akzeptieren Sie?</summary>
+    <div class="faq-answer">
+      Wir akzeptieren Barzahlung sowie Überweisung (Vorkasse oder nach Absprache).
+      <br>Kartenzahlungen (EC-, Kredit- oder Debitkarten) werden derzeit nicht akzeptiert.
+    </div>
+  </details>
 </template>
 
 
 
 <template id="tmpl-eventhilfe_servicekraft">
-    <!-- Question 1 -->
-    <details open>
-      <summary>Warum braucht man das? </summary>
-      <div class="faq-answer">
-        Passiert123154154
-      </div>
-    </details>
-    <!-- Question 2 -->
-    <details>
-      <summary>Preise</summary>
-      <div class="faq-answer">
-        Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
-        Spaziergang / Gesellschaft: 24 € / Stunde
-        Einkaufsbegleitung: 27 € / Stunde
-        Arzt-/Terminbegleitung: 27 € / Stunde
-        Nachtbegleitung (20–06 Uhr): 95 € pauschal
+  <!-- Question 1 -->
+  <details open>
+    <summary>Warum braucht man das? </summary>
+    <div class="faq-answer">
+      Eventhilfe oder Servicekraft braucht man, um Veranstaltungen reibungslos, professionell und stressfrei durchzuführen. 
+      Sie sorgt für Gästezufriedenheit, Ordnung und effizienten Ablauf.
+    </div>
+  </details>
+  <!-- Question 2 -->
+  <details>
+    <summary>Preise</summary>
+    <div class="faq-answer">
+      Info kommt noch
 
-        <details>
-          <summary>Zuschläge & Extras:</summary>
-          <div class="faq-answer">
-            Zuschläge & Extras:
-            Wochenende / Feiertage: +20 %
-            Express / kurzfristig (<24h): +20 %
-          </div>
-        </details>
-      </div>
-    </details>
-    <!-- Question 3 -->
-    <details>
-      <summary>Welche Zahlungsmethoden akzeptieren Sie?</summary>
-      <div class="faq-answer">
-        Wir akzeptieren Barzahlung sowie Überweisung (Vorkasse oder nach Absprache).
-        <br>Kartenzahlungen (EC-, Kredit- oder Debitkarten) werden derzeit nicht akzeptiert.
-      </div>
-    </details>
+      <details>
+        <summary>Zuschläge & Extras:</summary>
+        <div class="faq-answer">
+          Info kommt noch
+        </div>
+      </details>
+    </div>
+  </details>
+  <!-- Question 3 -->
+  <details>
+    <summary>Welche Zahlungsmethoden akzeptieren Sie?</summary>
+    <div class="faq-answer">
+      Wir akzeptieren Barzahlung sowie Überweisung (Vorkasse oder nach Absprache).
+      <br>Kartenzahlungen (EC-, Kredit- oder Debitkarten) werden derzeit nicht akzeptiert.
+    </div>
+  </details>
 </template>
 
 
 
 <template id="tmpl-hundeausführen_gassi-service">
-    <!-- Question 1 -->
-    <details open>
-      <summary>Warum braucht man das? </summary>
-      <div class="faq-answer">
-        Passiert123154154
-      </div>
-    </details>
-    <!-- Question 2 -->
-    <details>
-      <summary>Preise</summary>
-      <div class="faq-answer">
-        Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
-        Spaziergang / Gesellschaft: 24 € / Stunde
-        Einkaufsbegleitung: 27 € / Stunde
-        Arzt-/Terminbegleitung: 27 € / Stunde
-        Nachtbegleitung (20–06 Uhr): 95 € pauschal
+  <!-- Question 1 -->
+  <details open>
+    <summary>Warum braucht man das? </summary>
+    <div class="faq-answer">
+      Hundeausführen oder Gassi-Service braucht man, um Hunde regelmäßig Bewegung, frische Luft und soziale Kontakte zu bieten. 
+      Das hält sie gesund, ausgeglichen und entlastet den Besitzer.
+    </div>
+  </details>
+  <!-- Question 2 -->
+  <details>
+    <summary>Preise</summary>
+    <div class="faq-answer">
+      Grundpreise:
+      <br>Gassi-Service 30 Min (Einzelhund): 16 € / Einsatz
+      <br>Gassi-Service 60 Min (Einzelhund): 22 € / Einsatz
+      <br>Gassi-Service 90 Min (Einzelhund): 32 € / Einsatz
+      <br>Gruppen-Gassi 60 Min (2-4 Hunde): 16 € / Hund
+      <br>Gruppen-Gassi 90 Min (2-4 Hunde): 24 € / Hund
 
-        <details>
-          <summary>Zuschläge & Extras:</summary>
-          <div class="faq-answer">
-            Zuschläge & Extras:
-            Wochenende / Feiertage: +20 %
-            Express / kurzfristig (<24h): +20 %
-          </div>
-        </details>
-      </div>
-    </details>
-    <!-- Question 3 -->
-    <details>
-      <summary>Welche Zahlungsmethoden akzeptieren Sie?</summary>
-      <div class="faq-answer">
-        Wir akzeptieren Barzahlung sowie Überweisung (Vorkasse oder nach Absprache).
-        <br>Kartenzahlungen (EC-, Kredit- oder Debitkarten) werden derzeit nicht akzeptiert.
-      </div>
-    </details>
+      <details>
+        <summary>Zuschläge & Extras:</summary>
+        <div class="faq-answer">
+          Zweiter Hund im Haushalt: +50 %
+          <br>Medikamentengabe: +5 €
+          <br>Wochenende / Feiertag: +25 %
+          <br>Express / kurzfristig (<24h): +20 %
+          <br>Abos (5x/Woche 60 Min): 100 € / Woche (-15 % Rabatt)
+          <br>Monatsabo (20x 60 Min): 360 € (statt 440 €)
+          <br>Kombi mit Tierbetreuung: –10 % Rabatt
+          <br>Gewerbe-Volumenrabatt (ab 20 Einsätze): –15 %
+        </div>
+      </details>
+    </div>
+  </details>
+  <!-- Question 3 -->
+  <details>
+    <summary>Welche Zahlungsmethoden akzeptieren Sie?</summary>
+    <div class="faq-answer">
+      Wir akzeptieren Barzahlung sowie Überweisung (Vorkasse oder nach Absprache).
+      <br>Kartenzahlungen (EC-, Kredit- oder Debitkarten) werden derzeit nicht akzeptiert.
+    </div>
+  </details>
 </template>
 
 
 
 <template id="tmpl-seniorenbetreuung">
-    <!-- Question 1 -->
-    <details open>
-      <summary>Warum braucht man das? </summary>
-      <div class="faq-answer">
-        Passiert123154154
-      </div>
-    </details>
-    <!-- Question 2 -->
-    <details>
-      <summary>Preise</summary>
-      <div class="faq-answer">
-        Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
-        Spaziergang / Gesellschaft: 24 € / Stunde
-        Einkaufsbegleitung: 27 € / Stunde
-        Arzt-/Terminbegleitung: 27 € / Stunde
-        Nachtbegleitung (20–06 Uhr): 95 € pauschal
+  <!-- Question 1 -->
+  <details open>
+    <summary>Warum braucht man das? </summary>
+    <div class="faq-answer">
+      Seniorenbetreuung braucht man, um älteren Menschen Sicherheit, Hilfe im Alltag und soziale Kontakte zu gewährleisten. 
+      Sie entlastet Angehörige und verbessert Lebensqualität.
+    </div>
+  </details>
+  <!-- Question 2 -->
+  <details>
+    <summary>Preise</summary>
+    <div class="faq-answer">
+      Grundpreise:
+      <br>Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
+      <br>Spaziergang / Gesellschaft: 24 € / Stunde
+      <br>Einkaufsbegleitung: 27 € / Stunde
+      <br>Arzt-/Terminbegleitung: 27 € / Stunde
+      <br>Nachtbegleitung (20–06 Uhr): 95 € pauschal
 
-        <details>
-          <summary>Zuschläge & Extras:</summary>
-          <div class="faq-answer">
-            Zuschläge & Extras:
-            Wochenende / Feiertage: +20 %
-            Express / kurzfristig (<24h): +20 %
-          </div>
-        </details>
-      </div>
-    </details>
-    <!-- Question 3 -->
-    <details>
-      <summary>Welche Zahlungsmethoden akzeptieren Sie?</summary>
-      <div class="faq-answer">
-        Wir akzeptieren Barzahlung sowie Überweisung (Vorkasse oder nach Absprache).
-        <br>Kartenzahlungen (EC-, Kredit- oder Debitkarten) werden derzeit nicht akzeptiert.
-      </div>
-    </details>
+      <details>
+        <summary>Zuschläge & Extras:</summary>
+        <div class="faq-answer">
+          Wochenende / Feiertage: +20 %
+          <br>Express / kurzfristig (<24h): +20 %
+          <br>Regelmäßige Buchung (wöchentlich): –10 % Rabatt
+          <br>Kombi mit Einkaufshilfe: –10 % Rabatt
+          <br>Gewerbe-Volumenrabatt (ab 10 Stunden): –15 %
+        </div>
+      </details>
+    </div>
+  </details>
+  <!-- Question 3 -->
+  <details>
+    <summary>Welche Zahlungsmethoden akzeptieren Sie?</summary>
+    <div class="faq-answer">
+      Wir akzeptieren Barzahlung sowie Überweisung (Vorkasse oder nach Absprache).
+      <br>Kartenzahlungen (EC-, Kredit- oder Debitkarten) werden derzeit nicht akzeptiert.
+    </div>
+  </details>
 </template>
 
 
 
 <template id="tmpl-tierbetreuung">
-    <!-- Question 1 -->
-    <details open>
-      <summary>Warum braucht man das? </summary>
-      <div class="faq-answer">
-        Passiert123154154
-      </div>
-    </details>
-    <!-- Question 2 -->
-    <details>
-      <summary>Preise</summary>
-      <div class="faq-answer">
-        Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
-        Spaziergang / Gesellschaft: 24 € / Stunde
-        Einkaufsbegleitung: 27 € / Stunde
-        Arzt-/Terminbegleitung: 27 € / Stunde
-        Nachtbegleitung (20–06 Uhr): 95 € pauschal
+  <!-- Question 1 -->
+  <details open>
+    <summary>Warum braucht man das? </summary>
+    <div class="faq-answer">
+      Tierbetreuung braucht man, um Haustiere zuverlässig zu versorgen, wenn man abwesend ist. 
+      Sie sichert Futter, Bewegung, Pflege und das Wohlbefinden der Tiere.
+    </div>
+  </details>
+  <!-- Question 2 -->
+  <details>
+    <summary>Preise</summary>
+    <div class="faq-answer">
+      Grundpreise:
+      <br>Hund Gassi-Service 30 Min: 16 € / Einsatz
+      <br>Hund Gassi-Service 60 Min: 22 € / Einsatz
+      <br>Hund Tagesbetreuung: 32 € / Tag
+      <br>Hund Übernachtung (24h): 100 € / Nacht
+      <br>Katzenbetreuung 1x täglich: 16 € / Tag (1 Besuch)
+      <br>Katzenbetreuung 2x täglich: 28 € / Tag (2 Besuche)
+      <br>Kleintierbetreuung (Füttern, Sauber machen): 13 € / Besuch
 
-        <details>
-          <summary>Zuschläge & Extras:</summary>
-          <div class="faq-answer">
-            Zuschläge & Extras:
-            Wochenende / Feiertage: +20 %
-            Express / kurzfristig (<24h): +20 %
-          </div>
-        </details>
-      </div>
-    </details>
-    <!-- Question 3 -->
-    <details>
-      <summary>Welche Zahlungsmethoden akzeptieren Sie?</summary>
-      <div class="faq-answer">
-        Wir akzeptieren Barzahlung sowie Überweisung (Vorkasse oder nach Absprache).
-        <br>Kartenzahlungen (EC-, Kredit- oder Debitkarten) werden derzeit nicht akzeptiert.
-      </div>
-    </details>
+      <details>
+        <summary>Zuschläge & Extras:</summary>
+        <div class="faq-answer">
+          Medikamentengabe: +5 €
+          <br>Tier: +50 %
+          <br>Wochenende / Feiertag: +25 %
+          <br>Express / kurzfristig gebucht (<24h): +20 %
+          <br>Regelmäßige Buchung (wöchentlich): –15 % Rabatt
+          <br>Kombi mit Haushüter: –10 % Rabatt
+          <br>Gewerbe-Volumenrabatt (ab 10 Tage): –15 %
+        </div>
+      </details>
+    </div>
+  </details>
+  <!-- Question 3 -->
+  <details>
+    <summary>Welche Zahlungsmethoden akzeptieren Sie?</summary>
+    <div class="faq-answer">
+      Wir akzeptieren Barzahlung sowie Überweisung (Vorkasse oder nach Absprache).
+      <br>Kartenzahlungen (EC-, Kredit- oder Debitkarten) werden derzeit nicht akzeptiert.
+    </div>
+  </details>
 </template>
 
 <!-- ========================================================= -->

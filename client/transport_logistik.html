@@ -68,11 +68,12 @@
 
   <nav class="nav" id="nav">
     <ul>
-      <li><a data-i18n="home" href="../index.html">Home</a></li>
-      <li><a data-i18n="sale" href="#">Sale</a></li>
-      <li><a ata-i18n="termine" href="#">Termine</a></li>
-      <li><a ata-i18n="service" href="#">Über uns</a></li>
-      <li><a ata-i18n="contact" href="#contact">Kontakt</a></li>
+      <li><a data-i18n="home" href="../index.html#section__main">Home</a></li>
+      <li><a data-i18n="coupon" href="coupon-form.html">Gutschein</a></li>
+      <li><a data-i18n="categories" href="../index.html#categories">Leistungen </a></li>
+      <li><a data-i18n="package_deal" href="../index.html#fixed-price">Pauschale </a></li>
+      <!--<li><a data-i18n="about_us" href="#">Über uns</a></li>-->
+      <li><a data-i18n="contact" href="#contact">Kontakt</a></li>
     </ul>
 
     <!-- locales -->
@@ -524,40 +525,73 @@
 
 
 <!-- FOOTER -->
-<footer class="footer">
+<footer class="footer" id="contact">
   <div class="footer__body">
     <section class="footer__body-legal">
-      <a href="">Impressum</a>
-      <a href="">Datenschutz</a>
+      <a href="client/impressum.html">Impressum</a>
+      <a href="client/datenschutz.html">Datenschutz</a>
     </section>
+
+    <div class="footer__body-adaptation-nav-and-hours">
+      <section class="section-footer"> 
+        <!--<ul class="footer__body-links ul-footer">
+          <li><a data-i18n="home" href="#section__main">Home</a></li>
+          <li><a data-i18n="coupon" href="client/coupon-form.html">Gutschein</a></li>
+          <li><a data-i18n="categories" href="#categories">Leistungen </a></li>
+          <li><a data-i18n="package_deal" href="#fixed-price">Pauschale </a></li>
+        </ul>-->
+        <div class="footer__body-links ul-footer">
+          <a data-i18n="home" href="../index.html">Home</a>
+          <a data-i18n="coupon" href="coupon-form.html">Gutschein</a>
+          <a data-i18n="categories" href="../index.html#categories">Leistungen</a>
+          <a data-i18n="package_deal" href="../index.html#fixed-price">Pauschale</a>
+          <a href="impressum.html">Impressum</a>
+        </div>
+      </section>
+
+      <section class="footer__body-operating-hours-and-socials">
+        <div class="footer__body-operating-hours">
+          <h5>Öffnungszeiten:</h5>
+          <h5>Mo-Do 06:00-22:00</h5>
+          <h5>Freitag 06:00-23:00</h5>
+          <h5>Samstag 06:00-21:30</h5>
+          <h5>Sonnatag Geschlossen</h5>
+          <a href="datenschutz.html">Datenschutz</a>
+        </div>
+      </section>
+    </div>
 
     <section class="section-footer"> 
       <ul class="footer__body-links ul-footer">
-        <li><a data-i18n="home" href="#">Home</a></li>
-        <li><a ata-i18n="about_us" href="#">Über uns</a></li>
-        <li><a ata-i18n="service" href="#">Service</a></li>
-        <li><a ata-i18n="contact" href="#">Kontakt</a></li>
+        <li><a data-i18n="home" href="#section__main">Home</a></li>
+        <li><a data-i18n="coupon" href="client/coupon-form.html">Gutschein</a></li>
+        <li><a data-i18n="categories" href="#categories">Leistungen </a></li>
+        <li><a data-i18n="package_deal" href="#fixed-price">Pauschale </a></li>
       </ul>
     </section>
 
     <section class="footer__body-operating-hours-and-socials">
       <div class="footer__body-operating-hours">
-        <h5>Mo-Fr: 08:00-22:00</h5>
-        <h5>Samstag: 08:00-23:00</h5>
-        <h5>Sonntag: 08:00-23:00</h5>
+        <h5>Öffnungszeiten:</h5>
+        <h5>Mo-Do 06:00-22:00</h5>
+        <h5>Freitag 06:00-23:00</h5>
+        <h5>Samstag 06:00-21:30</h5>
+        <h5>Sonnatag Geschlossen</h5>
+        
       </div>
-
-      <ul class="socials ul-footer">
-        <li><a class="fa-brands fa-telegram" href=""></a></li>
-        <li><a class="fa-brands fa-instagram" href="https://www.instagram.com/german_thy_multi?igsh=YjllaG4zcnVzaGVl&utm_source=qr"></a></li>
-        <li><a class="fa-brands fa-x-twitter" href=""></a></li>
-        <li><a class="fa-brands fa-facebook" href=""></a></li>
-      </ul>
     </section>
+    
 
-    <section class="footer__body-contact" id="contact">
+    <ul class="socials ul-footer">
+      <li><a class="fa-brands fa-whatsapp" href="https://wa.me/4917661219130?text=Hallo!" target="_blank" rel="noopener noreferrer"></a></li>
+      <li><a class="fa-brands fa-instagram" href="https://www.instagram.com/german_thy_multi?igsh=YjllaG4zcnVzaGVl&utm_source=qr" target="_blank" rel="noopener noreferrer"></a></li>
+      <!--<li><a class="fa-brands fa-x-twitter" href=""></a></li>-->
+      <li><a class="fa-regular fa-envelope" href="mailto:german.thy.multi@gmail.com" target="_blank" rel="noopener noreferrer"></a></li>
+    </ul>
+
+    <section class="footer__body-contact">
       <h5>Kontakt</h5>
-      <h5>German tHÿ MultiService</h5>
+      <h5>German tHy MultiService</h5>
       <div class="social__icons">
         <div class="social__icons-settings">
           <a class="fa-brands fa-whatsapp" href="https://wa.me/4917661219130?text=Hallo!" target="_blank" rel="noopener noreferrer"></a>
@@ -577,7 +611,7 @@
   </div>
 
   <div class="legal">
-    <h5 class="legal">© 2025 All rights reserved</h5>
+    <h5 class="legal">© 2026 Alle Rechte vorbehalten</h5>
   </div>
   
 </footer>
@@ -1052,31 +1086,32 @@
   <details>
     <summary>Preise</summary>
     <div class="faq-answer">
-      🚖 Flughafen Transfer (Hin & Zurück)
-      <br>(inkl. MwSt, Abholung vor der Haustür, Hilfe mit Gepäck, 20 Min. Wartezeit kostenlos)
-      <br>bis 30 km: 65 €
-      <br>bis 50 km: 95 €
-      <br>bis 100 km: 145 €
-      <br>bis 150 km: 195 €
-      <br>bis 200 km: 255 €
-      <br>bis 300 km: 355 €
+      1) Abholung der Materialien (falls der Kunde sie nicht bringt)
+      <br>Abholpauschalen:
+      <br>• Innerhalb 10 km: 10 €
+      <br>• 10–20 km: 20 €
+      <br>• 20–40 km: 35 €
+      <br>• Über 40 km: 0,80 € / km
+      <br>Bei Auftrag von Abholung + Verteilung automatisch –10 % Kombi-Rabatt
+      <br>⸻
+      <br>2) Zustellung & Verteilung an Haushalte
+      <br>Grundpreise pro Haushalt:
+      <br>• Leicht (bis 100g): 0,20 € / Haushalt
+      <br>• Mittel (100–300g): 0,25 € / Haushalt
+      <br>• Schwer (300g–1 kg): 0,35 € / Haushalt
       <br>
-      <br>Nur Hinfahrt oder Rückfahrt:
-      <br>+10 € Servicegebühr
-      <br>bis 30 km: 40 €
-      <br>bis 50 km: 55 €
-      <br>bis 100 km: 80 €
-      <br>bis 150 km: 105 €
-      <br>bis 200 km: 135 €
-      <br>bis 300 km: 185 €
+      <br>Mengenpakete:
+      <br>• 1.000 Haushalte: ab 180 €
+      <br>• 5.000 Haushalte: ab 850 €
+      <br>• 10.000 Haushalte: ab 1.600 €
       <details>
         <summary>Zuschläge & Extras:</summary>
         <div class="faq-answer">
-          Nacht (22–06 Uhr) / Wochenende / Feiertag: +20 %
-          <br>Kindersitz: +5 € (1. Kindersitz kostenlos bei Neukunden)
-          <br>Zwei Fahrzeugen (bis 8 Pers.): +50 %
-
-          <br>Jede weitere Person (ab 5.): +10 €
+          Express (48 h): +20 %
+          <br>• Nacht & Wochenende: +25 %
+          <br>• Schlechtwetter-Zuschlag: +10 %
+          <br>• Schwergut über 1 kg: +0,10 € / Haushalt
+          <br>• Sortier-/Vorbereitungsarbeit: 15 € / Stunde
         </div>
       </details>
     </div>

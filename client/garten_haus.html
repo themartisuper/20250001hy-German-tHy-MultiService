@@ -68,11 +68,12 @@
 
   <nav class="nav" id="nav">
     <ul>
-      <li><a data-i18n="home" href="../index.html">Home</a></li>
-      <li><a data-i18n="sale" href="#">Sale</a></li>
-      <li><a ata-i18n="termine" href="#">Termine</a></li>
-      <li><a ata-i18n="service" href="#">Über uns</a></li>
-      <li><a ata-i18n="contact" href="#contact">Kontakt</a></li>
+      <li><a data-i18n="home" href="../index.html#section__main">Home</a></li>
+      <li><a data-i18n="coupon" href="coupon-form.html">Gutschein</a></li>
+      <li><a data-i18n="categories" href="../index.html#categories">Leistungen </a></li>
+      <li><a data-i18n="package_deal" href="../index.html#fixed-price">Pauschale </a></li>
+      <!--<li><a data-i18n="about_us" href="#">Über uns</a></li>-->
+      <li><a data-i18n="contact" href="#contact">Kontakt</a></li>
     </ul>
 
     <!-- locales -->
@@ -562,7 +563,7 @@
       </div>
       <!-- End Unkrautentfernung -->
 
-      <!-- Weihnachtsbeleuchtung Montage -->
+      <!-- Beleuchtungsmontage Montage -->
       <div class="card">
         <div class="card__inner">
           <div class="card__front">
@@ -570,9 +571,9 @@
               <div class="card__image">
                 <img 
                   src="assets/images/cards/garten_und_haus/beleuchtung_montage.jpeg" 
-                  alt="Professionelle Montage von Weihnachtsbeleuchtung für festliche Stimmung.">
+                  alt="Professionelle Montage von Beleuchtung für festliche Stimmung und nicht nur!">
               </div>
-              <h3>Weihnachtsbeleuchtung</h3>
+              <h3>Beleuchtungsmontage</h3>
               <p>Montage, Sicherung <br/>und Pflege</p>
             </div>
             <div class="card__button-wrapper"> 
@@ -581,7 +582,7 @@
               <!-- Вместо data-text мы используем data-template="id-шаблона" -->
               <a class="card__button card__button-outline trigger-complex-modal" 
                 href="#"
-                data-title="Weihnachtsbeleuchtung Montage"
+                data-title="Beleuchtungsmontage Montage"
                 data-template="tmpl-weihnachtsbeleuchtung-montage"> <!-- Ссылка на ID шаблона внизу -->
                 Mehr
               </a>
@@ -615,7 +616,7 @@
           </div>
         </div>
       </div>
-      <!-- End Weihnachtsbeleuchtung Montage -->
+      <!-- End Beleuchtungsmontage Montage -->
 
 
 
@@ -636,40 +637,73 @@
 
 
 <!-- FOOTER -->
-<footer class="footer">
+<footer class="footer" id="contact">
   <div class="footer__body">
     <section class="footer__body-legal">
-      <a href="">Impressum</a>
-      <a href="">Datenschutz</a>
+      <a href="client/impressum.html">Impressum</a>
+      <a href="client/datenschutz.html">Datenschutz</a>
     </section>
+
+    <div class="footer__body-adaptation-nav-and-hours">
+      <section class="section-footer"> 
+        <!--<ul class="footer__body-links ul-footer">
+          <li><a data-i18n="home" href="#section__main">Home</a></li>
+          <li><a data-i18n="coupon" href="client/coupon-form.html">Gutschein</a></li>
+          <li><a data-i18n="categories" href="#categories">Leistungen </a></li>
+          <li><a data-i18n="package_deal" href="#fixed-price">Pauschale </a></li>
+        </ul>-->
+        <div class="footer__body-links ul-footer">
+          <a data-i18n="home" href="../index.html">Home</a>
+          <a data-i18n="coupon" href="coupon-form.html">Gutschein</a>
+          <a data-i18n="categories" href="../index.html#categories">Leistungen</a>
+          <a data-i18n="package_deal" href="../index.html#fixed-price">Pauschale</a>
+          <a href="impressum.html">Impressum</a>
+        </div>
+      </section>
+
+      <section class="footer__body-operating-hours-and-socials">
+        <div class="footer__body-operating-hours">
+          <h5>Öffnungszeiten:</h5>
+          <h5>Mo-Do 06:00-22:00</h5>
+          <h5>Freitag 06:00-23:00</h5>
+          <h5>Samstag 06:00-21:30</h5>
+          <h5>Sonnatag Geschlossen</h5>
+          <a href="datenschutz.html">Datenschutz</a>
+        </div>
+      </section>
+    </div>
 
     <section class="section-footer"> 
       <ul class="footer__body-links ul-footer">
-        <li><a data-i18n="home" href="#">Home</a></li>
-        <li><a ata-i18n="about_us" href="#">Über uns</a></li>
-        <li><a ata-i18n="service" href="#">Service</a></li>
-        <li><a ata-i18n="contact" href="#">Kontakt</a></li>
+        <li><a data-i18n="home" href="#section__main">Home</a></li>
+        <li><a data-i18n="coupon" href="client/coupon-form.html">Gutschein</a></li>
+        <li><a data-i18n="categories" href="#categories">Leistungen </a></li>
+        <li><a data-i18n="package_deal" href="#fixed-price">Pauschale </a></li>
       </ul>
     </section>
 
     <section class="footer__body-operating-hours-and-socials">
       <div class="footer__body-operating-hours">
-        <h5>Mo-Fr: 08:00-22:00</h5>
-        <h5>Samstag: 08:00-23:00</h5>
-        <h5>Sonntag: 08:00-23:00</h5>
+        <h5>Öffnungszeiten:</h5>
+        <h5>Mo-Do 06:00-22:00</h5>
+        <h5>Freitag 06:00-23:00</h5>
+        <h5>Samstag 06:00-21:30</h5>
+        <h5>Sonnatag Geschlossen</h5>
+        
       </div>
-
-      <ul class="socials ul-footer">
-        <li><a class="fa-brands fa-telegram" href=""></a></li>
-        <li><a class="fa-brands fa-instagram" href="https://www.instagram.com/german_thy_multi?igsh=YjllaG4zcnVzaGVl&utm_source=qr"></a></li>
-        <li><a class="fa-brands fa-x-twitter" href=""></a></li>
-        <li><a class="fa-brands fa-facebook" href=""></a></li>
-      </ul>
     </section>
+    
 
-    <section class="footer__body-contact" id="contact">
+    <ul class="socials ul-footer">
+      <li><a class="fa-brands fa-whatsapp" href="https://wa.me/4917661219130?text=Hallo!" target="_blank" rel="noopener noreferrer"></a></li>
+      <li><a class="fa-brands fa-instagram" href="https://www.instagram.com/german_thy_multi?igsh=YjllaG4zcnVzaGVl&utm_source=qr" target="_blank" rel="noopener noreferrer"></a></li>
+      <!--<li><a class="fa-brands fa-x-twitter" href=""></a></li>-->
+      <li><a class="fa-regular fa-envelope" href="mailto:german.thy.multi@gmail.com" target="_blank" rel="noopener noreferrer"></a></li>
+    </ul>
+
+    <section class="footer__body-contact">
       <h5>Kontakt</h5>
-      <h5>German tHÿ MultiService</h5>
+      <h5>German tHy MultiService</h5>
       <div class="social__icons">
         <div class="social__icons-settings">
           <a class="fa-brands fa-whatsapp" href="https://wa.me/4917661219130?text=Hallo!" target="_blank" rel="noopener noreferrer"></a>
@@ -689,7 +723,7 @@
   </div>
 
   <div class="legal">
-    <h5 class="legal">© 2025 All rights reserved</h5>
+    <h5 class="legal">© 2026 Alle Rechte vorbehalten</h5>
   </div>
   
 </footer>
@@ -877,361 +911,476 @@
 <!-- ========================================================= -->
 
 <template id="tmpl-gartenbewaesserung">
-    <!-- Question 1 -->
-    <details open>
-      <summary>Warum braucht man das? </summary>
-      <div class="faq-answer">
-        Passiert
-      </div>
-    </details>
-    <!-- Question 2 -->
-    <details>
-      <summary>Preise</summary>
-      <div class="faq-answer">
-        Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
-        Spaziergang / Gesellschaft: 24 € / Stunde
-        Einkaufsbegleitung: 27 € / Stunde
-        Arzt-/Terminbegleitung: 27 € / Stunde
-        Nachtbegleitung (20–06 Uhr): 95 € pauschal
+  <!-- Question 1 -->
+  <details open>
+    <summary>Warum braucht man das? </summary>
+    <div class="faq-answer">
+      Gartenbewässerung braucht man, um Pflanzen regelmäßig und gleichmäßig mit Wasser zu versorgen. 
+      Sie sichert Wachstum, Gesundheit der Pflanzen und spart Zeit.
+    </div>
+  </details>
+  <!-- Question 2 -->
+  <details>
+    <summary>Preise</summary>
+    <div class="faq-answer">
+      Grundpreise (Privatkunden / Privatgärten):
+      <br>Handbewässerung kleine Fläche (<100 m²): 22 € / Einsatz
+      <br>Handbewässerung mittlere Fläche (100–500 m²): 45 € / Einsatz
+      <br>Handbewässerung große Fläche (>500 m²): 0,18 €/m²
+      <br>Kontrolle & Inbetriebnahme Sprinkler: 35 € / Einsatz
+      <br>Installation kleiner Bewässerungssysteme: 60 € / System
+      <br>
+      <br>Grundpreise (Gewerbekunden / Firmengelände):
+      <br>Handbewässerung kleine Fläche (<100 m²): 28 € / Einsatz
+      <br>Handbewässerung mittlere Fläche (100–500 m²): 55 € / Einsatz
+      <br>Handbewässerung große Fläche (>500 m²): 0,22 €/m²
+      <br>Kontrolle & Inbetriebnahme Sprinkler: 45 € / Einsatz
+      <br>Installation kleiner Bewässerungssysteme: 80 € / System
 
-        <details>
-          <summary>Zuschläge & Extras:</summary>
-          <div class="faq-answer">
-            Zuschläge & Extras:
-            Wochenende / Feiertage: +20 %
-            Express / kurzfristig (<24h): +20 %
-          </div>
-        </details>
-      </div>
-    </details>
-    <!-- Question 3 -->
-    <details>
-      <summary>Welche Zahlungsmethoden akzeptieren Sie?</summary>
-      <div class="faq-answer">
-        Wir akzeptieren Barzahlung sowie Überweisung (Vorkasse oder nach Absprache).
-        <br>Kartenzahlungen (EC-, Kredit- oder Debitkarten) werden derzeit nicht akzeptiert.
-      </div>
-    </details>
+      <details>
+        <summary>Zuschläge & Extras:</summary>
+        <div class="faq-answer">
+          Kontrolle & Reinigung der Anlage: +15 €
+          <br>Größere Systeme / Gartenanlagen: 120 € / Einsatz
+          <br>Wochenende / Feiertag: +20 %
+          <br>Express-Service (<24h vorher): +15 %
+          <br>Regelmäßige Bewässerung (Sommer-Abo, z.B. 2–3x/Woche): –15 % Rabatt
+          <br>Kombi-Angebot (z.B. mit Rasenmähen): –10 % Rabatt
+          <br>Gewerbe-Volumenrabatt (ab 1000 m²): –15 %
+        </div>
+      </details>
+    </div>
+  </details>
+  <!-- Question 3 -->
+  <details>
+    <summary>Welche Zahlungsmethoden akzeptieren Sie?</summary>
+    <div class="faq-answer">
+      Wir akzeptieren Barzahlung sowie Überweisung (Vorkasse oder nach Absprache).
+      <br>Kartenzahlungen (EC-, Kredit- oder Debitkarten) werden derzeit nicht akzeptiert.
+    </div>
+  </details>
 </template>
 
 
 
 <template id="tmpl-gartenpflege">
-    <!-- Question 1 -->
-    <details open>
-      <summary>Warum braucht man das? </summary>
-      <div class="faq-answer">
-        Passiert123154154
-      </div>
-    </details>
-    <!-- Question 2 -->
-    <details>
-      <summary>Preise</summary>
-      <div class="faq-answer">
-        Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
-        Spaziergang / Gesellschaft: 24 € / Stunde
-        Einkaufsbegleitung: 27 € / Stunde
-        Arzt-/Terminbegleitung: 27 € / Stunde
-        Nachtbegleitung (20–06 Uhr): 95 € pauschal
+  <!-- Question 1 -->
+  <details open>
+    <summary>Warum braucht man das? </summary>
+    <div class="faq-answer">
+      Gartenpflege braucht man, um Pflanzen, Rasen und Beete gesund, ordentlich und attraktiv zu halten. 
+      Sie verhindert Schäden, Unkrautwuchs und spart langfristig Aufwand.
+    </div>
+  </details>
+  <!-- Question 2 -->
+  <details>
+    <summary>Preise</summary>
+    <div class="faq-answer">
+      Grundpreise (Privatkunden / Privatgärten pro Einsatz):
+      <br>Kleine Gärten bis 200 m²: 35 €
+      <br>Mittlere Gärten 200-500 m²: 60€
+      <br>Große Gärten 500-1000 m²: 90€
+      <br>
+      <br>Grundpreise (Gewerbekunden / Firmengelände pro Einsatz):
+      <br>Kleine Gärten bis 200 m²: 45€
+      <br>Mittlere Gärten 200-500 m²: 75€
+      <br>Große Gärten 500-1000 m²: 110€
+      <br>
+      <br>Einzelne Leistungen (falls nicht im Paket):
+      <br>Rasenmähen: 35-95 € (je nach Fläche)
+      <br>Sträucherschnitt: 7-28 € / Strauch oder 6-15 €/lfm Hecke
+      <br>Unkrautentfernung: 22 €/h oder 0,85 €/m²
+      <br>Laub entfernen / Gartenabfälle: 25-45 € pro Einsatz
+      <br>Bewässerung (Hand/Sprinkler): 22-45 € pro Einsatz
+      <br>Düngen / Pflegebehandlung: 20-35 € pro Einsatz
 
-        <details>
-          <summary>Zuschläge & Extras:</summary>
-          <div class="faq-answer">
-            Zuschläge & Extras:
-            Wochenende / Feiertage: +20 %
-            Express / kurzfristig (<24h): +20 %
-          </div>
-        </details>
-      </div>
-    </details>
-    <!-- Question 3 -->
-    <details>
-      <summary>Welche Zahlungsmethoden akzeptieren Sie?</summary>
-      <div class="faq-answer">
-        Wir akzeptieren Barzahlung sowie Überweisung (Vorkasse oder nach Absprache).
-        <br>Kartenzahlungen (EC-, Kredit- oder Debitkarten) werden derzeit nicht akzeptiert.
-      </div>
-    </details>
+      <details>
+        <summary>Zuschläge & Extras:</summary>
+        <div class="faq-answer">
+          2–3x pro Monat: –15 % Rabatt
+          <br>1x pro Woche: –20 % Rabatt
+          <br>Wochenende / Feiertag: +20 %
+          <br>Express-Service (<24h vorher): +15 %
+          <br>Kombi-Paket (z.B. Komplettpflege 350-500 m²: 150 €): –10 % Rabatt
+          <br>Gewerbe-Volumenrabatt (ab 5000 m²/Jahr): –20 %
+        </div>
+      </details>
+    </div>
+  </details>
+  <!-- Question 3 -->
+  <details>
+    <summary>Welche Zahlungsmethoden akzeptieren Sie?</summary>
+    <div class="faq-answer">
+      Wir akzeptieren Barzahlung sowie Überweisung (Vorkasse oder nach Absprache).
+      <br>Kartenzahlungen (EC-, Kredit- oder Debitkarten) werden derzeit nicht akzeptiert.
+    </div>
+  </details>
 </template>
 
 
 
 <template id="tmpl-haushueter">
-    <!-- Question 1 -->
-    <details open>
-      <summary>Warum braucht man das? </summary>
-      <div class="faq-answer">
-        Passiert123154154
-      </div>
-    </details>
-    <!-- Question 2 -->
-    <details>
-      <summary>Preise</summary>
-      <div class="faq-answer">
-        Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
-        Spaziergang / Gesellschaft: 24 € / Stunde
-        Einkaufsbegleitung: 27 € / Stunde
-        Arzt-/Terminbegleitung: 27 € / Stunde
-        Nachtbegleitung (20–06 Uhr): 95 € pauschal
+  <!-- Question 1 -->
+  <details open>
+    <summary>Warum braucht man das? </summary>
+    <div class="faq-answer">
+      Einen Haushüter braucht man, um das Zuhause während Abwesenheit zuverlässig zu überwachen und zu pflegen. 
+      Das schützt vor Einbruch, Schäden und sorgt für Sicherheit.
+    </div>
+  </details>
+  <!-- Question 2 -->
+  <details>
+    <summary>Preise</summary>
+    <div class="faq-answer">
+      Grundpreise (Privatkunden):
+      <br>Hauskontrolle (Post, Blumen etc.): 32 € / Besuch
+      <br>Tägliche Kontrolle 1 Woche (7 Besuche): 200 € (Paketpreis)
+      <br>Übernachtung im Haus (inkl. Anwesenheit): 60 € / Nacht
+      <br>
+      <br>Grundpreise (Gewerbekunden, z.B. Ferienwohnungen):
+      <br>Hauskontrolle (Post, Blumen etc.): 40 € / Besuch
+      <br>Tägliche Kontrolle 1 Woche (7 Besuche): 250 € (Paketpreis)
+      <br>Übernachtung im Haus (inkl. Anwesenheit): 75 € / Nacht
 
-        <details>
-          <summary>Zuschläge & Extras:</summary>
-          <div class="faq-answer">
-            Zuschläge & Extras:
-            Wochenende / Feiertage: +20 %
-            Express / kurzfristig (<24h): +20 %
-          </div>
-        </details>
-      </div>
-    </details>
-    <!-- Question 3 -->
-    <details>
-      <summary>Welche Zahlungsmethoden akzeptieren Sie?</summary>
-      <div class="faq-answer">
-        Wir akzeptieren Barzahlung sowie Überweisung (Vorkasse oder nach Absprache).
-        <br>Kartenzahlungen (EC-, Kredit- oder Debitkarten) werden derzeit nicht akzeptiert.
-      </div>
-    </details>
+      <details>
+        <summary>Zuschläge & Extras:</summary>
+        <div class="faq-answer">
+          Haustierbetreuung klein (Katzen, Kaninchen, Fische): +10 €/Tag
+          <br>Haustierbetreuung groß (Hund, Gassi): +20 €/Tag
+          <br>Garten gießen / kleine Pflege: +15 € pro Einsatz
+          <br>Feiertage / Kurzauftrag (bis 3 Tage): +25 %
+          <br>Express-Auftrag (<48h): +20 %
+          <br>Regelmäßige Buchung (monatlich): –15 % Rabatt
+          <br>Kombi mit Gartenpflege: –10 % Rabatt
+          <br>Gewerbe-Volumenrabatt (ab 4 Wochen): –15 %
+        </div>
+      </details>
+    </div>
+  </details>
+  <!-- Question 3 -->
+  <details>
+    <summary>Welche Zahlungsmethoden akzeptieren Sie?</summary>
+    <div class="faq-answer">
+      Wir akzeptieren Barzahlung sowie Überweisung (Vorkasse oder nach Absprache).
+      <br>Kartenzahlungen (EC-, Kredit- oder Debitkarten) werden derzeit nicht akzeptiert.
+    </div>
+  </details>
 </template>
 
 
 
 <template id="tmpl-kleinreparaturen">
-    <!-- Question 1 -->
-    <details open>
-      <summary>Warum braucht man das? </summary>
-      <div class="faq-answer">
-        Passiert123154154
-      </div>
-    </details>
-    <!-- Question 2 -->
-    <details>
-      <summary>Preise</summary>
-      <div class="faq-answer">
-        Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
-        Spaziergang / Gesellschaft: 24 € / Stunde
-        Einkaufsbegleitung: 27 € / Stunde
-        Arzt-/Terminbegleitung: 27 € / Stunde
-        Nachtbegleitung (20–06 Uhr): 95 € pauschal
+  <!-- Question 1 -->
+  <details open>
+    <summary>Warum braucht man das? </summary>
+    <div class="faq-answer">
+      Kleinreparaturen braucht man, um kleinere Schäden schnell zu beheben und größere Probleme zu verhindern. 
+      Sie spart Zeit, Geld und erhält den Wert von Haus oder Wohnung.
+    </div>
+  </details>
+  <!-- Question 2 -->
+  <details>
+    <summary>Preise</summary>
+    <div class="faq-answer">
+      Grundpreise (Privatkunden):
+      <br>Kleinreparaturen pro Stunde: 32 €/h
+      <br>Möbel nachziehen / kleine Reparatur: 22 €
+      <br>Bilder / Spiegel aufhängen: 16 € / Stück
+      <br>Silikon erneuern (Bad, Küche): 38 €
+      <br>Lampen / Vorhang / kleine Montage: 28 € / Stück
+      <br>
+      <br>Grundpreise (Gewerbekunden):
+      <br>Kleinreparaturen pro Stunde: 40 €/h
+      <br>Möbel nachziehen / kleine Reparatur: 28 €
+      <br>Bilder / Spiegel aufhängen: 20 € / Stück
+      <br>Silikon erneuern (Bad, Küche): 48 €
+      <br>Lampen / Vorhang / kleine Montage: 35 € / Stück
 
-        <details>
-          <summary>Zuschläge & Extras:</summary>
-          <div class="faq-answer">
-            Zuschläge & Extras:
-            Wochenende / Feiertage: +20 %
-            Express / kurzfristig (<24h): +20 %
-          </div>
-        </details>
-      </div>
-    </details>
-    <!-- Question 3 -->
-    <details>
-      <summary>Welche Zahlungsmethoden akzeptieren Sie?</summary>
-      <div class="faq-answer">
-        Wir akzeptieren Barzahlung sowie Überweisung (Vorkasse oder nach Absprache).
-        <br>Kartenzahlungen (EC-, Kredit- oder Debitkarten) werden derzeit nicht akzeptiert.
-      </div>
-    </details>
+      <details>
+        <summary>Zuschläge & Extras:</summary>
+        <div class="faq-answer">
+          Materialbereitstellung (Schrauben, Dübel, Silikon usw.): +10 €
+          <br>Schwierige Montage / Bohren (z.B. Beton): +15 € / Stück
+          <br>Express / kurzfristige Montage: +20 %
+          <br>Wochenende / Feiertag: +20 %
+          <br>Regelmäßige Buchung (monatlich): –10 % Rabatt
+          <br>Kombi mit Tragehilfe: –10 % Rabatt
+          <br>Gewerbe-Volumenrabatt (ab 10 Stunden): –15 %
+        </div>
+      </details>
+    </div>
+  </details>
+  <!-- Question 3 -->
+  <details>
+    <summary>Welche Zahlungsmethoden akzeptieren Sie?</summary>
+    <div class="faq-answer">
+      Wir akzeptieren Barzahlung sowie Überweisung (Vorkasse oder nach Absprache).
+      <br>Kartenzahlungen (EC-, Kredit- oder Debitkarten) werden derzeit nicht akzeptiert.
+    </div>
+  </details>
 </template>
 
 
 
 <template id="tmpl-rasenmaeher">
-    <!-- Question 1 -->
-    <details open>
-      <summary>Warum braucht man das? </summary>
-      <div class="faq-answer">
-        Passiert123154154
-      </div>
-    </details>
-    <!-- Question 2 -->
-    <details>
-      <summary>Preise</summary>
-      <div class="faq-answer">
-        Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
-        Spaziergang / Gesellschaft: 24 € / Stunde
-        Einkaufsbegleitung: 27 € / Stunde
-        Arzt-/Terminbegleitung: 27 € / Stunde
-        Nachtbegleitung (20–06 Uhr): 95 € pauschal
+  <!-- Question 1 -->
+  <details open>
+    <summary>Warum braucht man das? </summary>
+    <div class="faq-answer">
+      Einen Rasenmäher braucht man, um Rasen schnell, gleichmäßig und gepflegt zu schneiden. Das spart Zeit, Arbeit und hält den Garten ordentlich.
+    </div>
+  </details>
+  <!-- Question 2 -->
+  <details>
+    <summary>Preise</summary>
+    <div class="faq-answer">
+      Grundpreise (Privatkunden / Privatgärten pro Einsatz):
+      <br>Rasenmähen bis 200 m²: 35 €
+      <br>Rasenmähen bis 500 m²: 60 €
+      <br>Rasenmähen bis 1000 m²: 95 €
+      <br>Flächen >1000 m²: ab 0,15 €/m²
+      <br>
+      <br>Grundpreise (Gewerbekunden / Firmengelände pro Einsatz):
+      <br>Rasenmähen bis 200 m²: 45 €
+      <br>Rasenmähen bis 500 m²: 80 €
+      <br>Rasenmähen bis 1000 m²: 120 €
+      <br>Flächen >1000 m²: ab 0,20 €/m²
+      <br>
+      <br>Zusatzleistungen:
+      <br>Kanten schneiden: +15 €
+      <br>Entsorgung Rasenschnitt: +20 € (je nach Menge)
+      <br>Unkraut jäten / Laub entfernen: 25 €/h
 
-        <details>
-          <summary>Zuschläge & Extras:</summary>
-          <div class="faq-answer">
-            Zuschläge & Extras:
-            Wochenende / Feiertage: +20 %
-            Express / kurzfristig (<24h): +20 %
-          </div>
-        </details>
-      </div>
-    </details>
-    <!-- Question 3 -->
-    <details>
-      <summary>Welche Zahlungsmethoden akzeptieren Sie?</summary>
-      <div class="faq-answer">
-        Wir akzeptieren Barzahlung sowie Überweisung (Vorkasse oder nach Absprache).
-        <br>Kartenzahlungen (EC-, Kredit- oder Debitkarten) werden derzeit nicht akzeptiert.
-      </div>
-    </details>
+      <details>
+        <summary>Zuschläge & Extras:</summary>
+        <div class="faq-answer">
+          Regelmäßiger Auftrag (Abo, z.B. 14-tägig): –15 % Rabatt
+          <br>Wochenende / Feiertag: +20 %
+          <br>Express-Service (<24h vorher): +15 %
+          <br>Kombi mit anderen Services: –10 % Rabatt
+          <br>Gewerbe-Volumenrabatt (ab 5000 m²/Jahr): –20 %
+        </div>
+      </details>
+    </div>
+  </details>
+  <!-- Question 3 -->
+  <details>
+    <summary>Welche Zahlungsmethoden akzeptieren Sie?</summary>
+    <div class="faq-answer">
+      Wir akzeptieren Barzahlung sowie Überweisung (Vorkasse oder nach Absprache).
+      <br>Kartenzahlungen (EC-, Kredit- oder Debitkarten) werden derzeit nicht akzeptiert.
+    </div>
+  </details>
 </template>
 
 
 
 <template id="tmpl-regale_und_gardinenmontage">
-    <!-- Question 1 -->
-    <details open>
-      <summary>Warum braucht man das? </summary>
-      <div class="faq-answer">
-        Passiert123154154
-      </div>
-    </details>
-    <!-- Question 2 -->
-    <details>
-      <summary>Preise</summary>
-      <div class="faq-answer">
-        Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
-        Spaziergang / Gesellschaft: 24 € / Stunde
-        Einkaufsbegleitung: 27 € / Stunde
-        Arzt-/Terminbegleitung: 27 € / Stunde
-        Nachtbegleitung (20–06 Uhr): 95 € pauschal
+  <!-- Question 1 -->
+  <details open>
+    <summary>Warum braucht man das? </summary>
+    <div class="faq-answer">
+      Regale- und Gardinenmontage braucht man, um Möbel und Dekoration sicher, stabil und professionell anzubringen. 
+      Das spart Zeit, Nerven und verhindert Schäden an Wand oder Einrichtung.
+    </div>
+  </details>
+  <!-- Question 2 -->
+  <details>
+    <summary>Preise</summary>
+    <div class="faq-answer">
+      Grundpreise (Privatkunden):
+      <br>Einfaches Wandregal: 32 € / Stück
+      <br>Komplette Regalsysteme: 65 € / Stück
+      <br>Gardinen / Vorhang standard: 22 € / Stück
+      <br>Gardinen-Doppelstange / Schiene: 45 € / Stück
+      <br>
+      <br>Grundpreise (Gewerbekunden):
+      <br>Einfaches Wandregal: 40 € / Stück
+      <br>Komplette Regalsysteme: 80 € / Stück
+      <br>Gardinen / Vorhang standard: 28 € / Stück
+      <br>Gardinen-Doppelstange / Schiene: 55 € / Stück
 
-        <details>
-          <summary>Zuschläge & Extras:</summary>
-          <div class="faq-answer">
-            Zuschläge & Extras:
-            Wochenende / Feiertage: +20 %
-            Express / kurzfristig (<24h): +20 %
-          </div>
-        </details>
-      </div>
-    </details>
-    <!-- Question 3 -->
-    <details>
-      <summary>Welche Zahlungsmethoden akzeptieren Sie?</summary>
-      <div class="faq-answer">
-        Wir akzeptieren Barzahlung sowie Überweisung (Vorkasse oder nach Absprache).
-        <br>Kartenzahlungen (EC-, Kredit- oder Debitkarten) werden derzeit nicht akzeptiert.
-      </div>
-    </details>
+      <details>
+        <summary>Zuschläge & Extras:</summary>
+        <div class="faq-answer">
+          Schwierige Montage / Bohren: +15 € / Stück
+          <br>Materialbereitstellung (z.B. Schrauben, Stangen): +12 €
+          <br>Express / kurzfristige Montage: +20 %
+          <br>Wochenende / Feiertag: +20 %
+          <br>Regelmäßige Buchung (monatlich): –10 % Rabatt
+          <br>Kombi mit Tragehilfe: –10 % Rabatt
+          <br>Gewerbe-Volumenrabatt (ab 10 Stücke): –15 %
+        </div>
+      </details>
+    </div>
+  </details>
+  <!-- Question 3 -->
+  <details>
+    <summary>Welche Zahlungsmethoden akzeptieren Sie?</summary>
+    <div class="faq-answer">
+      Wir akzeptieren Barzahlung sowie Überweisung (Vorkasse oder nach Absprache).
+      <br>Kartenzahlungen (EC-, Kredit- oder Debitkarten) werden derzeit nicht akzeptiert.
+    </div>
+  </details>
 </template>
 
 
 
 <template id="tmpl-straeucherschnitt">
-    <!-- Question 1 -->
-    <details open>
-      <summary>Warum braucht man das? </summary>
-      <div class="faq-answer">
-        Passiert123154154
-      </div>
-    </details>
-    <!-- Question 2 -->
-    <details>
-      <summary>Preise</summary>
-      <div class="faq-answer">
-        Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
-        Spaziergang / Gesellschaft: 24 € / Stunde
-        Einkaufsbegleitung: 27 € / Stunde
-        Arzt-/Terminbegleitung: 27 € / Stunde
-        Nachtbegleitung (20–06 Uhr): 95 € pauschal
+  <!-- Question 1 -->
+  <details open>
+    <summary>Warum braucht man das? </summary>
+    <div class="faq-answer">
+      Sträucherschnitt braucht man, um Pflanzen gesund, formschön und pflegeleicht zu halten. 
+      Er fördert Wachstum, verhindert Überwucherung und verbessert das Gesamtbild des Gartens.
+    </div>
+  </details>
+  <!-- Question 2 -->
+  <details>
+    <summary>Preise</summary>
+    <div class="faq-answer">
+      Grundpreise (Privatkunden / Privatgärten):
+      <br>Kleiner Strauch (<1,5 m): 7 € / Strauch
+      <br>Mittlerer Strauch (1,5–2,5 m): 14 € / Strauch
+      <br>Großer Strauch (>2,5 m): 28 € / Strauch
+      <br>Hecken niedrig (<1,5 m): 6 €/lfm
+      <br>Hecken hoch (1,5–3 m): 9 €/lfm
+      <br>Sehr hohe/dichte Hecken (>3 m): 15 €/lfm
+      <br>
+      <br>Grundpreise (Gewerbekunden / Firmengelände):
+      <br>Kleiner Strauch (<1,5 m): 9 € / Strauch
+      <br>Mittlerer Strauch (1,5–2,5 m): 18 € / Strauch
+      <br>Großer Strauch (>2,5 m): 35 € / Strauch
+      <br>Hecken niedrig (<1,5 m): 8 €/lfm
+      <br>Hecken hoch (1,5–3 m): 12 €/lfm
+      <br>Sehr hohe/dichte Hecken (>3 m): 18 €/lfm
 
-        <details>
-          <summary>Zuschläge & Extras:</summary>
-          <div class="faq-answer">
-            Zuschläge & Extras:
-            Wochenende / Feiertage: +20 %
-            Express / kurzfristig (<24h): +20 %
-          </div>
-        </details>
-      </div>
-    </details>
-    <!-- Question 3 -->
-    <details>
-      <summary>Welche Zahlungsmethoden akzeptieren Sie?</summary>
-      <div class="faq-answer">
-        Wir akzeptieren Barzahlung sowie Überweisung (Vorkasse oder nach Absprache).
-        <br>Kartenzahlungen (EC-, Kredit- oder Debitkarten) werden derzeit nicht akzeptiert.
-      </div>
-    </details>
+      <details>
+        <summary>Zuschläge & Extras:</summary>
+        <div class="faq-answer">
+          Entsorgung Schnittgut / Laub: +20 € / Einsatz (je nach Menge)
+          <br>Stark verwachsene / Dichte Flächen: +20 %
+          <br>Wochenende / Feiertag: +20 %
+          <br>Express-Service (<24h vorher): +15 %
+          <br>Regelmäßiger Schnitt (Abo, z.B. 2–3x/Jahr): –15 % Rabatt
+          <br>Kombi-Angebot (z.B. mit Rasenmähen / Unkraut): –10 % Rabatt
+          <br>Gewerbe-Volumenrabatt (ab 200 lfm): –15 %
+        </div>
+      </details>
+    </div>
+  </details>
+  <!-- Question 3 -->
+  <details>
+    <summary>Welche Zahlungsmethoden akzeptieren Sie?</summary>
+    <div class="faq-answer">
+      Wir akzeptieren Barzahlung sowie Überweisung (Vorkasse oder nach Absprache).
+      <br>Kartenzahlungen (EC-, Kredit- oder Debitkarten) werden derzeit nicht akzeptiert.
+    </div>
+  </details>
 </template>
 
 
 
 <template id="tmpl-unkrautentfernung">
-    <!-- Question 1 -->
-    <details open>
-      <summary>Warum braucht man das? </summary>
-      <div class="faq-answer">
-        Passiert123154154
-      </div>
-    </details>
-    <!-- Question 2 -->
-    <details>
-      <summary>Preise</summary>
-      <div class="faq-answer">
-        Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
-        Spaziergang / Gesellschaft: 24 € / Stunde
-        Einkaufsbegleitung: 27 € / Stunde
-        Arzt-/Terminbegleitung: 27 € / Stunde
-        Nachtbegleitung (20–06 Uhr): 95 € pauschal
+  <!-- Question 1 -->
+  <details open>
+    <summary>Warum braucht man das? </summary>
+    <div class="faq-answer">
+      Unkrautentfernung braucht man, um Beete, Wege und Rasen sauber, gepflegt und frei von Konkurrenzpflanzen zu halten. 
+      Sie schützt andere Pflanzen, spart Arbeit langfristig und verbessert das Gartenbild.
+    </div>
+  </details>
+  <!-- Question 2 -->
+  <details>
+    <summary>Preise</summary>
+    <div class="faq-answer">
+      Grundpreise (Privatkunden / Privatgärten):
+      <br>Kleine Fläche bis 50 m²: 35 € / Einsatz
+      <br>Mittlere Fläche 50–100 m²: 55 € / Einsatz
+      <br>Größere Fläche >100 m²: 0,85 €/m²
+      <br>Handarbeit / Beete: 22 €/h
+      <br>
+      <br>Grundpreise (Gewerbekunden / Firmengelände):
+      <br>Kleine Fläche bis 50 m²: 45 € / Einsatz
+      <br>Mittlere Fläche 50–100 m²: 70 € / Einsatz
+      <br>Größere Fläche >100 m²: 1,10 €/m²
+      <br>Handarbeit / Beete: 30 €/h
 
-        <details>
-          <summary>Zuschläge & Extras:</summary>
-          <div class="faq-answer">
-            Zuschläge & Extras:
-            Wochenende / Feiertage: +20 %
-            Express / kurzfristig (<24h): +20 %
-          </div>
-        </details>
-      </div>
-    </details>
-    <!-- Question 3 -->
-    <details>
-      <summary>Welche Zahlungsmethoden akzeptieren Sie?</summary>
-      <div class="faq-answer">
-        Wir akzeptieren Barzahlung sowie Überweisung (Vorkasse oder nach Absprache).
-        <br>Kartenzahlungen (EC-, Kredit- oder Debitkarten) werden derzeit nicht akzeptiert.
-      </div>
-    </details>
+      <details>
+        <summary>Zuschläge & Extras:</summary>
+        <div class="faq-answer">
+          Chemische / biologische Behandlung: +15 €
+          <br>Starkes / Wildkraut (z.B. Brennessel): +20 %
+          <br>Entsorgung von Grünabfällen: +20 € (je nach Menge)
+          <br>Wochenende / Feiertag: +20 %
+          <br>Express-Service (<24h vorher): +15 %
+          <br>Regelmäßige Pflege (Abo, z.B. monatlich): –15 % Rabatt
+          <br>Kombi-Angebot (z.B. mit Rasenmähen): –10 % Rabatt
+          <br>Gewerbe-Volumenrabatt (ab 500 m²): –15 %
+        </div>
+      </details>
+    </div>
+  </details>
+  <!-- Question 3 -->
+  <details>
+    <summary>Welche Zahlungsmethoden akzeptieren Sie?</summary>
+    <div class="faq-answer">
+      Wir akzeptieren Barzahlung sowie Überweisung (Vorkasse oder nach Absprache).
+      <br>Kartenzahlungen (EC-, Kredit- oder Debitkarten) werden derzeit nicht akzeptiert.
+    </div>
+  </details>
 </template>
 
 
 
 <template id="tmpl-weihnachtsbeleuchtung-montage">
-    <!-- Question 1 -->
-    <details open>
-      <summary>Warum braucht man das? </summary>
-      <div class="faq-answer">
-        Passiert123154154
-      </div>
-    </details>
-    <!-- Question 2 -->
-    <details>
-      <summary>Preise</summary>
-      <div class="faq-answer">
-        Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
-        Spaziergang / Gesellschaft: 24 € / Stunde
-        Einkaufsbegleitung: 27 € / Stunde
-        Arzt-/Terminbegleitung: 27 € / Stunde
-        Nachtbegleitung (20–06 Uhr): 95 € pauschal
+  <!-- Question 1 -->
+  <details open>
+    <summary>Warum braucht man das? </summary>
+    <div class="faq-answer">
+      Beleuchtungsmontage braucht man, um Innen- und Außenbereiche sicher, funktional und ansprechend zu beleuchten. 
+      Sie spart Strom durch effiziente Lösungen und sorgt für Komfort und Sicherheit.
+    </div>
+  </details>
+  <!-- Question 2 -->
+  <details>
+    <summary>Preise</summary>
+    <div class="faq-answer">
+      Grundpreise (Privatkunden):
+      <br>Pauschale bis 10 m Kette: 28 €
+      <br>Pauschale 10–30 m: 48 €
+      <br>Pauschale 30–50 m: 68 €
+      <br>Pauschale >50 m: 105 €
+      <br>
+      <br>Grundpreise (Gewerbekunden, z.B. Geschäfte):
+      <br>Pauschale bis 10 m Kette: 35 €
+      <br>Pauschale 10–30 m: 58 €
+      <br>Pauschale 30–50 m: 82 €
+      <br>Pauschale >50 m: 125 €
 
-        <details>
-          <summary>Zuschläge & Extras:</summary>
-          <div class="faq-answer">
-            Zuschläge & Extras:
-            Wochenende / Feiertage: +20 %
-            Express / kurzfristig (<24h): +20 %
-          </div>
-        </details>
-      </div>
-    </details>
-    <!-- Question 3 -->
-    <details>
-      <summary>Welche Zahlungsmethoden akzeptieren Sie?</summary>
-      <div class="faq-answer">
-        Wir akzeptieren Barzahlung sowie Überweisung (Vorkasse oder nach Absprache).
-        <br>Kartenzahlungen (EC-, Kredit- oder Debitkarten) werden derzeit nicht akzeptiert.
-      </div>
-    </details>
+      <details>
+        <summary>Zuschläge & Extras:</summary>
+        <div class="faq-answer">
+          Leiter / Hubsteiger notwendig: +15 € pauschal
+          <br>Stromanschluss prüfen / Timer installieren: +20 €
+          <br>Demontage nach Weihnachten: 80 % des Montagepreises
+          <br>Express / kurzfristig: +20 %
+          <br>Wochenende / Feiertag: +20 %
+          <br>Regelmäßige Buchung (jährlich): –10 % Rabatt
+          <br>Kombi mit Hausreinigung: –10 % Rabatt
+          <br>Gewerbe-Volumenrabatt (ab 5 Ketten): –15 %
+        </div>
+      </details>
+    </div>
+  </details>
+  <!-- Question 3 -->
+  <details>
+    <summary>Welche Zahlungsmethoden akzeptieren Sie?</summary>
+    <div class="faq-answer">
+      Wir akzeptieren Barzahlung sowie Überweisung (Vorkasse oder nach Absprache).
+      <br>Kartenzahlungen (EC-, Kredit- oder Debitkarten) werden derzeit nicht akzeptiert.
+    </div>
+  </details>
 </template>
 
 

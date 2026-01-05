@@ -222,7 +222,14 @@ footer a, footer h4, footer h5, footer h6, .footer__body-contact a {
 
 
 
+.socials {
+  display: none;
+}
 
+
+.footer__body-adaptation-nav-and-hours {
+  display: none;
+}
 
 
 
@@ -371,6 +378,10 @@ footer a, footer h4, footer h5, footer h6, .footer__body-contact a {
   .social__icons-settings a { font-size: 20px; }
   footer a, footer h5 { font-size: 0.95rem; }
   .legal { font-size: 0.9rem; padding: 0.3rem; }
+
+  .socials {
+    display: flex;
+  }
 }
 
 /* iPhone 15 Pro Max */
@@ -385,14 +396,42 @@ footer a, footer h4, footer h5, footer h6, .footer__body-contact a {
 
   .footer__body-links {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
   }
 
   .footer__body-operating-hours {
-    flex-direction: row;
+    flex-direction: column;
   }
 
   .footer__body-contact {
+    display: none;
+  }
+
+  .footer__body-adaptation-nav-and-hours {
+    display: flex;
+    gap: 3rem;
+  }
+
+  .section-footer:not(.footer__body-adaptation-nav-and-hours .section-footer) {
+    display: none;
+  }
+
+  .footer__body-operating-hours-and-socials:not(.footer__body-adaptation-nav-and-hours .footer__body-operating-hours-and-socials) {
+    display: none;
+  }
+
+  .footer__body-links {
+    align-items: center;
+    gap: 0.65rem;
+  }
+
+  .section-footer {
+    margin: 0;
+    padding: 0;
+    gap: 0;
+  }
+
+  .footer__body-legal {
     display: none;
   }
 }

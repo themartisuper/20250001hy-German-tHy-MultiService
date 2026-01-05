@@ -68,11 +68,12 @@
 
   <nav class="nav" id="nav">
     <ul>
-      <li><a data-i18n="home" href="../index.html">Home</a></li>
-      <li><a data-i18n="sale" href="#">Sale</a></li>
-      <li><a ata-i18n="termine" href="#">Termine</a></li>
-      <li><a ata-i18n="service" href="#">Über uns</a></li>
-      <li><a ata-i18n="contact" href="#contact">Kontakt</a></li>
+      <li><a data-i18n="home" href="../index.html#section__main">Home</a></li>
+      <li><a data-i18n="coupon" href="coupon-form.html">Gutschein</a></li>
+      <li><a data-i18n="categories" href="../index.html#categories">Leistungen </a></li>
+      <li><a data-i18n="package_deal" href="../index.html#fixed-price">Pauschale </a></li>
+      <!--<li><a data-i18n="about_us" href="#">Über uns</a></li>-->
+      <li><a data-i18n="contact" href="#contact">Kontakt</a></li>
     </ul>
 
     <!-- locales -->
@@ -106,6 +107,7 @@
   </nav>
 </div>
 <!-- End HEADER -->
+
 
 
 
@@ -856,40 +858,73 @@
 
 
 <!-- FOOTER -->
-<footer class="footer">
+<footer class="footer" id="contact">
   <div class="footer__body">
     <section class="footer__body-legal">
-      <a href="">Impressum</a>
-      <a href="">Datenschutz</a>
+      <a href="client/impressum.html">Impressum</a>
+      <a href="client/datenschutz.html">Datenschutz</a>
     </section>
+
+    <div class="footer__body-adaptation-nav-and-hours">
+      <section class="section-footer"> 
+        <!--<ul class="footer__body-links ul-footer">
+          <li><a data-i18n="home" href="#section__main">Home</a></li>
+          <li><a data-i18n="coupon" href="client/coupon-form.html">Gutschein</a></li>
+          <li><a data-i18n="categories" href="#categories">Leistungen </a></li>
+          <li><a data-i18n="package_deal" href="#fixed-price">Pauschale </a></li>
+        </ul>-->
+        <div class="footer__body-links ul-footer">
+          <a data-i18n="home" href="../index.html">Home</a>
+          <a data-i18n="coupon" href="coupon-form.html">Gutschein</a>
+          <a data-i18n="categories" href="../index.html#categories">Leistungen</a>
+          <a data-i18n="package_deal" href="../index.html#fixed-price">Pauschale</a>
+          <a href="impressum.html">Impressum</a>
+        </div>
+      </section>
+
+      <section class="footer__body-operating-hours-and-socials">
+        <div class="footer__body-operating-hours">
+          <h5>Öffnungszeiten:</h5>
+          <h5>Mo-Do 06:00-22:00</h5>
+          <h5>Freitag 06:00-23:00</h5>
+          <h5>Samstag 06:00-21:30</h5>
+          <h5>Sonnatag Geschlossen</h5>
+          <a href="datenschutz.html">Datenschutz</a>
+        </div>
+      </section>
+    </div>
 
     <section class="section-footer"> 
       <ul class="footer__body-links ul-footer">
-        <li><a data-i18n="home" href="#">Home</a></li>
-        <li><a ata-i18n="about_us" href="#">Über uns</a></li>
-        <li><a ata-i18n="service" href="#">Service</a></li>
-        <li><a ata-i18n="contact" href="#">Kontakt</a></li>
+        <li><a data-i18n="home" href="#section__main">Home</a></li>
+        <li><a data-i18n="coupon" href="client/coupon-form.html">Gutschein</a></li>
+        <li><a data-i18n="categories" href="#categories">Leistungen </a></li>
+        <li><a data-i18n="package_deal" href="#fixed-price">Pauschale </a></li>
       </ul>
     </section>
 
     <section class="footer__body-operating-hours-and-socials">
       <div class="footer__body-operating-hours">
-        <h5>Mo-Fr: 08:00-22:00</h5>
-        <h5>Samstag: 08:00-23:00</h5>
-        <h5>Sonntag: 08:00-23:00</h5>
+        <h5>Öffnungszeiten:</h5>
+        <h5>Mo-Do 06:00-22:00</h5>
+        <h5>Freitag 06:00-23:00</h5>
+        <h5>Samstag 06:00-21:30</h5>
+        <h5>Sonnatag Geschlossen</h5>
+        
       </div>
-
-      <ul class="socials ul-footer">
-        <li><a class="fa-brands fa-telegram" href=""></a></li>
-        <li><a class="fa-brands fa-instagram" href="https://www.instagram.com/german_thy_multi?igsh=YjllaG4zcnVzaGVl&utm_source=qr"></a></li>
-        <li><a class="fa-brands fa-x-twitter" href=""></a></li>
-        <li><a class="fa-brands fa-facebook" href=""></a></li>
-      </ul>
     </section>
+    
 
-    <section class="footer__body-contact" id="contact">
+    <ul class="socials ul-footer">
+      <li><a class="fa-brands fa-whatsapp" href="https://wa.me/4917661219130?text=Hallo!" target="_blank" rel="noopener noreferrer"></a></li>
+      <li><a class="fa-brands fa-instagram" href="https://www.instagram.com/german_thy_multi?igsh=YjllaG4zcnVzaGVl&utm_source=qr" target="_blank" rel="noopener noreferrer"></a></li>
+      <!--<li><a class="fa-brands fa-x-twitter" href=""></a></li>-->
+      <li><a class="fa-regular fa-envelope" href="mailto:german.thy.multi@gmail.com" target="_blank" rel="noopener noreferrer"></a></li>
+    </ul>
+
+    <section class="footer__body-contact">
       <h5>Kontakt</h5>
-      <h5>German tHÿ MultiService</h5>
+      <h5>German tHy MultiService</h5>
       <div class="social__icons">
         <div class="social__icons-settings">
           <a class="fa-brands fa-whatsapp" href="https://wa.me/4917661219130?text=Hallo!" target="_blank" rel="noopener noreferrer"></a>
@@ -909,7 +944,7 @@
   </div>
 
   <div class="legal">
-    <h5 class="legal">© 2025 All rights reserved</h5>
+    <h5 class="legal">© 2026 Alle Rechte vorbehalten</h5>
   </div>
   
 </footer>
@@ -1111,37 +1146,34 @@
     <summary>Preise</summary>
     <div class="faq-answer">
       Grundpreise (Privatkunden):
-      <br><strong>Außenreinigung Handwäsche:</strong> 32 € (inkl. Felgen & Trocknen)
-      <br><strong>Premium Außen:</strong> 65 € (Handwäsche + Lackpflege + Wachs)
-      <br><strong>Innenreinigung Basis:</strong> 42 € (Staubsaugen, Cockpit, Scheiben)
-      <br><strong>Innen Komplett:</strong> 85 € (Polster, Kofferraum, Detail)
-      <br><strong>Standard Paket:</strong> 75 € (Außen Handwäsche + Innen Basis)
-      <br><strong>Premium Paket:</strong> 149 € (Außen Premium + Innen Komplett)
+      <br>Außenreinigung Handwäsche (inkl. Felgen & Trocknen): 32 €
+      <br>Premium Außen (Handwäsche + Lackpflege + Wachs): 65 €
+      <br>Innenreinigung Basis (Staubsaugen, Cockpit, Scheiben): 42 €
+      <br>Innen Komplett (Polster, Kofferraum, Detail): 85 €
+      <br>Standard Paket (Außen Handwäsche + Innen Basis): 75 €
+      <br>Premium Paket (Außen Premium + Innen Komplett): 149 €
       <br>
       <br>Grundpreise (Gewerbekunden, z.B. Flotten):
-      <br><strong>Außenreinigung Handwäsche:</strong> 40 € (inkl. Felgen & Trocknen)
-      <br><strong>Premium Außen:</strong> 80 € (Handwäsche + Lackpflege + Wachs)
-      <br><strong>Innenreinigung Basis:</strong> 52 € (Staubsaugen, Cockpit, Scheiben)
-      <br><strong>Innen Komplett:</strong> 105 € (Polster, Kofferraum, Detail)
-      <br><strong>Standard Paket:</strong> 90 € (Außen Handwäsche + Innen Basis)
-      <br><strong>Premium Paket:</strong> 179 € (Außen Premium + Innen Komplett)
-      <br>
-      <br>Mindestauftrag: 30 €
-      <br>Fahrtkosten: 0,50 €/km oder 15 € pauschal (innerhalb 30 km)
+      <br>Außenreinigung Handwäsche (inkl. Felgen & Trocknen): 40 €
+      <br>Premium Außen (Handwäsche + Lackpflege + Wachs): 80 €
+      <br>Innenreinigung Basis (Staubsaugen, Cockpit, Scheiben): 52 €
+      <br>Innen Komplett (Polster, Kofferraum, Detail): 105 €
+      <br>Standard Paket (Außen Handwäsche + Innen Basis): 90 €
+      <br>Premium Paket (Außen Premium + Innen Komplett): 179 €
 
       <details>
         <summary>Zuschläge & Extras:</summary>
         <div class="faq-answer">
-          - Tierhaarentfernung: +25 €
-          <br>- Polster-/Teppichshampoonierung: +10 €
-          <br>- Lederpflege: +35 €
-          <br>- Motorraumreinigung: +29 €
-          <br>- Ozonbehandlung (Geruchsneutralisierung): +49 €
-          <br>- Wochenende / Feiertag: +20 %
-          <br>- Express / kurzfristig (<24h): +20 %
-          <br>- Regelmäßige Buchung (monatlich): –15 % Rabatt
-          <br>- Kombi mit Extras (z.B. Tierhaar + Ozon): –10 % Rabatt
-          <br>- Gewerbe-Volumenrabatt (ab 5 Fahrzeuge): –15 %
+          Tierhaarentfernung: +25 €
+          <br>Polster-/Teppichshampoonierung: +10 €
+          <br>Lederpflege: +35 €
+          <br>Motorraumreinigung: +29 €
+          <br>Ozonbehandlung (Geruchsneutralisierung): +49 €
+          <br>Wochenende / Feiertag: +20 %
+          <br>Express / kurzfristig (<24h): +20 %
+          <br>Regelmäßige Buchung (monatlich): –15 % Rabatt
+          <br>Kombi mit Extras (z.B. Tierhaar + Ozon): –10 % Rabatt
+          <br>Gewerbe-Volumenrabatt (ab 5 Fahrzeuge): –15 %
         </div>
       </details>
     </div>
@@ -1163,25 +1195,20 @@
   <details open>
     <summary>Warum braucht man das? </summary>
     <div class="faq-answer">
-      Passiert123154154
+      Büroreinigung braucht man, um einen sauberen, hygienischen und professionellen 
+      Arbeitsplatz zu gewährleisten. Das steigert Produktivität, Gesundheit und den Eindruck bei Kunden.
     </div>
   </details>
   <!-- Question 2 -->
   <details>
     <summary>Preise</summary>
     <div class="faq-answer">
-      Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
-      Spaziergang / Gesellschaft: 24 € / Stunde
-      Einkaufsbegleitung: 27 € / Stunde
-      Arzt-/Terminbegleitung: 27 € / Stunde
-      Nachtbegleitung (20–06 Uhr): 95 € pauschal
+      Info kommt noch
 
       <details>
         <summary>Zuschläge & Extras:</summary>
         <div class="faq-answer">
-          Zuschläge & Extras:
-          Wochenende / Feiertage: +20 %
-          Express / kurzfristig (<24h): +20 %
+          Info kommt noch
         </div>
       </details>
     </div>
@@ -1203,25 +1230,34 @@
   <details open>
     <summary>Warum braucht man das? </summary>
     <div class="faq-answer">
-      Passiert123154154
+      Dachhaut- und Dachziegelreinigung braucht man, um Moos, Schmutz und Algen zu entfernen und Schäden am Dach zu vermeiden. 
+      Das verlängert die Lebensdauer und spart teure Reparaturen.
     </div>
   </details>
   <!-- Question 2 -->
   <details>
     <summary>Preise</summary>
     <div class="faq-answer">
-      Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
-      Spaziergang / Gesellschaft: 24 € / Stunde
-      Einkaufsbegleitung: 27 € / Stunde
-      Arzt-/Terminbegleitung: 27 € / Stunde
-      Nachtbegleitung (20–06 Uhr): 95 € pauschal
+      Grundpreise (Privatkunden):
+      <br>Dachreinigung Standard: 11 € / m²
+      <br>Dachreinigung stark verschmutzt (z.B. Moos/Algen): 13 € / m²
+      <br>Carport/Garage Reinigung: ab 280 € pauschal
+      <br>
+      <br>Grundpreise (Gewerbekunden, z.B. Firmengebäude):
+      <br>Dachreinigung Standard: 13 € / m²
+      <br>Dachreinigung stark verschmutzt (z.B. Moos/Algen): 16 € / m²
+      <br>Carport/Garage Reinigung: ab 350 € pauschal
 
       <details>
         <summary>Zuschläge & Extras:</summary>
         <div class="faq-answer">
-          Zuschläge & Extras:
-          Wochenende / Feiertage: +20 %
-          Express / kurzfristig (<24h): +20 %
+          Dachrinnenreinigung: 5 € / lfd. Meter
+          <br>Moos-/Algen-Schutzmittel: +3 € / m²
+          <br>Wochenende / Feiertag: +20 %
+          <br>Express (<48h): +20 %
+          <br>Regelmäßige Buchung (jährlich): –10 % Rabatt
+          <br>Kombi mit Gartenpflege: –10 % Rabatt
+          <br>Gewerbe-Volumenrabatt (ab 500 m²): –15 %
         </div>
       </details>
     </div>
@@ -1243,25 +1279,20 @@
   <details open>
     <summary>Warum braucht man das? </summary>
     <div class="faq-answer">
-      Passiert123154154
+      Endreinigung bzw. Bauendreinigung braucht man, um Räume nach Bau oder Auszug sauber, bezugsfertig und abnahmefähig zu übergeben. 
+      Sie spart Zeit, Ärger mit Vermietern oder Bauleitern und verhindert Nachzahlungen.
     </div>
   </details>
   <!-- Question 2 -->
   <details>
     <summary>Preise</summary>
     <div class="faq-answer">
-      Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
-      Spaziergang / Gesellschaft: 24 € / Stunde
-      Einkaufsbegleitung: 27 € / Stunde
-      Arzt-/Terminbegleitung: 27 € / Stunde
-      Nachtbegleitung (20–06 Uhr): 95 € pauschal
+      Info kommt noch
 
       <details>
         <summary>Zuschläge & Extras:</summary>
         <div class="faq-answer">
-          Zuschläge & Extras:
-          Wochenende / Feiertage: +20 %
-          Express / kurzfristig (<24h): +20 %
+          Info kommt noch
         </div>
       </details>
     </div>
@@ -1283,25 +1314,26 @@
   <details open>
     <summary>Warum braucht man das? </summary>
     <div class="faq-answer">
-      Passiert123154154
+      Fassadenreinigung braucht man, um Schmutz, Algen und Abgase zu entfernen und die Bausubstanz zu schützen. 
+      Sie erhält den Wert der Immobilie und sorgt für einen gepflegten ersten Eindruck.
     </div>
   </details>
   <!-- Question 2 -->
   <details>
     <summary>Preise</summary>
     <div class="faq-answer">
-      Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
-      Spaziergang / Gesellschaft: 24 € / Stunde
-      Einkaufsbegleitung: 27 € / Stunde
-      Arzt-/Terminbegleitung: 27 € / Stunde
-      Nachtbegleitung (20–06 Uhr): 95 € pauschal
+      Grundpreise (Privatkunden)
+      <br>Fassadenreinigung Standard: 11 € / m²
+      <br>Fassadenreinigung stark befallen (z.B. Schimmel/Algen): 16 € / m²
+      <br>
+      <br>Grundpreise (Gewerbekunden, z.B. Mehrfamilienhäuser):
+      <br>Fassadenreinigung Standard: 13 € / m²
+      <br>Fassadenreinigung stark befallen (z.B. Schimmel/Algen): 19 € / m²
 
       <details>
         <summary>Zuschläge & Extras:</summary>
         <div class="faq-answer">
-          Zuschläge & Extras:
-          Wochenende / Feiertage: +20 %
-          Express / kurzfristig (<24h): +20 %
+          Info kommt noch
         </div>
       </details>
     </div>
@@ -1323,25 +1355,19 @@
   <details open>
     <summary>Warum braucht man das? </summary>
     <div class="faq-answer">
-      Passiert123154154
+      Fensterreinigung braucht man, um Licht, Sicht und einen gepflegten Eindruck zu gewährleisten. Saubere Fenster steigern Wohlbefinden und Professionalität.
     </div>
   </details>
   <!-- Question 2 -->
   <details>
     <summary>Preise</summary>
     <div class="faq-answer">
-      Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
-      Spaziergang / Gesellschaft: 24 € / Stunde
-      Einkaufsbegleitung: 27 € / Stunde
-      Arzt-/Terminbegleitung: 27 € / Stunde
-      Nachtbegleitung (20–06 Uhr): 95 € pauschal
+      Info kommt noch
 
       <details>
         <summary>Zuschläge & Extras:</summary>
         <div class="faq-answer">
-          Zuschläge & Extras:
-          Wochenende / Feiertage: +20 %
-          Express / kurzfristig (<24h): +20 %
+          Info kommt noch
         </div>
       </details>
     </div>
@@ -1363,25 +1389,30 @@
   <details open>
     <summary>Warum braucht man das? </summary>
     <div class="faq-answer">
-      Passiert123154154
+      Fliesenreinigung braucht man, um hartnäckigen Schmutz, Kalk und Fugenbeläge gründlich zu entfernen. 
+      Sie sorgt für Hygiene, bessere Optik und längere Lebensdauer der Fliesen.
     </div>
   </details>
   <!-- Question 2 -->
   <details>
     <summary>Preise</summary>
     <div class="faq-answer">
-      Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
-      Spaziergang / Gesellschaft: 24 € / Stunde
-      Einkaufsbegleitung: 27 € / Stunde
-      Arzt-/Terminbegleitung: 27 € / Stunde
-      Nachtbegleitung (20–06 Uhr): 95 € pauschal
+      Grundpreise (Privatkunden):
+      <br>Bodenfliesen (normale Flächen): 5 €/m²
+      <br>Wandfliesen (z. B. Küche, Bad, Spritzschutz): 6 €/m²
+      <br>Fugenreinigung (intensiv / Schimmelentfernung): 8 €/m²
+      <br>
+      <br>Gewerbliche Flächen / stark frequentierte Bereiche: 9 €/m² oder 38 €/h
 
       <details>
         <summary>Zuschläge & Extras:</summary>
         <div class="faq-answer">
-          Zuschläge & Extras:
-          Wochenende / Feiertage: +20 %
-          Express / kurzfristig (<24h): +20 %
+          Stark verschmutzte Fläche / Fugen: +20 %
+          <br>Kleinfläche / unregelmäßige Fläche: 28 €/h
+          <br>Express-Service (<24h vorher): +15 %
+          <br>Wochenende / Feiertag: +20 %
+          <br>Regelmäßige Buchung (monatlich): –10 % Rabatt
+          <br>Kombi mit Reinigungskraft: –10 % Rabatt
         </div>
       </details>
     </div>
@@ -1403,25 +1434,38 @@
   <details open>
     <summary>Warum braucht man das? </summary>
     <div class="faq-answer">
-      Passiert123154154
+      Laubabholung braucht man, um Grundstücke sauber, rutschfrei und verkehrssicher zu halten. Sie spart Zeit und verhindert Ärger oder Haftungsprobleme.
     </div>
   </details>
   <!-- Question 2 -->
   <details>
     <summary>Preise</summary>
     <div class="faq-answer">
-      Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
-      Spaziergang / Gesellschaft: 24 € / Stunde
-      Einkaufsbegleitung: 27 € / Stunde
-      Arzt-/Terminbegleitung: 27 € / Stunde
-      Nachtbegleitung (20–06 Uhr): 95 € pauschal
+      Grundpreise (Privatkunden):
+      <br>Laubentfernung klein (bis 50 m²): 28 € / Einsatz
+      <br>Laubentfernung mittel (50–150 m²): 48 € / Einsatz
+      <br>Laubentfernung groß (>150 m²): 95 € / Einsatz
+      <br>Stundenpreis: 42 € / Stunde
+      <br>Saisonvertrag EFH (Herbst, inkl. 5 Einsätze): ab 120 €
+      <br>Saisonvertrag MFH / kleine Firma: ab 250 €
+      <br>
+      <br>Grundpreise (Gewerbekunden, z.B. Firmengelände):
+      <br>Laubentfernung klein (bis 50 m²): 35 € / Einsatz
+      <br>Laubentfernung mittel (50–150 m²): 60 € / Einsatz
+      <br>Laubentfernung groß (>150 m²): 120 € / Einsatz
+      <br>Stundenpreis: 50 € / Stunde
+      <br>Saisonvertrag EFH (Herbst, inkl. 5 Einsätze): ab 150 €
+      <br>Saisonvertrag MFH / kleine Firma: ab 300 €
 
       <details>
         <summary>Zuschläge & Extras:</summary>
         <div class="faq-answer">
-          Zuschläge & Extras:
-          Wochenende / Feiertage: +20 %
-          Express / kurzfristig (<24h): +20 %
+          Streugut (Salz / Splitt) extra: +10 € / Einsatz
+          <br>Express / Nacht-Einsatz: +30 %
+          <br>Wochenende / Feiertag: +20 %
+          <br>Regelmäßige Buchung (monatlich): –10 % Rabatt
+          <br>Kombi mit Gartenpflege: –10 % Rabatt
+          <br>Gewerbe-Volumenrabatt (ab 10 Einsätze): –15 %
         </div>
       </details>
     </div>
@@ -1443,25 +1487,19 @@
   <details open>
     <summary>Warum braucht man das? </summary>
     <div class="faq-answer">
-      Passiert123154154
+      Haushaltsreinigung braucht man, um dauerhaft Ordnung, Hygiene und Wohnkomfort zu sichern. Sie spart Zeit und hält den Alltag am Laufen.
     </div>
   </details>
   <!-- Question 2 -->
   <details>
     <summary>Preise</summary>
     <div class="faq-answer">
-      Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
-      Spaziergang / Gesellschaft: 24 € / Stunde
-      Einkaufsbegleitung: 27 € / Stunde
-      Arzt-/Terminbegleitung: 27 € / Stunde
-      Nachtbegleitung (20–06 Uhr): 95 € pauschal
+      Info kommt noch
 
       <details>
         <summary>Zuschläge & Extras:</summary>
         <div class="faq-answer">
-          Zuschläge & Extras:
-          Wochenende / Feiertage: +20 %
-          Express / kurzfristig (<24h): +20 %
+          Info kommt noch
         </div>
       </details>
     </div>
@@ -1483,25 +1521,38 @@
   <details open>
     <summary>Warum braucht man das? </summary>
     <div class="faq-answer">
-      Passiert123154154
+      Schneeräumung braucht man, um Wege und Zufahrten sicher, begehbar und gesetzeskonform zu halten. Sie verhindert Unfälle, Bußgelder und Haftungsstress.
     </div>
   </details>
   <!-- Question 2 -->
   <details>
     <summary>Preise</summary>
     <div class="faq-answer">
-      Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
-      Spaziergang / Gesellschaft: 24 € / Stunde
-      Einkaufsbegleitung: 27 € / Stunde
-      Arzt-/Terminbegleitung: 27 € / Stunde
-      Nachtbegleitung (20–06 Uhr): 95 € pauschal
+      Grundpreise (Privatkunden):
+      <br>Schneeräumung klein (bis 50 m²): 28 € / Einsatz
+      <br>Schneeräumung mittel (50–150 m²): 48 € / Einsatz
+      <br>Schneeräumung groß (>150 m²): 95 € / Einsatz
+      <br>Stundenpreis: 42 € / Stunde
+      <br>Saisonvertrag EFH (Dez–März, inkl. Räumen & Streuen): ab 280 €
+      <br>Saisonvertrag MFH / klein Firma: ab 550 €
+      <br>
+      <br>Grundpreise (Gewerbekunden, z.B. Firmenparkplatz):
+      <br>Schneeräumung klein (bis 50 m²): 35 € / Einsatz
+      <br>Schneeräumung mittel (50–150 m²): 60 € / Einsatz
+      <br>Schneeräumung groß (>150 m²): 120 € / Einsatz
+      <br>Stundenpreis: 50 € / Stunde
+      <br>Saisonvertrag EFH (Dez–März, inkl. Räumen & Streuen): ab 350 €
+      <br>Saisonvertrag MFH / klein Firma: ab 650 €
 
       <details>
         <summary>Zuschläge & Extras:</summary>
         <div class="faq-answer">
-          Zuschläge & Extras:
-          Wochenende / Feiertage: +20 %
-          Express / kurzfristig (<24h): +20 %
+          Streuen (Salz / Splitt): +10 € / Einsatz
+          <br>Express / Nacht-Einsatz: +30 %
+          <br>Wochenende / Feiertag: +20 %
+          <br>Regelmäßige Buchung (wöchentlich): –10 % Rabatt
+          <br>Kombi mit Streuen: –10 % Rabatt
+          <br>Gewerbe-Volumenrabatt (ab 10 Einsätze): –15 %
         </div>
       </details>
     </div>
@@ -1523,25 +1574,37 @@
   <details open>
     <summary>Warum braucht man das? </summary>
     <div class="faq-answer">
-      Passiert123154154
+      Streudienst braucht man, um bei Eis und Glätte Wege sofort rutschfest und sicher zu machen. Er reduziert Unfallrisiken und schützt vor Haftungsansprüchen.
     </div>
   </details>
   <!-- Question 2 -->
   <details>
     <summary>Preise</summary>
     <div class="faq-answer">
-      Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
-      Spaziergang / Gesellschaft: 24 € / Stunde
-      Einkaufsbegleitung: 27 € / Stunde
-      Arzt-/Terminbegleitung: 27 € / Stunde
-      Nachtbegleitung (20–06 Uhr): 95 € pauschal
+      Grundpreise (Privatkunden):
+      <br>Streudienst klein (bis 50 m²): 12 € / Einsatz
+      <br>Streudienst mittel (50–150 m²): 22 € / Einsatz
+      <br>Streudienst groß (>150 m²): 45 € / Einsatz
+      <br>Stundenpreis: 32 € / Stunde
+      <br>Saisonvertrag EFH (Dez–März, inkl. Räumen & Streuen): ab 120 €
+      <br>Saisonvertrag MFH / kleine Firma: ab 250 €
+      <br>
+      <br>Grundpreise (Gewerbekunden, z.B. Firmenflächen): Streudienst klein (bis 50 m²): 15 € / Einsatz
+      <br>Streudienst mittel (50–150 m²): 28 € / Einsatz
+      <br>Streudienst groß (>150 m²): 55 € / Einsatz
+      <br>Stundenpreis: 40 € / Stunde
+      <br>Saisonvertrag EFH (Dez–März, inkl. Räumen & Streuen): ab 150 €
+      <br>Saisonvertrag MFH / kleine firma: ab 300 €
 
       <details>
         <summary>Zuschläge & Extras:</summary>
         <div class="faq-answer">
-          Zuschläge & Extras:
-          Wochenende / Feiertage: +20 %
-          Express / kurzfristig (<24h): +20 %
+          Streugut extra: +5–10 € pro Einsatz
+          <br>Express / Nachtstreuung: +30 %
+          <br>Wochenende / Feiertag: +20 %
+          <br>Regelmäßige Buchung (wöchentlich): –10 % Rabatt
+          <br>Kombi mit Schneeräumung: –10 % Rabatt
+          <br>Gewerbe-Volumenrabatt (ab 10 Einsätze): –15 %
         </div>
       </details>
     </div>
@@ -1563,25 +1626,34 @@
   <details open>
     <summary>Warum braucht man das? </summary>
     <div class="faq-answer">
-      Passiert123154154
+      Teppich-, Polster- und Sofareinigung braucht man, um Schmutz, Flecken und Bakterien gründlich zu entfernen. 
+      Sie sorgt für Hygiene, Werterhalt und ein frisches Wohngefühl.
     </div>
   </details>
   <!-- Question 2 -->
   <details>
     <summary>Preise</summary>
     <div class="faq-answer">
-      Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
-      Spaziergang / Gesellschaft: 24 € / Stunde
-      Einkaufsbegleitung: 27 € / Stunde
-      Arzt-/Terminbegleitung: 27 € / Stunde
-      Nachtbegleitung (20–06 Uhr): 95 € pauschal
+      Grundpreise (Privatkunden):
+      <br>Teppich Standardreinigung (Staubsaugen + Fleckenentfernung): 6 €/m²
+      <br>Teppich Tiefenreinigung / Intensive: 10 €/m²
+      <br>Sofa 2-Sitzer: 55 €
+      <br>Sofa 3-Sitzer: 85 €
+      <br>Ecksofa / Großsofa: 130 €
+      <br>
+      <br>Gewerbliche Kunden (Büro/Hotel):
+      <br>Teppich: 8 €/m² (Standard) oder 12 €/m² (Intensiv)
+      <br>Sofas: +20 % auf Privatpreise (z.B. 3-Sitzer: 102 €)
 
       <details>
         <summary>Zuschläge & Extras:</summary>
         <div class="faq-answer">
-          Zuschläge & Extras:
-          Wochenende / Feiertage: +20 %
-          Express / kurzfristig (<24h): +20 %
+          Flecken/Extra Behandlung (Geruchsneutralisation): +15 €
+          <br>Orient/Seidenteppich oder Leder/Materialzuschlag: +20 %
+          <br>Wochenende / Feiertag: +20 %
+          <br>Express-Service (<24h vorher): +15 %
+          <br>Kombi-Angebot (Teppich + Sofa): –10 % Rabatt
+          <br>Regelmäßige Buchung (monatlich): –10 % Rabatt
         </div>
       </details>
     </div>
@@ -1603,25 +1675,37 @@
   <details open>
     <summary>Warum braucht man das? </summary>
     <div class="faq-answer">
-      Passiert123154154
+      Schneeräumung am Auto braucht man, um Scheiben, Dach und Scheinwerfer frei von Schnee und Eis zu halten. 
+      Das sorgt für sichere Sicht, gesetzeskonformes Fahren und verhindert Bußgelder.
     </div>
   </details>
   <!-- Question 2 -->
   <details>
     <summary>Preise</summary>
     <div class="faq-answer">
-      Seniorenbegleitung (Alltagshilfe): 24 € / Stunde
-      Spaziergang / Gesellschaft: 24 € / Stunde
-      Einkaufsbegleitung: 27 € / Stunde
-      Arzt-/Terminbegleitung: 27 € / Stunde
-      Nachtbegleitung (20–06 Uhr): 95 € pauschal
+      Grundpreise (Privatkunden):
+      <br>Schneebeseitigung + Enteisung Kleinwagen: 11 €
+      <br>Schneebeseitigung + Enteisung SUV/Kombi: 16 €
+      <br>Schneebeseitigung + Enteisung Transporter: 22 €
+      <br>
+      <br>Grundpreise (Gewerbekunden, z.B. Firmenflotten):
+      <br>Schneebeseitigung + Enteisung Kleinwagen: 14 €
+      <br>Schneebeseitigung + Enteisung SUV/Kombi: 20 €
+      <br>Schneebeseitigung + Enteisung Transporter: 28 €
 
       <details>
         <summary>Zuschläge & Extras:</summary>
         <div class="faq-answer">
-          Zuschläge & Extras:
-          Wochenende / Feiertage: +20 %
-          Express / kurzfristig (<24h): +20 %
+          Enteisungsspray / Extras: +5 €
+          <br>Innenraum-Vorwärmen (mit Schlüssel): gratis
+          <br>Firmen-/Sammelrabatt (ab 5 Autos): –15 %
+          <br>Monatspaket (5 Einsätze): ab 45 €
+          <br>Saisonpaket (bis 20 Einsätze): ab 130 €
+          <br>Express (30–60 min): +20 %
+          <br>Nacht/Frühdienst (vor 6 Uhr): +30 %
+          <br>Regelmäßige Buchung (monatlich): –10 % Rabatt
+          <br>Kombi mit Schneeräumung: –10 % Rabatt
+          <br>Gewerbe-Volumenrabatt (ab 10 Einsätze): –15 %
         </div>
       </details>
     </div>
