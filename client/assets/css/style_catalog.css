@@ -128,7 +128,7 @@
       flex-shrink: 0;
     }
 
-    .modal-header h2 { margin: 0; font-size: 1.8rem; font-family: 'Righteous', cursive; }
+    .modal-header h2 { margin: 0; font-size: 1.8rem; }
     .close-modal-btn {
         color: white; font-size: 32px; font-weight: bold; cursor: pointer;
         background: none; border: none; padding: 0; line-height: 1;
