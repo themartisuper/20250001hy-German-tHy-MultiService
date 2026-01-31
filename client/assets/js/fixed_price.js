@@ -132,7 +132,8 @@ window.initFixedPriceForm = function(container) {
 
       // Если что-то не выбрано — показываем 0.00€
       if (!service || !weekly || !months) {
-        priceEl.textContent = "0.00€";
+        //priceEl.textContent = "0.00€";
+        priceEl.textContent = ""; // Просто пусто потому что ломало код, когда Тушкан попросил скрыть цены
         discountEl.textContent = '';
         return;
       }
