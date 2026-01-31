@@ -40,50 +40,50 @@ window.initFixedPriceForm = function(container) {
   
   const basePrice = {
   // Gruppe 1: Transport & Logistik
-  "Fahrzeugüberführung": 49,
-  "Kurierdienste (privat)": 29,
-  "Kurierdienste (gewerblich)": 29,
-  "Lieferant": 26,
+  "Fahrzeugüberführung": 0,
+  "Kurierdienste (privat)": 0,
+  "Kurierdienste (gewerblich)": 0,
+  "Lieferant": 0,
   "Möbeltransport / Umzugshilfe": 0, // nach vereinbarung 01.01.2026
-  "Tragehilfe": 59,
-  "Zum Flughafen hin fahren": 99,
-  "Zum Flughafen hin-zurück fahren": 179,
-  "Hausverteilungsservice": 0.25,
+  "Tragehilfe": 0,
+  "Zum Flughafen hin fahren": 0,
+  "Zum Flughafen hin-zurück fahren": 0,
+  "Hausverteilungsservice": 0,
 
   // 🟦 Gruppe 2: Reinigung & Pflege
-  "Auto reinigen (privat)": 29,
-  "Auto reinigen (gewerblich)": 39,
-  "Büroreinigung": 26,
-  "Dachhaut/Dachziegel reinigen": 59,
-  "Endreinigung / Bauendreinigung": 32,
-  "Fassadenreinigung (Schimmel-, Algen- & Moosentfernung)": 59,
-  "Fensterreinigung": 5,
-  "Fliesen Reiniger": 59,
-  "Lauabholung": 29,
-  "Haushaltreinigung": 21,
-  "Schneeräumung": 29,
-  "Streudienst": 29,
-  "Teppichreinigung- und Polster-/Sofareinigung": 59,
-  "Eis und Schneebeseitigung am Auto": 29,
+  "Auto reinigen (privat)": 0,
+  "Auto reinigen (gewerblich)": 0,
+  "Büroreinigung": 0,
+  "Dachhaut/Dachziegel reinigen": 0,
+  "Endreinigung / Bauendreinigung": 0,
+  "Fassadenreinigung (Schimmel-, Algen- & Moosentfernung)": 0,
+  "Fensterreinigung": 0,
+  "Fliesen Reiniger": 0,
+  "Lauabholung": 0,
+  "Haushaltreinigung": 0,
+  "Schneeräumung": 0,
+  "Streudienst": 0,
+  "Teppichreinigung- und Polster-/Sofareinigung": 0,
+  "Eis und Schneebeseitigung am Auto": 0,
 
   // 🟧 Gruppe 3: Haus & Garten
-  "Gartenbewässerung": 59,
-  "Gartenpflege": 59,
-  "Haushüter": 59,
-  "Kleinreparaturen (ohne Handwerksplicht)":59,
-  "Rasenmäher": 59,
-  "Regale und Gardinenmontage": 59,
-  "Sträucherschnitt": 59,
-  "Unkrautentfernung": 59,
-  "Weihnachtsbeleuchtung Montage": 29,
+  "Gartenbewässerung": 0,
+  "Gartenpflege": 0,
+  "Haushüter": 0,
+  "Kleinreparaturen (ohne Handwerksplicht)":0,
+  "Rasenmäher": 0,
+  "Regale und Gardinenmontage": 0,
+  "Sträucherschnitt": 0,
+  "Unkrautentfernung": 0,
+  "Weihnachtsbeleuchtung Montage": 0,
 
   // 🟨 Persönliche Dienste & Events
-  "Einkaufshilfe": 29,
-  "Einzelhandelskaufmann": 69,
+  "Einkaufshilfe": 0,
+  "Einzelhandelskaufmann": 0,
   "Eventhilfe / Servicekraft": 0, // nach vereinbarung 01.01.2026
-  "Hundeausführen / Gassi-Service": 29,
-  "Seniorenbetreuung (ohne Pflege)": 29,
-  "Tierbetreuung": 29
+  "Hundeausführen / Gassi-Service": 0,
+  "Seniorenbetreuung (ohne Pflege)": 0,
+  "Tierbetreuung": 0
 };
 
 
