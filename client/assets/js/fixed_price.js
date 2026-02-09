@@ -149,7 +149,7 @@ window.initFixedPriceForm = function(container) {
 
       // НОВАЯ ЛОГИКА: Если basePrice === 0, показываем "nach Vereinbarung"
       if (unitPrice === 0) {
-        priceEl.textContent = "nach Vereinbarung";
+        priceEl.textContent = "Preis nach Vereinbarung";
         discountEl.textContent = '';
         
         // СКРЫТЬ averageEl для услуг с ценой 0
