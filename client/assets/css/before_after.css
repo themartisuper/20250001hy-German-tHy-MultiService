@@ -664,3 +664,50 @@
   }
 }
 
+/* ========================================
+   Width stability fixes
+   ======================================== */
+
+.before-after__carousel-wrapper {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  column-gap: clamp(0.25rem, 1.2vw, 0.8rem);
+}
+
+.before-after__carousel {
+  width: 100%;
+  min-width: 0;
+}
+
+.before-after__carousel-track {
+  width: 100%;
+}
+
+.before-after__item {
+  width: 100%;
+  min-width: 100%;
+  box-sizing: border-box;
+}
+
+.before-after__images {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(0.6rem, 1.8vw, 1rem);
+}
+
+.before-after__image-wrapper {
+  min-width: 0;
+}
+
+.before-after__nav--prev,
+.before-after__nav--next {
+  margin: 0 !important;
+}
+
+@media (max-width: 768px) {
+  .before-after__images {
+    grid-template-columns: 1fr;
+  }
+}
+
