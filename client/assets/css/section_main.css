@@ -107,6 +107,13 @@
   }
 }
 
+/* medium */
+@media (max-width: 430px) {
+  .section__main-content-text h1 {
+    font-size: 1.5rem;
+  }
+}
+
 /* iPhone 12 Pro */
 @media (max-width: 390px) {
   .section__main-content-text {
