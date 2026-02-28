@@ -617,3 +617,59 @@
     width: 20px;
   }
 }
+
+/* ========================================
+   Stability Overrides (fluid, no per-device tuning)
+   ======================================== */
+
+.before-after__carousel-wrapper {
+  gap: clamp(0.5rem, 2vw, 1.25rem);
+}
+
+.before-after__item {
+  padding: clamp(0.85rem, 2.2vw, 1.75rem);
+}
+
+.before-after__item-title {
+  font-size: clamp(1.1rem, 2.2vw, 1.45rem);
+}
+
+.before-after__images {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: clamp(0.65rem, 1.6vw, 1rem);
+}
+
+.before-after__image-wrapper {
+  flex: 1;
+  width: 100%;
+}
+
+.before-after__image {
+  width: 100%;
+  height: clamp(210px, 30vw, 360px);
+  max-width: none;
+  object-fit: cover;
+}
+
+.before-after__nav {
+  width: clamp(34px, 8vw, 46px);
+  height: clamp(34px, 8vw, 46px);
+  font-size: clamp(0.85rem, 1.8vw, 1.1rem);
+}
+
+.before-after__nav--prev,
+.before-after__nav--next {
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .before-after__images {
+    flex-direction: column;
+  }
+
+  .before-after__image {
+    height: clamp(190px, 52vw, 280px);
+  }
+}
